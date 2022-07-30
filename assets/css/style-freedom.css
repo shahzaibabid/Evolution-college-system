@@ -2407,8 +2407,6 @@ img:hover {
   clip: auto; }
 
 .w3l-header-4 {
-  position: -webkit-sticky;
-  position: sticky;
   top: 45px;
   background: var(--btn-color);
   z-index: 999; }
@@ -9023,7 +9021,8 @@ table.pro1-w3.scale img {
   .w3l-contacts-9-main .map-content-9 form textarea {
     resize: none;
     min-height: 140px;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif; }
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+ Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif; }
   .w3l-contacts-9-main .map-content-9 form input:focus,
   .w3l-contacts-9-main .map-content-9 form textarea:focus {
     outline: 1px solid var(--btn-color); }
