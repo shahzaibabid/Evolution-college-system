@@ -78,7 +78,7 @@ hr.dotted {
           <li class="list-inline-item"><a href="#">Terms</a></li>
           <li class="list-inline-item"><a href="#">Privacy Policy</a></li>
       </ul>
-      <p class="copyright">@copyright  reserved by <b> Evolution College System (ECS) </b> | Designed by <b> Shahzai</b> & <b>Charles </b></p>
+      <p class="copyright">@copyright  reserved by <b> Evolution College System (ECS) </b> | Designed by <b> Shahzaib</b> & <b>Charles </b></p>
   </footer>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
