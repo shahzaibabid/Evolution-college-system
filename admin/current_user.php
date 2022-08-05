@@ -12,9 +12,31 @@ session_start();
     }
     $db = mysqli_connect("localhost", "root", "", "evolution");
     $id = $_GET["id"];
-    $sel = "SELECT * FROM `users` WHERE `id` = $id";
-    $result = mysqli_query($db, $sel);
-    $row = mysqli_fetch_array($result);
+
+    $x = $_SESSION["account"];
+    switch ($x) {
+        case 'Admin':
+            $sel = "SELECT * FROM `users` WHERE `id` = $id";            
+            $chresult = mysqli_query($db, $sel);
+            break;
+        
+        case 'Administrator': 
+            $sel = "SELECT * FROM `administrator` WHERE `id` = $id";
+            $chresult = mysqli_query($db, $sel);
+            break;
+            
+        case 'Teacher':
+            $sel = "SELECT * FROM `teachers` WHERE `id` = $id";
+            $chresult = mysqli_query($db, $sel);
+            break;
+
+        default:
+            $sel = "SELECT * FROM `users` WHERE `id` = $id";
+            $chresult = mysqli_query($db, $sel);
+            break;
+    }
+
+    $row = mysqli_fetch_array($chresult);
     if(isset($_POST["submit"])) {
         $filename = $_FILES["image"]["name"];
         if($filename != null) {
@@ -37,10 +59,24 @@ session_start();
         else {
             $pass = $row[4];
         }
- 
-        $ph = $_POST["phone"];
 
-        $inp = "UPDATE `users` SET `name`='$name',`email`='$email',`phone`='$ph',`pass`='$pass',`profile`='$profile_img' WHERE `id` = $id";
+        $ph = $_POST["phone"];        
+
+        $_SESSION["name"] = $name;
+        $_SESSION["profile"] = $profile_img;
+        $_SESSION["email"] = $email;
+        
+        if($x == "Teacher") {
+            $t_address = $_POST["address"];
+            $t_address = mysqli_real_escape_string($db,$t_address);
+            $inp = "UPDATE `teachers` SET `name`='$name',`email`='$email',`phone`='$ph',`pass`='$pass',`profile`='$profile_img',`address`='$t_address' WHERE `id` = $id";
+        }
+        else if($x == "Administrator") {
+            $inp = "UPDATE `administrator` SET `name`='$name',`email`='$email',`phone`='$ph',`pass`='$pass',`profile`='$profile_img' WHERE `id` = $id";
+        } 
+        else if($x == "Admin") {
+            $inp = "UPDATE `users` SET `name`='$name',`email`='$email',`phone`='$ph',`pass`='$pass',`profile`='$profile_img' WHERE `id` = $id";
+        }
         $result2 = mysqli_query($db, $inp);
         ?>
             <Script>
@@ -147,7 +183,7 @@ session_start();
 
             <!-- Blank Start -->
             <div class="container-fluid pt-4 px-4">
-            <h2 class="text-center">User Profile</h2>
+            <h2 class="text-center">Admin Profile</h2>
                 <div class="row bg-secondary rounded align-items-center justify-content-center mx-0">
                     <div class="col-sm-12 col-xl-8">
                         <form action="#" method="post" enctype="multipart/form-data">
@@ -195,7 +231,17 @@ session_start();
                                 <div class="col-md-6 form-floating mb-3">
                                     <input type="text" name="cnic" class="form-control" value="<?php echo $row[7]; ?>" id="floatingPassword" placeholder="Dateof Birth">
                                     <label for="floatingPassword">CNIC</label>
+                                </div>                         
+                                <?php
+                                    if($x == "Teacher") {
+                                ?>       
+                                <div class="form-floating mb-3">
+                                    <textarea name="address" class="form-control" rows="3"><?php echo $row[8]; ?></textarea>
+                                    <label for="floatingPassword"><b>Address</b></label>
                                 </div>
+                                <?php
+                                    }
+                                ?>
                                 <div class="col-sm-12 d-flex justify-content-around">
                                     <input type="submit" class="btn btn-primary col-3" value="Submit" name="submit">
                                 </div>

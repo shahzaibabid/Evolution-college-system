@@ -74,16 +74,14 @@
                     </div>
                     <div class="ms-3">
                         <h6 class="mb-0"><?php echo $_SESSION["name"]; ?></h6>
-                        <span>Admin</span>
+                        <span><?php echo $_SESSION["account"]; ?></span>
                     </div>
                 </div>
                 <div class="navbar-nav w-100">
-                    <a href="index.php" class="nav-item nav-link"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
+                    <a href="index.php" class="nav-item nav-link active"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
+                    
+                    <?php if($_SESSION["mytype"] == 0) { ?> <a href="add_administrator.php" class="nav-item nav-link"><i class="fas fa-file-invoice"></i>Add Administrator</a> <?php } ?>
                     <a href="Accounts.php" class="nav-item nav-link"><i class="fas fa-file-invoice"></i>All Accounts</a>
-                    <a href="theater.php" class="nav-item nav-link"><i class="fas fa-hotel"></i>Theater</a>
-                    <a href="movie.php" class="nav-item nav-link"><i class="fas fa-film"></i>Movies</a>
-                    <a href="schedule.php" class="nav-item nav-link"><i class="fas fa-calendar-alt"></i>Schedule</a>
-                    <a href="tickets.php" class="nav-item nav-link"><i class="fas fa-ticket-alt"></i>Tickets</a>
                 </div>
             </nav>
         </div>
@@ -124,11 +122,10 @@
                             <table class="table table-dark">
 
                                 <tbody>                                    
-                                    <tr>
+                                <tr>
                                         <th scope="col">Name</th>
                                         <td><?php echo $row[1]; ?></td>
                                     </tr> 
-                                    <tr>
                                     <tr>
                                         <th scope="col">Email</th>
                                         <td><?php echo $row[2]; ?></td>
@@ -136,9 +133,16 @@
                                     <tr>
                                         <th scope="col">Phone</th>
                                         <td><?php echo $row[3]; ?></td>
-                                    </tr>       
+                                    </tr> 
                                     <tr>
-
+                                        <th scope="col">CNIC</th>
+                                        <td><?php echo $row[7]; ?></td>
+                                    </tr> 
+                                    <tr>
+                                        <th scope="col">Gender</th>
+                                        <td><?php echo $row[8]; ?></td>
+                                    </tr>
+                                    
                                     <?php
                                         if($row[5] != 0) {                                            
                                     ?>    
@@ -152,7 +156,7 @@
                             <?php
                                 } 
                                 else {
-                            ?>
+                            ?> 
                                     <tr>
                                         <th scope="col">Type</th>
                                         <td> ADMIN </td>

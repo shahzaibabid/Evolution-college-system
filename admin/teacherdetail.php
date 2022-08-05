@@ -74,16 +74,14 @@
                     </div>
                     <div class="ms-3">
                         <h6 class="mb-0"><?php echo $_SESSION["name"]; ?></h6>
-                        <span>Admin</span>
+                        <span><?php echo $_SESSION["account"]; ?></span>
                     </div>
                 </div>
                 <div class="navbar-nav w-100">
-                    <a href="index.php" class="nav-item nav-link"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
+                    <a href="index.php" class="nav-item nav-link active"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
+                    
+                    <?php if($_SESSION["mytype"] == 0) { ?> <a href="add_administrator.php" class="nav-item nav-link"><i class="fas fa-file-invoice"></i>Add Administrator</a> <?php } ?>
                     <a href="Accounts.php" class="nav-item nav-link"><i class="fas fa-file-invoice"></i>All Accounts</a>
-                    <a href="theater.php" class="nav-item nav-link"><i class="fas fa-hotel"></i>Theater</a>
-                    <a href="movie.php" class="nav-item nav-link"><i class="fas fa-film"></i>Movies</a>
-                    <a href="schedule.php" class="nav-item nav-link"><i class="fas fa-calendar-alt"></i>Schedule</a>
-                    <a href="tickets.php" class="nav-item nav-link"><i class="fas fa-ticket-alt"></i>Tickets</a>
                 </div>
             </nav>
         </div>
@@ -118,17 +116,16 @@
             <div class="container-fluid pt-4 px-4">
             <h2 class="text-center">Teacher Profile</h2>
                 <div class="row h-100 bg-secondary rounded align-items-center justify-content-center mx-0">
-                    <img src="teachers/<?php echo $row[9]; ?>" class="col-sm-12 col-xl-6" alt="">
+                    <img src="profile/<?php echo $row[6]; ?>" class="col-sm-12 col-xl-6" alt="">
                     <div class="col-sm-12 col-xl-6">
                         <div class="bg-secondary rounded h-100 p-4">
                             <table class="table table-dark">
 
                                 <tbody>
-                                    <tr>
+                                <tr>
                                         <th scope="col">Name</th>
                                         <td><?php echo $row[1]; ?></td>
                                     </tr> 
-                                    <tr>
                                     <tr>
                                         <th scope="col">Email</th>
                                         <td><?php echo $row[2]; ?></td>
@@ -136,24 +133,22 @@
                                     <tr>
                                         <th scope="col">Phone</th>
                                         <td><?php echo $row[3]; ?></td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="col">Date Of Birth</th>
-                                        <td><?php echo $row[5]; ?></td>
                                     </tr> 
-                                    <tr>
-                                    <tr>
-                                        <th scope="col">Gender</th>
-                                        <td><?php echo $row[6]; ?></td>
-                                    </tr> 
-                                    <tr>
-                                        <th scope="col">Adress</th>
-                                        <td><?php echo $row[7]; ?></td>
-                                    </tr>   
                                     <tr>
                                         <th scope="col">CNIC</th>
+                                        <td><?php echo $row[7]; ?></td>
+                                    </tr> 
+                                    <tr>
+                                        <th scope="col">Gender</th>
                                         <td><?php echo $row[8]; ?></td>
                                     </tr>
+
+                                    <?php if(isset($row[9]) != null){ ?>
+                                    <tr>
+                                        <th scope="col">Address</th>
+                                        <td><?php echo $row[9]; ?></td>
+                                    </tr>
+                                    <?php } ?> 
                                 </tbody>                                
                             </table>
                         </div>

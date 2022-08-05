@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 04, 2022 at 11:55 AM
+-- Generation Time: Aug 05, 2022 at 11:51 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 7.3.31
 
@@ -20,6 +20,31 @@ SET time_zone = "+00:00";
 --
 -- Database: `evolution`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `administrator`
+--
+
+CREATE TABLE `administrator` (
+  `id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `phone` varchar(255) NOT NULL,
+  `pass` varchar(255) NOT NULL,
+  `user_type` int(11) NOT NULL,
+  `profile` varchar(255) NOT NULL,
+  `CNIC` varchar(30) NOT NULL,
+  `gender` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `administrator`
+--
+
+INSERT INTO `administrator` (`id`, `name`, `email`, `phone`, `pass`, `user_type`, `profile`, `CNIC`, `gender`) VALUES
+(1, 'Salena', 'salena@admin.ecs.com', '03343427289', '202cb962ac59075b964b07152d234b70', 2, '1024742129download.jpg', '222222222222', 'Female');
 
 -- --------------------------------------------------------
 
@@ -149,22 +174,21 @@ CREATE TABLE `teachers` (
   `name` varchar(225) NOT NULL,
   `email` varchar(225) NOT NULL,
   `phone` varchar(15) NOT NULL,
-  `pass` varchar(20) NOT NULL,
-  `dob` varchar(20) NOT NULL,
+  `pass` varchar(255) NOT NULL,
+  `user_type` int(11) NOT NULL DEFAULT 3,
+  `profile` varchar(255) NOT NULL,
+  `CNIC` varchar(30) NOT NULL,
   `gender` varchar(20) NOT NULL,
-  `address` varchar(225) NOT NULL,
-  `cnic` varchar(30) NOT NULL,
-  `profile` varchar(225) NOT NULL,
-  `user_type` int(11) NOT NULL DEFAULT 0
+  `address` varchar(225) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `teachers`
 --
 
-INSERT INTO `teachers` (`id`, `name`, `email`, `phone`, `pass`, `dob`, `gender`, `address`, `cnic`, `profile`, `user_type`) VALUES
-(2, 'Ali', 'ali@ecs.teacher.com', '03312345678', '202cb962ac59075b964b', '1990-05-07', 'Male', '1B-1/1, Sector #15 Korangi Industrial Area, Karachi', '111111111111', 'down.jpg', 0),
-(3, 'Saba', 'saba@ecs.teacher.com', '03323232323', '202cb962ac59075b964b', '1995-01-15', 'Female', 'B-5, North Nazimabad, Karachi', '222222222222', 'download.jpg', 0);
+INSERT INTO `teachers` (`id`, `name`, `email`, `phone`, `pass`, `user_type`, `profile`, `CNIC`, `gender`, `address`) VALUES
+(1, 'Ali', 'ali@teacher.ecs.com', '03343427289', '202cb962ac59075b964b07152d234b70', 3, 'down.jpg', '222222222222', 'Male', '38-F, P.E.C.H.S.,Karachi'),
+(3, 'Rohan', 'rohan@teacher.ecs.com', '03323232323', '202cb962ac59075b964b07152d234b70', 3, '1267839849', '222222222222', 'Male', '3rd Fl.Al-Hamra CentreM.A.Jinnah Road, Karachi');
 
 -- --------------------------------------------------------
 
@@ -211,21 +235,28 @@ CREATE TABLE `users` (
   `pass` varchar(255) NOT NULL,
   `user_type` int(11) NOT NULL DEFAULT 1,
   `profile` varchar(225) NOT NULL,
-  `CNIC` varchar(25) NOT NULL
+  `CNIC` varchar(25) NOT NULL,
+  `gender` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `name`, `email`, `phone`, `pass`, `user_type`, `profile`, `CNIC`) VALUES
-(1, 'Admin', 'admin@ecs.com', '03318343144', '202cb962ac59075b964b07152d234b70', 0, '337292320admin.png', ''),
-(2, 'Shahzaib Abid', 'shahzaibabidsaeed@gmail.com', '03318343144', '202cb962ac59075b964b07152d234b70', 1, '769866400shahzaib.jpg', ''),
-(3, 'Charles Stephen', 'charles@gmail.com', '03343427289', '202cb962ac59075b964b07152d234b70', 1, '1639739768pFHNrg.jpg', '');
+INSERT INTO `users` (`id`, `name`, `email`, `phone`, `pass`, `user_type`, `profile`, `CNIC`, `gender`) VALUES
+(1, 'Admin', 'admin@ecs.com', '03318343144', '202cb962ac59075b964b07152d234b70', 0, '337292320admin.png', '111111111111', 'Male'),
+(2, 'Shahzaib Abid', 'shahzaibabidsaeed@gmail.com', '03318343144', '202cb962ac59075b964b07152d234b70', 1, '769866400shahzaib.jpg', '111111111111', 'Male'),
+(3, 'Charles Stephen', 'charles@gmail.com', '03343427289', '202cb962ac59075b964b07152d234b70', 1, '1639739768pFHNrg.jpg', '111111111111', 'Male');
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `administrator`
+--
+ALTER TABLE `administrator`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `admission_form`
@@ -296,6 +327,12 @@ ALTER TABLE `users`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `administrator`
+--
+ALTER TABLE `administrator`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `admission_form`

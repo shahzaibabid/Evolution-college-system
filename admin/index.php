@@ -70,16 +70,14 @@
                     </div>
                     <div class="ms-3">
                         <h6 class="mb-0"><?php echo $_SESSION["name"]; ?></h6>
-                        <span>Admin</span>
+                        <span><?php echo $_SESSION["account"]; ?></span>
                     </div>
                 </div>
                 <div class="navbar-nav w-100">
                     <a href="index.php" class="nav-item nav-link active"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
+                    
+                    <?php if($_SESSION["mytype"] == 0) { ?> <a href="add_administrator.php" class="nav-item nav-link"><i class="fas fa-file-invoice"></i>Add Administrator</a> <?php } ?>
                     <a href="Accounts.php" class="nav-item nav-link"><i class="fas fa-file-invoice"></i>All Accounts</a>
-                    <a href="theater.php" class="nav-item nav-link"><i class="fas fa-hotel"></i>Theater</a>
-                    <a href="movie.php" class="nav-item nav-link"><i class="fas fa-film"></i>Movies</a>
-                    <a href="schedule.php" class="nav-item nav-link"><i class="fas fa-calendar-alt"></i>Schedule</a>
-                    <a href="tickets.php" class="nav-item nav-link"><i class="fas fa-ticket-alt"></i>Tickets</a>
                 </div>
             </nav>
         </div>
@@ -122,11 +120,32 @@
                             <table class="table table-dark">
                                 <tbody>
                                     <?php
-                                        $myname = $_SESSION["name"];
-                                        $prof = "SELECT * FROM `users` WHERE `Name` = '$myname'";
-                                        $result = mysqli_query($db, $prof);
-                                        if(mysqli_num_rows($result)) {
-                                            while($row = mysqli_fetch_array($result)) {                                                
+                                        $id = $_SESSION["myuserid"];
+                                        $x = $_SESSION["account"];
+                                        switch ($x) {
+                                            case 'Admin':
+                                                $sel = "SELECT * FROM `users` WHERE `id` = $id";
+                                                $chresult = mysqli_query($db, $sel);
+                                                break;
+                                            
+                                            case 'Administrator': 
+                                                $sel = "SELECT * FROM `administrator` WHERE `id` = $id";
+                                                $chresult = mysqli_query($db, $sel);
+                                                break;
+                                                
+                                            case 'Teacher':
+                                                $sel = "SELECT * FROM `teachers` WHERE `id` = $id";
+                                                $chresult = mysqli_query($db, $sel);
+                                                break;
+
+                                            default:
+                                                $sel = "SELECT * FROM `users` WHERE `id` = $id";
+                                                $chresult = mysqli_query($db, $sel);
+                                                break;
+                                        }
+
+                                        // if(mysqli_num_rows($result)) {
+                                            while($row = mysqli_fetch_array($chresult)) {                                                
                                     ?>
                                     <tr>
                                         <th scope="col">Name</th>
@@ -139,13 +158,21 @@
                                     <tr>
                                         <th scope="col">Phone</th>
                                         <td><?php echo $row[3]; ?></td>
-                                    </tr>                                                                  
+                                    </tr> 
+                                    <tr>
+                                        <th scope="col">CNIC</th>
+                                        <td><?php echo $row[7]; ?></td>
+                                    </tr> 
+                                    <tr>
+                                        <th scope="col">Gender</th>
+                                        <td><?php echo $row[8]; ?></td>
+                                    </tr>
                                 </tbody>
                             </table>
-                            <a href="profedit.php?id=<?php echo $row[0]; ?>"><button type="button" class="btn btn-outline-success">Edit</button></a>
+                            <a href="current_user.php?id=<?php echo $row[0]; ?>"><button type="button" class="btn btn-outline-success">Edit</button></a>
                             <?php                                        
                                     }
-                                }
+                                // }
                             ?>
                         </div>
                     </div>
@@ -264,10 +291,7 @@
             <!-- All Complaints End-->
 
             <?php
-                $myemail = $_SESSION["email"];
-                $ch_admin = "SELECT * FROM `users` WHERE `email` LIKE '%ecs.com'";
-                $ch_result = mysqli_query($db, $ch_admin);
-                if(mysqli_num_rows($ch_result)) {                    
+                if ($_SESSION["mytype"] == 0) {
             ?>
                 <!-- All Account Log Start -->               
                 <div class="container-fluid pt-4 px-4">

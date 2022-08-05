@@ -1,53 +1,20 @@
 <?php
-session_start();
+    session_start();
     if ($_SESSION["name"] == null) {
         header("Location: signin.php");
-    } 
+    }
     if ($_SESSION["mytype"] == 1) {
         ?>
             <Script>
-                window.location.assign("../home/index.php");
+                window.location.assign("../index.php");
             </Script>            
         <?php
     }
     $db = mysqli_connect("localhost", "root", "", "evolution");
     $id = $_GET["id"];
-    $sel = "SELECT * FROM `users` WHERE `id` = $id";
+    $sel = "SELECT * FROM `administrator` WHERE `id` = $id";
     $result = mysqli_query($db, $sel);
     $row = mysqli_fetch_array($result);
-    if(isset($_POST["submit"])) {
-        $filename = $_FILES["image"]["name"];
-        if($filename != null) {
-            $imgname = rand() . $filename;
-            $tmpname = $_FILES["image"]["tmp_name"];
-            $path = "./profile/" . $imgname;
-            move_uploaded_file($tmpname, $path);
-            $profile_img = $imgname;
-        }
-        else {
-            $profile_img = $row[6];
-        }        
-
-        $name = $_POST["name"]; 
-        $email = $_POST["email"];
-        $pass = $_POST["pass"];
-        if($pass != null) {
-            $pass = md5($pass);
-        }
-        else {
-            $pass = $row[4];
-        }
- 
-        $ph = $_POST["phone"];
-
-        $inp = "UPDATE `users` SET `name`='$name',`email`='$email',`phone`='$ph',`pass`='$pass',`profile`='$profile_img' WHERE `id` = $id";
-        $result2 = mysqli_query($db, $inp);
-        ?>
-            <Script>
-                window.location.assign("./index.php");
-            </Script>
-        <?php
-    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -107,14 +74,16 @@ session_start();
                     </div>
                     <div class="ms-3">
                         <h6 class="mb-0"><?php echo $_SESSION["name"]; ?></h6>
-                        <span><?php echo $_SESSION["account"]; ?></span>
+                        <span>Admin</span>
                     </div>
                 </div>
                 <div class="navbar-nav w-100">
-                    <a href="index.php" class="nav-item nav-link active"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
-                    
-                    <?php if($_SESSION["mytype"] == 0) { ?> <a href="add_administrator.php" class="nav-item nav-link"><i class="fas fa-file-invoice"></i>Add Administrator</a> <?php } ?>
+                    <a href="index.php" class="nav-item nav-link"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
                     <a href="Accounts.php" class="nav-item nav-link"><i class="fas fa-file-invoice"></i>All Accounts</a>
+                    <a href="theater.php" class="nav-item nav-link"><i class="fas fa-hotel"></i>Theater</a>
+                    <a href="movie.php" class="nav-item nav-link"><i class="fas fa-film"></i>Movies</a>
+                    <a href="schedule.php" class="nav-item nav-link"><i class="fas fa-calendar-alt"></i>Schedule</a>
+                    <a href="tickets.php" class="nav-item nav-link"><i class="fas fa-ticket-alt"></i>Tickets</a>
                 </div>
             </nav>
         </div>
@@ -144,63 +113,62 @@ session_start();
                 </div>
             </nav>
             <!-- Navbar End -->
-
+ 
             <!-- Blank Start -->
             <div class="container-fluid pt-4 px-4">
-            <h2 class="text-center">User Profile</h2>
-                <div class="row bg-secondary rounded align-items-center justify-content-center mx-0">
-                    <div class="col-sm-12 col-xl-8">
-                        <form action="#" method="post" enctype="multipart/form-data">
-                            <div class="row bg-secondary rounded h-100 p-4">
-                                <div class="text-center">
-                                    <div id="MYIMG" class="ms-auto me-auto" style="min-height: 10vw; max-width: 20vw; max-height: 20vw;">
-                                        <img class="img-fluid" src="profile/<?php echo $row[6]; ?>" alt="No Cover" style="max-height: 20vw;" />
-                                    </div>
+            <h2 class="text-center">Adminsitrator Profile</h2>
+                <div class="row h-100 bg-secondary rounded align-items-center justify-content-center mx-0">
+                    <img src="profile/<?php echo $row[6]; ?>" class="col-sm-12 col-xl-6" alt="">
+                    <div class="col-sm-12 col-xl-6">
+                        <div class="bg-secondary rounded h-100 p-4">
+                            <table class="table table-dark">
 
-                                    <div id="MYDIV" class="ms-auto me-auto" style="min-height: 10vw; max-width: 20vw; max-height: 20vw; display: none;">
-                                        <img id="output" class="img-fluid" style="max-height: 20vw;" />
-                                    </div>
-                                    <p><input type="file" accept="image/*" name="image" id="file" onchange="loadFile(event)" style="display: none;"></p>
-                                    <p><label for="file" onclick="showme()" class="rounded-pill btn btn-outline-primary" style="cursor: pointer;">Change Cover</label></p>
-
-                                    <!-- Scripting for Image -->
-                                    <script>
-                                        var loadFile = function (event) { 
-                                            var image = document.getElementById('output');
-                                            image.src = URL.createObjectURL(event.target.files[0]);
-                                        };
-
-                                        function showme() {
-                                            document.getElementById("MYIMG").style.display = "none";
-                                            document.getElementById("MYDIV").style.display = "block";
-                                        }
-                                    </script>
-                                </div>
-                                <div class="form-floating mb-3">
-                                    <input type="text" class="form-control" value="<?php echo $row[1]; ?>" name="name" id="floatingInput" placeholder="Teacher Name">
-                                    <label for="floatingInput">Name</label>
-                                </div>
-                                <div class="col-md-6 form-floating mb-3">
-                                    <input type="email" class="form-control" value="<?php echo $row[2]; ?>" name="email" id="floatingInput" placeholder="Teacher Name">
-                                    <label for="floatingInput">Email</label>
-                                </div>
-                                <div class="col-md-6 form-floating mb-3">
-                                    <input type="password" name="pass" class="form-control" id="floatingPassword" placeholder="Dateof Birth">
-                                    <label for="floatingPassword">New Password</label>
-                                </div>
-                                <div class="col-md-6 form-floating mb-3">
-                                    <input type="number" class="form-control" value="<?php echo $row[3]; ?>" name="phone" id="floatingInput" placeholder="Teacher Name">
-                                    <label for="floatingInput">Phone</label>
-                                </div>
-                                <div class="col-md-6 form-floating mb-3">
-                                    <input type="text" name="cnic" class="form-control" value="<?php echo $row[7]; ?>" id="floatingPassword" placeholder="Dateof Birth">
-                                    <label for="floatingPassword">CNIC</label>
-                                </div>
-                                <div class="col-sm-12 d-flex justify-content-around">
-                                    <input type="submit" class="btn btn-primary col-3" value="Submit" name="submit">
-                                </div>
-                            </div> 
-                        </form>
+                                <tbody>                                    
+                                <tr>
+                                        <th scope="col">Name</th>
+                                        <td><?php echo $row[1]; ?></td>
+                                    </tr> 
+                                    <tr>
+                                        <th scope="col">Email</th>
+                                        <td><?php echo $row[2]; ?></td>
+                                    </tr> 
+                                    <tr>
+                                        <th scope="col">Phone</th>
+                                        <td><?php echo $row[3]; ?></td>
+                                    </tr> 
+                                    <tr>
+                                        <th scope="col">CNIC</th>
+                                        <td><?php echo $row[7]; ?></td>
+                                    </tr> 
+                                    <tr>
+                                        <th scope="col">Gender</th>
+                                        <td><?php echo $row[8]; ?></td>
+                                    </tr>
+                                    
+                                    <?php
+                                        if($row[5] == 1) {                                            
+                                    ?>    
+                                    <tr>
+                                        <th scope="col">Type</th>
+                                        <td> USER </td>
+                                    </tr>                       
+                                </tbody>                                
+                            </table>
+                            <a href="profedit.php?id=<?php echo $row[0]; ?>"><button class="btn btn-outline-primary">Edit</button></a>
+                            <?php
+                                } 
+                                else {
+                            ?>
+                                    <tr>
+                                        <th scope="col">Type</th>
+                                        <td> ADMIN </td>
+                                    </tr>                       
+                                </tbody>                                
+                            </table>
+                            <?php
+                                }
+                            ?>    
+                        </div>
                     </div>
                 </div>
             </div>

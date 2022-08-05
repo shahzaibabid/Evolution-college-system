@@ -4,30 +4,53 @@ session_start();
   $db = mysqli_connect("localhost", "root", "", "evolution");
 
   if (isset($_POST["login"])) {                    
-      $email = $_POST["email"];
-      // $remember_me = $_POST["remember_me"];
-      $pass = $_POST["pass"];
-      $pass = md5($pass);
-      if(!empty($_POST["remember"])) {
+        $email = $_POST["email"];
+        // $remember_me = $_POST["remember_me"];
+        $pass = $_POST["pass"];
+        $pass = md5($pass);
+        if(!empty($_POST["remember"])) {
           setcookie("username",$_POST["email"],time()+ (86400 * 7),'/');
           setcookie("password",$_POST["pass"],time()+ (86400 * 7),'/');
-       } 
-      else{
+        } 
+        else{
           setcookie("username",'');
           setcookie("password",'');
         }
-      $sel = "SELECT * FROM `users` WHERE `email` = '$email' && `pass` = '$pass'";
-      $result = mysqli_query($db, $sel);
+
+        $x = $_POST["gndr"];
+        switch ($x) {
+            case 'Admin':
+                $sel = "SELECT * FROM `users` WHERE `email` = '$email' && `pass` = '$pass'";
+                $result = mysqli_query($db, $sel);
+            break;
+            
+            case 'Administrator': 
+                $sel = "SELECT * FROM `administrator` WHERE `email` = '$email' && `pass` = '$pass'";
+                $result = mysqli_query($db, $sel);
+            break;
+                
+            case 'Teacher':
+                $sel = "SELECT * FROM `teachers` WHERE `email` = '$email' && `pass` = '$pass'";
+                $result = mysqli_query($db, $sel);
+            break;
+
+            default:
+                $sel = "SELECT * FROM `users` WHERE `email` = '$email' && `pass` = '$pass'";
+                $result = mysqli_query($db, $sel);
+            break;
+        }
+
         if(mysqli_num_rows($result)) {
             while($row = mysqli_fetch_array($result)) {
-            $_SESSION["myuserid"] = $row[0];
-            $_SESSION["name"] = $row[1];
-            $_SESSION["mytype"] = $row[5];
-            $_SESSION["profile"] = $row[6];
-            $_SESSION["email"] = $row[2];
+                $_SESSION["account"] = $x;
+                $_SESSION["myuserid"] = $row[0];
+                $_SESSION["name"] = $row[1];
+                $_SESSION["mytype"] = $row[5];
+                $_SESSION["profile"] = $row[6];
+                $_SESSION["email"] = $row[2];
             }
 
-            if ($_SESSION["mytype"] == 0)
+            if ($_SESSION["mytype"] != 1)
             {
                 ?>
                 <Script>
@@ -95,6 +118,30 @@ session_start();
             <div class="row h-100 align-items-center justify-content-center" style="min-height: 100vh;">
                 <div class="col-12 col-sm-8 col-md-6 col-lg-5 col-xl-4">
                     <form action="#" method="post">
+                        <div class="mt-5 form-floating mb-3">                            
+                            <div class="d-flex w-100 justify-content-evenly">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="gndr" value="Admin" id="flexRadioDefault1" checked>
+                                    <label class="form-check-label" for="flexRadioDefault1">
+                                        Admin
+                                    </label>
+                                </div>
+
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="gndr" value="Administrator" id="flexRadioDefault2">
+                                    <label class="form-check-label" for="flexRadioDefault2">
+                                        Administrator
+                                    </label>
+                                </div>
+
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="gndr" value="Teacher" id="flexRadioDefault3">
+                                    <label class="form-check-label" for="flexRadioDefault3">
+                                        Teacher
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
                         <div class="bg-secondary rounded p-4 p-sm-5 my-4 mx-3">
                         <p class="text-danger text-center"><?php if(isset($error)) { echo $error; } ?></p>
                             <div class="text-center align-items-center justify-content-between mb-3">
@@ -113,7 +160,7 @@ session_start();
                             </div>
                             <div class="d-flex align-items-center justify-content-between mb-4">
                                 <div class="form-checkbox">
-                                    <input type="checkbox" name="remember" value="1"> Remember me
+                                    <input type="checkbox" name="remember" value="1" checked> Remember me
                                 </div>
                                 <a href="forgot.php">Forgot Password?</a>
                             </div>
