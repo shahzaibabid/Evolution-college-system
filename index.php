@@ -53,28 +53,12 @@ if(typeof _bsa !== 'undefined' && _bsa) {
 
   <link rel="stylesheet" href="../../../../../../assests/css/font-awesome.min.css">
 
-<!-- Top Menu  -->
-<section class="w3l-top-menu-1">
-	<div class="top-hd">
-		<div class="wrapper">
-	<header class="d-grid grid-columns-2">
-		<ul class="top-head">
-				<li><a class="href" href="#">Our Social</a></li>
-			<li><a class="href" href="#"><span class="fa fa-facebook"></span></a></li>
-			<li><a class="href" href="#"><span class="fa fa-twitter"></span></a></li>
-			<li><a class="href" href="#"><span class="fa fa-instagram"></span></a></li>
-			<li><a class="href" href="#"><span class="fa fa-linkedin"></span></a></li>
-		</ul>
-	
-		<div class="accounts">
-				<li class="top_li"><a href="login.html"><span class="fa fa-user"></span> Login</a></li>
-				<li class="top_li"><a href="signup.html"><span class="fa fa-lock"></span> Register</a></li>
-		</div>
-	</header>
-</div>
-</div>
-</section>
-<!-- //Top Menu  -->
+  <!-- Topbar start -->
+
+  <?php
+include("topbar.php");
+?>
+<!-- Topbar end -->
 <!-- Banner image -->
 <img src="assets/images/banner.jpeg" width="100%" height="300vw">
 

@@ -1,11 +1,12 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>header</title>
-</head>
+    <link rel="stylesheet" href="assets/css/style-freedom.css">
+</head> -->
 <style>
     
 *,
@@ -189,10 +190,19 @@
     }
 }
 
-
+.tk {
+    display: none;
+}
+@media (max-width: 995px) {
+  .tk {
+    display: block;
+  }
+}
 
 </style>
 <body>
+    
+
 <nav class="navbar">
             <div class="navbar-container container">
                 <input type="checkbox" name="" id="">
@@ -202,15 +212,25 @@
                     <span class="line line3"></span>
                 </div>
                 <ul class="menu-items">
-                    <li><a href="index.php">Home</a></li>
-                    <li><a href="about.php">About</a></li>
-                    <li><a href="contact.php">Contact</a></li>
-                    <li><a href="#">Menu</a></li>
-                    <li><a href="#">Testimonial</a></li>
-                    <li><a href="#">Contact</a></li>
+                    <li><a class="text-secondary" href="index.php">Home</a></li>
+                    <li><a class="text-secondary" href="about.php">About</a></li>
+                    <li class="dropdown">
+                        <div class="dropdown-toggle text-secondary" style="border: none; font-weight: 500;" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                        Admissions
+                        </div>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                            <li><a class="dropdown-item" href="admissionschedule.php">Admission Schedule</a></li>
+                            <li><a class="dropdown-item" href="feestructare.php">Fee Structare</a></li>
+                            <li><a class="dropdown-item" href="coursecatelogue.php">Course Catelogue</a></li>
+                            <li><a class="dropdown-item" href="admissonform.php" target="blank">Apply Online</a></li>                       
+                        </ul>
+                    </li>
+                    <li><a class="text-secondary" href="contact.php">Contact</a></li>
+                    <li class="tk"><a class="text-secondary" href="login.php"><span class="fa fa-user"></span> Login</a></li>
+                    <li class="tk"><a class="text-secondary" href="signup.php"><span class="fa fa-lock"></span> Register</a></li>
                 </ul>
                 <h1 class="logo" style="font-family: Forte;">ECS</h1>
             </div>
         </nav> 
-</body>
-</html>
+<!-- </body>
+</html> -->
