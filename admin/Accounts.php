@@ -45,44 +45,6 @@
         }
     }
 
-    if(isset($_POST["edit1"])) {
-        $adminid = $_POST["adminid"];
-        $sel_administrator = "SELECT * FROM `administrator` WHERE `id` = $adminid";
-        $administrator_result = mysqli_query($db, $sel_administrator);
-        $admin_row = mysqli_fetch_array($administrator_result);
-        $filename = $_FILES["image"]["name"];
-        if($filename != null) {
-            $imgname = rand() . $filename;
-            $tmpname = $_FILES["image"]["tmp_name"];
-            $path = "./profile/" . $imgname;
-            move_uploaded_file($tmpname, $path);
-            $profile_img = $imgname;
-        }
-        else {
-            $profile_img = $admin_row[6];
-        }        
-
-        $name = $_POST["name"]; 
-        $email = $_POST["email"];
-        $pass = $_POST["pass"];
-        if($pass != null) {
-            $pass = md5($pass);
-        }
-        else {
-            $pass = $admin_row[4];
-        }
-
-        $ph = $_POST["phone"];
-
-        $inp = "UPDATE `administrator` SET `name`='$name',`email`='$email',`phone`='$ph',`pass`='$pass',`profile`='$profile_img' WHERE `id` = $adminid";
-        $result2 = mysqli_query($db, $inp);
-        ?>
-            <Script>
-                window.location.assign("./Accounts.php");
-            </Script>
-        <?php
-    }
-
     if(isset($_POST["del1"])) {
         $kk = $_POST["kk"];
         $del_administrator = "DELETE FROM `administrator` WHERE `id` = $kk";
@@ -94,45 +56,6 @@
         <?php
     }
 
-    if(isset($_POST["edit2"])) {
-        $adminid = $_POST["adminid"];
-        $sel_teachers = "SELECT * FROM `teachers` WHERE `id` = $adminid";
-        $teachers_result = mysqli_query($db, $sel_teachers);
-        $teachers_row = mysqli_fetch_array($teachers_result);
-        $filename = $_FILES["image"]["name"];
-        if($filename != null) {
-            $imgname = rand() . $filename;
-            $tmpname = $_FILES["image"]["tmp_name"];
-            $path = "./profile/" . $imgname;
-            move_uploaded_file($tmpname, $path);
-            $profile_img = $imgname;
-        }
-        else {
-            $profile_img = $teachers_row[6];
-        }        
-
-        $name = $_POST["name"]; 
-        $email = $_POST["email"];
-        $pass = $_POST["pass"];
-        if($pass != null) {
-            $pass = md5($pass);
-        }
-        else {
-            $pass = $teachers_row[4];
-        }
-
-        $ph = $_POST["phone"];
-
-        $t_address = $_POST["address"];
-        $t_address = mysqli_real_escape_string($db,$t_address);
-        $inp = "UPDATE `teachers` SET `name`='$name',`email`='$email',`phone`='$ph',`pass`='$pass',`profile`='$profile_img',`address`='$t_address' WHERE `id` = $adminid";
-        $result2 = mysqli_query($db, $inp);
-        ?>
-            <Script>
-                window.location.assign("./Accounts.php");
-            </Script>
-        <?php
-    }
 
     if(isset($_POST["del2"])) {
         $kk = $_POST["kk"];
@@ -283,86 +206,9 @@
                                             <td class="align-middle"><?php echo $row[1]; ?></td>
                                             <td class="align-middle"><?php echo $row[2]; ?></td>
                                             <td class="align-middle"> <a href="administrator_details.php?id=<?php echo $row[0]; ?>"><span class="badge bg-light rounded-pill badge-sm">DETAILS</span></a> </td>
-                                            <td class="align-middle"> <a type="button" data-bs-toggle="modal" data-bs-target="#ED<?php echo $i; ?>"><span class="badge bg-info rounded-pill badge-sm">EDIT</span></a> </td>
+                                            <td class="align-middle"> <a href="edit_administrator.php?id=<?php echo $row[0]; ?>"><span class="badge bg-info rounded-pill badge-sm">EDIT</span></a> </td>
                                             <td class="align-middle"> <span type="button" data-bs-toggle="modal" data-bs-target="#a<?php echo $i; ?>" class="badge bg-danger rounded-pill badge-sm">DELETE</span> </td>
                                         </tr>               
-
-                                        <!-- Edit Modal -->
-                                        <div class="modal fade" id="ED<?php echo $i; ?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                                            <div class="modal-dialog modal-lg">
-                                                <div class="modal-content bg-secondary">
-                                                    <form action="#" method="post" enctype="multipart/form-data">
-                                                        <div class="modal-header">
-                                                            <h4 class="modal-title" id="staticBackdropLabel">Edit Administrator                                                                                                                                                                                                                                                                                                                                     </h4>
-                                                            <button type="button" class="btn-close bg-light" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                        </div>
-                                                        <div class="modal-body">
-                                                            <input type="hidden" name="adminid" value="<?php echo $row[0]; ?>">
-                                                            <div class="row bg-secondary rounded h-100 p-4">
-                                                                <div class="text-center">
-                                                                    <div id="MYIMG" class="ms-auto me-auto" style="min-height: 10vw; max-width: 20vw; max-height: 20vw;">
-                                                                        <img class="img-fluid" src="profile/<?php echo $row[6]; ?>" alt="No Cover" style="max-height: 20vw;" />
-                                                                    </div>
-
-                                                                    <div id="MYDIV" class="ms-auto me-auto" style="min-height: 10vw; max-width: 20vw; max-height: 20vw; display: none;">
-                                                                        <img id="output" class="img-fluid" style="max-height: 20vw;" />
-                                                                    </div>
-                                                                    <p><input type="file" accept="image/*" name="image" id="file" onchange="loadFile(event)" style="display: none;"></p>
-                                                                    <p><label for="file" onclick="showme()" class="rounded-pill btn btn-outline-primary" style="cursor: pointer;">Change Cover</label></p>
-
-                                                                    <!-- Scripting for Image -->
-                                                                    <script>
-                                                                        var loadFile = function (event) { 
-                                                                            var image = document.getElementById('output');
-                                                                            image.src = URL.createObjectURL(event.target.files[0]);
-                                                                        };
-
-                                                                        function showme() {
-                                                                            document.getElementById("MYIMG").style.display = "none";
-                                                                            document.getElementById("MYDIV").style.display = "block";
-                                                                        }
-                                                                    </script>
-                                                                </div>
-                                                                <div class="form-floating mb-3">
-                                                                    <input type="text" class="form-control" value="<?php echo $row[1]; ?>" name="name" id="floatingInput" placeholder="Teacher Name">
-                                                                    <label for="floatingInput">Name</label>
-                                                                </div>
-                                                                <div class="col-md-6 form-floating mb-3">
-                                                                    <input type="email" class="form-control" value="<?php echo $row[2]; ?>" name="email" id="floatingInput" placeholder="Teacher Name">
-                                                                    <label for="floatingInput">Email</label>
-                                                                </div>
-                                                                <div class="col-md-6 form-floating mb-3">
-                                                                    <input type="password" name="pass" class="form-control" id="floatingPassword" placeholder="Dateof Birth">
-                                                                    <label for="floatingPassword">New Password</label>
-                                                                </div>
-                                                                <div class="col-md-6 form-floating mb-3">
-                                                                    <input type="number" class="form-control" value="<?php echo $row[3]; ?>" name="phone" id="floatingInput" placeholder="Teacher Name">
-                                                                    <label for="floatingInput">Phone</label>
-                                                                </div>
-                                                                <div class="col-md-6 form-floating mb-3">
-                                                                    <input type="text" name="cnic" class="form-control" value="<?php echo $row[7]; ?>" id="floatingPassword" placeholder="Dateof Birth">
-                                                                    <label for="floatingPassword">CNIC</label>
-                                                                </div>                         
-                                                                <?php
-                                                                    // if($x == "Teacher") {
-                                                                ?>       
-                                                                <!-- <div class="form-floating mb-3">
-                                                                    <textarea name="address" class="form-control" rows="3"><?php echo $row[8]; ?></textarea>
-                                                                    <label for="floatingPassword"><b>Address</b></label>
-                                                                </div> -->
-                                                                <?php
-                                                                    // }
-                                                                ?>
-                                                            </div> 
-                                                        </div>
-                                                        <div class="modal-footer">
-                                                            <button type="button" class="btn btn-outline-light" data-bs-dismiss="modal">Cancel</button>
-                                                            <button type="submit" name="edit1" class="btn btn-primary">Submit</button>
-                                                        </div>
-                                                    </form>
-                                                </div>
-                                            </div> 
-                                        </div>
 
                                         <!-- Delete Modal -->
                                         <div class="modal fade" id="a<?php echo $i; ?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -427,21 +273,17 @@
                                             <div class="modal-body">
                                                 <div class="row bg-secondary rounded h-100 p-4">
                                                     <div class="text-center">
-                                                        <div class="ms-auto me-auto" id="MYDIV2" style="min-height: 10vw; max-width: 20vw; max-height: 20vw; display: none;">
-                                                            <img id="output2" class="img-fluid" style="max-height: 20vw;" />
+                                                        <div class="ms-auto me-auto rounded border border-primary" style="min-height: 10vw; max-width: 20vw; max-height: 20vw;">
+                                                            <img id="toutput" class="img-fluid" style="max-height: 20vw;" />
                                                         </div>
-                                                        <p><input type="file" accept="image/*" name="image" id="file" onchange="loadFile(event)" style="display: none;"></p>
-                                                        <p><label for="file" onclick="picshow1()" class="rounded-pill btn btn-outline-primary" style="cursor: pointer;">Cover Image</label></p>
+                                                        <p><input type="file" accept="image/*" name="image" id="file2" onchange="tloadFile(event)" style="display: none;"></p>
+                                                        <p><label for="file2" class="rounded-pill btn btn-outline-primary" style="cursor: pointer;">Upload Image</label></p>
 
                                                         <!-- Scripting for Image -->
                                                         <script>
-                                                            var loadFile = function (event) { 
-                                                                var image = document.getElementById('output2');
-                                                                image.src = URL.createObjectURL(event.target.files[0]);
-                                                            };
-
-                                                            function picshow1() {
-                                                                document.getElementById("MYDIV2").style.display = "block";
+                                                            var tloadFile = function (event) { 
+                                                                var timage = document.getElementById('toutput');
+                                                                timage.src = URL.createObjectURL(event.target.files[0]);
                                                             };
                                                         </script>
                                                     </div>
@@ -540,80 +382,9 @@
                                             <td class="align-middle"><?php echo $row[1]; ?></td>
                                             <td class="align-middle"><?php echo $row[2]; ?></td>
                                             <td class="align-middle"> <a href="teacherdetail.php?id=<?php echo $row[0]; ?>"><span class="badge bg-light rounded-pill badge-sm">DETAILS</span></a> </td>
-                                            <td class="align-middle"> <a type="button" data-bs-toggle="modal" data-bs-target="#Et<?php echo $i; ?>"><span class="badge bg-info rounded-pill badge-sm">EDIT</span></a> </td>
+                                            <td class="align-middle"> <a href="edit_teacher.php?id=<?php echo $row[0]; ?>"><span class="badge bg-info rounded-pill badge-sm">EDIT</span></a> </td>
                                             <td class="align-middle"> <span type="button" data-bs-toggle="modal" data-bs-target="#t<?php echo $i; ?>" class="badge bg-danger rounded-pill badge-sm">DELETE</span> </td>
                                         </tr>               
-
-                                        <!-- Edit Modal -->
-                                        <div class="modal fade" id="Et<?php echo $i; ?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                                            <div class="modal-dialog modal-lg">
-                                                <div class="modal-content bg-secondary">
-                                                    <form action="#" method="post" enctype="multipart/form-data">
-                                                        <div class="modal-header">
-                                                            <h4 class="modal-title" id="staticBackdropLabel">Edit Administrator                                                                                                                                                                                                                                                                                                                                     </h4>
-                                                            <button type="button" class="btn-close bg-light" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                        </div>
-                                                        <div class="modal-body">
-                                                            <input type="hidden" name="adminid" value="<?php echo $row[0]; ?>">
-                                                            <div class="row bg-secondary rounded h-100 p-4">
-                                                                <!-- <div class="text-center">
-                                                                    <div id="MYIMG5" class="ms-auto me-auto" style="min-height: 10vw; max-width: 20vw; max-height: 20vw;">
-                                                                        <img class="img-fluid" src="profile/<?php echo $row[6]; ?>" alt="No Cover" style="max-height: 20vw;" />
-                                                                    </div>
-
-                                                                    <div id="MYDIV5" class="ms-auto me-auto" style="min-height: 10vw; max-width: 20vw; max-height: 20vw; display: none;">
-                                                                        <img id="output5" class="img-fluid" style="max-height: 20vw;" />
-                                                                    </div>
-                                                                    <p><input type="file" accept="image/*" name="image" id="file" onchange="loadFile5(event)" style="display: none;"></p>
-                                                                    <p><label for="file" onclick="showme5()" class="rounded-pill btn btn-outline-primary" style="cursor: pointer;">Change Cover</label></p> -->
-
-                                                                    <!-- Scripting for Image -->
-                                                                    <!-- <script>
-                                                                        var loadFile5 = function (event) { 
-                                                                            var image = document.getElementById('output5');
-                                                                            image.src = URL.createObjectURL(event.target.files[0]);
-                                                                        };
-
-                                                                        function showme5() {
-                                                                            document.getElementById("MYIMG5").style.display = "none";
-                                                                            document.getElementById("MYDIV5").style.display = "block";
-                                                                        }
-                                                                    </script>
-                                                                </div> -->
-                                                                <div class="form-floating mb-3">
-                                                                    <input type="text" class="form-control" value="<?php echo $row[1]; ?>" name="name" id="floatingInput" placeholder="Teacher Name">
-                                                                    <label for="floatingInput">Name</label>
-                                                                </div>
-                                                                <div class="col-md-6 form-floating mb-3">
-                                                                    <input type="email" class="form-control" value="<?php echo $row[2]; ?>" name="email" id="floatingInput" placeholder="Teacher Name">
-                                                                    <label for="floatingInput">Email</label>
-                                                                </div>
-                                                                <div class="col-md-6 form-floating mb-3">
-                                                                    <input type="password" name="pass" class="form-control" id="floatingPassword" placeholder="Dateof Birth">
-                                                                    <label for="floatingPassword">New Password</label>
-                                                                </div>
-                                                                <div class="col-md-6 form-floating mb-3">
-                                                                    <input type="number" class="form-control" value="<?php echo $row[3]; ?>" name="phone" id="floatingInput" placeholder="Teacher Name">
-                                                                    <label for="floatingInput">Phone</label>
-                                                                </div>
-                                                                <div class="col-md-6 form-floating mb-3">
-                                                                    <input type="text" name="cnic" class="form-control" value="<?php echo $row[7]; ?>" id="floatingPassword" placeholder="Dateof Birth">
-                                                                    <label for="floatingPassword">CNIC</label>
-                                                                </div>                    
-                                                                <div class="form-floating mb-3">
-                                                                    <textarea name="address" class="form-control" rows="3"><?php echo $row[9]; ?></textarea>
-                                                                    <label for="floatingPassword"><b>Address</b></label>
-                                                                </div>
-                                                            </div> 
-                                                        </div>
-                                                        <div class="modal-footer">
-                                                            <button type="button" class="btn btn-outline-light" data-bs-dismiss="modal">Cancel</button>
-                                                            <button type="submit" name="edit2" class="btn btn-primary">Submit</button>
-                                                        </div>
-                                                    </form>
-                                                </div>
-                                            </div> 
-                                        </div>
 
                                         <!-- Delete Modal -->
                                         <div class="modal fade" id="t<?php echo $i; ?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -650,9 +421,8 @@
                 </div>                
             </div>
             <!-- Teachers End -->
-            <?php } ?>
+            <?php } ?>            
 
-          
 
             <!-- Footer Start -->
             <?php

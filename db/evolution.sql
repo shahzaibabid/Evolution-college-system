@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 05, 2022 at 11:51 PM
+-- Generation Time: Aug 06, 2022 at 06:27 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 7.3.31
 
@@ -44,7 +44,7 @@ CREATE TABLE `administrator` (
 --
 
 INSERT INTO `administrator` (`id`, `name`, `email`, `phone`, `pass`, `user_type`, `profile`, `CNIC`, `gender`) VALUES
-(1, 'Salena', 'salena@admin.ecs.com', '03343427289', '202cb962ac59075b964b07152d234b70', 2, '1024742129download.jpg', '222222222222', 'Female');
+(1, 'Salena', 'salena@admin.ecs.com', '03343427289', '202cb962ac59075b964b07152d234b70', 2, '1533890977amina.png', '222222222222', 'Female');
 
 -- --------------------------------------------------------
 
@@ -68,8 +68,16 @@ CREATE TABLE `admission_form` (
   `marksheet` varchar(225) NOT NULL,
   `prov_certificate` varchar(225) NOT NULL,
   `father_cnic` varchar(225) NOT NULL,
-  `profile` varchar(225) NOT NULL
+  `profile` varchar(225) NOT NULL,
+  `status` varchar(255) NOT NULL DEFAULT 'processing'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `admission_form`
+--
+
+INSERT INTO `admission_form` (`id`, `std_name`, `father_name`, `email`, `phone`, `dob`, `gender`, `address`, `cnic_bayform`, `citizenship`, `religion`, `program`, `marksheet`, `prov_certificate`, `father_cnic`, `profile`, `status`) VALUES
+(2, 'Augustine', 'kane', 'augustine@gmail.com', '03343427289', '03-07-2000', 'Male', '187/3A, Shahrah-e-Faisal, Karachi', '42101-12145444-11', 'Pakistani', 'Christanity', 'Computer Science', 'mksheet.png', 'pv.png', '12154511111', '337292320admin.png', 'Accept');
 
 -- --------------------------------------------------------
 
@@ -188,7 +196,8 @@ CREATE TABLE `teachers` (
 
 INSERT INTO `teachers` (`id`, `name`, `email`, `phone`, `pass`, `user_type`, `profile`, `CNIC`, `gender`, `address`) VALUES
 (1, 'Ali', 'ali@teacher.ecs.com', '03343427289', '202cb962ac59075b964b07152d234b70', 3, 'down.jpg', '222222222222', 'Male', '38-F, P.E.C.H.S.,Karachi'),
-(3, 'Rohan', 'rohan@teacher.ecs.com', '03323232323', '202cb962ac59075b964b07152d234b70', 3, '1267839849', '222222222222', 'Male', '3rd Fl.Al-Hamra CentreM.A.Jinnah Road, Karachi');
+(3, 'Rohan', 'rohan@teacher.ecs.com', '03323232323', '202cb962ac59075b964b07152d234b70', 3, '377806961.jpg', '222222222222', 'Male', '3rd Fl.Al-Hamra CentreM.A.Jinnah Road, Karachi'),
+(4, 'Issac', 'issac@teacher.ecs.com', '0334342728', '202cb962ac59075b964b07152d234b70', 3, '1463680616a.webp', '11111111111', 'Male', ' #A-60, Block &#39;B&#39; Mian Rashid Minas Road, Karachi');
 
 -- --------------------------------------------------------
 
@@ -338,7 +347,7 @@ ALTER TABLE `administrator`
 -- AUTO_INCREMENT for table `admission_form`
 --
 ALTER TABLE `admission_form`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `assignment`
@@ -380,7 +389,7 @@ ALTER TABLE `std_account`
 -- AUTO_INCREMENT for table `teachers`
 --
 ALTER TABLE `teachers`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `timetable`
