@@ -1,7 +1,16 @@
+<?php
+session_start();
+// if ($_SESSION["name"] == null) {
+    // header("Location: login.php?er=00");
+// }
+$db = mysqli_connect("localhost","root","","evolution");
+
+
+?>
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Camp Registration</title>
+    <title>Admission Registration</title>
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
     <style>
@@ -47,7 +56,7 @@
       position: relative;
       height: 300px;
       background-image: url("assets/images/adform.png");
-      background-size: stretch;
+      background-size: contain;
       background-position: center;
       background-repeat: no-repeat;
       display: flex;
@@ -235,7 +244,7 @@ cursor: pointer;
             <div class="w-100">                
                 <div class="col-8">
                     <div class="item">
-                        <label > Student Name<span>*</span></label>
+                        <label > Student Name <span>*</span></label>
                         <input  type="text" name="studentname" />
                     </div>
                     <div class="item">
@@ -250,7 +259,7 @@ cursor: pointer;
                   
                 </div>
                 <div class="col-3">
-                    <div style="width: 90%; height: 120px; border: 3px solid black"></div>
+                    <div style="width: 90%; height: 100%; border: 3px solid black"></div>
                 </div>
             </div>
             <div class="item">
@@ -345,3 +354,4 @@ cursor: pointer;
 </script>
   </body>
 </html>
+

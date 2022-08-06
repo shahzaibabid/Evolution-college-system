@@ -65,12 +65,39 @@ h2{
     }
 </style>
 <body>
-  
+   
 
   <!-- Topbar start -->
 
   <?php
 include("topbar.php");
+
+$db = mysqli_connect("localhost", "root", "", "evolution");
+
+if(isset($_POST["submit"])) {
+
+  $email = $_POST["email"];
+  $cnic = $_POST["cnic"];
+  $sel = "SELECT * FROM `users` WHERE `email` = '$email' AND `CNIC` = '$cnic'";
+  $result = mysqli_query($db, $sel);
+  // $dr = ;
+  if(mysqli_num_rows($result)) {
+    $error = "Invalid Email or CNIC";
+  }
+  else {
+    $ph = $_POST["phone"];
+    $name = $_POST["name"];
+    $pass = $_POST["pass"];
+    $pass = md5($pass);
+    $inp = "INSERT INTO `users`(`name`, `email`, `phone`, `pass`, `CNIC`) VALUES ('$name','$email','$ph','$pass','$cnic')";
+    $result2 = mysqli_query($db, $inp);
+    ?>
+        <Script>
+            window.location.assign("./login.php");
+        </Script>
+    <?php
+  }
+}
 ?>
 <!-- Topbar end -->
 
@@ -100,13 +127,13 @@ include("header.php");
                <div class="form23">
                <center> <h2>Register Here</h2></center>
                   <br>
-                           
-                    <form action="#" method="POST">
-                        <input type="text" name="fullname" placeholder="your FullName" required="required" />
+                        <p class="text-danger text-center"><?php if(isset($error)) { echo $error; } ?></p>
+                    <form action="#" method="post">
+                        <input type="text" name="name" placeholder="your FullName" required="required" />
                         <input type="text" name="cnic" placeholder="your personal cnic/B-form" required="required" />
                         <input type="email" name="email" placeholder="your  Email" required="required" />
                         <input type="text" name="phone" placeholder="your phone number" required="required" />
-                        <input type="password" name="password" placeholder="Password" required="required" />
+                        <input type="password" name="pass" placeholder="Password" required="required" />
                        
                         <button type="submit" name="submit">Sign Up</button>
                     </form>

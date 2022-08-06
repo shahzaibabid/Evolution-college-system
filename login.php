@@ -71,6 +71,45 @@ h2{
 
   <?php
 include("topbar.php");
+
+$db = mysqli_connect("localhost", "root", "", "evolution");
+
+if (isset($_POST["submit"])) {                    
+      $email = $_POST["email"];
+      // $remember_me = $_POST["remember_me"];
+      $pass = $_POST["pass"];
+      $pass = md5($pass);
+      if(!empty($_POST["remember"])) {
+        setcookie("username",$_POST["email"],time()+ (86400 * 7),'/');
+        setcookie("password",$_POST["pass"],time()+ (86400 * 7),'/');
+      } 
+      else{
+        setcookie("username",'');
+        setcookie("password",'');
+      }
+
+              $sel = "SELECT * FROM `users` WHERE `email` = '$email' && `pass` = '$pass'";
+              $result = mysqli_query($db, $sel);
+
+      if(mysqli_num_rows($result)) {
+          while($row = mysqli_fetch_array($result)) {
+              $_SESSION["myuserid"] = $row[0];
+              $_SESSION["name"] = $row[1];
+              $_SESSION["mytype"] = $row[5];
+              $_SESSION["email"] = $row[2];
+          }
+
+              ?>
+              <Script>
+                  window.location.assign("./index.php");
+              </Script>            
+              <?php
+  
+      }
+      else {
+          $error = "Invalid Email or Password";
+      }
+  }
 ?>
 <!-- Topbar end -->
       <!-- headers start -->
@@ -92,6 +131,7 @@ include("header.php");
                             <img src="image-path" alt="Your logo" title="Your logo" style="height:35px;" />
                         </a> -->
                     </div>
+                  <?php if(isset($_GET["er"])) { ?><marquee behavior="smooth" class="mb-5 text-danger fw-bolder" direction="left">PLEASE FIRST LOGIN TO FILL ADMISSION FORM</marquee> <?php } ?>
             <div class="d-grid forms23-grids">
             <div style="margin-top:70px;">
                <img src="assets/images/reg.gif" width="100%" alt="">
@@ -100,10 +140,10 @@ include("header.php");
                   <br><br>
                   <center> <h2>Login Here</h2></center>
                        <br>
-                           
+                           <p style="color: red;"><?php if(isset($error)) {echo $error;} ?></p>
                     <form action="#" method="POST">
                         <input type="email" name="email" placeholder="Email" required="required" />
-                        <input type="password" name="password" placeholder="Password" required="required" />
+                        <input type="password" name="pass" placeholder="Password" required="required" />
                         <a href="#URL">Forgot your password?</a>
                         <button type="submit" name="submit">Login</button>
                     </form>

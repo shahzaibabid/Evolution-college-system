@@ -221,8 +221,9 @@
                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                             <li><a class="dropdown-item" href="admissionschedule.php">Admission Schedule</a></li>
                             <li><a class="dropdown-item" href="feestructare.php">Fee Structare</a></li>
+                            <li><a class="dropdown-item" href="./admin/logout.php">Logout</a></li>
                             <li><a class="dropdown-item" href="coursecatelogue.php">Course Catelogue</a></li>
-                            <li><a class="dropdown-item" href="admissonform.php" target="blank">Apply Online</a></li>                       
+                            <li><a class="dropdown-item" href="<?php if($_SESSION["name"] != null){ ?>admissonform.php<?php }else{ ?>login.php?er=00<?php } ?>">Apply Online</a></li>                       
                         </ul>
                     </li>
                     <li><a class="text-secondary" href="contact.php">Contact</a></li>
