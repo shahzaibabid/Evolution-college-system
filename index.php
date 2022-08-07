@@ -84,7 +84,6 @@ include("header.php");
 </section>
 
 <!-- slider start -->
-<h1><?php echo $_SESSION["name"]; ?></h1>
 <div class="row">
     <div class="col-md-4 col-sm-12" style="margin: 0px;">
         <div id="carouselExampleSlidesOnly" class="w-100 carousel slide" data-bs-ride="carousel">
