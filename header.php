@@ -142,7 +142,7 @@
         padding-top: 100px;
         background: #fff;
         height: 100vh;
-        max-width: 300px;
+        width: 300px;
         transform: translate(-150%);
         display: flex;
         flex-direction: column;
@@ -200,7 +200,7 @@
 }
 
 </style>
-<body>
+<!-- <body> -->
     
 
 <nav class="navbar">
@@ -223,15 +223,20 @@
                             <li><a class="dropdown-item" href="feestructare.php">Fee Structare</a></li>
                             <li><a class="dropdown-item" href="./admin/logout.php">Logout</a></li>
                             <li><a class="dropdown-item" href="coursecatelogue.php">Course Catelogue</a></li>
-                            <li><a class="dropdown-item" href="<?php if($_SESSION["name"] != null){ ?>admissonform.php<?php }else{ ?>login.php?er=00<?php } ?>">Apply Online</a></li>                       
+                            <?php if(isset($_SESSION["name"]) != null){ ?>
+                                <li><a class="dropdown-item" href="admissonform.php">Apply Online</a></li>
+                            <?php }else{ ?>
+                                <li><a class="dropdown-item" href="login.php?er=00">Apply Online</a></li>
+                            <?php } ?>
                         </ul>
                     </li>
                     <li><a class="text-secondary" href="contact.php">Contact</a></li>
                     <li class="tk"><a class="text-secondary" href="login.php"><span class="fa fa-user"></span> Login</a></li>
-                    <li class="tk"><a class="text-secondary" href="signup.php"><span class="fa fa-lock"></span> Register</a></li>
+                    <li class="tk"><a class="text-secondary" href="signup.php"><span class="fa fa-lock"></span> Register</a></li>                    
                 </ul>
-                <h1 class="logo" style="font-family: Forte;">ECS</h1>
+                <h1 class="logo" style="font-family: Forte;">ECS</h1>             
             </div>
         </nav> 
+        
 <!-- </body>
 </html> -->

@@ -70,6 +70,7 @@ h2{
   <!-- Topbar start -->
 
   <?php
+  session_start();
 include("topbar.php");
 
 $db = mysqli_connect("localhost", "root", "", "evolution");
