@@ -221,7 +221,6 @@
                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                             <li><a class="dropdown-item" href="admissionschedule.php">Admission Schedule</a></li>
                             <li><a class="dropdown-item" href="feestructare.php">Fee Structare</a></li>
-                            <li><a class="dropdown-item" href="./admin/logout.php">Logout</a></li>
                             <li><a class="dropdown-item" href="coursecatelogue.php">Course Catelogue</a></li>
                             <?php if(isset($_SESSION["name"]) != null){ ?>
                                 <li><a class="dropdown-item" href="admissonform.php">Apply Online</a></li>
@@ -231,8 +230,13 @@
                         </ul>
                     </li>
                     <li><a class="text-secondary" href="contact.php">Contact</a></li>
+                    <?php if(empty($_SESSION["mytype"])){ ?>
                     <li class="tk"><a class="text-secondary" href="login.php"><span class="fa fa-user"></span> Login</a></li>
-                    <li class="tk"><a class="text-secondary" href="signup.php"><span class="fa fa-lock"></span> Register</a></li>                    
+                    <li class="tk"><a class="text-secondary" href="signup.php"><span class="fa fa-lock"></span> Register</a></li>
+                    <?php }else{?>
+                        
+                        <li><a class="text-secondary" href="logout.php">Logout</a></li>
+                    <?php } ?>
                 </ul>
                 <h1 class="logo" style="font-family: Forte;">ECS</h1>             
             </div>

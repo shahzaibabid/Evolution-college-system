@@ -70,10 +70,11 @@ h2{
   <!-- Topbar start -->
 
   <?php
-  session_start();
-include("topbar.php");
 
-$db = mysqli_connect("localhost", "root", "", "evolution");
+include("topbar.php");
+if(isset($_SESSION["name"]) != null) {
+  header("Location: index.php");
+}
 
 if (isset($_POST["submit"])) {                    
       $email = $_POST["email"];

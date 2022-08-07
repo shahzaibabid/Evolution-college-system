@@ -1,11 +1,50 @@
 <?php
-session_start();
-// if ($_SESSION["name"] == null) {
-    // header("Location: login.php?er=00");
-// }
+  session_start();
+  
 $db = mysqli_connect("localhost","root","","evolution");
 
+  if(isset($_POST["submit"])) {
+    $filename3 = $_FILES["image"]["name"];
+    $imgname3 = rand() . $filename3;
+    $tmpname3 = $_FILES["image"]["tmp_name"];
+    $path3 = "./assets/images/profile/" . $imgname3;
+    move_uploaded_file($tmpname3, $path3);
+    $profile_img = $imgname3;
+    $stdname = $_POST["email"];
+    $fathername = $_POST["email"];
+    $email = $_POST["email"];
+    $phone = $_POST["phone"];
+    $dob = $_POST["dob"];
+    $gender = $_POST["gender"];
+    $address = $_POST["address"];
+    $cnic = $_POST["cnic"];
+    $citizen = $_POST["citizen"];
+    $religon = $_POST["rel"];
+    $program = $_POST["prg"];
 
+    $filename = $_FILES["marksheet"]["name"];
+    $imgname = rand() . $filename;
+    $tmpname = $_FILES["marksheet"]["tmp_name"];
+    $path = "./assets/images/mksheet/" . $imgname;
+    move_uploaded_file($tmpname, $path);
+    $marksheet = $imgname;
+    
+    $filename2 = $_FILES["provcertifacate"]["name"];
+    $imgname2 = $filename2;
+    $tmpname2 = $_FILES["provcertifacate"]["tmp_name"];
+    $path2 = "./assets/images/prov/" . $imgname2;
+    move_uploaded_file($tmpname2, $path2);
+    $provcert = $imgname2;
+    $us_id = $_SESSION["myuserid"];
+    
+    $inp = "INSERT INTO `admission_form`(`std_name`, `father_name`, `email`, `phone`, `dob`, `gender`, `address`, `cnic_bayform`, `citizenship`, `religion`, `program`, `marksheet`, `prov_certificate`, `user_id_`, `profile`) VALUES ('$stdname','$fathername','$email','$phone','$dob','$gender','$address','$cnic','$citizen','$religon','$program','$marksheet','$provcert','$us_id','$profile_img')";
+    $res_prg = mysqli_query($db, $inp);
+      ?>
+          <Script>
+              window.location.assign("./index.php");
+          </Script>
+      <?php
+  }
 ?>
 <!DOCTYPE html>
 <html>
@@ -233,8 +272,13 @@ cursor: pointer;
     </style>
   </head>
   <body>
+    <div style="margin-left: 15px; margin-top: 20px; ">
+    <a href="index.php">
+    <button>Back</button>
+    </a>  
+    </div>
     <div class="testbox">
-      <form>
+      <form action="#" method="post" enctype="multipart/form-data">
         <div class="banner">
           <!-- <h1>Camp Registration</h1> -->
         </div>
@@ -259,7 +303,20 @@ cursor: pointer;
                   
                 </div>
                 <div class="col-3">
-                    <div style="width: 90%; height: 100%; border: 3px solid black"></div>
+                    <div style="width: 90%; height: 100%; border: 3px solid black">
+                      <img id="output" class="img-fluid"/>
+
+                      <p><input type="file" accept="image/*" name="image" id="file" onchange="loadFile(event)" style="display: none;"></p>
+                      <p><label for="file" onclick="picshow()" class="rounded-pill btn btn-outline-primary" style="cursor: pointer;">Cover Image</label></p>
+
+                      <!-- Scripting for Image -->
+                      <script>
+                          var loadFile = function (event) { 
+                              var image = document.getElementById('output');
+                              image.src = URL.createObjectURL(event.target.files[0]);
+                          };
+                      </script>
+                    </div>
                 </div>
             </div>
             <div class="item">
@@ -302,26 +359,20 @@ cursor: pointer;
            <div class="question">
             <label>Select your Program:</label>
             <div class="question-answer">
-              <div>
-                <input type="radio" value="none" id="radio_3" name="participants"/>
-                <label for="radio_3" class="radio"><span>Pre-Engineering</span></label>
-              </div>
-              <div>
-                <input  type="radio" value="none" id="radio_4" name="participants"/>
-                <label for="radio_4" class="radio"><span>Pre-Medical</span></label>
-              </div>
-              <div>
-                <input  type="radio" value="none" id="radio_5" name="participants"/>
-                <label for="radio_5" class="radio"><span>Computer Science</span></label>
-              </div>
-              <div>
-                <input  type="radio" value="none" id="radio_6" name="participants"/>
-                <label for="radio_6" class="radio"><span>Arts</span></label>
-              </div>
-              <div>
-                <input  type="radio" value="none" id="radio_7" name="participants"/>
-                <label for="radio_7" class="radio"><span>Commerce</span></label>
-              </div>
+              <?php
+                $sel_prog = "SELECT * FROM `program_course`";
+                $rel_prog = mysqli_query($db, $sel_prog);
+                $i = 0;
+                while($row = mysqli_fetch_array($rel_prog)) {
+                  $i++;
+                  ?>
+                  <div>
+                    <input type="radio" value="<?php echo $row[1]; ?>" id="radio_<?php echo $i; ?>" name="prg"/>
+                    <label for="radio_<?php echo $i; ?>" class="radio"><span><?php echo $row[1]; ?></span></label>
+                  </div>
+                  <?php
+                }
+              ?>             
               </div>
         </fieldset>
         <br>
@@ -334,12 +385,12 @@ cursor: pointer;
          
           <div class="item">
             <label > Provisional Certificate<span>*</span></label>
-            <input  type="file" name="provcertifacte" accept="image/*" />
+            <input  type="file" name="provcertifacate" accept="image/*" />
           </div>
          
         </fieldset>
         <div class="btn-block">
-          <button type="submit" href="/">Submit</button>
+          <button type="submit" name="submit">Submit</button>
         </div>
       </form>
     </div>

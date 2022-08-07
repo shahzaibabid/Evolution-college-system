@@ -1,3 +1,7 @@
+<?php
+session_start();
+$db = mysqli_connect("localhost","root","","evolution");
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,6 +13,7 @@
 </head>
 <body>
     <!-- Top Menu 1 -->
+	<?php if(empty($_SESSION["mytype"])){ ?>
 <section class="w3l-top-menu-1">
 	<div class="top-hd">
 		<div class="wrapper">
@@ -29,6 +34,7 @@
 </div>
 </div>
 </section>
+<?php } ?>
 <!-- //Top Menu 1 -->
 </body>
 </html>

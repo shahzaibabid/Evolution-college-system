@@ -1,3 +1,4 @@
+
 <html lang="en">
 <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
 <head>
@@ -71,14 +72,16 @@ h2{
 
   <?php
 include("topbar.php");
+if(isset($_SESSION["name"]) != null) {
+  header("Location: index.php");
+}
 
-$db = mysqli_connect("localhost", "root", "", "evolution");
 
 if(isset($_POST["submit"])) {
 
   $email = $_POST["email"];
   $cnic = $_POST["cnic"];
-  $sel = "SELECT * FROM `users` WHERE `email` = '$email' AND `CNIC` = '$cnic'";
+  $sel = "SELECT * FROM `users` WHERE `email` = '$email' OR `CNIC` = '$cnic'";
   $result = mysqli_query($db, $sel);
   // $dr = ;
   if(mysqli_num_rows($result)) {
