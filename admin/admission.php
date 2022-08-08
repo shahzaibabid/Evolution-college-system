@@ -168,7 +168,7 @@
                                         <tr>
                                             <td class="align-middle" scope="row"><?php echo $i; ?></td>
                                             <td class="align-middle" type="button" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="top" title="<?php echo $row[1]; ?>">
-                                                <img src="profile/<?php echo $row[15]; ?>" style="height: 3vw;" alt="">
+                                                <img src="../assets/images/profile/<?php echo $row[15]; ?>" style="height: 3vw;" alt="">
                                             </td>
                                             <td class="align-middle"><?php echo $row[3]; ?></td>
                                             <td class="align-middle"><?php echo $row[16]; ?></td>
@@ -199,7 +199,7 @@
                                                             <div class="bg-secondary p-4 container">
                                                                 <ul class="list-group list-group-flush bg-dark">
                                                                     <li class="list-group-item bg-dark text-center">
-                                                                        <img src="profile/<?php echo $row[15]; ?>" style="height: 12vw;" alt="">
+                                                                        <img src="../assets/images/profile/<?php echo $row[15]; ?>" style="height: 12vw;" alt="">
                                                                     </li>
 
                                                                     <li class="list-group-item bg-dark"><div class="row">
@@ -229,11 +229,11 @@
 
                                                                     <li class="list-group-item bg-dark"><div class="row">
                                                                         <div class="fs-5 col-md-3 border border-light"><b>Program : </b></div><div class="fs-5 col-md-3 border border-light"><?php echo " " . $row[11]; ?></div>
-                                                                        <div class="fs-5 col-md-3 border border-light"><b>Marksheet : </b></div><div class="col-md-3 border border-light"><a href="./profile/<?php echo $row[12]; ?>" target="_blank" rel="noopener noreferrer"><span class="fs-5 ">Please click here </span><i class="fas fa-external-link-alt"></i></a></div>
+                                                                        <div class="fs-5 col-md-3 border border-light"><b>Marksheet : </b></div><div class="col-md-3 border border-light"><a href="../assets/images/mksheet/<?php echo $row[12]; ?>" target="_blank" rel="noopener noreferrer"><span class="fs-5 ">Please click here </span><i class="fas fa-external-link-alt"></i></a></div>
                                                                     </div></li>
 
                                                                     <li class="list-group-item bg-dark"><div class="row">
-                                                                        <div class="fs-5 col-md-3 border border-light"><b>Provisional Certifacate : </b></div><div class="col-md-3 border border-light"><a href="./profile/<?php echo $row[13]; ?>" target="_blank" rel="noopener noreferrer"><span class="fs-5 ">Please click here </span><i class="fas fa-external-link-alt"></i></a></div>
+                                                                        <div class="fs-5 col-md-3 border border-light"><b>Provisional Certifacate : </b></div><div class="col-md-3 border border-light"><a href="../assets/images/prov/<?php echo $row[13]; ?>" target="_blank" rel="noopener noreferrer"><span class="fs-5 ">Please click here </span><i class="fas fa-external-link-alt"></i></a></div>
                                                                         <div class="fs-5 col-md-3 border border-light"><b>Father's CNIC : </b></div><div class="fs-5 col-md-3 border border-light"><?php echo " " . $row[14]; ?></div>
                                                                     </div></li>
                                                                 </ul>
@@ -280,25 +280,25 @@
                                     </thead>
                                     <tbody>
                                         <?php
-                                            $sel_admission_form = "SELECT * FROM `admission_form` WHERE `status` = 'Accept'";
-                                            $admission_form_result = mysqli_query($db, $sel_admission_form);
-                                            if(mysqli_num_rows($admission_form_result)) {
+                                            $acc_admission_form = "SELECT * FROM `admission_form` WHERE `status` = 'Accept'";
+                                            $acc_admission_form_result = mysqli_query($db, $acc_admission_form);
+                                            if(mysqli_num_rows($acc_admission_form_result)) {
                                                 $i = 0;
-                                                while($row = mysqli_fetch_array($admission_form_result)) {                                                    
+                                                while($row = mysqli_fetch_array($acc_admission_form_result)) {                                                    
                                                     $i++;
                                         ?>
                                         <tr>
                                             <td class="align-middle" scope="row"><?php echo $i; ?></td>
                                             <td class="align-middle" type="button" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="top" title="<?php echo $row[1]; ?>">
-                                                <img src="profile/<?php echo $row[15]; ?>" style="height: 3vw;" alt="">
+                                                <img src="../assets/images/profile/<?php echo $row[15]; ?>" style="height: 3vw;" alt="">
                                             </td>
                                             <td class="align-middle"><?php echo $row[3]; ?></td>
                                             <td class="align-middle"><?php echo $row[16]; ?></td>
-                                            <td class="align-middle"> <span type="button" data-bs-toggle="modal" data-bs-target="#e<?php echo $i; ?>" class="badge bg-light rounded-pill badge-sm">DETAILS</span></a> </td>
+                                            <td class="align-middle"> <span type="button" data-bs-toggle="modal" data-bs-target="#acp<?php echo $i; ?>" class="badge bg-light rounded-pill badge-sm">DETAILS</span></a> </td>
                                         </tr>               
 
                                         <!-- Form Modal -->
-                                        <div class="modal fade" id="e<?php echo $i; ?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                        <div class="modal fade" id="acp<?php echo $i; ?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                                             <div class="modal-dialog modal-xl">
                                                 <div class="modal-content bg-secondary">
                                                         <div class="modal-header">
@@ -309,7 +309,7 @@
                                                             <div class="bg-secondary p-4 container">
                                                                 <ul class="list-group list-group-flush bg-dark">
                                                                     <li class="list-group-item bg-dark text-center">
-                                                                        <img src="profile/<?php echo $row[15]; ?>" style="height: 12vw;" alt="">
+                                                                        <img src="../assets/images/profile/<?php echo $row[15]; ?>" style="height: 12vw;" alt="">
                                                                     </li>
 
                                                                     <li class="list-group-item bg-dark"><div class="row">
@@ -339,11 +339,11 @@
 
                                                                     <li class="list-group-item bg-dark"><div class="row">
                                                                         <div class="fs-5 col-md-3 border border-light"><b>Program : </b></div><div class="fs-5 col-md-3 border border-light"><?php echo " " . $row[11]; ?></div>
-                                                                        <div class="fs-5 col-md-3 border border-light"><b>Marksheet : </b></div><div class="col-md-3 border border-light"><a href="./profile/<?php echo $row[12]; ?>" target="_blank" rel="noopener noreferrer"><span class="fs-5 ">Please click here </span><i class="fas fa-external-link-alt"></i></a></div>
+                                                                        <div class="fs-5 col-md-3 border border-light"><b>Marksheet : </b></div><div class="col-md-3 border border-light"><a href="../assets/images/mksheet/<?php echo $row[12]; ?>" target="_blank" rel="noopener noreferrer"><span class="fs-5 ">Please click here </span><i class="fas fa-external-link-alt"></i></a></div>
                                                                     </div></li>
 
                                                                     <li class="list-group-item bg-dark"><div class="row">
-                                                                        <div class="fs-5 col-md-3 border border-light"><b>Provisional Certifacate : </b></div><div class="col-md-3 border border-light"><a href="./profile/<?php echo $row[13]; ?>" target="_blank" rel="noopener noreferrer"><span class="fs-5 ">Please click here </span><i class="fas fa-external-link-alt"></i></a></div>
+                                                                        <div class="fs-5 col-md-3 border border-light"><b>Provisional Certifacate : </b></div><div class="col-md-3 border border-light"><a href="../assets/images/prov/<?php echo $row[13]; ?>" target="_blank" rel="noopener noreferrer"><span class="fs-5 ">Please click here </span><i class="fas fa-external-link-alt"></i></a></div>
                                                                         <div class="fs-5 col-md-3 border border-light"><b>Father's CNIC : </b></div><div class="fs-5 col-md-3 border border-light"><?php echo " " . $row[14]; ?></div>
                                                                     </div></li>
                                                                 </ul>
@@ -390,25 +390,25 @@
                                     </thead>
                                     <tbody>
                                         <?php
-                                            $sel_admission_form = "SELECT * FROM `admission_form` WHERE `status` = 'Decline'";
-                                            $admission_form_result = mysqli_query($db, $sel_admission_form);
-                                            if(mysqli_num_rows($admission_form_result)) {
+                                            $dec_admission_form = "SELECT * FROM `admission_form` WHERE `status` = 'Decline'";
+                                            $dec_admission_form_result = mysqli_query($db, $dec_admission_form);
+                                            if(mysqli_num_rows($dec_admission_form_result)) {
                                                 $i = 0;
-                                                while($row = mysqli_fetch_array($admission_form_result)) {                                                    
+                                                while($row = mysqli_fetch_array($dec_admission_form_result)) {                                                    
                                                     $i++;
                                         ?>
                                         <tr>
                                             <td class="align-middle" scope="row"><?php echo $i; ?></td>
                                             <td class="align-middle" type="button" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="top" title="<?php echo $row[1]; ?>">
-                                                <img src="profile/<?php echo $row[15]; ?>" style="height: 3vw;" alt="">
+                                                <img src="../assets/images/profile/<?php echo $row[15]; ?>" style="height: 3vw;" alt="">
                                             </td>
                                             <td class="align-middle"><?php echo $row[3]; ?></td>
                                             <td class="align-middle"><?php echo $row[16]; ?></td>
-                                            <td class="align-middle"> <span type="button" data-bs-toggle="modal" data-bs-target="#e<?php echo $i; ?>" class="badge bg-light rounded-pill badge-sm">DETAILS</span></a> </td>
+                                            <td class="align-middle"> <span type="button" data-bs-toggle="modal" data-bs-target="#dec<?php echo $i; ?>" class="badge bg-light rounded-pill badge-sm">DETAILS</span></a> </td>
                                         </tr>               
 
                                         <!-- Form Modal -->
-                                        <div class="modal fade" id="e<?php echo $i; ?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                        <div class="modal fade" id="dec<?php echo $i; ?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                                             <div class="modal-dialog modal-xl">
                                                 <div class="modal-content bg-secondary">
                                                         <div class="modal-header">
@@ -419,7 +419,7 @@
                                                             <div class="bg-secondary p-4 container">
                                                                 <ul class="list-group list-group-flush bg-dark">
                                                                     <li class="list-group-item bg-dark text-center">
-                                                                        <img src="profile/<?php echo $row[15]; ?>" style="height: 12vw;" alt="">
+                                                                        <img src="../assets/images/profile/<?php echo $row[15]; ?>" style="height: 12vw;" alt="">
                                                                     </li>
 
                                                                     <li class="list-group-item bg-dark"><div class="row">
@@ -449,11 +449,11 @@
 
                                                                     <li class="list-group-item bg-dark"><div class="row">
                                                                         <div class="fs-5 col-md-3 border border-light"><b>Program : </b></div><div class="fs-5 col-md-3 border border-light"><?php echo " " . $row[11]; ?></div>
-                                                                        <div class="fs-5 col-md-3 border border-light"><b>Marksheet : </b></div><div class="col-md-3 border border-light"><a href="./profile/<?php echo $row[12]; ?>" target="_blank" rel="noopener noreferrer"><span class="fs-5 ">Please click here </span><i class="fas fa-external-link-alt"></i></a></div>
+                                                                        <div class="fs-5 col-md-3 border border-light"><b>Marksheet : </b></div><div class="col-md-3 border border-light"><a href="../assets/images/mksheet/<?php echo $row[12]; ?>" target="_blank" rel="noopener noreferrer"><span class="fs-5 ">Please click here </span><i class="fas fa-external-link-alt"></i></a></div>
                                                                     </div></li>
 
                                                                     <li class="list-group-item bg-dark"><div class="row">
-                                                                        <div class="fs-5 col-md-3 border border-light"><b>Provisional Certifacate : </b></div><div class="col-md-3 border border-light"><a href="./profile/<?php echo $row[13]; ?>" target="_blank" rel="noopener noreferrer"><span class="fs-5 ">Please click here </span><i class="fas fa-external-link-alt"></i></a></div>
+                                                                        <div class="fs-5 col-md-3 border border-light"><b>Provisional Certifacate : </b></div><div class="col-md-3 border border-light"><a href="../assets/images/prov/<?php echo $row[13]; ?>" target="_blank" rel="noopener noreferrer"><span class="fs-5 ">Please click here </span><i class="fas fa-external-link-alt"></i></a></div>
                                                                         <div class="fs-5 col-md-3 border border-light"><b>Father's CNIC : </b></div><div class="fs-5 col-md-3 border border-light"><?php echo " " . $row[14]; ?></div>
                                                                     </div></li>
                                                                 </ul>

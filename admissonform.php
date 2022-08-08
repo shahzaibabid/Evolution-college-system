@@ -10,8 +10,8 @@ $db = mysqli_connect("localhost","root","","evolution");
     $path3 = "./assets/images/profile/" . $imgname3;
     move_uploaded_file($tmpname3, $path3);
     $profile_img = $imgname3;
-    $stdname = $_POST["email"];
-    $fathername = $_POST["email"];
+    $stdname = $_POST["studentname"];
+    $fathername = $_POST["fathername"];
     $email = $_POST["email"];
     $phone = $_POST["phone"];
     $dob = $_POST["dob"];
@@ -285,71 +285,69 @@ cursor: pointer;
         <br/>
         <fieldset>
           <legend>Personal Details</legend>
-            <div class="w-100">                
-                <div class="col-8">
-                    <div class="item">
-                        <label > Student Name <span>*</span></label>
-                        <input  type="text" name="studentname" />
-                    </div>
-                    <div class="item">
-                        <label >Father Name <span>*</span></label>
-                        <input  type="text" name="fathername" />
-                    </div>
-                    <div class="item">
-                        <label >Email <span>*</span></label>
-                        <input  type="email" name="email" />
-                    </div>
-                   
-                  
+          <div style="width:100%;" align="center">
+                <div id="MYDIV" style="min-height: 10vw; max-width: 100%; max-height: 20vw; display: none;">
+                    <img id="output" style="max-height: 20vw;" />
                 </div>
-                <div class="col-3">
-                    <div style="width: 90%; height: 100%; border: 3px solid black">
-                      <img id="output" class="img-fluid"/>
+                <p><input type="file" accept="image/*" name="image" id="file" onchange="loadFile(event)" style="display: none;"></p>
+                <p><label for="file" onclick="picshow()" style="cursor: pointer; color: white; width: 10vw; height: 5vw; background-color: green; padding: 10px; border-radius: 10px;">Cover Image</label></p>
 
-                      <p><input type="file" accept="image/*" name="image" id="file" onchange="loadFile(event)" style="display: none;"></p>
-                      <p><label for="file" onclick="picshow()" class="rounded-pill btn btn-outline-primary" style="cursor: pointer;">Cover Image</label></p>
+                <!-- Scripting for Image -->
+                <script>
+                    var loadFile = function (event) { 
+                        var image = document.getElementById('output');
+                        image.src = URL.createObjectURL(event.target.files[0]);
+                    };
 
-                      <!-- Scripting for Image -->
-                      <script>
-                          var loadFile = function (event) { 
-                              var image = document.getElementById('output');
-                              image.src = URL.createObjectURL(event.target.files[0]);
-                          };
-                      </script>
-                    </div>
-                </div>
+                    function picshow() {
+                        document.getElementById("MYDIV").style.display = "block";
+                    };
+                </script>
+          </div>
+            <div class="item">
+                <label > Student Name <span>*</span></label>
+                <input  type="text" name="studentname" placeholder="Enter your Name" />
             </div>
             <div class="item">
+                <label >Father Name <span>*</span></label>
+                <input  type="text" name="fathername"  placeholder="Enter your Father Name"/>
+            </div>
+            <div class="item">
+                <label >Email <span>*</span></label>
+                <input  type="email" name="email"  placeholder="Enter your Email address" />
+            </div>
+                   
+            <div class="item">
                 <label >Phone  <span>*</span></label>
-                <input  type="text" name="phone" />
+                <input  type="tel" name="phone"  placeholder="Enter your Phone " />
             </div>                    
             <div class="item">
                 <label>Birth Date <span>*</span></label>
-                <input type="date" name="dob" />
+                <input type="date" name="dob"  placeholder="Enter your Date of birth"/>
                 <i class="fas fa-calendar-alt"></i>
             </div>
             <div class="item">
                 <p>Gender</p>
-                <select name="gender">
+                <select name="gender"  placeholder="Enter your Gender">
                     <option selected value="Male" selected>Male</option>
                     <option value="Female" >Female</option>                    
                 </select>
             </div>
             <div class="item">
                 <label >Address  <span>*</span></label>
-                <textarea name="address" id="" cols="10" rows="3"></textarea>
+                <textarea name="address" id="" cols="10" rows="3"  placeholder="Enter your Full address"></textarea>
             </div>
             <div class="item">
                 <label >CNIC/B-form <span>*</span></label>
-                <input  type="text" name="cnic" />
+                <input  type="text" name="cnic"  placeholder="Enter your valid CNIC" />
             </div>
             <div class="item">
                 <label >Citizenship <span>*</span></label>
-                <input  type="text" name="citizen" />
+                <input  type="text" name="citizen"  placeholder="Enter your Citizenship"/>
             </div>
             <div class="item">
                 <label >Religion <span>*</span></label>
-                <input  type="text" name="rel" />
+                <input  type="text" name="rel"  placeholder="Enter your Religion" />
             </div>
         </fieldset>
         <br/>
