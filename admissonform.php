@@ -41,7 +41,7 @@ $db = mysqli_connect("localhost","root","","evolution");
     $res_prg = mysqli_query($db, $inp);
       ?>
           <Script>
-              window.location.assign("./index.php");
+              window.location.assign("./profile.php");
           </Script>
       <?php
   }
@@ -289,7 +289,7 @@ cursor: pointer;
                 <div id="MYDIV" style="min-height: 10vw; max-width: 100%; max-height: 20vw; display: none;">
                     <img id="output" style="max-height: 20vw;" />
                 </div>
-                <p><input type="file" accept="image/*" name="image" id="file" onchange="loadFile(event)" style="display: none;"></p>
+                <p><input type="file" accept="image/*" required name="image" id="file" onchange="loadFile(event)" style="display: none;" ></p>
                 <p><label for="file" onclick="picshow()" style="cursor: pointer; color: white; width: 10vw; height: 5vw; background-color: green; padding: 10px; border-radius: 10px;">Cover Image</label></p>
 
                 <!-- Scripting for Image -->
@@ -306,48 +306,48 @@ cursor: pointer;
           </div>
             <div class="item">
                 <label > Student Name <span>*</span></label>
-                <input  type="text" name="studentname" placeholder="Enter your Name" />
+                <input  type="text" name="studentname" placeholder="Enter your Name" required />
             </div>
             <div class="item">
                 <label >Father Name <span>*</span></label>
-                <input  type="text" name="fathername"  placeholder="Enter your Father Name"/>
+                <input  type="text" name="fathername"  placeholder="Enter your Father Name" required/>
             </div>
             <div class="item">
                 <label >Email <span>*</span></label>
-                <input  type="email" name="email"  placeholder="Enter your Email address" />
+                <input  type="email" name="email"  placeholder="Enter your Email address" required />
             </div>
                    
             <div class="item">
                 <label >Phone  <span>*</span></label>
-                <input  type="tel" name="phone"  placeholder="Enter your Phone " />
+                <input  type="tel" name="phone"  placeholder="Enter your Phone " required />
             </div>                    
             <div class="item">
                 <label>Birth Date <span>*</span></label>
-                <input type="date" name="dob"  placeholder="Enter your Date of birth"/>
+                <input type="date" name="dob"  placeholder="Enter your Date of birth" required />
                 <i class="fas fa-calendar-alt"></i>
             </div>
             <div class="item">
                 <p>Gender</p>
-                <select name="gender"  placeholder="Enter your Gender">
+                <select name="gender"  placeholder="Enter your Gender" required>
                     <option selected value="Male" selected>Male</option>
                     <option value="Female" >Female</option>                    
                 </select>
             </div>
             <div class="item">
                 <label >Address  <span>*</span></label>
-                <textarea name="address" id="" cols="10" rows="3"  placeholder="Enter your Full address"></textarea>
+                <textarea name="address" id="" cols="10" rows="3"  placeholder="Enter your Full address" required></textarea>
             </div>
             <div class="item">
                 <label >CNIC/B-form <span>*</span></label>
-                <input  type="text" name="cnic"  placeholder="Enter your valid CNIC" />
+                <input  type="text" name="cnic"  placeholder="Enter your valid CNIC" required />
             </div>
             <div class="item">
                 <label >Citizenship <span>*</span></label>
-                <input  type="text" name="citizen"  placeholder="Enter your Citizenship"/>
+                <input  type="text" name="citizen"  placeholder="Enter your Citizenship" required/>
             </div>
             <div class="item">
                 <label >Religion <span>*</span></label>
-                <input  type="text" name="rel"  placeholder="Enter your Religion" />
+                <input  type="text" name="rel"  placeholder="Enter your Religion" required />
             </div>
         </fieldset>
         <br/>
@@ -378,12 +378,12 @@ cursor: pointer;
           <legend>Upload your Documents</legend>
           <div class="item">
             <label > Matric Marksheet<span>*</span></label>
-            <input  type="file" name="marksheet" accept="image/*" />
+            <input  type="file" name="marksheet" accept="image/*" required />
           </div>
          
           <div class="item">
             <label > Provisional Certificate<span>*</span></label>
-            <input  type="file" name="provcertifacate" accept="image/*" />
+            <input  type="file" name="provcertifacate" accept="image/*" required />
           </div>
          
         </fieldset>
