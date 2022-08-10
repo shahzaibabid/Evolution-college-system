@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 06, 2022 at 06:27 PM
+-- Generation Time: Aug 10, 2022 at 07:26 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 7.3.31
 
@@ -44,7 +44,31 @@ CREATE TABLE `administrator` (
 --
 
 INSERT INTO `administrator` (`id`, `name`, `email`, `phone`, `pass`, `user_type`, `profile`, `CNIC`, `gender`) VALUES
-(1, 'Salena', 'salena@admin.ecs.com', '03343427289', '202cb962ac59075b964b07152d234b70', 2, '1533890977amina.png', '222222222222', 'Female');
+(1, 'Lily', 'lily@admin.ecs.com', '03343427289', '202cb962ac59075b964b07152d234b70', 2, '382231427te1.jpg', '222222222222', 'Female');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `admission_fee`
+--
+
+CREATE TABLE `admission_fee` (
+  `id` int(11) NOT NULL,
+  `admission_form_id` int(11) NOT NULL,
+  `Voucher` varchar(255) NOT NULL,
+  `fee` int(11) NOT NULL DEFAULT 500,
+  `amount` int(11) NOT NULL,
+  `status` varchar(255) NOT NULL DEFAULT 'Pay fees'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `admission_fee`
+--
+
+INSERT INTO `admission_fee` (`id`, `admission_form_id`, `Voucher`, `fee`, `amount`, `status`) VALUES
+(10, 10, 'ECS-527387156', 500, 500, 'Paid'),
+(11, 11, 'ECS-1638427278', 500, 500, 'Paid'),
+(12, 12, 'ECS-1793503089', 500, 500, 'Paid');
 
 -- --------------------------------------------------------
 
@@ -67,17 +91,19 @@ CREATE TABLE `admission_form` (
   `program` varchar(225) NOT NULL,
   `marksheet` varchar(225) NOT NULL,
   `prov_certificate` varchar(225) NOT NULL,
-  `father_cnic` varchar(225) NOT NULL,
+  `user_id_` int(225) NOT NULL,
   `profile` varchar(225) NOT NULL,
-  `status` varchar(255) NOT NULL DEFAULT 'processing'
+  `status` varchar(255) NOT NULL DEFAULT 'pending'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `admission_form`
 --
 
-INSERT INTO `admission_form` (`id`, `std_name`, `father_name`, `email`, `phone`, `dob`, `gender`, `address`, `cnic_bayform`, `citizenship`, `religion`, `program`, `marksheet`, `prov_certificate`, `father_cnic`, `profile`, `status`) VALUES
-(2, 'Augustine', 'kane', 'augustine@gmail.com', '03343427289', '03-07-2000', 'Male', '187/3A, Shahrah-e-Faisal, Karachi', '42101-12145444-11', 'Pakistani', 'Christanity', 'Computer Science', 'mksheet.png', 'pv.png', '12154511111', '337292320admin.png', 'Accept');
+INSERT INTO `admission_form` (`id`, `std_name`, `father_name`, `email`, `phone`, `dob`, `gender`, `address`, `cnic_bayform`, `citizenship`, `religion`, `program`, `marksheet`, `prov_certificate`, `user_id_`, `profile`, `status`) VALUES
+(10, 'Charles Stephen', 'Adwin', 'charlesadwin99@gmail.com', '03343427289', '2022-08-03', 'Male', 'B Road, Nursery Bus Stop, Karachi, Karachi', '12345678912', 'Pakistani', 'Christianity', 'Commerce', '1723148151mksheet.png', 'pv.png', 3, '14511422501639739768pFHNrg.jpg', 'Accepted'),
+(11, 'Shahzaib', 'Hammad', 'shahzaibabidsaeed@gmail.com', '0334342728', '2022-08-25', 'Male', '72-N, P.E.C.H.S.,Karachi', '98765432198', 'Pakistani', 'Islam', 'Pre-Medical', '774173160mksheet.png', 'pv.png', 2, '2128280155769866400shahzaib.jpg', 'Accepted'),
+(12, 'Ahmer', 'Khan', 'ahmer@gmail.com', '03343427289', '03-07-2000', '', '72-N, P.E.C.H.S., Karachi', '15987423658', 'Pakistani', 'Islam', '', '1723148151mksheet.png', 'pv.png', 2, '14511422501639739768pFHNrg.jpg', 'Accepted');
 
 -- --------------------------------------------------------
 
@@ -128,6 +154,28 @@ CREATE TABLE `fees` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `program_course`
+--
+
+CREATE TABLE `program_course` (
+  `id` int(11) NOT NULL,
+  `program_name` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `program_course`
+--
+
+INSERT INTO `program_course` (`id`, `program_name`) VALUES
+(1, 'Pre-Engineering'),
+(2, 'Pre-Medical'),
+(3, 'Computer Science'),
+(4, 'Arts'),
+(5, 'Commerce');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `salary`
 --
 
@@ -168,8 +216,18 @@ CREATE TABLE `std_account` (
   `citizenship` varchar(225) NOT NULL,
   `religion` varchar(225) NOT NULL,
   `program` varchar(225) NOT NULL,
-  `profile` varchar(225) NOT NULL
+  `profile` varchar(225) NOT NULL,
+  `admission_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `std_account`
+--
+
+INSERT INTO `std_account` (`id`, `name`, `father_name`, `email`, `phone`, `pass`, `dob`, `gender`, `address`, `cnic_bayform`, `citizenship`, `religion`, `program`, `profile`, `admission_id`) VALUES
+(4, 'Charles Stephen', 'Adwin', 'default@student.ecs.com', '03343427289', 'Password', '2022-08-03', 'Male', 'B Road, Nursery Bus Stop, Karachi, Karachi', '12345678912', 'Pakistani', 'Christianity', 'Commerce', '14511422501639739768pFHNrg.jpg', 10),
+(5, 'Shahzaib', 'Hammad', 'default@student.ecs.com', '0334342728', 'Password', '2022-08-25', 'Male', '72-N, P.E.C.H.S.,Karachi', '98765432198', 'Pakistani', 'Islam', 'Pre-Medical', '2128280155769866400shahzaib.jpg', 11),
+(7, 'Ahmer', 'Khan', 'default@student.ecs.com', '03343427289', 'Password', '03-07-2000', '', '72-N, P.E.C.H.S., Karachi', '15987423658', 'Pakistani', 'Islam', '', '14511422501639739768pFHNrg.jpg', 0);
 
 -- --------------------------------------------------------
 
@@ -255,7 +313,8 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`id`, `name`, `email`, `phone`, `pass`, `user_type`, `profile`, `CNIC`, `gender`) VALUES
 (1, 'Admin', 'admin@ecs.com', '03318343144', '202cb962ac59075b964b07152d234b70', 0, '337292320admin.png', '111111111111', 'Male'),
 (2, 'Shahzaib Abid', 'shahzaibabidsaeed@gmail.com', '03318343144', '202cb962ac59075b964b07152d234b70', 1, '769866400shahzaib.jpg', '111111111111', 'Male'),
-(3, 'Charles Stephen', 'charles@gmail.com', '03343427289', '202cb962ac59075b964b07152d234b70', 1, '1639739768pFHNrg.jpg', '111111111111', 'Male');
+(3, 'Charles Stephen', 'charles@gmail.com', '03343427289', '202cb962ac59075b964b07152d234b70', 1, '1639739768pFHNrg.jpg', '111111111111', 'Male'),
+(5, 'Lily', 'lily@gmail.com', '4444444747', '202cb962ac59075b964b07152d234b70', 1, '', '52865286363626', '');
 
 --
 -- Indexes for dumped tables
@@ -265,6 +324,12 @@ INSERT INTO `users` (`id`, `name`, `email`, `phone`, `pass`, `user_type`, `profi
 -- Indexes for table `administrator`
 --
 ALTER TABLE `administrator`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `admission_fee`
+--
+ALTER TABLE `admission_fee`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -289,6 +354,12 @@ ALTER TABLE `contact-us`
 -- Indexes for table `fees`
 --
 ALTER TABLE `fees`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `program_course`
+--
+ALTER TABLE `program_course`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -344,10 +415,16 @@ ALTER TABLE `administrator`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
+-- AUTO_INCREMENT for table `admission_fee`
+--
+ALTER TABLE `admission_fee`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+
+--
 -- AUTO_INCREMENT for table `admission_form`
 --
 ALTER TABLE `admission_form`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `assignment`
@@ -368,6 +445,12 @@ ALTER TABLE `fees`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `program_course`
+--
+ALTER TABLE `program_course`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
 -- AUTO_INCREMENT for table `salary`
 --
 ALTER TABLE `salary`
@@ -383,7 +466,7 @@ ALTER TABLE `school_account`
 -- AUTO_INCREMENT for table `std_account`
 --
 ALTER TABLE `std_account`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `teachers`
@@ -407,7 +490,7 @@ ALTER TABLE `transaction`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
