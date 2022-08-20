@@ -242,98 +242,101 @@ include("header.php");
     <h1>Forms</h1>
 
     <div class="table-responsive" style="overflow-x:auto; overflow-y:auto;">
-                                <table class="table">
-                                    <thead>
-                                        <tr>
-                                            <th class="col">#</th>
-                                            <th scope="col">Profile</th>
-                                            <th scope="col">Email</th>
-                                            <th class="col">Status</th>
-                                            <th scope="col" style="visibility: hidden;">Details</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <?php
-                                            $sel_admission_form = "SELECT * FROM `admission_form` WHERE `user_id_` = $id";
-                                            $admission_form_result = mysqli_query($db, $sel_admission_form);
-                                            if(mysqli_num_rows($admission_form_result)) {
-                                                $i = 0;
-                                                while($row = mysqli_fetch_array($admission_form_result)) {                                                    
-                                                    $i++;
-                                        ?>
-                                        <tr>
-                                            <td class="align-middle" scope="row"><?php echo $i; ?></td>
-                                            <td class="align-middle" type="button" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="top" title="<?php echo $row[1]; ?>">
-                                                <img src="assets/images/profile/<?php echo $row[15]; ?>" style="height: 3vw;" alt="">
-                                            </td>
-                                            <td class="align-middle"><?php echo $row[3]; ?></td>
-                                            <td class="align-middle"><?php echo $row[16]; ?></td>
-                                            <td class="align-middle"> <span type="button" data-bs-toggle="modal" data-bs-target="#e<?php echo $i; ?>" class="badge bg-secondary rounded-pill badge-sm">DETAILS</span></a> </td>
-                                            
-                                        </tr>               
+        <table class="table">
+            <thead>
+                <tr>
+                    <th class="col">#</th>
+                    <th scope="col">Profile</th>
+                    <th scope="col">Email</th>
+                    <th class="col">Status</th>
+                    <th scope="col" style="visibility: hidden;">Details</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php
+                    $sel_admission_form = "SELECT * FROM `admission_form` WHERE `user_id_` = $id";
+                    $admission_form_result = mysqli_query($db, $sel_admission_form);
+                    if(mysqli_num_rows($admission_form_result)) {
+                        $i = 0;
+                        while($row = mysqli_fetch_array($admission_form_result)) {                                                    
+                            $i++;
+                ?>
+                <tr>
+                    <td class="align-middle" scope="row"><?php echo $i; ?></td>
+                    <td class="align-middle" type="button" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="top" title="<?php echo $row[1]; ?>">
+                        <img src="assets/images/profile/<?php echo $row[15]; ?>" style="height: 3vw;" alt="">
+                    </td>
+                    <td class="align-middle"><?php echo $row[3]; ?></td>
+                    <td class="align-middle"><?php echo $row[16]; ?></td>
+                    <td class="align-middle"> <span type="button" data-bs-toggle="modal" data-bs-target="#e<?php echo $i; ?>" class="badge bg-secondary rounded-pill badge-sm">DETAILS</span></a> </td>
+                    
+                </tr>               
 
-                                        <!-- Form Modal -->
-                                        <div class="modal fade" id="e<?php echo $i; ?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                                            <div class="modal-dialog modal-xl">
-                                                <div class="modal-content bg-light">
-                                                        <div class="modal-header">
-                                                            <h4 class="modal-title" id="staticBackdropLabel">Form Details</h4>
-                                                            <button type="button" class="btn-close bg-light" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                        </div>
-                                                        <div class="modal-body">
-                                                            <div class="bg-light p-4 container">
-                                                                <ul class="list-group list-group-flush bg-light border border-dark">
-                                                                    <li class="list-group-item bg-light text-center">
-                                                                        <img src="assets/images/profile/<?php echo $row[15]; ?>" style="height: 12vw;" alt="">
-                                                                    </li>
+                <!-- Form Modal -->
+                <div class="modal fade" id="e<?php echo $i; ?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-xl">
+                        <div class="modal-content bg-light">
+                                <div class="modal-header">
+                                    <h4 class="modal-title" id="staticBackdropLabel">Form Details</h4>
+                                    <button type="button" class="btn-close bg-light" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="bg-light p-4 container">
+                                        <ul class="list-group list-group-flush bg-light border border-dark">
+                                            <li class="list-group-item bg-light text-center">
+                                                <img src="assets/images/profile/<?php echo $row[15]; ?>" style="height: 12vw;" alt="">
+                                            </li>
 
-                                                                    <li class="list-group-item bg-light"><div class="row">
-                                                                        <div class="fs-5 col-md-3 border border-light"><b>Student Name : </b></div><div class="fs-5 col-md-3 border border-light"><?php echo " " . $row[1]; ?></div>
-                                                                        <div class="fs-5 col-md-3 border border-light"><b>Father Name : </b></div><div class="fs-5 col-md-3 border border-light"><?php echo " " . $row[2]; ?></div>
-                                                                    </div></li>
+                                            <li class="list-group-item bg-light"><div class="row">
+                                                <div class="fs-5 col-md-3 border border-light"><b>Student Name : </b></div><div class="fs-5 col-md-3 border border-light"><?php echo " " . $row[1]; ?></div>
+                                                <div class="fs-5 col-md-3 border border-light"><b>Father Name : </b></div><div class="fs-5 col-md-3 border border-light"><?php echo " " . $row[2]; ?></div>
+                                            </div></li>
 
-                                                                    <li class="list-group-item bg-light"><div class="row">
-                                                                        <div class="fs-5 col-md-3 border border-light"><b>Email : </b></div><div class="fs-5 col-md-3 border border-light"><?php echo " " . $row[3]; ?></div>
-                                                                        <div class="fs-5 col-md-3 border border-light"><b>Phone : </b></div><div class="fs-5 col-md-3 border border-light"><?php echo " " . $row[4]; ?></div>
-                                                                    </div></li>
+                                            <li class="list-group-item bg-light"><div class="row">
+                                                <div class="fs-5 col-md-3 border border-light"><b>Email : </b></div><div class="fs-5 col-md-3 border border-light"><?php echo " " . $row[3]; ?></div>
+                                                <div class="fs-5 col-md-3 border border-light"><b>Phone : </b></div><div class="fs-5 col-md-3 border border-light"><?php echo " " . $row[4]; ?></div>
+                                            </div></li>
 
-                                                                    <li class="list-group-item bg-light"><div class="row">
-                                                                        <div class="fs-5 col-md-3 border border-light"><b>Date Of Birth : </b></div><div class="fs-5 col-md-3 border border-light"><?php echo " " . $row[5]; ?></div>
-                                                                        <div class="fs-5 col-md-3 border border-light"><b>Gender : </b></div><div class="fs-5 col-md-3 border border-light"><?php echo " " . $row[6]; ?></div>
-                                                                    </div></li>
+                                            <li class="list-group-item bg-light"><div class="row">
+                                                <div class="fs-5 col-md-3 border border-light"><b>Date Of Birth : </b></div><div class="fs-5 col-md-3 border border-light"><?php echo " " . $row[5]; ?></div>
+                                                <div class="fs-5 col-md-3 border border-light"><b>Gender : </b></div><div class="fs-5 col-md-3 border border-light"><?php echo " " . $row[6]; ?></div>
+                                            </div></li>
 
-                                                                    <li class="list-group-item bg-light"><div class="row">
-                                                                        <div class="fs-5 col-md-6 border border-light"><b>Address : </b></div><div class="fs-5 col-md-6 border border-light"><?php echo " " . $row[7]; ?></div>
-                                                                    </div></li>
+                                            <li class="list-group-item bg-light"><div class="row">
+                                                <div class="fs-5 col-md-6 border border-light"><b>Address : </b></div><div class="fs-5 col-md-6 border border-light"><?php echo " " . $row[7]; ?></div>
+                                            </div></li>
 
-                                                                    <li class="list-group-item bg-light"><div class="row">
-                                                                        <div class="fs-5 col-md-3 border border-light"><b>CNIC/Bayform : </b></div><div class="fs-5 col-md-3 border border-light"><?php echo " " . $row[8]; ?></div>
-                                                                        <div class="fs-5 col-md-3 border border-light"><b>Citizenship : </b></div><div class="fs-5 col-md-3 border border-light"><?php echo " " . $row[9]; ?></div>
-                                                                    </div></li>
+                                            <li class="list-group-item bg-light"><div class="row">
+                                                <div class="fs-5 col-md-3 border border-light"><b>CNIC/Bayform : </b></div><div class="fs-5 col-md-3 border border-light"><?php echo " " . $row[8]; ?></div>
+                                                <div class="fs-5 col-md-3 border border-light"><b>Citizenship : </b></div><div class="fs-5 col-md-3 border border-light"><?php echo " " . $row[9]; ?></div>
+                                            </div></li>
 
-                                                                    <li class="list-group-item bg-light"><div class="row">
-                                                                        <div class="fs-5 col-md-3 border border-light"><b>Religion : </b></div><div class="fs-5 col-md-3 border border-light"><?php echo " " . $row[10]; ?></div>
-                                                                        <div class="fs-5 col-md-3 border border-light"><b>Program : </b></div><div class="fs-5 col-md-3 border border-light"><?php echo " " . $row[11]; ?></div>
-                                                                    </div></li>
+                                            <li class="list-group-item bg-light"><div class="row">
+                                                <div class="fs-5 col-md-3 border border-light"><b>Religion : </b></div><div class="fs-5 col-md-3 border border-light"><?php echo " " . $row[10]; ?></div>
+                                                <div class="fs-5 col-md-3 border border-light"><b>Program : </b></div><div class="fs-5 col-md-3 border border-light"><?php echo " " . $row[11]; ?></div>
+                                            </div></li>
 
-                                                                    <li class="list-group-item bg-light"><div class="row">
-                                                                        <div class="fs-5 col-md-3 border border-light"><b>Marksheet : </b></div><div class="col-md-3 border border-light"><a href="assets/images/mksheet/<?php echo $row[12]; ?>" target="_blank" rel="noopener noreferrer"><span class="fs-5 ">Please click here </span><i class="fas fa-external-link-alt"></i></a></div>
-                                                                        <div class="fs-5 col-md-3 border border-light"><b>Provisional Certifacate : </b></div><div class="col-md-3 border border-light"><a href="assets/images/prov/<?php echo $row[13]; ?>" target="_blank" rel="noopener noreferrer"><span class="fs-5 ">Please click here </span><i class="fas fa-external-link-alt"></i></a></div>
-                                                                    </div></li>
-                                                                </ul>
-                                                            </div>
-                                                        </div>
-                                                </div>
-                                            </div>
-                                        </div>
+                                            <li class="list-group-item bg-light"><div class="row">
+                                                <div class="fs-5 col-md-3 border border-light"><b>Marksheet : </b></div><div class="col-md-3 border border-light"><a href="assets/images/mksheet/<?php echo $row[12]; ?>" target="_blank" rel="noopener noreferrer"><span class="fs-5 ">Please click here </span><i class="fas fa-external-link-alt"></i></a></div>
+                                                <div class="fs-5 col-md-3 border border-light"><b>Provisional Certifacate : </b></div><div class="col-md-3 border border-light"><a href="assets/images/prov/<?php echo $row[13]; ?>" target="_blank" rel="noopener noreferrer"><span class="fs-5 ">Please click here </span><i class="fas fa-external-link-alt"></i></a></div>
+                                            </div></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                        </div>
+                    </div>
+                </div>
 
-                                        <?php                                                    
-                                                }
-                                            }                                            
-                                        ?>
-                                    </tbody>
-                                </table>
-                            </div>
+                <?php                                                    
+                        }
+                    }                                            
+                ?>
+            </tbody>
+        </table>
+    </div>
+
+    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeDEZ2UE74eTEruN4LijlNvVQiu_R8F4pmtDgT8JoSTbUscdw/viewform?embedded=true" width="640" height="975" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+
 </section>
 
 
