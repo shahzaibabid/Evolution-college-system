@@ -40,7 +40,7 @@ main {
     justify-content: center;
     height: 75vh;
     width: 100%;
-    background: url(https://wallpaperaccess.com/full/1900851.png) no-repeat center center;
+    background: url() no-repeat center center;
     background-size: cover;
 }
 .form_class {
@@ -49,7 +49,7 @@ main {
     border-radius: 8px;
     background-color: white;
     font-family: 'system-ui';
-    box-shadow: 5px 5px 10px rgb(0,0,0,0.3);
+    box-shadow: 5px 5px 10px 10px rgb(0,0,0,0.3);
 }
 .form_div {
     text-transform: uppercase;
@@ -113,6 +113,40 @@ footer > p > a {
     font-weight: bold;
 }
 </style>
+
+<?php
+session_start();
+$db = mysqli_connect("localhost", "root", "", "evolution");
+if (isset($_POST["submit"])) {                    
+    $email = $_POST["studentid"];
+    // $remember_me = $_POST["remember_me"];
+    $pass = $_POST["pass"];
+    // $pass = md5($pass);
+   
+
+            $sel = "SELECT * FROM `std_account` WHERE `email` = '$email' && `pass` = '$pass'";
+            $result = mysqli_query($db, $sel);
+
+    if(mysqli_num_rows($result)) {
+        while($row = mysqli_fetch_array($result)) {
+            $_SESSION["myuserid"] = $row[0];
+            $_SESSION["name"] = $row[1];
+            $_SESSION["mytype"] = $row[15];
+            $_SESSION["email"] = $row[3];
+        }
+
+            ?>
+            <Script>
+                window.location.assign("./dashboard.php");
+            </Script>            
+            <?php
+
+    }
+    else {
+        $error = "Invalid Email or Password";
+    }
+}
+?>
 </head>
 
 <body>
@@ -120,8 +154,9 @@ footer > p > a {
         <h1>Learning Managment System</h1>
     </header>
     <main>
-        <form id="login_form" class="form_class" action="" method="post">
+        <form id="login_form" class="form_class" action="#" method="post">
             <div class="form_div">
+                <p class="text-center"><?php if(isset($error)){ echo $error; } ?></p>
                 <label>Student Id:</label>
                 <input class="field_class" name="studentid" type="text" placeholder="Enter your student id"  required autocomplete="off" autofocus>
                 <label>Password:</label>
