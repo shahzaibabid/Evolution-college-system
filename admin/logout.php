@@ -2,16 +2,22 @@
 session_start();
 
 if($_SESSION["name"] == null) {
-    header("Location: signin.php");
+    ?>
+        <Script>
+            window.location.assign("signin.php");
+        </script>
+    <?php
 }
 else {
+    // remove all session variables
+    session_unset();
 
-// remove all session variables
-session_unset();
-
-// destroy the session
-session_destroy();    
-
-header("Location: signin.php");
+    // destroy the session
+    session_destroy();    
+    ?>
+        <Script>
+            window.location.assign("signin.php");
+        </script>
+    <?php
 }
 ?>

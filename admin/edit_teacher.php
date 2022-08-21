@@ -1,7 +1,11 @@
 <?php
-    session_start();
+    include("connection/connection.php");
     if ($_SESSION["name"] == null) {
-        header("Location: signin.php");
+        ?>
+            <Script>
+                window.location.assign("signin.php");
+            </script>
+        <?php
     }
     if ($_SESSION["mytype"] == 1) {
         ?>
@@ -10,7 +14,6 @@
             </Script>
         <?php
     }
-    $db = mysqli_connect("localhost", "root", "", "evolution");
 
     $adminid = $_GET["id"];
     $sel_teachers = "SELECT * FROM `teachers` WHERE `id` = $adminid";

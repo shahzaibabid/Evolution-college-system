@@ -1,7 +1,5 @@
 <?php
-session_start();
-
-$db = mysqli_connect("localhost", "root", "", "evolution");
+    include("connection/connection.php");    
 
 if(isset($_POST["submit"])) {
     $email = $_POST["email"];

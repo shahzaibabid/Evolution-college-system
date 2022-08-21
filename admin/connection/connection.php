@@ -1,3 +1,4 @@
 <?php
-    $db = mysqli_connect("localhost", "root", "", "evolution");
+    session_start();
+    $db = mysqli_connect("localhost", "root", "", "evolution");    
 ?>

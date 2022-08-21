@@ -1,16 +1,19 @@
 <?php
-    session_start();
-    if ($_SESSION["name"] == null) {
-        header("Location: signin.php");
+    include("connection/connection.php");
+    if (isset($_SESSION["name"]) == null) {
+        ?>
+            <Script>
+                window.location.assign("signin.php");
+            </script>
+        <?php
     }
     if ($_SESSION["mytype"] == 1) {
         ?>
             <Script>
                 window.location.assign("../index.php");
-            </Script>            
+            </Script>
         <?php
     }
-    $db = mysqli_connect("localhost", "root", "", "evolution");
 ?>
 <!DOCTYPE html>
 <html lang="en">

@@ -1,10 +1,13 @@
 <?php
-session_start();
+    include("connection/connection.php");
 
   if(isset($_SESSION["name"]) != null) {
-    header("Location: index.php");
+    ?>
+        <Script>
+            window.location.assign("./index.php");
+        </Script>
+    <?php
   }
-  $db = mysqli_connect("localhost", "root", "", "evolution");
 
   if (isset($_POST["forgot"])) {                    
     $email = $_POST["email"];

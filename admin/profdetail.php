@@ -1,16 +1,19 @@
 <?php
-    session_start();
+    include("connection/connection.php");
     if ($_SESSION["name"] == null) {
-        header("Location: signin.php");
+        ?>
+            <Script>
+                window.location.assign("signin.php");
+            </script>
+        <?php
     }
     if ($_SESSION["mytype"] == 1) {
         ?>
             <Script>
                 window.location.assign("../index.php");
-            </Script>            
+            </Script>
         <?php
     }
-    $db = mysqli_connect("localhost", "root", "", "evolution");
     $id = $_GET["id"];
     $sel = "SELECT * FROM `users` WHERE `id` = $id";
     $result = mysqli_query($db, $sel);
