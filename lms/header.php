@@ -18,13 +18,13 @@
             <a class="nav-link active" aria-current="page" href="accountbook.php">Account book</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Lecture Schedule</a>
+            <a class="nav-link active" aria-current="page" href="lectureschedule.php">Lecture Schedule</a>
           </li>
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="#">Progress</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">My Study Scheme</a>
+            <a class="nav-link active" aria-current="page" href="studyscheme.php">My Study Scheme</a>
           </li>
          
          
