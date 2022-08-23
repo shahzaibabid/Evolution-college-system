@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 23, 2022 at 07:31 PM
--- Server version: 10.4.21-MariaDB
--- PHP Version: 7.3.31
+-- Generation Time: Aug 23, 2022 at 11:57 AM
+-- Server version: 10.4.24-MariaDB
+-- PHP Version: 8.1.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -162,7 +162,9 @@ CREATE TABLE `contact-us` (
 --
 
 INSERT INTO `contact-us` (`id`, `name`, `email`, `subject`, `message`) VALUES
-(1, 'Demo', 'demo@gmail.com', 'Demo Subject', 'This is demo Message');
+(1, 'Demo', 'demo@gmail.com', 'Demo Subject', 'This is demo Message'),
+(2, 'Charles Stephen', 'charlesadwin@123.com', 'demo subject', 'this is my demo message'),
+(3, 'ashmam', 'jack@gmail.com', 'demo subject', 'This is demo message');
 
 -- --------------------------------------------------------
 
@@ -251,7 +253,7 @@ CREATE TABLE `std_account` (
   `father_name` varchar(225) NOT NULL,
   `email` varchar(225) NOT NULL,
   `phone` varchar(20) NOT NULL,
-  `pass` varchar(20) NOT NULL,
+  `pass` varchar(255) NOT NULL,
   `dob` varchar(20) NOT NULL,
   `gender` varchar(20) NOT NULL,
   `address` varchar(220) NOT NULL,
@@ -268,9 +270,29 @@ CREATE TABLE `std_account` (
 --
 
 INSERT INTO `std_account` (`id`, `name`, `father_name`, `email`, `phone`, `pass`, `dob`, `gender`, `address`, `cnic_bayform`, `citizenship`, `religion`, `program`, `profile`, `admission_id`) VALUES
-(4, 'Charles Stephen', 'Adwin', 'default@student.ecs.com', '03343427289', 'Password', '2022-08-03', 'Male', 'B Road, Nursery Bus Stop, Karachi, Karachi', '12345678912', 'Pakistani', 'Christianity', 'Commerce', '14511422501639739768pFHNrg.jpg', 10),
-(5, 'Shahzaib', 'Hammad', 'default@student.ecs.com', '0334342728', 'Password', '2022-08-25', 'Male', '72-N, P.E.C.H.S.,Karachi', '98765432198', 'Pakistani', 'Islam', 'Pre-Medical', '2128280155769866400shahzaib.jpg', 11),
-(7, 'Ahmer', 'Khan', 'default@student.ecs.com', '03343427289', 'Password', '03-07-2000', '', '72-N, P.E.C.H.S., Karachi', '15987423658', 'Pakistani', 'Islam', '', '14511422501639739768pFHNrg.jpg', 0);
+(4, 'Charles Stephen', 'Adwin', 'default@student.ecs.com', '03343427289', '202cb962ac59075b964b07152d234b70', '2022-08-03', 'Male', 'B Road, Nursery Bus Stop, Karachi, Karachi', '12345678912', 'Pakistani', 'Christianity', 'Commerce', '14511422501639739768pFHNrg.jpg', 10),
+(5, 'Shahzaib', 'Hammad', 'default@student.ecs.com', '0334342728', '202cb962ac59075b964b07152d234b70', '2022-08-25', 'Male', '72-N, P.E.C.H.S.,Karachi', '98765432198', 'Pakistani', 'Islam', 'Pre-Medical', '2128280155769866400shahzaib.jpg', 11),
+(7, 'Ahmer', 'Khan', 'default@student.ecs.com', '03343427289', '202cb962ac59075b964b07152d234b70', '03-07-2000', '', '72-N, P.E.C.H.S., Karachi', '15987423658', 'Pakistani', 'Islam', '', '14511422501639739768pFHNrg.jpg', 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `subjects`
+--
+
+CREATE TABLE `subjects` (
+  `id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `teacher_email` varchar(255) NOT NULL,
+  `class_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `subjects`
+--
+
+INSERT INTO `subjects` (`id`, `name`, `teacher_email`, `class_id`) VALUES
+(1, 'English', 'alexandera@teacher.ecs.com', 1);
 
 -- --------------------------------------------------------
 
@@ -298,7 +320,8 @@ CREATE TABLE `teachers` (
 INSERT INTO `teachers` (`id`, `name`, `email`, `phone`, `pass`, `user_type`, `profile`, `CNIC`, `gender`, `address`) VALUES
 (1, 'Ali', 'ali@teacher.ecs.com', '03343427289', '202cb962ac59075b964b07152d234b70', 3, 'down.jpg', '222222222222', 'Male', '38-F, P.E.C.H.S.,Karachi'),
 (3, 'Rohan', 'rohan@teacher.ecs.com', '03323232323', '202cb962ac59075b964b07152d234b70', 3, '377806961.jpg', '222222222222', 'Male', '3rd Fl.Al-Hamra CentreM.A.Jinnah Road, Karachi'),
-(4, 'Issac', 'issac@teacher.ecs.com', '0334342728', '202cb962ac59075b964b07152d234b70', 3, '1463680616a.webp', '11111111111', 'Male', ' #A-60, Block &#39;B&#39; Mian Rashid Minas Road, Karachi');
+(4, 'Issac', 'issac@teacher.ecs.com', '0334342728', '202cb962ac59075b964b07152d234b70', 3, '1463680616a.webp', '11111111111', 'Male', ' #A-60, Block &#39;B&#39; Mian Rashid Minas Road, Karachi'),
+(5, 'Alexandera', 'alexandera@teacher.ecs.com', '0312264622', 'd41d8cd98f00b204e9800998ecf8427e', 3, '1195276961alexandra_fuentes_pic01.jpg', '123456789', 'Female', 'Defence Phase 2');
 
 -- --------------------------------------------------------
 
@@ -436,6 +459,12 @@ ALTER TABLE `std_account`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `subjects`
+--
+ALTER TABLE `subjects`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `teachers`
 --
 ALTER TABLE `teachers`
@@ -497,7 +526,7 @@ ALTER TABLE `class`
 -- AUTO_INCREMENT for table `contact-us`
 --
 ALTER TABLE `contact-us`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `exam`
@@ -536,10 +565,16 @@ ALTER TABLE `std_account`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
+-- AUTO_INCREMENT for table `subjects`
+--
+ALTER TABLE `subjects`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `teachers`
 --
 ALTER TABLE `teachers`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `timetable`
