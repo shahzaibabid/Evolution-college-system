@@ -40,6 +40,11 @@
             $t_gndr = $_POST["gndr"];
             $t_ins = "INSERT INTO `teachers`(`name`, `email`, `phone`, `pass`, `profile`, `CNIC`, `gender`, `address`) VALUES ('$t_name','$t_email','$t_phone','$t_pass','$t_profile','$t_cnic','$t_gndr','$t_address')";
             $t_result = mysqli_query($db, $t_ins);
+            
+            $classes = $_POST["class"];
+            $sub = $_POST["sub"];
+            $teach_class = "INSERT INTO `subjects`(`name`, `teacher_email`, `class_id`) VALUES ('$sub','$t_email','$classes')";
+            $tec_res = mysqli_query($db,$teach_class);
             ?>
             <Script>
                 window.location.assign("./Accounts.php");
@@ -345,6 +350,23 @@
                                                                 </label>
                                                             </div>
                                                         </div>
+                                                    </div>
+                                                    <div class="col-md-6 form-floating mb-3">
+                                                        <select class="form-control bg-dark" name="class">
+                                                            <option value="0">Select Class</option>
+                                                            <?php
+                                                                $sel_class = "SELECT * FROM `class`";
+                                                                $result = mysqli_query($db,$sel_class);
+                                                                $i = 0;
+                                                                while($row = mysqli_fetch_array($result)) {
+                                                                    ?><option value="<?php echo $row[0]; ?>"><?php echo $row[1]; ?></option><?php
+                                                                }
+                                                            ?>
+                                                        </select>
+                                                    </div>                                                    
+                                                    <div class="col-md-6 form-floating mb-3">
+                                                        <input type="text" class="form-control" name="sub" id="floatingInput" placeholder="Teacher Name">
+                                                        <label for="floatingInput">Subject</label>
                                                     </div>
                                                 </div>
                                             </div>

@@ -154,7 +154,7 @@
                                     <div class="modal-content bg-secondary">
                                         <form action="#" method="post" enctype="multipart/form-data">
                                             <div class="modal-header">
-                                                <h4 class="modal-title" id="staticBackdropLabel">Add Movie</h4>
+                                                <h4 class="modal-title" id="staticBackdropLabel">Add Exam</h4>
                                                 <button type="button" class="btn-close bg-light" data-bs-dismiss="modal" aria-label="Close"></button>
                                             </div>
                                             <div class="modal-body">

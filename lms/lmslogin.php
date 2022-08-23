@@ -120,6 +120,7 @@ if (isset($_POST["submit"])) {
     $email = $_POST["studentid"];
     // $remember_me = $_POST["remember_me"];
     $pass = $_POST["pass"];
+    $pass =md5($pass);
     // $pass = md5($pass);
    
 
