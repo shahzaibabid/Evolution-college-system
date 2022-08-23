@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 10, 2022 at 07:26 PM
+-- Generation Time: Aug 23, 2022 at 07:31 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 7.3.31
 
@@ -119,6 +119,33 @@ CREATE TABLE `assignment` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `class`
+--
+
+CREATE TABLE `class` (
+  `id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `class`
+--
+
+INSERT INTO `class` (`id`, `name`) VALUES
+(1, 'XI-Pre-Engineering'),
+(2, 'XII-Pre-Engineering'),
+(3, 'XI-Pre-Medical'),
+(4, 'XII-Pre-Medical'),
+(5, 'XI-Computer Science'),
+(6, 'XII-Computer Science'),
+(7, 'XI-Arts'),
+(8, 'XII-Arts'),
+(9, 'XI-Commerce'),
+(10, 'XII-Commerce');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `contact-us`
 --
 
@@ -136,6 +163,22 @@ CREATE TABLE `contact-us` (
 
 INSERT INTO `contact-us` (`id`, `name`, `email`, `subject`, `message`) VALUES
 (1, 'Demo', 'demo@gmail.com', 'Demo Subject', 'This is demo Message');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `exam`
+--
+
+CREATE TABLE `exam` (
+  `id` int(11) NOT NULL,
+  `class_id` int(11) NOT NULL,
+  `subject` varchar(255) NOT NULL,
+  `date` varchar(255) NOT NULL,
+  `start_time` varchar(255) NOT NULL,
+  `end_time` varchar(255) NOT NULL,
+  `file` longtext NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -345,9 +388,21 @@ ALTER TABLE `assignment`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `class`
+--
+ALTER TABLE `class`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `contact-us`
 --
 ALTER TABLE `contact-us`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `exam`
+--
+ALTER TABLE `exam`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -433,10 +488,22 @@ ALTER TABLE `assignment`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `class`
+--
+ALTER TABLE `class`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
 -- AUTO_INCREMENT for table `contact-us`
 --
 ALTER TABLE `contact-us`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `exam`
+--
+ALTER TABLE `exam`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `fees`
