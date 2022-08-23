@@ -130,12 +130,17 @@ include("header.php");
             <div class="main-cont-wthree-fea">
                 <div class="grids-speci1">
                         <span class="fa fa-folder-open-o"></span>
-                    <h3 class="title-spe">100+</h3>
+						<?php
+							$teach = "SELECT COUNT(id) FROM `teachers`";
+							$teachres = mysqli_query($db, $teach);
+							$trow = mysqli_fetch_array($teachres);
+						?>
+                    <h3 class="title-spe"><?php echo $trow[0]; ?></h3>
                     <p>Teachers</p>
                 </div>
                 <div class="grids-speci1 midd-eff-spe">
                         <span class="fa fa-trophy"></span> 
-                    <h3 class="title-spe">500+</h3>
+                    <h3 class="title-spe">100+</h3>
                     <p> Students</p>
                 </div>
                 <div class="grids-speci1 las-but">
