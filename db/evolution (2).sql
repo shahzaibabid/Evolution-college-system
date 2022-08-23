@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 23, 2022 at 11:57 AM
+-- Generation Time: Aug 23, 2022 at 01:58 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -132,16 +132,8 @@ CREATE TABLE `class` (
 --
 
 INSERT INTO `class` (`id`, `name`) VALUES
-(1, 'XI-Pre-Engineering'),
-(2, 'XII-Pre-Engineering'),
-(3, 'XI-Pre-Medical'),
-(4, 'XII-Pre-Medical'),
-(5, 'XI-Computer Science'),
-(6, 'XII-Computer Science'),
-(7, 'XI-Arts'),
-(8, 'XII-Arts'),
-(9, 'XI-Commerce'),
-(10, 'XII-Commerce');
+(1, 'XI'),
+(2, 'XII');
 
 -- --------------------------------------------------------
 
@@ -179,8 +171,17 @@ CREATE TABLE `exam` (
   `date` varchar(255) NOT NULL,
   `start_time` varchar(255) NOT NULL,
   `end_time` varchar(255) NOT NULL,
-  `file` longtext NOT NULL
+  `file` longtext NOT NULL,
+  `program_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `exam`
+--
+
+INSERT INTO `exam` (`id`, `class_id`, `subject`, `date`, `start_time`, `end_time`, `file`, `program_id`) VALUES
+(1, 1, 'demo subject', '2022-08-23', '16:33', '16:55', '', 1),
+(2, 1, 'demo subject', '2022-08-23', '16:52', '17:00', 'https://forms.gle/VWJJiWC2RtM5Ydvf8', 3);
 
 -- --------------------------------------------------------
 
@@ -284,15 +285,18 @@ CREATE TABLE `subjects` (
   `id` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
   `teacher_email` varchar(255) NOT NULL,
-  `class_id` int(11) NOT NULL
+  `class_id` int(11) NOT NULL,
+  `program_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `subjects`
 --
 
-INSERT INTO `subjects` (`id`, `name`, `teacher_email`, `class_id`) VALUES
-(1, 'English', 'alexandera@teacher.ecs.com', 1);
+INSERT INTO `subjects` (`id`, `name`, `teacher_email`, `class_id`, `program_id`) VALUES
+(1, 'English', 'alexandera@teacher.ecs.com', 1, 0),
+(2, 'Urdu', 'zuhair@teacher.ecs.com', 9, 0),
+(3, 'Math', 'roselean@teacher.ecs.com', 5, 0);
 
 -- --------------------------------------------------------
 
@@ -321,7 +325,9 @@ INSERT INTO `teachers` (`id`, `name`, `email`, `phone`, `pass`, `user_type`, `pr
 (1, 'Ali', 'ali@teacher.ecs.com', '03343427289', '202cb962ac59075b964b07152d234b70', 3, 'down.jpg', '222222222222', 'Male', '38-F, P.E.C.H.S.,Karachi'),
 (3, 'Rohan', 'rohan@teacher.ecs.com', '03323232323', '202cb962ac59075b964b07152d234b70', 3, '377806961.jpg', '222222222222', 'Male', '3rd Fl.Al-Hamra CentreM.A.Jinnah Road, Karachi'),
 (4, 'Issac', 'issac@teacher.ecs.com', '0334342728', '202cb962ac59075b964b07152d234b70', 3, '1463680616a.webp', '11111111111', 'Male', ' #A-60, Block &#39;B&#39; Mian Rashid Minas Road, Karachi'),
-(5, 'Alexandera', 'alexandera@teacher.ecs.com', '0312264622', 'd41d8cd98f00b204e9800998ecf8427e', 3, '1195276961alexandra_fuentes_pic01.jpg', '123456789', 'Female', 'Defence Phase 2');
+(5, 'Alexandera', 'alexandera@teacher.ecs.com', '0312264622', 'd41d8cd98f00b204e9800998ecf8427e', 3, '1195276961alexandra_fuentes_pic01.jpg', '123456789', 'Female', 'Defence Phase 2'),
+(6, 'Zuhair', 'zuhair@teacher.ecs.com', '0312264622', '202cb962ac59075b964b07152d234b70', 3, '2080091011images (1).jpg', '123456789', 'Male', 'Defence'),
+(7, 'Roselean', 'roselean@teacher.ecs.com', '0312264622', '202cb962ac59075b964b07152d234b70', 3, '988319481images (2).jpg', '123456789', 'Female', 'Gulshan');
 
 -- --------------------------------------------------------
 
@@ -532,7 +538,7 @@ ALTER TABLE `contact-us`
 -- AUTO_INCREMENT for table `exam`
 --
 ALTER TABLE `exam`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `fees`
@@ -568,13 +574,13 @@ ALTER TABLE `std_account`
 -- AUTO_INCREMENT for table `subjects`
 --
 ALTER TABLE `subjects`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `teachers`
 --
 ALTER TABLE `teachers`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `timetable`
