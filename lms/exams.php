@@ -21,7 +21,7 @@
     background: blue;
     color: white;
     width:100%;
-    height:50px;
+    height:auto;
     border-radius:2px;
     margin-top:5px;
     padding-top:1px;
@@ -34,9 +34,13 @@ border-style: solid;
   border-color: black;
 }
 
-.table{
-    border-style: solid;
+.tablediv {
+  border-style: solid;
   border-color: black;
+  overflow-x:auto;
+  overflow-y:auto;
+}
+.table{
   font:bold;
 }
 
@@ -52,7 +56,7 @@ include("header.php");
     
 <div class="container content">
         <div class="heading">
-            <h1>&nbsp;&nbsp;Exams Schedule</h1>
+            <h1 style="font-size: 5vw;">&nbsp;&nbsp;Exams Schedule</h1>
         </div>
         <br>
         <div class="container">
@@ -63,31 +67,32 @@ include("header.php");
         </div>
 
         <!-- table start -->
-        <table class="table">
-        <thead>
-            <tr>
-            
-            <th scope="col">Subject Name</th>
-            <th scope="col">Date</th>
-            <th scope="col">Exam Time</th>
-            <th scope="col"></th>
-            
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-            <th scope="row">English</th>
-            <th scope="row">25-august</th>
-            <th scope="row">12:00-12:30 </th>
-            <td> <button class="btn btn-success">Click to commence exam</button> </td>
-            </tr>
-           
-           
-           
-          
-        </tbody>
-        </table>
-
+        <div class="tablediv mb-4">
+            <table class="table">
+                <thead>
+                    <tr>
+                    
+                    <th scope="col">Subject Name</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Exam Time</th>
+                    <th scope="col"></th>
+                    
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                    <th scope="row">English</th>
+                    <th scope="row">25-august</th>
+                    <th scope="row">12:00-12:30 </th>
+                    <td> <button class="btn btn-success">Click to commence exam</button> </td>
+                    </tr>
+                
+                
+                
+                
+                </tbody>
+            </table>
+        </div>
 
 
 </div>

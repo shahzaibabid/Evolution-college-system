@@ -67,7 +67,7 @@ border-style: solid;
     background: blue;
     color: white;
     width:100%;
-    height:50px;
+    height:auto;
     border-radius:2px;
     margin-top:5px;
     padding-top:1px;
@@ -82,9 +82,9 @@ include("header.php");
 <div class="container">
 <div class="container content">
 <div class="heading">
-    <h1>&nbsp;&nbsp;Studying Coures</h1>
+    <h1 style="font-size: 5vw;">&nbsp;&nbsp;Studying Coures</h1>
 </div>
-  <div class="row">
+  <div class="row mb-4">
     <div class="col-md-6 col-sm-12 d-flex justify-content-center" >
     <div class="a-box">
         <div class="img-container">

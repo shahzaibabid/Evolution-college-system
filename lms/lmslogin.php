@@ -115,8 +115,7 @@ footer > p > a {
 </style>
 
 <?php
-session_start();
-$db = mysqli_connect("localhost", "root", "", "evolution");
+    include("../admin/connection/connection.php");
 if (isset($_POST["submit"])) {                    
     $email = $_POST["studentid"];
     // $remember_me = $_POST["remember_me"];
@@ -131,7 +130,7 @@ if (isset($_POST["submit"])) {
         while($row = mysqli_fetch_array($result)) {
             $_SESSION["myuserid"] = $row[0];
             $_SESSION["name"] = $row[1];
-            $_SESSION["mytype"] = $row[15];
+            $_SESSION["mytype"] = $row[14];
             $_SESSION["email"] = $row[3];
         }
 
@@ -156,7 +155,7 @@ if (isset($_POST["submit"])) {
     <main>
         <form id="login_form" class="form_class" action="#" method="post">
             <div class="form_div">
-                <p class="text-center"><?php if(isset($error)){ echo $error; } ?></p>
+                <p class="text-center text-danger"><?php if(isset($error)){ echo $error; } ?></p>
                 <label>Student Id:</label>
                 <input class="field_class" name="studentid" type="text" placeholder="Enter your student id"  required autocomplete="off" autofocus>
                 <label>Password:</label>

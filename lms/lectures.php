@@ -8,10 +8,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 </head>
 <style>
-    <style>
     body{
-        background-color:white;
-        
+        background-color:white;        
     }
     h1{
         font-family:georgia;
@@ -21,7 +19,7 @@
     background: blue;
     color: white;
     width:100%;
-    height:50px;
+    height:auto;
     border-radius:2px;
     margin-top:5px;
     padding-top:1px;
@@ -29,18 +27,21 @@
 .content{
 width: 80%;
 background-color: white;
-height:500px;
+height:auto;
 border-style: solid;
   border-color: black;
 }
 
-.table{
-    border-style: solid;
+.tablediv {
+  border-style: solid;
   border-color: black;
+  overflow-x:auto;
+  overflow-y:auto;
+}
+.table{
   font:bold;
 }
 
-</style>
 </style>
 <body>
 <?php
@@ -52,7 +53,7 @@ include("header.php");
     
 <div class="container content">
         <div class="heading">
-            <h1>&nbsp;&nbsp;Subject Name</h1>
+            <h1 style="font-size: 5vw;">&nbsp;&nbsp;Subject Name</h1>
         </div>
         <br>
         <div class="container">
@@ -63,38 +64,40 @@ include("header.php");
         </div>
 
         <!-- table start -->
-        <table class="table">
-        <thead>
-            <tr>
-            
-            <th scope="col">Lecture Number</th>
-            <th scope="col">Lecture Link</th>
-            
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-            <th scope="row">1</th>
-            <td> <button class="btn btn-success">Click to watch Lecture 01 </button> </td>
-            </tr>
-            <tr>
-            <th scope="row">2</th>
-            <td> <button class="btn btn-success">Click to watch Lecture 02 </button> </td>
-            </tr>
-            <tr>
-            <th scope="row">3</th>
-            <td> <button class="btn btn-success">Click to watch Lecture 03 </button> </td>
-            </tr>
-            <tr>
-            <th scope="row">4</th>
-            <td> <button class="btn btn-success">Click to watch Lecture 04 </button> </td>
-            </tr>
-            <tr>
-            <th scope="row">5</th>
-            <td> <button class="btn btn-success">Click to watch Lecture 05 </button> </td>
-            </tr>
-        </tbody>
-        </table>
+        <div class="tablediv mb-4">
+            <table class="table">
+                <thead>
+                    <tr>
+                    
+                    <th scope="col">Lecture Number</th>
+                    <th scope="col">Lecture Link</th>
+                    
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                    <th scope="row">1</th>
+                    <td> <button class="btn btn-success">Click to watch Lecture 01 </button> </td>
+                    </tr>
+                    <tr>
+                    <th scope="row">2</th>
+                    <td> <button class="btn btn-success">Click to watch Lecture 02 </button> </td>
+                    </tr>
+                    <tr>
+                    <th scope="row">3</th>
+                    <td> <button class="btn btn-success">Click to watch Lecture 03 </button> </td>
+                    </tr>
+                    <tr>
+                    <th scope="row">4</th>
+                    <td> <button class="btn btn-success">Click to watch Lecture 04 </button> </td>
+                    </tr>
+                    <tr>
+                    <th scope="row">5</th>
+                    <td> <button class="btn btn-success">Click to watch Lecture 05 </button> </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
 
 
 

@@ -1,5 +1,5 @@
 <?php
-    include("../topbar.php");
+    include("../admin/connection/connection.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -76,83 +76,36 @@ include("header.php");
       <br><br><br><br> 
       
       <div class="container">
-  <div class="row">
- 
-    <div class="col-md-4 col-sm-12 d-flex justify-content-center">
-    <a href="lectures.php">
-      <div class="a-box">
-        <div class="img-container">
-          <div class="img-inner">
-            <div class="inner-skew">
-              <img src="https://images.unsplash.com/photo-1584791097929-aa825fe8e1e1?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjE0NTg5fQ">
+        <div class="row">
+          <?php
+            $sel = "SELECT * FROM `teachers`";
+            $res = mysqli_query($db,$sel);
+            while($row = mysqli_fetch_array($res)){
+          ?>
+            <div class="col-lg-4 col-md-6 col-sm-12 d-flex justify-content-center">
+              <a href="lectures.php">
+                <div class="a-box">
+                  <div class="img-container">
+                    <div class="img-inner">
+                      <div class="inner-skew">
+                        <img src="../admin/profile/<?php echo $row[6]; ?>" style="width:300px;">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="text-container">
+                    <h3><?php echo $row[1]; ?></h3>
+                    <div>
+                    Subject Name
+                    </div>
+                  </div>
+                </div>
+              </a>
             </div>
-          </div>
-        </div>
-        <div class="text-container">
-          <h3>  Teacher Name</h3>
-          <div>
-           Subject Name
-          </div>
+          <?php
+            }
+          ?>
         </div>
       </div>
-          </a>
-    </div>
-
-    <!-- card 02 -->
-    <div class="col-md-4 col-sm-12 d-flex justify-content-center">
-      <div class="a-box">
-        <div class="img-container">
-          <div class="img-inner">
-            <div class="inner-skew">
-              <img src="https://images.unsplash.com/photo-1584791097929-aa825fe8e1e1?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjE0NTg5fQ">
-            </div>
-          </div>
-        </div>
-        <div class="text-container">
-          <h3>Teacher Name</h3>
-          <div>
-           Subject Name
-          </div>
-        </div>
-      </div>
-    </div>
-    
-   <!-- card 02 -->
-   <div class="col-md-4 col-sm-12 d-flex justify-content-center">
-      <div class="a-box">
-        <div class="img-container">
-          <div class="img-inner">
-            <div class="inner-skew">
-              <img src="https://images.unsplash.com/photo-1584791097929-aa825fe8e1e1?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjE0NTg5fQ">
-            </div>
-          </div>
-        </div>
-        <div class="text-container">
-          <h3>Teacher Name</h3>
-          <div>
-           Subject Name
-          </div>
-        </div>
-      </div>
-    </div>
-    
-  </div>
-</div>
-
-<!-- <div class="a-box">
-  <div class="img-container">
-    <div class="img-inner">
-      <div class="inner-skew">
-        <img src="https://images.unsplash.com/photo-1584791097929-aa825fe8e1e1?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjE0NTg5fQ">
-      </div>
-    </div>
-  </div>
-  <div class="text-container">
-    <h3>A blue bird</h3>
-    <div>
-      This a demo experiment to skew image container. It looks good.
-  </div>
-</div> -->
     </div>
  
 </body>
