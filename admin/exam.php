@@ -15,7 +15,8 @@
         <?php
     }
 
-    if(isset($_POST["submit"])) {
+    if(isset($_POST["submit"])) {        
+        $program_course = $_POST["program_course"];
         $classes = $_POST["class"];
         $name = $_POST["subject"];
         $name = mysqli_real_escape_string($db,$name);
@@ -27,7 +28,7 @@
         $mytime2 = mysqli_real_escape_string($db,$mytime2);
         $exam = $_POST["exam"];
         $exam = mysqli_real_escape_string($db,$exam);
-        $examination = "INSERT INTO `exam`(`class_id`, `subject`, `date`, `start_time`, `end_time`, `file`) VALUES ('$classes','$name','$mydate','$mytime','$mytime2','$exam')";
+        $examination = "INSERT INTO `exam`(`class_id`, `subject`, `date`, `start_time`, `end_time`, `file`, `program_id`) VALUES ('$classes','$name','$mydate','$mytime','$mytime2','$exam','$program_course')";
         $examination_result = mysqli_query($db, $examination);        
         ?>
             <Script>
@@ -136,12 +137,12 @@
 
             <!-- Profile Start -->
             <div class="container-fluid pt-4 px-4">
-                <h1 class="text-center">Movies</h1>
+                <h1 class="text-center">Exams</h1>
                 <div class="row g-4">                    
                     <div class="col-12">
                         <div class="bg-secondary rounded h-100 p-4">
                             <div class="d-flex justify-content-between mb-4">
-                                <h6>All Movies</h6>
+                                <h6>All Exams</h6>
                                 <!-- Button trigger modal -->
                                 <button type="button" class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#staticBackdrop1">
                                     Add
@@ -158,8 +159,8 @@
                                                 <button type="button" class="btn-close bg-light" data-bs-dismiss="modal" aria-label="Close"></button>
                                             </div>
                                             <div class="modal-body">
-                                                <div class="bg-secondary rounded h-100 p-4">                                                    
-                                                    <div class="form-floating mb-3">
+                                                <div class="bg-secondary  row rounded h-100 p-4">                                                    
+                                                    <div class="col-md-6 form-floating mb-3">
                                                         <select class="form-control bg-dark" name="class">
                                                             <option value="0">Select Class</option>
                                                             <?php
@@ -168,6 +169,19 @@
                                                                 $i = 0;
                                                                 while($row = mysqli_fetch_array($result)) {
                                                                     ?><option value="<?php echo $row[0]; ?>"><?php echo $row[1]; ?></option><?php
+                                                                }
+                                                            ?>
+                                                        </select>
+                                                    </div>
+                                                    <div class="col-md-6 form-floating mb-3">
+                                                        <select class="form-control bg-dark" name="program_course">
+                                                            <option value="0">Select Program</option>
+                                                            <?php
+                                                                $sel_program_course = "SELECT * FROM `program_course`";
+                                                                $result_program_course = mysqli_query($db,$sel_program_course);
+                                                                $j = 0;
+                                                                while($row_p = mysqli_fetch_array($result_program_course)) {
+                                                                    ?><option value="<?php echo $row_p[0]; ?>"><?php echo $row_p[1]; ?></option><?php
                                                                 }
                                                             ?>
                                                         </select>

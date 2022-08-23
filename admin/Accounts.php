@@ -41,9 +41,10 @@
             $t_ins = "INSERT INTO `teachers`(`name`, `email`, `phone`, `pass`, `profile`, `CNIC`, `gender`, `address`) VALUES ('$t_name','$t_email','$t_phone','$t_pass','$t_profile','$t_cnic','$t_gndr','$t_address')";
             $t_result = mysqli_query($db, $t_ins);
             
+            $program_course = $_POST["program_course"];
             $classes = $_POST["class"];
             $sub = $_POST["sub"];
-            $teach_class = "INSERT INTO `subjects`(`name`, `teacher_email`, `class_id`) VALUES ('$sub','$t_email','$classes')";
+            $teach_class = "INSERT INTO `subjects`(`name`, `teacher_email`, `class_id`, `program_id`) VALUES ('$sub','$t_email','$classes','$program_course')";
             $tec_res = mysqli_query($db,$teach_class);
             ?>
             <Script>
@@ -363,8 +364,21 @@
                                                                 }
                                                             ?>
                                                         </select>
-                                                    </div>                                                    
+                                                    </div>                   
                                                     <div class="col-md-6 form-floating mb-3">
+                                                        <select class="form-control bg-dark" name="program_course">
+                                                            <option value="0">Select Program</option>
+                                                            <?php
+                                                                $sel_program_course = "SELECT * FROM `program_course`";
+                                                                $result_program_course = mysqli_query($db,$sel_program_course);
+                                                                $j = 0;
+                                                                while($row_p = mysqli_fetch_array($result_program_course)) {
+                                                                    ?><option value="<?php echo $row_p[0]; ?>"><?php echo $row_p[1]; ?></option><?php
+                                                                }
+                                                            ?>
+                                                        </select>
+                                                    </div>                
+                                                    <div class="form-floating mb-3">
                                                         <input type="text" class="form-control" name="sub" id="floatingInput" placeholder="Teacher Name">
                                                         <label for="floatingInput">Subject</label>
                                                     </div>

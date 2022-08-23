@@ -95,7 +95,9 @@ include("header.php");
                   <div class="text-container">
                     <h3><?php echo $row[1]; ?></h3>
                     <div>
-                    Subject Name
+                      <?php
+                        $sel_sub
+                      ?>
                     </div>
                   </div>
                 </div>
