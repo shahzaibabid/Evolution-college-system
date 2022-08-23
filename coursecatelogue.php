@@ -21,7 +21,7 @@
     background: blue;
     color: white;
     width:100%;
-    height:50px;
+    height:auto;
     border-radius:2px;
     margin-top:5px;
     padding-top:1px;
@@ -29,18 +29,12 @@
 .content{
 width: 80%;
 background-color: white;
-height:1700px;
+height:auto;
 border-style: solid;
   border-color: black;
 }
 
-.table{
-    border-style: solid;
-  border-color: black;
-  font:bold;
-}
-
- .bullet{
+.bullet{
     font-family: georgia;
     font-size:x-large;
   
@@ -71,7 +65,7 @@ include("header.php");
 <br><br>
 <div class="container content">
 <div class="heading">
-    <h1>&nbsp;&nbsp;COURSES CATALOGUE</h1>
+    <h1 style="font-size: 5vw;">&nbsp;&nbsp;COURSES CATALOGUE</h1>
 </div>
 <br>
 
@@ -89,7 +83,7 @@ include("header.php");
 </div>
 
 
-<center><h1>Pre-Medical Program Courses</h1></center>
+<center><h1> <u>Pre-Medical Program Courses</u></h1></center>
 
 <div class="bullet">
 <ol>
@@ -103,7 +97,7 @@ include("header.php");
 </ol>
 </div>
 
-<center><h1>Computer Science Program Courses</h1></center>
+<center><h1> <u>Computer Science Program Courses</u> </h1></center>
 
 <div class="bullet">
 <ol>
@@ -116,7 +110,7 @@ include("header.php");
 </ol>
 </div>
 
-<center><h1>Arts Program Courses</h1></center>
+<center><h1> <u>Arts Program Courses</u> </h1></center>
 
 <div class="bullet">
 <ol>
@@ -129,7 +123,7 @@ include("header.php");
 </ol>
 </div>
 
-<center><h1>Commerce Program Courses</h1></center>
+<center><h1> <u>Commerce Program Courses</u> </h1></center>
 
 <div class="bullet">
 <ol>

@@ -21,7 +21,7 @@
     background: blue;
     color: white;
     width:100%;
-    height:50px;
+    height:auto;
     border-radius:2px;
     margin-top:5px;
     padding-top:1px;
@@ -29,14 +29,18 @@
 .content{
 width: 80%;
 background-color: white;
-height:500px;
+height:auto;
 border-style: solid;
   border-color: black;
 }
 
-.table{
-    border-style: solid;
+.tablediv {
+  border-style: solid;
   border-color: black;
+  overflow-x:auto;
+  overflow-y:auto;
+}
+.table{
   font:bold;
 }
 
@@ -70,59 +74,61 @@ include("header.php");
 <br><br>
 <div class="container content">
 <div class="heading">
-    <h1>&nbsp;&nbsp;Fee Structare For Programs</h1>
+    <h1 style="font-size: 5vw;">&nbsp;&nbsp;Fee Structare For Programs</h1>
 </div>
 <br>
 
 
 <!-- table start -->
-<table class="table">
-  <thead>
-    <tr>
+<div class="tablediv">
+  <table class="table">
+    <thead>
+      <tr>
+        
+        <th scope="col">Program</th>
+        <th scope="col">Admission Fee</th>
+        <th scope="col">Montly Fee</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">pre-engineering</th>
+        <td>5000</td>
+        <td>2500</td>
       
-      <th scope="col">Program</th>
-      <th scope="col">Admission Fee</th>
-      <th scope="col">Montly Fee</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row">pre-engineering</th>
-      <td>5000</td>
-      <td>2500</td>
+      </tr>
     
-    </tr>
-  
-    <tr>
-      <th scope="row">pre-Medical</th>
-      <td>5000</td>
-      <td>2500</td>
+      <tr>
+        <th scope="row">pre-Medical</th>
+        <td>5000</td>
+        <td>2500</td>
+      
+      </tr>
     
-    </tr>
-   
-    <tr>
-      <th scope="row">  Computer Science</th>
-      <td>5000</td>
-      <td>2500</td>
-    
-    </tr>
+      <tr>
+        <th scope="row">  Computer Science</th>
+        <td>5000</td>
+        <td>2500</td>
+      
+      </tr>
 
-    <tr>
-      <th scope="row">  Arts </th>
-      <td>5000</td>
-      <td>2500</td>
-    
-    </tr>
+      <tr>
+        <th scope="row">  Arts </th>
+        <td>5000</td>
+        <td>2500</td>
+      
+      </tr>
 
-    <tr>
-      <th scope="row">  Commerce</th>
-      <td>5000</td>
-      <td>2500</td>
-    
-    </tr>
+      <tr>
+        <th scope="row">  Commerce</th>
+        <td>5000</td>
+        <td>2500</td>
+      
+      </tr>
 
-  </tbody>
-</table>
+    </tbody>
+  </table>
+</div>
 
 <h3 style="color:red">Note: The College reserves the right to make any change in the admission Fees.</h3>
 <br>
