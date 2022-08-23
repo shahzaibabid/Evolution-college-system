@@ -85,7 +85,7 @@ include("header.php");
     <h1>&nbsp;&nbsp;Studying Coures</h1>
 </div>
   <div class="row">
-    <div class="col-md-6 col-sm-12 border">
+    <div class="col-md-6 col-sm-12 d-flex justify-content-center" >
     <div class="a-box">
         <div class="img-container">
           <div class="img-inner">
@@ -102,7 +102,7 @@ include("header.php");
         </div>
       </div>
     </div>
-    <div class="col-md-6 col-sm-12 border">
+    <div class="col-md-6 col-sm-12 d-flex justify-content-center">
     <div class="a-box">
         <div class="img-container">
           <div class="img-inner">
@@ -119,7 +119,7 @@ include("header.php");
         </div>
       </div>
     </div>
-    <div class="col-md-6 col-sm-12 border">
+    <div class="col-md-6 col-sm-12 d-flex justify-content-center">
     <div class="a-box">
         <div class="img-container">
           <div class="img-inner">
@@ -136,7 +136,7 @@ include("header.php");
         </div>
       </div>
     </div>
-    <div class="col-md-6 col-sm-12 border">
+    <div class="col-md-6 col-sm-12 d-flex justify-content-center">
     <div class="a-box">
         <div class="img-container">
           <div class="img-inner">
@@ -153,7 +153,7 @@ include("header.php");
         </div>
       </div>
     </div>
-    <div class="col-md-6 col-sm-12 border">
+    <div class="col-md-6 col-sm-12 d-flex justify-content-center">
     <div class="a-box">
         <div class="img-container">
           <div class="img-inner">
@@ -170,7 +170,7 @@ include("header.php");
         </div>
       </div>
     </div>
-    <div class="col-md-6 col-sm-12 border">
+    <div class="col-md-6 col-sm-12 d-flex justify-content-center">
     <div class="a-box">
         <div class="img-container">
           <div class="img-inner">

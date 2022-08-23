@@ -78,7 +78,7 @@ include("header.php");
       <div class="container">
   <div class="row">
  
-    <div class="col-md-4 col-sm-12 border">
+    <div class="col-md-4 col-sm-12 d-flex justify-content-center">
     <a href="lectures.php">
       <div class="a-box">
         <div class="img-container">
@@ -99,7 +99,7 @@ include("header.php");
     </div>
 
     <!-- card 02 -->
-    <div class="col-md-4 col-sm-12 border">
+    <div class="col-md-4 col-sm-12 d-flex justify-content-center">
       <div class="a-box">
         <div class="img-container">
           <div class="img-inner">
@@ -118,7 +118,7 @@ include("header.php");
     </div>
     
    <!-- card 02 -->
-   <div class="col-md-4 col-sm-12 border">
+   <div class="col-md-4 col-sm-12 d-flex justify-content-center">
       <div class="a-box">
         <div class="img-container">
           <div class="img-inner">

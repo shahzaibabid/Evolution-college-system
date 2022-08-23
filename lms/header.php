@@ -24,7 +24,16 @@
             <a class="nav-link active" aria-current="page" href="progress.php">Progress</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="studyscheme.php">My Study Scheme</a>
+            <a class="nav-link active" aria-current="page" href="studyscheme.php"> Study Scheme</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="profile.php"> Profile</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="exams.php">Exam</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="signout.php">Signout</a>
           </li>
          
          
