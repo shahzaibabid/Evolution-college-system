@@ -215,6 +215,7 @@
                 <ul class="menu-items">
                     <li><a class="text-secondary" href="index.php">Home</a></li>
                     <li><a class="text-secondary" href="about.php">About</a></li>
+                    <li><a class="text-secondary" href="lms/lmslogin.php">LMS_Login</a></li>
                     <li class="dropdown">
                         <div class="dropdown-toggle text-secondary" style="border: none; font-weight: 500;" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                         Admissions
