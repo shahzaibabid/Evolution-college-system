@@ -40,6 +40,7 @@
     color: #000;
     opacity: 0.85;
     z-index: 100;
+    
 }
 
 .navbar-container{
@@ -141,12 +142,12 @@
     .navbar .menu-items{
         padding-top: 100px;
         background: #fff;
-        height: 100vh;
+        height: auto;
         width: 300px;
         transform: translate(-150%);
         display: flex;
         flex-direction: column;
-        margin-left: -40px;
+        margin-left: -10px;
         padding-left: 40px;
         transition: transform 0.5s ease-in-out;
         box-shadow:  5px 0px 10px 0px #aaa;
