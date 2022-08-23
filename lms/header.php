@@ -21,7 +21,7 @@
             <a class="nav-link active" aria-current="page" href="lectureschedule.php">Lecture Schedule</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Progress</a>
+            <a class="nav-link active" aria-current="page" href="progress.php">Progress</a>
           </li>
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="studyscheme.php">My Study Scheme</a>
