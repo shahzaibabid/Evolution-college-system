@@ -102,14 +102,28 @@ include("header.php");
         <div class="wrapper">
                 <div class="top-map">
                      <div class="map-content-9">
-                            
-                        <form action="https://sendmail.w3layouts.com/submitForm" method="post">
-                            
-                                <input type="text" name="w3lName" id="w3lName"  placeholder="Name" required="">
-                                <input type="email" name="w3lSender" id="w3lSender" placeholder="Email" required="">
-                                <input type="text" name="w3lName" id="w3lName"  placeholder="Subject" required="">
-                                <textarea name="w3lMessage" id="w3lMessage" placeholder="Message" required=""></textarea>
-                             <button type="submit">Send</button>
+                            <?php
+                                if(isset($_POST["submit"])) {
+                                    $name = $_POST["name"];
+                                    $email = $_POST["email"];
+                                    $subject = $_POST["subject"];
+                                    $message = $_POST["message"];
+                                    $message = mysqli_real_escape_string($db,$message);
+                                    $cont = "INSERT INTO `contact-us`(`name`, `email`, `subject`, `message`) VALUES ('$name','$email','$subject','$message')";
+                                    $result = mysqli_query($db, $cont);
+                                    ?>
+                                    <Script>
+                                        window.location.assign("./index.php");
+                                    </Script>            
+                                    <?php
+                                }
+                            ?>
+                        <form action="#" method="post">                            
+                                <input type="text" name="name" id="w3lName"  placeholder="Name" required="">
+                                <input type="email" name="email" id="w3lSender" placeholder="Email" required="">
+                                <input type="text" name="subject" id="w3lName"  placeholder="Subject" required="">
+                                <textarea name="message" id="w3lMessage" placeholder="Message" required=""></textarea>
+                             <button type="submit" name="submit">Send</button>
                         </form>
                     </div>
                     <div class="cont-details">

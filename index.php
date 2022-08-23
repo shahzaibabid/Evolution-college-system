@@ -82,7 +82,7 @@ include("header.php");
 </section>
 
 <!-- slider start -->
-<div class="row">
+<div class="row w-100">
     <div class="col-md-4 col-sm-12" style="margin: 0px;">
         <div id="carouselExampleSlidesOnly" class="w-100 carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner w-100">

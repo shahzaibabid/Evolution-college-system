@@ -20,7 +20,7 @@
     background: blue;
     color: white;
     width:100%;
-    height:50px;
+    height:auto;
     border-radius:2px;
     margin-top:5px;
     padding-top:1px;
@@ -28,14 +28,18 @@
 .content{
 width: 80%;
 background-color: white;
-height:1400px;
+height:auto;
 border-style: solid;
   border-color: black;
 }
 
-.table{
-    border-style: solid;
+.tablediv {
+  border-style: solid;
   border-color: black;
+  overflow-x:auto;
+  overflow-y:auto;
+}
+.table{
   font:bold;
 }
 
@@ -69,7 +73,7 @@ include("header.php");
 <br><br>
 <div class="container content">
 <div class="heading">
-    <h1>&nbsp;&nbsp;Admission Schedule & Procedure</h1>
+    <h1 style="font-size: 5vw;">&nbsp;&nbsp;Admission Schedule & Procedure</h1>
 </div>
 <br>
 <div class="container">
@@ -80,39 +84,41 @@ include("header.php");
 </div>
 
 <!-- table start -->
-<table class="table">
-  <thead>
-    <tr>
+<div class="tablediv">
+  <table class="table">
+    <thead>
+      <tr>
+        
+        <th scope="col">Description</th>
+        <th scope="col">Date</th>
+        <th scope="col">Day</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">Admission Open – Fall 2022</th>
+        <td>18 July</td>
+        <td>Monday</td>
       
-      <th scope="col">Description</th>
-      <th scope="col">Date</th>
-      <th scope="col">Day</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row">Admission Open – Fall 2022</th>
-      <td>18 July</td>
-      <td>Monday</td>
+      </tr>
     
-    </tr>
-  
-    <tr>
-      <th scope="row"> Last Date to apply for Admissions</th>
-      <td>31 August</td>
-      <td>Tuesday</td>
+      <tr>
+        <th scope="row"> Last Date to apply for Admissions</th>
+        <td>31 August</td>
+        <td>Tuesday</td>
+      
+      </tr>
     
-    </tr>
-   
-    <tr>
-      <th scope="row">  Commencement of Class – Fall 2022</th>
-      <td>19 September</td>
-      <td>Monday</td>
-    
-    </tr>
+      <tr>
+        <th scope="row">  Commencement of Class – Fall 2022</th>
+        <td>19 September</td>
+        <td>Monday</td>
+      
+      </tr>
 
-  </tbody>
-</table>
+    </tbody>
+  </table>
+</div>
 
 <h3 style="color:red">Note: The College reserves the right to make any change in the admission schedule.</h3>
 <br>
@@ -129,53 +135,55 @@ include("header.php");
 
 
 <!-- table start -->
-<table class="table">
-  <thead>
-    <tr>
+<div class="tablediv">
+  <table class="table">
+    <thead>
+      <tr>
+        
+        <th scope="col">Program</th>
+        <th scope="col">Program Duration</th>
+        <th scope="col">Program Elibility</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">Pre-engineering</th>
+        <td>2-years</td>
+        <td>Minimum 60% in Matric</td>
       
-      <th scope="col">Program</th>
-      <th scope="col">Program Duration</th>
-      <th scope="col">Program Elibility</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row">Pre-engineering</th>
-      <td>2-years</td>
-      <td>Minimum 60% in Matric</td>
+      </tr>
     
-    </tr>
-  
-    <tr>
-      <th scope="row"> Pre-Medical</th>
-      <td>2-years</td>
-      <td>Minimum 65% in Matric</td>
+      <tr>
+        <th scope="row"> Pre-Medical</th>
+        <td>2-years</td>
+        <td>Minimum 65% in Matric</td>
+      
+      </tr>
     
-    </tr>
-   
-    <tr>
-      <th scope="row"> Computer Science</th>
-      <td>2-years</td>
-      <td>Minimum 70% in Matric</td>
-    
-    </tr>
+      <tr>
+        <th scope="row"> Computer Science</th>
+        <td>2-years</td>
+        <td>Minimum 70% in Matric</td>
+      
+      </tr>
 
-    <tr>
-      <th scope="row"> Arts</th>
-      <td>2-years</td>
-      <td>Minimum 40% in Matric</td>
-    
-    </tr>
+      <tr>
+        <th scope="row"> Arts</th>
+        <td>2-years</td>
+        <td>Minimum 40% in Matric</td>
+      
+      </tr>
 
-    <tr>
-      <th scope="row"> Commerce</th>
-      <td>2-years</td>
-      <td>Minimum 50% in matric</td>
-    
-    </tr>
+      <tr>
+        <th scope="row"> Commerce</th>
+        <td>2-years</td>
+        <td>Minimum 50% in matric</td>
+      
+      </tr>
 
-  </tbody>
-</table>
+    </tbody>
+  </table>
+</div>
 
 <br>
 <center><h1>General Instructions For Applying Candidates</h1></center>

@@ -2,7 +2,11 @@
 session_start();
 
 if($_SESSION["name"] == null) {
-    header("Location: signin.php");
+    ?>
+    <Script>
+        window.location.assign("./login.php");
+    </Script>            
+    <?php
 }
 else {
 
@@ -12,6 +16,10 @@ session_unset();
 // destroy the session
 session_destroy();    
 
-header("Location: index.php");
+?>
+<Script>
+    window.location.assign("./index.php");
+</Script>            
+<?php
 }
 ?>
