@@ -73,7 +73,11 @@ h2{
 
 include("topbar.php");
 if(isset($_SESSION["name"]) != null) {
-  header("Location: index.php");
+  ?>
+  <Script>
+      window.location.assign("./index.php");
+  </Script>            
+  <?php
 }
 
 if (isset($_POST["submit"])) {                    
