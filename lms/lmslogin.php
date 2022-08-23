@@ -166,7 +166,8 @@ if (isset($_POST["submit"])) {
         </form>
     </main>
     <footer>
-        <p>Copyrights <a href="#">@Evolution College System<a></p>
+        <p> Copyright &copy; |All rights reserved by Evolution_College_System| <br> <i class="ion-ios-heart" aria-hidden="true">Designed & developed by Shahzaib & Charles</i> 
+							 </p>
     </footer>
 </body>
 
