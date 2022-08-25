@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 23, 2022 at 01:58 PM
--- Server version: 10.4.24-MariaDB
--- PHP Version: 8.1.6
+-- Generation Time: Aug 25, 2022 at 11:50 AM
+-- Server version: 10.4.21-MariaDB
+-- PHP Version: 7.3.31
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -167,7 +167,7 @@ INSERT INTO `contact-us` (`id`, `name`, `email`, `subject`, `message`) VALUES
 CREATE TABLE `exam` (
   `id` int(11) NOT NULL,
   `class_id` int(11) NOT NULL,
-  `subject` varchar(255) NOT NULL,
+  `subject` int(11) NOT NULL,
   `date` varchar(255) NOT NULL,
   `start_time` varchar(255) NOT NULL,
   `end_time` varchar(255) NOT NULL,
@@ -180,8 +180,7 @@ CREATE TABLE `exam` (
 --
 
 INSERT INTO `exam` (`id`, `class_id`, `subject`, `date`, `start_time`, `end_time`, `file`, `program_id`) VALUES
-(1, 1, 'demo subject', '2022-08-23', '16:33', '16:55', '', 1),
-(2, 1, 'demo subject', '2022-08-23', '16:52', '17:00', 'https://forms.gle/VWJJiWC2RtM5Ydvf8', 3);
+(3, 1, 1, '2022-08-25', '17:00', '17:30', 'https://forms.gle/iYCupU8g5vMGJVHw5', 5);
 
 -- --------------------------------------------------------
 
@@ -263,17 +262,18 @@ CREATE TABLE `std_account` (
   `religion` varchar(225) NOT NULL,
   `program` varchar(225) NOT NULL,
   `profile` varchar(225) NOT NULL,
-  `admission_id` int(11) NOT NULL
+  `admission_id` int(11) NOT NULL,
+  `class_id` int(11) NOT NULL DEFAULT 1,
+  `user_type` int(11) NOT NULL DEFAULT 4
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `std_account`
 --
 
-INSERT INTO `std_account` (`id`, `name`, `father_name`, `email`, `phone`, `pass`, `dob`, `gender`, `address`, `cnic_bayform`, `citizenship`, `religion`, `program`, `profile`, `admission_id`) VALUES
-(4, 'Charles Stephen', 'Adwin', 'default@student.ecs.com', '03343427289', '202cb962ac59075b964b07152d234b70', '2022-08-03', 'Male', 'B Road, Nursery Bus Stop, Karachi, Karachi', '12345678912', 'Pakistani', 'Christianity', 'Commerce', '14511422501639739768pFHNrg.jpg', 10),
-(5, 'Shahzaib', 'Hammad', 'default@student.ecs.com', '0334342728', '202cb962ac59075b964b07152d234b70', '2022-08-25', 'Male', '72-N, P.E.C.H.S.,Karachi', '98765432198', 'Pakistani', 'Islam', 'Pre-Medical', '2128280155769866400shahzaib.jpg', 11),
-(7, 'Ahmer', 'Khan', 'default@student.ecs.com', '03343427289', '202cb962ac59075b964b07152d234b70', '03-07-2000', '', '72-N, P.E.C.H.S., Karachi', '15987423658', 'Pakistani', 'Islam', '', '14511422501639739768pFHNrg.jpg', 0);
+INSERT INTO `std_account` (`id`, `name`, `father_name`, `email`, `phone`, `pass`, `dob`, `gender`, `address`, `cnic_bayform`, `citizenship`, `religion`, `program`, `profile`, `admission_id`, `class_id`, `user_type`) VALUES
+(4, 'Charles Stephen', 'Adwin', 'charles@student.ecs.com', '03343427289', '202cb962ac59075b964b07152d234b70', '2022-08-03', 'Male', 'B Road, Nursery Bus Stop, Karachi, Karachi', '12345678912', 'Pakistani', 'Christianity', 'Commerce', '14511422501639739768pFHNrg.jpg', 10, 1, 4),
+(5, 'Shahzaib', 'Hammad', 'shahzaib@student.ecs.com', '0334342728', '202cb962ac59075b964b07152d234b70', '2022-08-25', 'Male', '72-N, P.E.C.H.S.,Karachi', '98765432198', 'Pakistani', 'Islam', 'Pre-Medical', '2128280155769866400shahzaib.jpg', 11, 1, 4);
 
 -- --------------------------------------------------------
 
@@ -295,8 +295,11 @@ CREATE TABLE `subjects` (
 
 INSERT INTO `subjects` (`id`, `name`, `teacher_email`, `class_id`, `program_id`) VALUES
 (1, 'English', 'alexandera@teacher.ecs.com', 1, 0),
-(2, 'Urdu', 'zuhair@teacher.ecs.com', 9, 0),
-(3, 'Math', 'roselean@teacher.ecs.com', 5, 0);
+(2, 'Urdu', 'zuhair@teacher.ecs.com', 1, 0),
+(3, 'Math', 'roselean@teacher.ecs.com', 1, 3),
+(4, 'Physics', 'issac@teacher.ecs.com', 1, 2),
+(5, 'Chemistry', 'rohan@teacher.ecs.com', 1, 5),
+(6, 'Islamiat', 'ali@teacher.ecs.com', 1, 5);
 
 -- --------------------------------------------------------
 
@@ -348,6 +351,99 @@ CREATE TABLE `timetable` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `timetable6`
+--
+
+CREATE TABLE `timetable6` (
+  `id` int(11) NOT NULL,
+  `time` varchar(255) NOT NULL,
+  `mon` varchar(255) NOT NULL,
+  `tues` varchar(255) NOT NULL,
+  `wed` varchar(255) NOT NULL,
+  `thurs` varchar(255) NOT NULL,
+  `fri` varchar(255) NOT NULL,
+  `sat` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `timetable6`
+--
+
+INSERT INTO `timetable6` (`id`, `time`, `mon`, `tues`, `wed`, `thurs`, `fri`, `sat`) VALUES
+(1, '8:00-8:30', 'English', 'P-studies', 'English', 'Science', 'Math', 'Math'),
+(2, '8:30-9:00', 'English', 'Urdu', 'Science', 'English', 'English', ''),
+(3, '9:00-9:30', 'Urdu', 'Sindhi', 'Sindhi', 'Islamiat/Religion', 'Science', ''),
+(4, '9:30-10:30', 'Math', 'Islamiat/Religion', 'Urdu', 'Urdu', 'Sindhi', ''),
+(5, '10:30-11:00', 'B', 'R', 'E', 'A', 'K', 'Science'),
+(6, '11:00-11:30', 'Science', 'Math', 'Math', 'Math', 'Urdu', ''),
+(7, '11:30-12:00', 'P-studies', 'English', 'English', 'Sindhi', 'Science', ''),
+(8, '12:00-12:30', 'Sindhi', 'Science', 'Islamiat/Religion', 'English', 'Math', '');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `timetable7`
+--
+
+CREATE TABLE `timetable7` (
+  `id` int(11) NOT NULL,
+  `time` varchar(255) NOT NULL,
+  `mon` varchar(255) NOT NULL,
+  `tues` varchar(255) NOT NULL,
+  `wed` varchar(255) NOT NULL,
+  `thurs` varchar(255) NOT NULL,
+  `fri` varchar(255) NOT NULL,
+  `sat` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `timetable7`
+--
+
+INSERT INTO `timetable7` (`id`, `time`, `mon`, `tues`, `wed`, `thurs`, `fri`, `sat`) VALUES
+(1, '8:00-3:30', 'Urdu', 'Urdu', 'English', 'Science', 'Math', ''),
+(2, '8:30-9:00', 'English', 'Urdu', 'Science', 'English', 'English', ''),
+(3, '9:00-9:30', 'Urdu', 'Sindhi', 'Sindhi', 'Islamiat/Religion', 'Science', 'English'),
+(4, '9:30-10:30', 'Math', 'Islamiat/Religion', 'Urdu', 'Urdu', 'Sindhi', ''),
+(5, '10:30-11:00', 'B', 'R', 'E', 'A', 'K', ''),
+(6, '11:00-11:30', 'Science', 'Math', 'Math', 'Math', 'Urdu', ''),
+(7, '11:30-12:00', 'P-studies', 'English', 'English', 'Sindhi', 'Science', ''),
+(8, '12:00-12:30', 'Sindhi', 'Science', 'Islamiat/Religion', 'English', 'Math', '');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `timetable8`
+--
+
+CREATE TABLE `timetable8` (
+  `id` int(11) NOT NULL,
+  `time` varchar(255) NOT NULL,
+  `mon` varchar(255) NOT NULL,
+  `tues` varchar(255) NOT NULL,
+  `wed` varchar(255) NOT NULL,
+  `thurs` varchar(255) NOT NULL,
+  `fri` varchar(255) NOT NULL,
+  `sat` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `timetable8`
+--
+
+INSERT INTO `timetable8` (`id`, `time`, `mon`, `tues`, `wed`, `thurs`, `fri`, `sat`) VALUES
+(1, '8:00-8:30', 'Sindhi', 'Urdu', 'English', 'Science', 'Math', ''),
+(2, '8:30-9:00', 'English', 'Urdu', 'Science', 'English', 'English', 'P-studies'),
+(3, '9:00-9:30', 'Urdu', 'Sindhi', 'Sindhi', 'Islamiat/Religion', 'Science', ''),
+(4, '9:30-10:30', 'Math', 'Islamiat/Religion', 'Urdu', 'Urdu', 'Sindhi', ''),
+(5, '10:30-11:00', 'B', 'R', 'E', 'A', 'K', ''),
+(6, '11:00-11:30', 'Science', 'Math', 'Math', 'Math', 'Urdu', ''),
+(7, '11:30-12:00', 'P-studies', 'English', 'English', 'Sindhi', 'Science', ''),
+(8, '12:00-12:30', 'Sindhi', 'Science', 'Islamiat/Religion', 'English', 'Math', '');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `transaction`
 --
 
@@ -385,8 +481,7 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`id`, `name`, `email`, `phone`, `pass`, `user_type`, `profile`, `CNIC`, `gender`) VALUES
 (1, 'Admin', 'admin@ecs.com', '03318343144', '202cb962ac59075b964b07152d234b70', 0, '337292320admin.png', '111111111111', 'Male'),
 (2, 'Shahzaib Abid', 'shahzaibabidsaeed@gmail.com', '03318343144', '202cb962ac59075b964b07152d234b70', 1, '769866400shahzaib.jpg', '111111111111', 'Male'),
-(3, 'Charles Stephen', 'charles@gmail.com', '03343427289', '202cb962ac59075b964b07152d234b70', 1, '1639739768pFHNrg.jpg', '111111111111', 'Male'),
-(5, 'Lily', 'lily@gmail.com', '4444444747', '202cb962ac59075b964b07152d234b70', 1, '', '52865286363626', '');
+(3, 'Charles Stephen', 'charles@gmail.com', '03343427289', '202cb962ac59075b964b07152d234b70', 1, '1639739768pFHNrg.jpg', '111111111111', 'Male');
 
 --
 -- Indexes for dumped tables
@@ -483,6 +578,24 @@ ALTER TABLE `timetable`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `timetable6`
+--
+ALTER TABLE `timetable6`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `timetable7`
+--
+ALTER TABLE `timetable7`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `timetable8`
+--
+ALTER TABLE `timetable8`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `transaction`
 --
 ALTER TABLE `transaction`
@@ -538,7 +651,7 @@ ALTER TABLE `contact-us`
 -- AUTO_INCREMENT for table `exam`
 --
 ALTER TABLE `exam`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `fees`
@@ -574,7 +687,7 @@ ALTER TABLE `std_account`
 -- AUTO_INCREMENT for table `subjects`
 --
 ALTER TABLE `subjects`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `teachers`
@@ -587,6 +700,24 @@ ALTER TABLE `teachers`
 --
 ALTER TABLE `timetable`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `timetable6`
+--
+ALTER TABLE `timetable6`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT for table `timetable7`
+--
+ALTER TABLE `timetable7`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT for table `timetable8`
+--
+ALTER TABLE `timetable8`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `transaction`

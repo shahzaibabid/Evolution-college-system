@@ -21,10 +21,71 @@
             </Script>
         <?php
     }
-    $id = $_GET["id"];
-    $sel = "SELECT * FROM `teachers` WHERE `id` = $id";
-    $result = mysqli_query($db, $sel);
-    $row = mysqli_fetch_array($result);
+
+if(isset($_POST["submit"])) {
+  $cid = $_POST["myclass"];
+  $sel = "SELECT c.Class_name FROM `class` c WHERE `id` = $cid";
+$query = mysqli_query($conn, $sel);
+$row = mysqli_fetch_array($query);
+$x = $row["Class_name"];
+switch ($x) {
+    case 'VI':
+        $sel = "SELECT * FROM `timetable6`";
+        break;
+    
+    case 'VII':
+        $sel = "SELECT * FROM `timetable7`";
+        break;
+
+    case 'VIII':
+        $sel = "SELECT * FROM `timetable8`";
+        break;
+
+    case 'IX':
+        $sel = "SELECT * FROM `timetable9`";
+        break;
+
+    case 'X':
+        $sel = "SELECT * FROM `timetable10`";
+        break;                                            
+}
+  $res = mysqli_query($conn, $sel);
+  $i = 0;
+  while($row = mysqli_fetch_array($res)) {
+    $i++;
+    $tb = $row[0];
+    $mon = $_POST["mon" . $i];
+    $tues = $_POST["tues" . $i];
+    $wed = $_POST["wed" . $i];
+    $thurs = $_POST["thurs" . $i];
+    $fri = $_POST["fri" . $i];
+    $sat = $_POST["sat" . $i];
+    
+    switch ($x) {
+      case 'VI':
+          $up = "UPDATE `timetable6` SET `mon`='$mon',`tues`='$tues',`wed`='$wed',`thurs`='$thurs',`fri`='$fri',`sat`='$sat' WHERE `id` = $tb";
+          break;
+      
+      case 'VII':
+          $up = "UPDATE `timetable7` SET `mon`='$mon',`tues`='$tues',`wed`='$wed',`thurs`='$thurs',`fri`='$fri',`sat`='$sat' WHERE `id` = $tb";
+          break;
+  
+      case 'VIII':
+          $up = "UPDATE `timetable8` SET `mon`='$mon',`tues`='$tues',`wed`='$wed',`thurs`='$thurs',`fri`='$fri',`sat`='$sat' WHERE `id` = $tb";
+          break;
+  
+      case 'IX':
+          $up = "UPDATE `timetable9` SET `mon`='$mon',`tues`='$tues',`wed`='$wed',`thurs`='$thurs',`fri`='$fri',`sat`='$sat' WHERE `id` = $tb";
+          break;
+  
+      case 'X':
+          $up = "UPDATE `timetable10` SET `mon`='$mon',`tues`='$tues',`wed`='$wed',`thurs`='$thurs',`fri`='$fri',`sat`='$sat' WHERE `id` = $tb";
+          break;                                            
+    }        
+    $upres = mysqli_query($conn, $up);
+    header("Location: timetable.php");
+  }
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -72,7 +133,7 @@
 
 
         <!-- Sidebar Start -->
-            <div class="sidebar pe-4 pb-3">
+          <div class="sidebar pe-4 pb-3">
                 <nav class="navbar bg-secondary navbar-dark">
                     <a href="index.php" class="w-100 text-center navbar-brand mx-4 mb-3">
                         <h1 class="logo" style="font-family: Forte;">ECS</h1>
@@ -93,7 +154,7 @@
                         <a href="Accounts.php" class="nav-item nav-link"><i class="fas fa-file-invoice"></i>All Accounts</a>
                         <?php if($_SESSION["mytype"] != 3) { ?> <a href="admission.php" class="nav-item nav-link"><i class="fas fa-file-invoice"></i>Admission Forms</a> <?php } ?>
                         <a href="exam.php" class="nav-item nav-link"><i class="fas fa-file-invoice"></i>Exams</a>
-                        <a href="timetable.php" class="nav-item nav-link"><i class="fas fa-file-invoice"></i>Timetable</a>
+                        <a href="timetable.php" class="nav-item nav-link active"><i class="fas fa-file-invoice"></i>Timetable</a>
                     </div>
                 </nav>
             </div>
@@ -124,50 +185,60 @@
             </nav>
             <!-- Navbar End -->
 
-            <!-- Blank Start -->
+
+            <!-- Profile Start -->
             <div class="container-fluid pt-4 px-4">
-            <h2 class="text-center">Teacher Profile</h2>
-                <div class="row h-100 bg-secondary rounded align-items-center justify-content-center mx-0">
-                    <img src="profile/<?php echo $row[6]; ?>" class="col-sm-12 col-xl-6" alt="">
-                    <div class="col-sm-12 col-xl-6">
-                        <div class="bg-secondary rounded h-100 p-4">
-                            <table class="table table-dark">
-
-                                <tbody>
+                <h1 class="text-center">TimeTable Not Completed</h1>
+                <div class="row g-4">
+                  <div class="col-lg-12 grid-margin stretch-card">
+                    <div class="card bg-secondary">
+                      <form action="#" method="post">
+                        <div class="card-body">
+                          <h4 class="card-title">TimeTable</h4>
+                          <p class="card-description d-flex">
+                              <select id="mycl" class="form-select form-select-lg mb-3 w-50" aria-label=".form-select-lg example" name="myclass">
+                                <option selected value="0">SELECT CLASS</option> 
+                                <?php
+                                  $c_sel = "SELECT * FROM `class`";
+                                  $c_res = mysqli_query($db, $c_sel);
+                                  while($c_row = mysqli_fetch_array($c_res)) {
+                                    ?>
+                                      <option value="<?php echo $c_row[0]; ?>"><?php echo $c_row[1]; ?></option>
+                                    <?php
+                                  } 
+                                ?>
+                              </select>
+                              <select id="mysub" class="form-select form-select-lg mb-3 w-50" aria-label=".form-select-lg example" name="mysub">
+                                <option selected value="0">SELECT CLASS</option>                                 
+                              </select>
+                          </p>
+                          <div class="table-responsive">
+                            <table class="table table-striped">
+                              <thead>
                                 <tr>
-                                        <th scope="col">Name</th>
-                                        <td><?php echo $row[1]; ?></td>
-                                    </tr> 
-                                    <tr>
-                                        <th scope="col">Email</th>
-                                        <td><?php echo $row[2]; ?></td>
-                                    </tr> 
-                                    <tr>
-                                        <th scope="col">Phone</th>
-                                        <td><?php echo $row[3]; ?></td>
-                                    </tr> 
-                                    <tr>
-                                        <th scope="col">CNIC</th>
-                                        <td><?php echo $row[7]; ?></td>
-                                    </tr> 
-                                    <tr>
-                                        <th scope="col">Gender</th>
-                                        <td><?php echo $row[8]; ?></td>
-                                    </tr>
-
-                                    <?php if(isset($row[9]) != null){ ?>
-                                    <tr>
-                                        <th scope="col">Address</th>
-                                        <td><?php echo $row[9]; ?></td>
-                                    </tr>
-                                    <?php } ?> 
-                                </tbody>                                
-                            </table>
+                                  <th> Time </th>
+                                  <th> Monday </th>
+                                  <th> Tuesday </th>
+                                  <th> Wednesday </th>
+                                  <th> Thursday </th>
+                                  <th> Friday </th>
+                                  <th> (Extra class) <br> Saturday</th>
+                                </tr>
+                              </thead>
+                              <tbody id="mytb">      
+                                
+                              </tbody>
+                            </table>                        
+                          </div>
                         </div>
+                        <div class="container d-flex justify-content-center mb-4">
+                          <input type="submit" value="Submit" class="btn btn-outline-primary" name="submit">
+                        </div>
+                      </form>
                     </div>
+                  </div>
                 </div>
-            </div>
-            <!-- Blank End -->
+                
 
             <!-- Footer Start -->
             <?php
@@ -195,6 +266,36 @@
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
-</body>
+            
+    <script>
+        $('#mycl').on('change', function() {
+          const id =$(this).find(":selected").val();
+          $.ajax({
+            url: "get_class_data.php",
+            cache: false,
+            type: "POST",
+            data: {id : id},
+            success: function(html){
+              // alert(html);
+              $('#mysub').html(html);
+            }
+          });
+        });;
 
+        
+        $('#mysub').on('change', function() {
+          const id =$(this).find(":selected").val();
+          $.ajax({
+            url: "get_table_data.php",
+            cache: false,
+            type: "POST",
+            data: {id : id},
+            success: function(html){
+              // alert(html);
+              $('#mytb').html(html);
+            }
+          });
+        });;
+</script>
+  </body>
 </html>

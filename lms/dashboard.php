@@ -78,32 +78,67 @@ include("header.php");
       <div class="container">
         <div class="row">
           <?php
-            $sel = "SELECT * FROM `teachers`";
-            $res = mysqli_query($db,$sel);
-            while($row = mysqli_fetch_array($res)){
-          ?>
-            <div class="col-lg-4 col-md-6 col-sm-12 d-flex justify-content-center">
-              <a href="lectures.php">
-                <div class="a-box">
-                  <div class="img-container">
-                    <div class="img-inner">
-                      <div class="inner-skew">
-                        <img src="../admin/profile/<?php echo $row[6]; ?>" style="width:300px;">
+            $id = $_SESSION["myuserid"];
+            $st_sel = "SELECT s.id,c.id,p.id FROM `std_account` s INNER JOIN `program_course` p ON p.program_name = s.program INNER JOIN `class` c ON c.id = s.class_id WHERE s.id = $id";
+            $st_res = mysqli_query($db, $st_sel);
+            $st_r = mysqli_fetch_array($st_res);
+            $mid = $st_r[0];
+            $cid = $st_r[1];
+            $pid = $st_r[2];
+            $sel_sub = "SELECT sb.id,t.profile,t.name as myteach,sb.name as mysubject FROM `subjects` sb INNER JOIN `teachers` t ON t.email = sb.teacher_email WHERE `class_id` = '$cid' AND `program_id` = 0";
+            $sub_result = mysqli_query($db, $sel_sub);
+            if(mysqli_num_rows($sub_result)) {
+              while($sub_r = mysqli_fetch_array($sub_result)){                
+            ?>
+              <div class="col-lg-4 col-md-6 col-sm-12 d-flex justify-content-center mb-4">
+                <a href="lectures.php?id=<?php echo $sub_r["id"]; ?>">
+                  <div class="a-box">
+                    <div class="img-container">
+                      <div class="img-inner">
+                        <div class="inner-skew">
+                          <img src="../admin/profile/<?php echo $sub_r["profile"]; ?>" style="width:300px;">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="text-container">
+                      <h3><?php echo $sub_r["myteach"]; ?></h3>
+                      <div>
+                        <?php echo $sub_r["mysubject"]; ?>
                       </div>
                     </div>
                   </div>
-                  <div class="text-container">
-                    <h3><?php echo $row[1]; ?></h3>
-                    <div>
-                      <?php
-                        $sel_sub
-                      ?>
+                </a>
+              </div>
+          <?php
+              }
+            }
+
+            $sel_subject = "SELECT sb.id,t.profile,t.name,sb.name FROM `subjects` sb INNER JOIN `teachers` t ON t.email = sb.teacher_email WHERE `class_id` = '$cid' && `program_id` = '$pid'";
+            $subject_result = mysqli_query($db, $sel_subject);
+            if(mysqli_num_rows($subject_result)) {
+              while($sub_r_2 = mysqli_fetch_array($subject_result)) {
+            ?>
+              <div class="col-lg-4 col-md-6 col-sm-12 d-flex justify-content-center mb-4">
+                <a href="lectures.php?id=<?php echo $sub_r_2[0]; ?>">
+                  <div class="a-box">
+                    <div class="img-container">
+                      <div class="img-inner">
+                        <div class="inner-skew">
+                          <img src="../admin/profile/<?php echo $sub_r_2[1]; ?>" style="width:300px;">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="text-container">
+                      <h3><?php echo $sub_r_2[2]; ?></h3>
+                      <div>
+                        <?php echo $sub_r_2[3]; ?>
+                      </div>
                     </div>
                   </div>
-                </div>
-              </a>
-            </div>
-          <?php
+                </a>
+              </div>
+            <?php
+              }
             }
           ?>
         </div>

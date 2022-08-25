@@ -1,3 +1,7 @@
+<?php
+    include("../admin/connection/connection.php");
+    $id = $_GET["id"];
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -48,16 +52,20 @@ border-style: solid;
 include("header.php");
 ?>
 
-
     <br><br><br>
     
 <div class="container content">
         <div class="heading">
-            <h1 style="font-size: 5vw;">&nbsp;&nbsp;Subject Name</h1>
+            <?php
+                $sel = "SELECT s.name,t.name as tname FROM `subjects` s INNER JOIN `teachers` t ON t.email = s.teacher_email WHERE s.id = $id";
+                $result = mysqli_query($db, $sel);
+                $row = mysqli_fetch_array($result);
+            ?>
+            <h1 style="font-size: 5vw;">&nbsp;&nbsp; <?php echo $row["name"]; ?></h1>
         </div>
         <br>
         <div class="container">
-            <h1>Course Designed by "Teacher ka nam "</h1>
+            <h1>Course Designed by "<?php echo $row["tname"]; ?>"</h1>
         
         <br>
         

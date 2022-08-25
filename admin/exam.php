@@ -14,6 +14,13 @@
             </Script>
         <?php
     }
+    else if ($_SESSION["mytype"] == 4) {
+        ?>
+            <Script>
+                window.location.assign("../lms/dashboard.php");
+            </Script>
+        <?php
+    }
 
     if(isset($_POST["submit"])) {        
         $program_course = $_POST["program_course"];
@@ -83,30 +90,31 @@
 
 
         <!-- Sidebar Start -->
-        <div class="sidebar pe-4 pb-3">
-            <nav class="navbar bg-secondary navbar-dark">
-                <a href="index.php" class="ms-auto me-auto navbar-brand mx-4 mb-3">
-                    <h3 class="text-primary"><img src="./img/signage-removebg-preview.png" alt=""></h3>
-                </a>
-                <div class="d-flex align-items-center ms-4 mb-4">
-                    <div class="position-relative">
-                        <img class="rounded-circle" src="profile/<?php echo $_SESSION["profile"]; ?>" alt="" style="width: 40px; height: 40px;">
-                        <div class="bg-success rounded-circle border border-2 border-white position-absolute end-0 bottom-0 p-1"></div>
+            <div class="sidebar pe-4 pb-3">
+                <nav class="navbar bg-secondary navbar-dark">
+                    <a href="index.php" class="w-100 text-center navbar-brand mx-4 mb-3">
+                        <h1 class="logo" style="font-family: Forte;">ECS</h1>
+                    </a>
+                    <div class="d-flex align-items-center ms-4 mb-4">
+                        <div class="position-relative">
+                            <img class="rounded-circle" src="profile/<?php echo $_SESSION["profile"]; ?>" alt="" style="width: 40px; height: 40px;">
+                            <div class="bg-success rounded-circle border border-2 border-white position-absolute end-0 bottom-0 p-1"></div>
+                        </div>
+                        <div class="ms-3">
+                            <h6 class="mb-0"><?php echo $_SESSION["name"]; ?></h6>
+                            <span><?php echo $_SESSION["account"]; ?></span>
+                        </div>
                     </div>
-                    <div class="ms-3">
-                        <h6 class="mb-0"><?php echo $_SESSION["name"]; ?></h6>
-                        <span>Admin</span>
+                    <div class="navbar-nav w-100">
+                        <a href="index.php" class="nav-item nav-link"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>                    
+                        <?php if($_SESSION["mytype"] == 0) { ?> <a href="add_administrator.php" class="nav-item nav-link"><i class="fas fa-file-invoice"></i>Add Administrator</a> <?php } ?>
+                        <a href="Accounts.php" class="nav-item nav-link"><i class="fas fa-file-invoice"></i>All Accounts</a>
+                        <?php if($_SESSION["mytype"] != 3) { ?> <a href="admission.php" class="nav-item nav-link"><i class="fas fa-file-invoice"></i>Admission Forms</a> <?php } ?>
+                        <a href="exam.php" class="nav-item nav-link active"><i class="fas fa-file-invoice"></i>Exams</a>
+                        <a href="timetable.php" class="nav-item nav-link"><i class="fas fa-file-invoice"></i>Timetable</a>
                     </div>
-                </div>
-                <div class="navbar-nav w-100">
-                    <a href="index.php" class="nav-item nav-link"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
-                    <a href="theater.php" class="nav-item nav-link"><i class="fas fa-hotel"></i>Theater</a>
-                    <a href="movie.php" class="nav-item nav-link active"><i class="fas fa-film"></i>Movies</a>
-                    <a href="schedule.php" class="nav-item nav-link"><i class="fas fa-calendar-alt"></i>Schedule</a>
-                    <a href="tickets.php" class="nav-item nav-link"><i class="fas fa-ticket-alt"></i>Tickets</a>
-                </div>
-            </nav>
-        </div>
+                </nav>
+            </div>
         <!-- Sidebar End -->
 
 
@@ -187,8 +195,17 @@
                                                         </select>
                                                     </div>
                                                     <div class="form-floating mb-3">
-                                                        <input type="text" class="form-control" name="subject" id="floatingInput" placeholder="Movie Name">
-                                                        <label for="floatingInput">Subject</label>
+                                                        <select class="form-control bg-dark" name="subject">
+                                                            <option value="0">Select Subject</option>
+                                                            <?php
+                                                                $sel_subjects = "SELECT * FROM `subjects`";
+                                                                $result_subjects = mysqli_query($db,$sel_subjects);
+                                                                $k = 0;
+                                                                while($row_s = mysqli_fetch_array($result_subjects)) {
+                                                                    ?><option value="<?php echo $row_s[0]; ?>"><?php echo $row_s[1]; ?></option><?php
+                                                                }
+                                                            ?>
+                                                        </select>
                                                     </div>
                                                     <div class="form-floating mb-3">
                                                         <input type="date" class="form-control" name="mydate" id="floatingInput" placeholder="Movie Name">
@@ -219,17 +236,56 @@
                             <div class="table-responsive">
                                 <table class="table">
                                     <thead>
-                                        <tr>
-                                            <th class="col">#</th>
-                                            <th scope="col">Cover</th>
-                                            <th class="col">Name</th>
-                                            <th class="col">Genre</th>
-                                            <th scope="col" style="visibility: hidden;">Details</th>
-                                            <th scope="col" style="visibility: hidden;">EDIT</th>
+                                        <tr>                    
+                                            <th scope="col">Subject Name</th>
+                                            <th scope="col">Date</th>
+                                            <th scope="col">Exam Time</th>
+                                            <th scope="col"></th>                    
                                         </tr>
                                     </thead>
                                     <tbody>
-
+                                        <?php
+                                            $id = $_SESSION["myuserid"];
+                                            $st = "SELECT student.program,student.class_id FROM `std_account` student WHERE `id` = $id";
+                                            $st_res = mysqli_query($db, $st);
+                                            $st_row = mysqli_fetch_array($st_res);
+                                            $st_class = $st_row["class_id"];
+                                            $st_program = $st_row["program"];
+                                            $sel = "SELECT e.file,s.name,e.date,e.start_time,e.end_time FROM `exam` e INNER JOIN `subjects` s ON s.id = e.subject INNER JOIN `program_course` p ON p.id = e.program_id";
+                                            $result = mysqli_query($db, $sel);
+                                            if(mysqli_num_rows($result)) {
+                                                while($row = mysqli_fetch_array($result)) {
+                                        ?>
+                                                    <tr>
+                                                        <th scope="row" class="align-middle"><?php echo $row["name"]; ?></th>
+                                                        <th scope="row" class="align-middle"><?php echo $row["date"]; ?></th>
+                                                        <th scope="row" class="align-middle"><?php echo $row["start_time"] . " - " . $row["end_time"]  ?></th>
+                                                        <?php
+                                                            date_default_timezone_set("Asia/Karachi");
+                                                            $date = date("Y-m-d H:i");
+                                                            $mytime = $row["date"] . " " . $row["start_time"];
+                                                            $endtime = $row["date"] . " " . $row["end_time"];
+                                                            if($date == $mytime) {
+                                                        ?>
+                                                            <td><button class="btn btn-success">Exam Started</button></a></td>
+                                                        <?php
+                                                            }
+                                                            else if($date == $endtime) {
+                                                        ?>
+                                                            <td><button class="btn btn-success">Exam ended</button></a></td>
+                                                        <?php
+                                                            }
+                                                            else {
+                                                        ?>
+                                                            <td><button class="btn btn-success disabled">Exams</button></a></td>
+                                                        <?php
+                                                            }
+                                                        ?>
+                                                    </tr>
+                                        <?php
+                                                }
+                                            }
+                                        ?>
                                     </tbody>
                                 </table>
                             </div>

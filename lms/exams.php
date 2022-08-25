@@ -1,3 +1,6 @@
+<?php
+    include("../admin/connection/connection.php");
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -70,26 +73,56 @@ include("header.php");
         <div class="tablediv mb-4">
             <table class="table">
                 <thead>
-                    <tr>
-                    
-                    <th scope="col">Subject Name</th>
-                    <th scope="col">Date</th>
-                    <th scope="col">Exam Time</th>
-                    <th scope="col"></th>
-                    
+                    <tr>                    
+                        <th scope="col">Subject Name</th>
+                        <th scope="col">Date</th>
+                        <th scope="col">Exam Time</th>
+                        <th scope="col"></th>                    
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                    <th scope="row">English</th>
-                    <th scope="row">25-august</th>
-                    <th scope="row">12:00-12:30 </th>
-                    <td> <button class="btn btn-success">Click to commence exam</button> </td>
-                    </tr>
-                
-                
-                
-                
+                    <?php
+                        $id = $_SESSION["myuserid"];
+                        $st = "SELECT student.program,student.class_id FROM `std_account` student WHERE `id` = $id";
+                        $st_res = mysqli_query($db, $st);
+                        $st_row = mysqli_fetch_array($st_res);
+                        $st_class = $st_row["class_id"];
+                        $st_program = $st_row["program"];
+                        $sel = "SELECT e.file,s.name,e.date,e.start_time,e.end_time FROM `exam` e INNER JOIN `subjects` s ON s.id = e.subject INNER JOIN `program_course` p ON p.id = e.program_id WHERE p.program_name = '$st_program' && e.class_id = $st_class";
+                        $result = mysqli_query($db, $sel);
+                        if(mysqli_num_rows($result)) {
+                            while($row = mysqli_fetch_array($result)) {
+                    ?>
+                                <tr>
+                                    <th scope="row" class="align-middle"><?php echo $row["name"]; ?></th>
+                                    <th scope="row" class="align-middle"><?php echo $row["date"]; ?></th>
+                                    <th scope="row" class="align-middle"><?php echo $row["start_time"] . " - " . $row["end_time"]  ?></th>
+                                    <?php
+                                        date_default_timezone_set("Asia/Karachi");
+                                        $date = date("Y-m-d H:i");
+                                        $mytime = $row["date"] . " " . $row["start_time"];
+                                        $endtime = $row["date"] . " " . $row["end_time"];
+                                        if($date == $mytime) {
+                                    ?>
+                                        <td><a href="<?php echo $row["file"] ?>"><button class="btn btn-success">Click to commence exam</button></a></td>
+                                    <?php
+                                        }
+                                        else if($date == $endtime) {
+                                    ?>
+                                        <td><button class="btn btn-success disabled">Exam ended</button></a></td>
+                                    <?php
+                                        }
+                                        else {
+                                    ?>
+                                        <td><button class="btn btn-success disabled">Click to commence exam</button></a></td>
+                                    <?php
+                                        }
+                                    ?>
+                                </tr>
+                    <?php
+                            }
+                        }
+                    ?>
                 </tbody>
             </table>
         </div>

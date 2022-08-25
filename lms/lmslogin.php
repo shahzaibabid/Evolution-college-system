@@ -131,7 +131,7 @@ if (isset($_POST["submit"])) {
         while($row = mysqli_fetch_array($result)) {
             $_SESSION["myuserid"] = $row[0];
             $_SESSION["name"] = $row[1];
-            $_SESSION["mytype"] = $row[14];
+            $_SESSION["mytype"] = $row[16];
             $_SESSION["email"] = $row[3];
         }
 

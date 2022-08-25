@@ -14,6 +14,13 @@
             </Script>
         <?php
     }
+    else if ($_SESSION["mytype"] == 4) {
+        ?>
+            <Script>
+                window.location.assign("../lms/dashboard.php");
+            </Script>
+        <?php
+    }
     $id = $_GET["id"];
 
     $x = $_SESSION["account"];
@@ -134,29 +141,31 @@
 
 
         <!-- Sidebar Start -->
-        <div class="sidebar pe-4 pb-3">
-            <nav class="navbar bg-secondary navbar-dark">
-                <a href="index.php" class="w-100 text-center navbar-brand mx-4 mb-3">
-                    <h1 class="logo" style="font-family: Forte;">ECS</h1>
-                </a>
-                <div class="d-flex align-items-center ms-4 mb-4">
-                    <div class="position-relative">
-                        <img class="rounded-circle" src="profile/<?php echo $_SESSION["profile"]; ?>" alt="" style="width: 40px; height: 40px;">
-                        <div class="bg-success rounded-circle border border-2 border-white position-absolute end-0 bottom-0 p-1"></div>
+            <div class="sidebar pe-4 pb-3">
+                <nav class="navbar bg-secondary navbar-dark">
+                    <a href="index.php" class="w-100 text-center navbar-brand mx-4 mb-3">
+                        <h1 class="logo" style="font-family: Forte;">ECS</h1>
+                    </a>
+                    <div class="d-flex align-items-center ms-4 mb-4">
+                        <div class="position-relative">
+                            <img class="rounded-circle" src="profile/<?php echo $_SESSION["profile"]; ?>" alt="" style="width: 40px; height: 40px;">
+                            <div class="bg-success rounded-circle border border-2 border-white position-absolute end-0 bottom-0 p-1"></div>
+                        </div>
+                        <div class="ms-3">
+                            <h6 class="mb-0"><?php echo $_SESSION["name"]; ?></h6>
+                            <span><?php echo $_SESSION["account"]; ?></span>
+                        </div>
                     </div>
-                    <div class="ms-3">
-                        <h6 class="mb-0"><?php echo $_SESSION["name"]; ?></h6>
-                        <span><?php echo $_SESSION["account"]; ?></span>
+                    <div class="navbar-nav w-100">
+                        <a href="index.php" class="nav-item nav-link"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>                    
+                        <?php if($_SESSION["mytype"] == 0) { ?> <a href="add_administrator.php" class="nav-item nav-link"><i class="fas fa-file-invoice"></i>Add Administrator</a> <?php } ?>
+                        <a href="Accounts.php" class="nav-item nav-link"><i class="fas fa-file-invoice"></i>All Accounts</a>
+                        <?php if($_SESSION["mytype"] != 3) { ?> <a href="admission.php" class="nav-item nav-link"><i class="fas fa-file-invoice"></i>Admission Forms</a> <?php } ?>
+                        <a href="exam.php" class="nav-item nav-link"><i class="fas fa-file-invoice"></i>Exams</a>
+                        <a href="timetable.php" class="nav-item nav-link"><i class="fas fa-file-invoice"></i>Timetable</a>
                     </div>
-                </div>
-                <div class="navbar-nav w-100">
-                    <a href="index.php" class="nav-item nav-link active"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
-                    
-                    <?php if($_SESSION["mytype"] == 0) { ?> <a href="add_administrator.php" class="nav-item nav-link"><i class="fas fa-file-invoice"></i>Add Administrator</a> <?php } ?>
-                    <a href="Accounts.php" class="nav-item nav-link"><i class="fas fa-file-invoice"></i>All Accounts</a>
-                </div>
-            </nav>
-        </div>
+                </nav>
+            </div>
         <!-- Sidebar End -->
 
 

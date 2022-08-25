@@ -14,6 +14,13 @@
             </Script>
         <?php
     }
+    else if ($_SESSION["mytype"] == 4) {
+        ?>
+            <Script>
+                window.location.assign("../lms/dashboard.php");
+            </Script>
+        <?php
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -82,6 +89,7 @@
                     <a href="Accounts.php" class="nav-item nav-link"><i class="fas fa-file-invoice"></i>All Accounts</a>
                     <?php if($_SESSION["mytype"] != 3) { ?> <a href="admission.php" class="nav-item nav-link"><i class="fas fa-file-invoice"></i>Admission Forms</a> <?php } ?>
                     <a href="exam.php" class="nav-item nav-link"><i class="fas fa-file-invoice"></i>Exams</a>
+                    <a href="timetable.php" class="nav-item nav-link"><i class="fas fa-file-invoice"></i>Timetable</a>
                 </div>
             </nav>
         </div>
