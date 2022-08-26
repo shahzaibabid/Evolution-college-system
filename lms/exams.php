@@ -96,7 +96,7 @@ include("header.php");
                                 <tr>
                                     <th scope="row" class="align-middle"><?php echo $row["name"]; ?></th>
                                     <th scope="row" class="align-middle"><?php echo $row["date"]; ?></th>
-                                    <th scope="row" class="align-middle"><?php echo $row["start_time"] . " - " . $row["end_time"]  ?></th>
+                                    <th scope="row" class="align-middle"><?php echo $row["start_time"] . " - " . $row["end_time"]; ?></th>
                                     <?php
                                         date_default_timezone_set("Asia/Karachi");
                                         $date = date("Y-m-d H:i");
@@ -104,17 +104,51 @@ include("header.php");
                                         $endtime = $row["date"] . " " . $row["end_time"];
                                         if($date == $mytime) {
                                     ?>
-                                        <td><a href="<?php echo $row["file"] ?>"><button class="btn btn-success">Click to commence exam</button></a></td>
+                                        <td><a href="<?php echo $row["file"]; ?>"><button class="btn btn-success">Click to commence exam</button></a></td>
                                     <?php
                                         }
-                                        else if($date == $endtime) {
+                                        else if($date >= $endtime) {
                                     ?>
                                         <td><button class="btn btn-success disabled">Exam ended</button></a></td>
                                     <?php
                                         }
                                         else {
                                     ?>
-                                        <td><button class="btn btn-success disabled">Click to commence exam</button></a></td>
+                                        <td><button class="btn btn-success disabled">Coming soon</button></a></td>
+                                    <?php
+                                        }
+                                    ?>
+                                </tr>
+                    <?php
+                            }
+                        }
+                        $testsel = "SELECT e.file,s.name,e.date,e.start_time,e.end_time FROM `exam` e INNER JOIN `subjects` s ON s.id = e.subject WHERE e.program_id = 0 && e.class_id = $st_class";
+                        $testresult = mysqli_query($db, $testsel);
+                        if(mysqli_num_rows($testresult)) {
+                            while($testrow = mysqli_fetch_array($testresult)) {
+                    ?>
+                                <tr>
+                                    <th scope="row" class="align-middle"><?php echo $testrow["name"]; ?></th>
+                                    <th scope="row" class="align-middle"><?php echo $testrow["date"]; ?></th>
+                                    <th scope="row" class="align-middle"><?php echo $testrow["start_time"] . " - " . $testrow["end_time"]; ?></th>
+                                    <?php
+                                        date_default_timezone_set("Asia/Karachi");
+                                        $testdate = date("Y-m-d H:i");
+                                        $testmytime = $testrow["date"] . " " . $testrow["start_time"];
+                                        $testendtime = $testrow["date"] . " " . $testrow["end_time"];
+                                        if($testdate == $testmytime) {
+                                    ?>
+                                        <td><a href="<?php echo $testrow["file"]; ?>"><button class="btn btn-success">Click to commence exam</button></a></td>
+                                    <?php
+                                        }
+                                        else if($testdate >= $testendtime) {
+                                    ?>
+                                        <td><button class="btn btn-success disabled">Exam ended</button></a></td>
+                                    <?php
+                                        }
+                                        else {
+                                    ?>
+                                        <td><button class="btn btn-success disabled">Coming soon</button></a></td>
                                     <?php
                                         }
                                     ?>

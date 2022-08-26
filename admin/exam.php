@@ -259,7 +259,7 @@
                                                     <tr>
                                                         <th scope="row" class="align-middle"><?php echo $row["name"]; ?></th>
                                                         <th scope="row" class="align-middle"><?php echo $row["date"]; ?></th>
-                                                        <th scope="row" class="align-middle"><?php echo $row["start_time"] . " - " . $row["end_time"]  ?></th>
+                                                        <th scope="row" class="align-middle"><?php echo $row["start_time"] . " - " . $row["end_time"]; ?></th>
                                                         <?php
                                                             date_default_timezone_set("Asia/Karachi");
                                                             $date = date("Y-m-d H:i");
