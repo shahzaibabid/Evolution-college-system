@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 25, 2022 at 11:50 AM
+-- Generation Time: Aug 27, 2022 at 04:51 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 7.3.31
 
@@ -20,6 +20,25 @@ SET time_zone = "+00:00";
 --
 -- Database: `evolution`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `accounting`
+--
+
+CREATE TABLE `accounting` (
+  `id` int(11) NOT NULL,
+  `exam_id` int(11) NOT NULL,
+  `student_id` int(11) NOT NULL,
+  `total_mks` int(11) NOT NULL,
+  `obt_mks` int(11) NOT NULL,
+  `per` float NOT NULL,
+  `grade` varchar(255) NOT NULL,
+  `status` varchar(255) NOT NULL,
+  `class_id` int(11) NOT NULL,
+  `program_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -119,6 +138,63 @@ CREATE TABLE `assignment` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `botany`
+--
+
+CREATE TABLE `botany` (
+  `id` int(11) NOT NULL,
+  `exam_id` int(11) NOT NULL,
+  `student_id` int(11) NOT NULL,
+  `total_mks` int(11) NOT NULL,
+  `obt_mks` int(11) NOT NULL,
+  `per` float NOT NULL,
+  `grade` varchar(255) NOT NULL,
+  `status` varchar(255) NOT NULL,
+  `class_id` int(11) NOT NULL,
+  `program_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `chemistry`
+--
+
+CREATE TABLE `chemistry` (
+  `id` int(11) NOT NULL,
+  `exam_id` int(11) NOT NULL,
+  `student_id` int(11) NOT NULL,
+  `total_mks` int(11) NOT NULL,
+  `obt_mks` int(11) NOT NULL,
+  `per` float NOT NULL,
+  `grade` varchar(255) NOT NULL,
+  `status` varchar(255) NOT NULL,
+  `class_id` int(11) NOT NULL,
+  `program_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `civics`
+--
+
+CREATE TABLE `civics` (
+  `id` int(11) NOT NULL,
+  `exam_id` int(11) NOT NULL,
+  `student_id` int(11) NOT NULL,
+  `total_mks` int(11) NOT NULL,
+  `obt_mks` int(11) NOT NULL,
+  `per` float NOT NULL,
+  `grade` varchar(255) NOT NULL,
+  `status` varchar(255) NOT NULL,
+  `class_id` int(11) NOT NULL,
+  `program_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `class`
 --
 
@@ -134,6 +210,25 @@ CREATE TABLE `class` (
 INSERT INTO `class` (`id`, `name`) VALUES
 (1, 'XI'),
 (2, 'XII');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `computer_science`
+--
+
+CREATE TABLE `computer_science` (
+  `id` int(11) NOT NULL,
+  `exam_id` int(11) NOT NULL,
+  `student_id` int(11) NOT NULL,
+  `total_mks` int(11) NOT NULL,
+  `obt_mks` int(11) NOT NULL,
+  `per` float NOT NULL,
+  `grade` varchar(255) NOT NULL,
+  `status` varchar(255) NOT NULL,
+  `class_id` int(11) NOT NULL,
+  `program_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -161,6 +256,63 @@ INSERT INTO `contact-us` (`id`, `name`, `email`, `subject`, `message`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `economics`
+--
+
+CREATE TABLE `economics` (
+  `id` int(11) NOT NULL,
+  `exam_id` int(11) NOT NULL,
+  `student_id` int(11) NOT NULL,
+  `total_mks` int(11) NOT NULL,
+  `obt_mks` int(11) NOT NULL,
+  `per` float NOT NULL,
+  `grade` varchar(255) NOT NULL,
+  `status` varchar(255) NOT NULL,
+  `class_id` int(11) NOT NULL,
+  `program_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `education`
+--
+
+CREATE TABLE `education` (
+  `id` int(11) NOT NULL,
+  `exam_id` int(11) NOT NULL,
+  `student_id` int(11) NOT NULL,
+  `total_mks` int(11) NOT NULL,
+  `obt_mks` int(11) NOT NULL,
+  `per` float NOT NULL,
+  `grade` varchar(255) NOT NULL,
+  `status` varchar(255) NOT NULL,
+  `class_id` int(11) NOT NULL,
+  `program_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `english`
+--
+
+CREATE TABLE `english` (
+  `id` int(11) NOT NULL,
+  `exam_id` int(11) NOT NULL,
+  `student_id` int(11) NOT NULL,
+  `total_mks` int(11) NOT NULL,
+  `obt_mks` int(11) NOT NULL,
+  `per` float NOT NULL,
+  `grade` varchar(255) NOT NULL,
+  `status` varchar(255) NOT NULL,
+  `class_id` int(11) NOT NULL,
+  `program_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `exam`
 --
 
@@ -172,15 +324,16 @@ CREATE TABLE `exam` (
   `start_time` varchar(255) NOT NULL,
   `end_time` varchar(255) NOT NULL,
   `file` longtext NOT NULL,
-  `program_id` int(11) NOT NULL
+  `program_id` int(11) NOT NULL,
+  `result` varchar(255) NOT NULL DEFAULT 'no'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `exam`
 --
 
-INSERT INTO `exam` (`id`, `class_id`, `subject`, `date`, `start_time`, `end_time`, `file`, `program_id`) VALUES
-(3, 1, 1, '2022-08-25', '17:00', '17:30', 'https://forms.gle/iYCupU8g5vMGJVHw5', 5);
+INSERT INTO `exam` (`id`, `class_id`, `subject`, `date`, `start_time`, `end_time`, `file`, `program_id`, `result`) VALUES
+(3, 1, 1, '2022-08-25', '17:00', '17:30', 'https://forms.gle/iYCupU8g5vMGJVHw5', 0, 'no');
 
 -- --------------------------------------------------------
 
@@ -194,6 +347,82 @@ CREATE TABLE `fees` (
   `std_id` varchar(225) NOT NULL,
   `fees` varchar(225) NOT NULL,
   `late_fees` varchar(225) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `islamiat`
+--
+
+CREATE TABLE `islamiat` (
+  `id` int(11) NOT NULL,
+  `exam_id` int(11) NOT NULL,
+  `student_id` int(11) NOT NULL,
+  `total_mks` int(11) NOT NULL,
+  `obt_mks` int(11) NOT NULL,
+  `per` float NOT NULL,
+  `grade` varchar(255) NOT NULL,
+  `status` varchar(255) NOT NULL,
+  `class_id` int(11) NOT NULL,
+  `program_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `math`
+--
+
+CREATE TABLE `math` (
+  `id` int(11) NOT NULL,
+  `exam_id` int(11) NOT NULL,
+  `student_id` int(11) NOT NULL,
+  `total_mks` int(11) NOT NULL,
+  `obt_mks` int(11) NOT NULL,
+  `per` float NOT NULL,
+  `grade` varchar(255) NOT NULL,
+  `status` varchar(255) NOT NULL,
+  `class_id` int(11) NOT NULL,
+  `program_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `physic`
+--
+
+CREATE TABLE `physic` (
+  `id` int(11) NOT NULL,
+  `exam_id` int(11) NOT NULL,
+  `student_id` int(11) NOT NULL,
+  `total_mks` int(11) NOT NULL,
+  `obt_mks` int(11) NOT NULL,
+  `per` float NOT NULL,
+  `grade` varchar(255) NOT NULL,
+  `status` varchar(255) NOT NULL,
+  `class_id` int(11) NOT NULL,
+  `program_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `poc`
+--
+
+CREATE TABLE `poc` (
+  `id` int(11) NOT NULL,
+  `exam_id` int(11) NOT NULL,
+  `student_id` int(11) NOT NULL,
+  `total_mks` int(11) NOT NULL,
+  `obt_mks` int(11) NOT NULL,
+  `per` float NOT NULL,
+  `grade` varchar(255) NOT NULL,
+  `status` varchar(255) NOT NULL,
+  `class_id` int(11) NOT NULL,
+  `program_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -217,6 +446,25 @@ INSERT INTO `program_course` (`id`, `program_name`) VALUES
 (3, 'Computer Science'),
 (4, 'Arts'),
 (5, 'Commerce');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `psychology`
+--
+
+CREATE TABLE `psychology` (
+  `id` int(11) NOT NULL,
+  `exam_id` int(11) NOT NULL,
+  `student_id` int(11) NOT NULL,
+  `total_mks` int(11) NOT NULL,
+  `obt_mks` int(11) NOT NULL,
+  `per` float NOT NULL,
+  `grade` varchar(255) NOT NULL,
+  `status` varchar(255) NOT NULL,
+  `class_id` int(11) NOT NULL,
+  `program_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -335,115 +583,6 @@ INSERT INTO `teachers` (`id`, `name`, `email`, `phone`, `pass`, `user_type`, `pr
 -- --------------------------------------------------------
 
 --
--- Table structure for table `timetable`
---
-
-CREATE TABLE `timetable` (
-  `id` int(11) NOT NULL,
-  `mon` varchar(225) NOT NULL,
-  `tue` varchar(225) NOT NULL,
-  `wed` varchar(225) NOT NULL,
-  `thur` varchar(225) NOT NULL,
-  `fri` varchar(225) NOT NULL,
-  `sat` varchar(225) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `timetable6`
---
-
-CREATE TABLE `timetable6` (
-  `id` int(11) NOT NULL,
-  `time` varchar(255) NOT NULL,
-  `mon` varchar(255) NOT NULL,
-  `tues` varchar(255) NOT NULL,
-  `wed` varchar(255) NOT NULL,
-  `thurs` varchar(255) NOT NULL,
-  `fri` varchar(255) NOT NULL,
-  `sat` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `timetable6`
---
-
-INSERT INTO `timetable6` (`id`, `time`, `mon`, `tues`, `wed`, `thurs`, `fri`, `sat`) VALUES
-(1, '8:00-8:30', 'English', 'P-studies', 'English', 'Science', 'Math', 'Math'),
-(2, '8:30-9:00', 'English', 'Urdu', 'Science', 'English', 'English', ''),
-(3, '9:00-9:30', 'Urdu', 'Sindhi', 'Sindhi', 'Islamiat/Religion', 'Science', ''),
-(4, '9:30-10:30', 'Math', 'Islamiat/Religion', 'Urdu', 'Urdu', 'Sindhi', ''),
-(5, '10:30-11:00', 'B', 'R', 'E', 'A', 'K', 'Science'),
-(6, '11:00-11:30', 'Science', 'Math', 'Math', 'Math', 'Urdu', ''),
-(7, '11:30-12:00', 'P-studies', 'English', 'English', 'Sindhi', 'Science', ''),
-(8, '12:00-12:30', 'Sindhi', 'Science', 'Islamiat/Religion', 'English', 'Math', '');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `timetable7`
---
-
-CREATE TABLE `timetable7` (
-  `id` int(11) NOT NULL,
-  `time` varchar(255) NOT NULL,
-  `mon` varchar(255) NOT NULL,
-  `tues` varchar(255) NOT NULL,
-  `wed` varchar(255) NOT NULL,
-  `thurs` varchar(255) NOT NULL,
-  `fri` varchar(255) NOT NULL,
-  `sat` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `timetable7`
---
-
-INSERT INTO `timetable7` (`id`, `time`, `mon`, `tues`, `wed`, `thurs`, `fri`, `sat`) VALUES
-(1, '8:00-3:30', 'Urdu', 'Urdu', 'English', 'Science', 'Math', ''),
-(2, '8:30-9:00', 'English', 'Urdu', 'Science', 'English', 'English', ''),
-(3, '9:00-9:30', 'Urdu', 'Sindhi', 'Sindhi', 'Islamiat/Religion', 'Science', 'English'),
-(4, '9:30-10:30', 'Math', 'Islamiat/Religion', 'Urdu', 'Urdu', 'Sindhi', ''),
-(5, '10:30-11:00', 'B', 'R', 'E', 'A', 'K', ''),
-(6, '11:00-11:30', 'Science', 'Math', 'Math', 'Math', 'Urdu', ''),
-(7, '11:30-12:00', 'P-studies', 'English', 'English', 'Sindhi', 'Science', ''),
-(8, '12:00-12:30', 'Sindhi', 'Science', 'Islamiat/Religion', 'English', 'Math', '');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `timetable8`
---
-
-CREATE TABLE `timetable8` (
-  `id` int(11) NOT NULL,
-  `time` varchar(255) NOT NULL,
-  `mon` varchar(255) NOT NULL,
-  `tues` varchar(255) NOT NULL,
-  `wed` varchar(255) NOT NULL,
-  `thurs` varchar(255) NOT NULL,
-  `fri` varchar(255) NOT NULL,
-  `sat` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `timetable8`
---
-
-INSERT INTO `timetable8` (`id`, `time`, `mon`, `tues`, `wed`, `thurs`, `fri`, `sat`) VALUES
-(1, '8:00-8:30', 'Sindhi', 'Urdu', 'English', 'Science', 'Math', ''),
-(2, '8:30-9:00', 'English', 'Urdu', 'Science', 'English', 'English', 'P-studies'),
-(3, '9:00-9:30', 'Urdu', 'Sindhi', 'Sindhi', 'Islamiat/Religion', 'Science', ''),
-(4, '9:30-10:30', 'Math', 'Islamiat/Religion', 'Urdu', 'Urdu', 'Sindhi', ''),
-(5, '10:30-11:00', 'B', 'R', 'E', 'A', 'K', ''),
-(6, '11:00-11:30', 'Science', 'Math', 'Math', 'Math', 'Urdu', ''),
-(7, '11:30-12:00', 'P-studies', 'English', 'English', 'Sindhi', 'Science', ''),
-(8, '12:00-12:30', 'Sindhi', 'Science', 'Islamiat/Religion', 'English', 'Math', '');
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `transaction`
 --
 
@@ -454,6 +593,25 @@ CREATE TABLE `transaction` (
   `trans_to` varchar(225) NOT NULL,
   `amount` varchar(225) NOT NULL,
   `status` varchar(225) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `urdu`
+--
+
+CREATE TABLE `urdu` (
+  `id` int(11) NOT NULL,
+  `exam_id` int(11) NOT NULL,
+  `student_id` int(11) NOT NULL,
+  `total_mks` int(11) NOT NULL,
+  `obt_mks` int(11) NOT NULL,
+  `per` float NOT NULL,
+  `grade` varchar(255) NOT NULL,
+  `status` varchar(255) NOT NULL,
+  `class_id` int(11) NOT NULL,
+  `program_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -483,9 +641,34 @@ INSERT INTO `users` (`id`, `name`, `email`, `phone`, `pass`, `user_type`, `profi
 (2, 'Shahzaib Abid', 'shahzaibabidsaeed@gmail.com', '03318343144', '202cb962ac59075b964b07152d234b70', 1, '769866400shahzaib.jpg', '111111111111', 'Male'),
 (3, 'Charles Stephen', 'charles@gmail.com', '03343427289', '202cb962ac59075b964b07152d234b70', 1, '1639739768pFHNrg.jpg', '111111111111', 'Male');
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `zoology`
+--
+
+CREATE TABLE `zoology` (
+  `id` int(11) NOT NULL,
+  `exam_id` int(11) NOT NULL,
+  `student_id` int(11) NOT NULL,
+  `total_mks` int(11) NOT NULL,
+  `obt_mks` int(11) NOT NULL,
+  `per` float NOT NULL,
+  `grade` varchar(255) NOT NULL,
+  `status` varchar(255) NOT NULL,
+  `class_id` int(11) NOT NULL,
+  `program_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `accounting`
+--
+ALTER TABLE `accounting`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `administrator`
@@ -512,15 +695,57 @@ ALTER TABLE `assignment`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `botany`
+--
+ALTER TABLE `botany`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `chemistry`
+--
+ALTER TABLE `chemistry`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `civics`
+--
+ALTER TABLE `civics`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `class`
 --
 ALTER TABLE `class`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `computer_science`
+--
+ALTER TABLE `computer_science`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `contact-us`
 --
 ALTER TABLE `contact-us`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `economics`
+--
+ALTER TABLE `economics`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `education`
+--
+ALTER TABLE `education`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `english`
+--
+ALTER TABLE `english`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -536,9 +761,39 @@ ALTER TABLE `fees`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `islamiat`
+--
+ALTER TABLE `islamiat`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `math`
+--
+ALTER TABLE `math`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `physic`
+--
+ALTER TABLE `physic`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `poc`
+--
+ALTER TABLE `poc`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `program_course`
 --
 ALTER TABLE `program_course`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `psychology`
+--
+ALTER TABLE `psychology`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -572,33 +827,15 @@ ALTER TABLE `teachers`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `timetable`
---
-ALTER TABLE `timetable`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `timetable6`
---
-ALTER TABLE `timetable6`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `timetable7`
---
-ALTER TABLE `timetable7`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `timetable8`
---
-ALTER TABLE `timetable8`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Indexes for table `transaction`
 --
 ALTER TABLE `transaction`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `urdu`
+--
+ALTER TABLE `urdu`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -608,8 +845,20 @@ ALTER TABLE `users`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `zoology`
+--
+ALTER TABLE `zoology`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `accounting`
+--
+ALTER TABLE `accounting`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `administrator`
@@ -636,16 +885,58 @@ ALTER TABLE `assignment`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `botany`
+--
+ALTER TABLE `botany`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `chemistry`
+--
+ALTER TABLE `chemistry`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `civics`
+--
+ALTER TABLE `civics`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `class`
 --
 ALTER TABLE `class`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
+-- AUTO_INCREMENT for table `computer_science`
+--
+ALTER TABLE `computer_science`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `contact-us`
 --
 ALTER TABLE `contact-us`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `economics`
+--
+ALTER TABLE `economics`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `education`
+--
+ALTER TABLE `education`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `english`
+--
+ALTER TABLE `english`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `exam`
@@ -660,10 +951,40 @@ ALTER TABLE `fees`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `islamiat`
+--
+ALTER TABLE `islamiat`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `math`
+--
+ALTER TABLE `math`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `physic`
+--
+ALTER TABLE `physic`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `poc`
+--
+ALTER TABLE `poc`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `program_course`
 --
 ALTER TABLE `program_course`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `psychology`
+--
+ALTER TABLE `psychology`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `salary`
@@ -696,33 +1017,15 @@ ALTER TABLE `teachers`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
--- AUTO_INCREMENT for table `timetable`
---
-ALTER TABLE `timetable`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `timetable6`
---
-ALTER TABLE `timetable6`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
-
---
--- AUTO_INCREMENT for table `timetable7`
---
-ALTER TABLE `timetable7`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
-
---
--- AUTO_INCREMENT for table `timetable8`
---
-ALTER TABLE `timetable8`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
-
---
 -- AUTO_INCREMENT for table `transaction`
 --
 ALTER TABLE `transaction`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `urdu`
+--
+ALTER TABLE `urdu`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
@@ -730,6 +1033,12 @@ ALTER TABLE `transaction`
 --
 ALTER TABLE `users`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `zoology`
+--
+ALTER TABLE `zoology`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

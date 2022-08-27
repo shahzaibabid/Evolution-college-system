@@ -145,94 +145,14 @@
 
             <!-- Profile Start -->
             <div class="container-fluid pt-4 px-4">
-                <h1 class="text-center">Exams</h1>
+                <h1 class="text-center">Results</h1>
                 <div class="row g-4">                    
                     <div class="col-12">
                         <div class="bg-secondary rounded h-100 p-4">
                             <div class="d-flex justify-content-between mb-4">
-                                <h6>All Exams</h6>
-                                <!-- Button trigger modal -->
-                                <button type="button" class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#staticBackdrop1">
-                                    Add
-                                </button>
+                                <h6>All Results</h6>                                
                             </div>
 
-                            <!-- Modal -->
-                            <div class="modal fade" id="staticBackdrop1" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                                <div class="modal-dialog">
-                                    <div class="modal-content bg-secondary">
-                                        <form action="#" method="post" enctype="multipart/form-data">
-                                            <div class="modal-header">
-                                                <h4 class="modal-title" id="staticBackdropLabel">Add Exam</h4>
-                                                <button type="button" class="btn-close bg-light" data-bs-dismiss="modal" aria-label="Close"></button>
-                                            </div>
-                                            <div class="modal-body">
-                                                <div class="bg-secondary  row rounded h-100 p-4">                                                    
-                                                    <div class="col-md-6 form-floating mb-3">
-                                                        <select class="form-control bg-dark" name="class">
-                                                            <option value="0">Select Class</option>
-                                                            <?php
-                                                                $sel_class = "SELECT * FROM `class`";
-                                                                $result = mysqli_query($db,$sel_class);
-                                                                $i = 0;
-                                                                while($row = mysqli_fetch_array($result)) {
-                                                                    ?><option value="<?php echo $row[0]; ?>"><?php echo $row[1]; ?></option><?php
-                                                                }
-                                                            ?>
-                                                        </select>
-                                                    </div>
-                                                    <div class="col-md-6 form-floating mb-3">
-                                                        <select class="form-control bg-dark" name="program_course">
-                                                            <option value="0">Select Program</option>
-                                                            <?php
-                                                                $sel_program_course = "SELECT * FROM `program_course`";
-                                                                $result_program_course = mysqli_query($db,$sel_program_course);
-                                                                $j = 0;
-                                                                while($row_p = mysqli_fetch_array($result_program_course)) {
-                                                                    ?><option value="<?php echo $row_p[0]; ?>"><?php echo $row_p[1]; ?></option><?php
-                                                                }
-                                                            ?>
-                                                        </select>
-                                                    </div>
-                                                    <div class="form-floating mb-3">
-                                                        <select class="form-control bg-dark" name="subject">
-                                                            <option value="0">Select Subject</option>
-                                                            <?php
-                                                                $sel_subjects = "SELECT * FROM `subjects`";
-                                                                $result_subjects = mysqli_query($db,$sel_subjects);
-                                                                $k = 0;
-                                                                while($row_s = mysqli_fetch_array($result_subjects)) {
-                                                                    ?><option value="<?php echo $row_s[0]; ?>"><?php echo $row_s[1]; ?></option><?php
-                                                                }
-                                                            ?>
-                                                        </select>
-                                                    </div>
-                                                    <div class="form-floating mb-3">
-                                                        <input type="date" class="form-control" name="mydate" id="floatingInput" placeholder="Movie Name">
-                                                        <label for="floatingTextarea">Date</label>
-                                                    </div>
-                                                    <div class="form-floating mb-3">
-                                                        <input type="time" class="form-control" name="mytime" id="floatingInput">
-                                                        <label for="floatingTextarea">Start Time</label>
-                                                    </div>
-                                                    <div class="form-floating mb-3">
-                                                        <input type="time" class="form-control" name="mytime2" id="floatingInput">
-                                                        <label for="floatingTextarea">End Time</label>
-                                                    </div>
-                                                    <div class="form-floating mb-3">
-                                                        <textarea name="exam" id="floatingInput" class="form-control" col="3"></textarea>
-                                                        <label for="floatingTextarea">File</label>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-outline-light" data-bs-dismiss="modal">Cancel</button>
-                                                <button type="submit" name="submit" class="btn btn-primary">Submit</button>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
                             <div class="table-responsive">
                                 <table class="table">
                                     <thead>
@@ -253,7 +173,7 @@
                                             $st_row = mysqli_fetch_array($st_res);
                                             $st_class = $st_row["class_id"];
                                             $st_program = $st_row["program"];
-                                            $sel = "SELECT e.program_id,e.class_id,e.file,s.name,e.date,e.start_time,e.end_time FROM `exam` e INNER JOIN `subjects` s ON s.id = e.subject";
+                                            $sel = "SELECT e.id,e.program_id,e.class_id,e.file,s.name,e.date,e.start_time,e.end_time FROM `exam` e INNER JOIN `subjects` s ON s.id = e.subject && e.result = 'no'";
                                             $result = mysqli_query($db, $sel);
                                             if(mysqli_num_rows($result)) {
                                                 while($row = mysqli_fetch_array($result)) {
@@ -269,7 +189,7 @@
                                                     }
                                         ?>
                                                     <tr>
-                                                        <th scope="row" class="align-middle"><?php $myclass=$row["class_id"]; if($myclass == 1) { echo "II"; }else{ echo "II"; } ?></th>
+                                                        <th scope="row" class="align-middle"><?php $myclass=$row["class_id"]; if($myclass == 1) { echo "I"; }else{ echo "II"; } ?></th>
                                                         <th scope="row" class="align-middle"><?php echo $final_pid; ?></th>
                                                         <th scope="row" class="align-middle"><?php echo $row["name"]; ?></th>
                                                         <th scope="row" class="align-middle"><?php echo $row["date"]; ?></th>
@@ -284,9 +204,14 @@
                                                             <td><button class="btn btn-success">Exam Started</button></a></td>
                                                         <?php
                                                             }
-                                                            else if($date >= $endtime) {
+                                                            else if($date == $endtime) {
                                                         ?>
                                                             <td><button class="btn btn-danger">Exam ended</button></a></td>
+                                                        <?php
+                                                            }
+                                                            else if($date > $endtime) {
+                                                        ?>
+                                                            <td><button type="button" class="btn btn-outline-info" data-bs-toggle="modal" data-bs-target="#staticBackdrop1">Give Results</button></a></td>
                                                         <?php
                                                             }
                                                             else {
@@ -295,13 +220,81 @@
                                                         <?php
                                                             }
                                                         ?>
-                                                    </tr>
+                                                                      
+                                                        <!-- Modal -->
+                                                        <div class="modal fade" id="staticBackdrop1" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                                            <div class="modal-dialog modal-xl">
+                                                                <div class="modal-content bg-secondary">
+                                                                    <form action="getresult.php" method="post" enctype="multipart/form-data">
+                                                                        <div class="modal-header">
+                                                                            <h4 class="modal-title" id="staticBackdropLabel">Add Results</h4>
+                                                                            <button type="button" class="btn-close bg-light" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                                        </div>
+                                                                        <div class="modal-body">
+                                                                            <div class="bg-secondary  row rounded h-100 p-4">        
+                                                                                
+                                                                                <input type="hidden" name="examid" value="<?php echo $row["id"]; ?>">
+
+                                                                                <div class="col-md-6 form-floating mb-3">
+                                                                                    <select id="class" class="form-control bg-dark" name="class">
+                                                                                        <option value="0">Select Class</option>
+                                                                                        <?php
+                                                                                            $sel_class = "SELECT * FROM `class`";
+                                                                                            $result = mysqli_query($db,$sel_class);
+                                                                                            $i = 0;
+                                                                                            while($row = mysqli_fetch_array($result)) {
+                                                                                                ?><option value="<?php echo $row[0]; ?>"><?php echo $row[1]; ?></option><?php
+                                                                                            }
+                                                                                        ?>
+                                                                                    </select>
+                                                                                </div>
+                                                                                <div class="col-md-6 form-floating mb-3">
+                                                                                    <select id="myprograms" class="form-control bg-dark" name="program_course">
+                                                                                        <option value="0">Select Program</option>
+                                                                                        <!-- dynamic result -->
+                                                                                    </select>
+                                                                                </div>
+                                                                                
+                                                                                <div class="form-floating mb-3">
+                                                                                    <select id="mysubs" class="form-control bg-dark" name="mysubs">
+                                                                                        <option value="0">Select Subject</option>
+                                                                                        <!-- dynamic result -->
+                                                                                    </select>
+                                                                                </div>
+                                                                                <div class="form-floating mb-3">                                                        
+                                                                                    <div class="table-responsive">
+                                                                                        <table class="table">
+                                                                                            <thead>
+                                                                                                <tr>
+                                                                                                    <th scope="col">Name</th>
+                                                                                                    <th scope="col">Email</th>
+                                                                                                    <th scope="col">Total</th>
+                                                                                                    <th scope="col">Obtained</th>
+                                                                                                </tr>
+                                                                                            </thead>
+                                                                                            <tbody id="mystudents">
+                                                                                                <!-- dymanic data -->
+                                                                                            </tbody>
+                                                                                        </table>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="modal-footer">
+                                                                            <button type="button" class="btn btn-outline-light" data-bs-dismiss="modal">Cancel</button>
+                                                                            <button type="submit" name="submit" class="btn btn-primary">Submit</button>
+                                                                        </div>
+                                                                    </form>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </tr>                                                          
                                         <?php
                                                 }
                                             }
                                         ?>
                                     </tbody>
-                                </table>
+                                </table>                                
                             </div>
                         </div>
                     </div>
@@ -332,10 +325,54 @@
     <script src="lib/owlcarousel/owl.carousel.min.js"></script>
     <script src="lib/tempusdominus/js/moment.min.js"></script>
     <script src="lib/tempusdominus/js/moment-timezone.min.js"></script>
-    <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
-
+    <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>    
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
+    <script>
+        $('#class').on('change', function() {
+            const id =$(this).find(":selected").val();
+            $.ajax({
+                url: "get_class_data.php",
+                cache: false,
+                type: "POST",
+                data: {id : id},
+                success: function(html){
+                    $('#myprograms').html(html);
+                }
+            });
+        
+        });;
+
+                
+        $('#myprograms').on('change', function() {
+            const id =$(this).find(":selected").val();
+            $.ajax({
+                url: "get_program.php",
+                cache: false,
+                type: "POST",
+                data: {id : id},
+                success: function(html){
+                    $('#mysubs').html(html);
+                }
+            });
+
+        });;
+
+        
+        $('#mysubs').on('change', function() {
+            const id =$(this).find(":selected").val();
+            $.ajax({
+                url: "get_students.php",
+                cache: false,
+                type: "POST",
+                data: {id : id},
+                success: function(html){
+                    $('#mystudents').html(html);
+                }
+            });
+        
+        });;
+    </script>
 </body>
 
 </html>
