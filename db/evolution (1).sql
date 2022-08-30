@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 27, 2022 at 04:51 PM
+-- Generation Time: Aug 30, 2022 at 11:13 AM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 7.3.31
 
@@ -33,8 +33,6 @@ CREATE TABLE `accounting` (
   `student_id` int(11) NOT NULL,
   `total_mks` int(11) NOT NULL,
   `obt_mks` int(11) NOT NULL,
-  `per` float NOT NULL,
-  `grade` varchar(255) NOT NULL,
   `status` varchar(255) NOT NULL,
   `class_id` int(11) NOT NULL,
   `program_id` int(11) NOT NULL
@@ -147,8 +145,6 @@ CREATE TABLE `botany` (
   `student_id` int(11) NOT NULL,
   `total_mks` int(11) NOT NULL,
   `obt_mks` int(11) NOT NULL,
-  `per` float NOT NULL,
-  `grade` varchar(255) NOT NULL,
   `status` varchar(255) NOT NULL,
   `class_id` int(11) NOT NULL,
   `program_id` int(11) NOT NULL
@@ -166,8 +162,6 @@ CREATE TABLE `chemistry` (
   `student_id` int(11) NOT NULL,
   `total_mks` int(11) NOT NULL,
   `obt_mks` int(11) NOT NULL,
-  `per` float NOT NULL,
-  `grade` varchar(255) NOT NULL,
   `status` varchar(255) NOT NULL,
   `class_id` int(11) NOT NULL,
   `program_id` int(11) NOT NULL
@@ -185,8 +179,6 @@ CREATE TABLE `civics` (
   `student_id` int(11) NOT NULL,
   `total_mks` int(11) NOT NULL,
   `obt_mks` int(11) NOT NULL,
-  `per` float NOT NULL,
-  `grade` varchar(255) NOT NULL,
   `status` varchar(255) NOT NULL,
   `class_id` int(11) NOT NULL,
   `program_id` int(11) NOT NULL
@@ -223,8 +215,6 @@ CREATE TABLE `computer_science` (
   `student_id` int(11) NOT NULL,
   `total_mks` int(11) NOT NULL,
   `obt_mks` int(11) NOT NULL,
-  `per` float NOT NULL,
-  `grade` varchar(255) NOT NULL,
   `status` varchar(255) NOT NULL,
   `class_id` int(11) NOT NULL,
   `program_id` int(11) NOT NULL
@@ -265,8 +255,6 @@ CREATE TABLE `economics` (
   `student_id` int(11) NOT NULL,
   `total_mks` int(11) NOT NULL,
   `obt_mks` int(11) NOT NULL,
-  `per` float NOT NULL,
-  `grade` varchar(255) NOT NULL,
   `status` varchar(255) NOT NULL,
   `class_id` int(11) NOT NULL,
   `program_id` int(11) NOT NULL
@@ -284,8 +272,6 @@ CREATE TABLE `education` (
   `student_id` int(11) NOT NULL,
   `total_mks` int(11) NOT NULL,
   `obt_mks` int(11) NOT NULL,
-  `per` float NOT NULL,
-  `grade` varchar(255) NOT NULL,
   `status` varchar(255) NOT NULL,
   `class_id` int(11) NOT NULL,
   `program_id` int(11) NOT NULL
@@ -303,12 +289,17 @@ CREATE TABLE `english` (
   `student_id` int(11) NOT NULL,
   `total_mks` int(11) NOT NULL,
   `obt_mks` int(11) NOT NULL,
-  `per` float NOT NULL,
-  `grade` varchar(255) NOT NULL,
   `status` varchar(255) NOT NULL,
   `class_id` int(11) NOT NULL,
   `program_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `english`
+--
+
+INSERT INTO `english` (`id`, `exam_id`, `student_id`, `total_mks`, `obt_mks`, `status`, `class_id`, `program_id`) VALUES
+(2, 3, 4, 20, 8, 'Pass', 1, 5);
 
 -- --------------------------------------------------------
 
@@ -333,7 +324,7 @@ CREATE TABLE `exam` (
 --
 
 INSERT INTO `exam` (`id`, `class_id`, `subject`, `date`, `start_time`, `end_time`, `file`, `program_id`, `result`) VALUES
-(3, 1, 1, '2022-08-25', '17:00', '17:30', 'https://forms.gle/iYCupU8g5vMGJVHw5', 0, 'no');
+(3, 1, 1, '2022-08-25', '17:00', '17:30', 'https://forms.gle/iYCupU8g5vMGJVHw5', 5, 'no');
 
 -- --------------------------------------------------------
 
@@ -361,8 +352,6 @@ CREATE TABLE `islamiat` (
   `student_id` int(11) NOT NULL,
   `total_mks` int(11) NOT NULL,
   `obt_mks` int(11) NOT NULL,
-  `per` float NOT NULL,
-  `grade` varchar(255) NOT NULL,
   `status` varchar(255) NOT NULL,
   `class_id` int(11) NOT NULL,
   `program_id` int(11) NOT NULL
@@ -380,8 +369,6 @@ CREATE TABLE `math` (
   `student_id` int(11) NOT NULL,
   `total_mks` int(11) NOT NULL,
   `obt_mks` int(11) NOT NULL,
-  `per` float NOT NULL,
-  `grade` varchar(255) NOT NULL,
   `status` varchar(255) NOT NULL,
   `class_id` int(11) NOT NULL,
   `program_id` int(11) NOT NULL
@@ -399,8 +386,6 @@ CREATE TABLE `physic` (
   `student_id` int(11) NOT NULL,
   `total_mks` int(11) NOT NULL,
   `obt_mks` int(11) NOT NULL,
-  `per` float NOT NULL,
-  `grade` varchar(255) NOT NULL,
   `status` varchar(255) NOT NULL,
   `class_id` int(11) NOT NULL,
   `program_id` int(11) NOT NULL
@@ -418,8 +403,6 @@ CREATE TABLE `poc` (
   `student_id` int(11) NOT NULL,
   `total_mks` int(11) NOT NULL,
   `obt_mks` int(11) NOT NULL,
-  `per` float NOT NULL,
-  `grade` varchar(255) NOT NULL,
   `status` varchar(255) NOT NULL,
   `class_id` int(11) NOT NULL,
   `program_id` int(11) NOT NULL
@@ -607,8 +590,6 @@ CREATE TABLE `urdu` (
   `student_id` int(11) NOT NULL,
   `total_mks` int(11) NOT NULL,
   `obt_mks` int(11) NOT NULL,
-  `per` float NOT NULL,
-  `grade` varchar(255) NOT NULL,
   `status` varchar(255) NOT NULL,
   `class_id` int(11) NOT NULL,
   `program_id` int(11) NOT NULL
@@ -653,8 +634,6 @@ CREATE TABLE `zoology` (
   `student_id` int(11) NOT NULL,
   `total_mks` int(11) NOT NULL,
   `obt_mks` int(11) NOT NULL,
-  `per` float NOT NULL,
-  `grade` varchar(255) NOT NULL,
   `status` varchar(255) NOT NULL,
   `class_id` int(11) NOT NULL,
   `program_id` int(11) NOT NULL
@@ -936,7 +915,7 @@ ALTER TABLE `education`
 -- AUTO_INCREMENT for table `english`
 --
 ALTER TABLE `english`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `exam`
