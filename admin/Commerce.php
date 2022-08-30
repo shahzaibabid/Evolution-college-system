@@ -21,8 +21,8 @@
             </Script>
         <?php
     }
-
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -124,49 +124,87 @@
 
             <!-- Profile Start -->
             <div class="container-fluid pt-4 px-4">
-                <h1 class="text-center">Results</h1>
+                <h1 class="text-center">Commerce Results</h1>
                 <div class="row g-4">                    
                     <div class="col-12">
                         <div class="bg-secondary rounded h-100 p-4">
                             <div class="d-flex justify-content-between mb-4">
-                                <h6>English Results</h6>                                
+                                <h6>English Results</h6>
                             </div>
-                            <div class="row">
-                                <div class="col-md-6 form-floating mb-3">
-                                    <select id="class" class="form-control bg-dark" name="class">
-                                        <option value="0">Select Class</option>
-                                        <?php
-                                            $sel_class = "SELECT * FROM `class`";
-                                            $res_class = mysqli_query($db, $sel_class);                                                
-                                            $i = 0;
-                                            while($row = mysqli_fetch_array($res_class)) {
-                                                ?><option value="<?php echo $row[0]; ?>"><?php echo $row[1]; ?></option><?php
-                                            }                                        
-                                        ?>
-                                    </select>
-                                </div>
-                                <div class="col-md-6 form-floating mb-3">
-                                    <select id="program_course" class="form-control bg-dark" name="program_course">
-                                        <option value="0">Select Program</option>
-                                        <!-- dynamic data -->
-                                    </select>
-                                </div>
-                            </div>
+
                             <div class="table-responsive">
                                 <table class="table">
                                     <thead>
                                         <tr>
-                                            <th scope="col">Date</th>
+                                            <th scope="col">Class</th>
                                             <th scope="col">Name</th>
                                             <th scope="col">Email</th>
-                                            <th scope="col">Total</th>
-                                            <th scope="col">Obtained</th>
+                                            <th scope="col">Exam Time</th>
+                                            <th scope="col"></th>
                                         </tr>
                                     </thead>
-                                    <tbody id="eng">
-                                        <!-- dynamic data -->
+                                    <tbody>
+                                        <?php
+                                            $id = $_SESSION["myuserid"];
+                                            $st = "SELECT student.program,student.class_id FROM `std_account` student WHERE `id` = $id";
+                                            $st_res = mysqli_query($db, $st);
+                                            $st_row = mysqli_fetch_array($st_res);
+                                            $st_class = $st_row["class_id"];
+                                            $st_program = $st_row["program"];
+                                            $sel = "SELECT e.id,e.program_id,e.class_id,e.file,s.name,e.date,e.start_time,e.end_time FROM `exam` e INNER JOIN `subjects` s ON s.id = e.subject";
+                                            $result = mysqli_query($db, $sel);
+                                            if(mysqli_num_rows($result)) {
+                                                while($row = mysqli_fetch_array($result)) {
+                                                    $pid = $row["program_id"];
+                                                    if($pid == 0){
+                                                        $final_pid = "All";
+                                                    }
+                                                    else {
+                                                        $selp = "SELECT pc.program_name FROM `program_course` pc WHERE `id` = $pid";
+                                                        $res_p = mysqli_query($db,$selp);
+                                                        $myrow = mysqli_fetch_array($res_p);
+                                                        $final_pid = $myrow["program_name"];
+                                                    }
+                                        ?>
+                                                    <tr>
+                                                        <th scope="row" class="align-middle"><?php $myclass=$row["class_id"]; if($myclass == 1) { echo "I"; }else{ echo "II"; } ?></th>
+                                                        <th scope="row" class="align-middle"><?php echo $final_pid; ?></th>
+                                                        <th scope="row" class="align-middle"><?php echo $row["name"]; ?></th>
+                                                        <th scope="row" class="align-middle"><?php echo $row["date"]; ?></th>
+                                                        <th scope="row" class="align-middle"><?php echo $row["start_time"] . " - " . $row["end_time"]; ?></th>
+                                                        <?php
+                                                            date_default_timezone_set("Asia/Karachi");
+                                                            $date = date("Y-m-d H:i");
+                                                            $mytime = $row["date"] . " " . $row["start_time"];
+                                                            $endtime = $row["date"] . " " . $row["end_time"];
+                                                            if($date == $mytime) {
+                                                        ?>
+                                                            <td><button class="btn btn-success">Exam Started</button></a></td>
+                                                            <?php
+                                                            }
+                                                            else if($date == $endtime) {
+                                                        ?>
+                                                            <td><button class="btn btn-danger">Exam ended</button></a></td>
+                                                        <?php
+                                                            }
+                                                            else if($date > $endtime) {
+                                                        ?>
+                                                            <td><a href="myresult.php?ex=<?php echo $row["id"]; ?>"><button type="button" class="btn btn-outline-info">Give Results</button></a></td>
+                                                        <?php
+                                                            }
+                                                            else {
+                                                        ?>
+                                                            <td><button class="btn btn-warning">Exams</button></a></td>
+                                                        <?php
+                                                            }
+                                                        ?>   
+                                                    </tr>
+                                        <?php
+                                                }
+                                            }
+                                        ?>
                                     </tbody>
-                                </table>                                
+                                </table>
                             </div>
                         </div>
                     </div>
@@ -197,39 +235,10 @@
     <script src="lib/owlcarousel/owl.carousel.min.js"></script>
     <script src="lib/tempusdominus/js/moment.min.js"></script>
     <script src="lib/tempusdominus/js/moment-timezone.min.js"></script>
-    <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>    
+    <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
-    <script>
-        $('#class').on('change', function() {
-            const id =$(this).find(":selected").val();
-            $.ajax({
-                url: "get_english1.php",
-                cache: false,
-                type: "POST",
-                data: {id : id},
-                success: function(html){
-                    $('#program_course').html(html);
-                }
-            });
-        
-        });;
-
-                   
-        $('#program_course').on('change', function() {
-            const id =$(this).find(":selected").val();
-            $.ajax({
-                url: "get_english2.php",
-                cache: false,
-                type: "POST",
-                data: {id : id},
-                success: function(html){
-                    $('#eng').html(html);
-                }
-            });
-        
-        });;
-    </script>
 </body>
 
 </html>

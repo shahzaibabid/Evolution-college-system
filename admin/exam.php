@@ -253,7 +253,7 @@
                                             $st_row = mysqli_fetch_array($st_res);
                                             $st_class = $st_row["class_id"];
                                             $st_program = $st_row["program"];
-                                            $sel = "SELECT e.program_id,e.class_id,e.file,s.name,e.date,e.start_time,e.end_time FROM `exam` e INNER JOIN `subjects` s ON s.id = e.subject";
+                                            $sel = "SELECT e.id,e.program_id,e.class_id,e.file,s.name,e.date,e.start_time,e.end_time FROM `exam` e INNER JOIN `subjects` s ON s.id = e.subject";
                                             $result = mysqli_query($db, $sel);
                                             if(mysqli_num_rows($result)) {
                                                 while($row = mysqli_fetch_array($result)) {
@@ -269,7 +269,7 @@
                                                     }
                                         ?>
                                                     <tr>
-                                                        <th scope="row" class="align-middle"><?php $myclass=$row["class_id"]; if($myclass == 1) { echo "II"; }else{ echo "II"; } ?></th>
+                                                        <th scope="row" class="align-middle"><?php $myclass=$row["class_id"]; if($myclass == 1) { echo "I"; }else{ echo "II"; } ?></th>
                                                         <th scope="row" class="align-middle"><?php echo $final_pid; ?></th>
                                                         <th scope="row" class="align-middle"><?php echo $row["name"]; ?></th>
                                                         <th scope="row" class="align-middle"><?php echo $row["date"]; ?></th>
@@ -282,11 +282,16 @@
                                                             if($date == $mytime) {
                                                         ?>
                                                             <td><button class="btn btn-success">Exam Started</button></a></td>
-                                                        <?php
+                                                            <?php
                                                             }
-                                                            else if($date >= $endtime) {
+                                                            else if($date == $endtime) {
                                                         ?>
                                                             <td><button class="btn btn-danger">Exam ended</button></a></td>
+                                                        <?php
+                                                            }
+                                                            else if($date > $endtime) {
+                                                        ?>
+                                                            <td><a href="myresult.php?ex=<?php echo $row["id"]; ?>"><button type="button" class="btn btn-outline-info">Give Results</button></a></td>
                                                         <?php
                                                             }
                                                             else {
@@ -294,7 +299,7 @@
                                                             <td><button class="btn btn-warning">Exams</button></a></td>
                                                         <?php
                                                             }
-                                                        ?>
+                                                        ?>   
                                                     </tr>
                                         <?php
                                                 }
