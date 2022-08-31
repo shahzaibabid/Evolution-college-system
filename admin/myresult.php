@@ -67,28 +67,28 @@
                 else if($program_name == "Arts") {
                 ?>
                     <Script>
-                        window.location.assign("results.php");
+                        window.location.assign("Arts.php");
                     </script>
                 <?php
                 }
                 else if($program_name == "Computer Science") {
                 ?>
                     <Script>
-                        window.location.assign("results.php");
+                        window.location.assign("Computer.php");
                     </script>
                 <?php
                 }
                 else if($program_name == "Pre-Medical") {
                 ?>
                     <Script>
-                        window.location.assign("results.php");
+                        window.location.assign("Medical.php");
                     </script>
                 <?php
                 }
                 else if($program_name == "Pre-Engineering") {
                 ?>
                     <Script>
-                        window.location.assign("results.php");
+                        window.location.assign("Engineering.php");
                     </script>
                 <?php
                 }
@@ -121,28 +121,28 @@
                 else if($program_name == "Arts") {
                 ?>
                     <Script>
-                        window.location.assign("results.php");
+                        window.location.assign("Arts.php");
                     </script>
                 <?php
                 }
                 else if($program_name == "Computer Science") {
                 ?>
                     <Script>
-                        window.location.assign("results.php");
+                        window.location.assign("Computer.php");
                     </script>
                 <?php
                 }
                 else if($program_name == "Pre-Medical") {
                 ?>
                     <Script>
-                        window.location.assign("results.php");
+                        window.location.assign("Medical.php");
                     </script>
                 <?php
                 }
                 else if($program_name == "Pre-Engineering") {
                 ?>
                     <Script>
-                        window.location.assign("results.php");
+                        window.location.assign("Engineering.php");
                     </script>
                 <?php
                 }            
@@ -175,28 +175,28 @@
                 else if($program_name == "Arts") {
                 ?>
                     <Script>
-                        window.location.assign("results.php");
+                        window.location.assign("Arts.php");
                     </script>
                 <?php
                 }
                 else if($program_name == "Computer Science") {
                 ?>
                     <Script>
-                        window.location.assign("results.php");
+                        window.location.assign("Computer.php");
                     </script>
                 <?php
                 }
                 else if($program_name == "Pre-Medical") {
                 ?>
                     <Script>
-                        window.location.assign("results.php");
+                        window.location.assign("Medical.php");
                     </script>
                 <?php
                 }
                 else if($program_name == "Pre-Engineering") {
                 ?>
                     <Script>
-                        window.location.assign("results.php");
+                        window.location.assign("Engineering.php");
                     </script>
                 <?php
                 }
@@ -229,28 +229,28 @@
                 else if($program_name == "Arts") {
                 ?>
                     <Script>
-                        window.location.assign("results.php");
+                        window.location.assign("Arts.php");
                     </script>
                 <?php
                 }
                 else if($program_name == "Computer Science") {
                 ?>
                     <Script>
-                        window.location.assign("results.php");
+                        window.location.assign("Computer.php");
                     </script>
                 <?php
                 }
                 else if($program_name == "Pre-Medical") {
                 ?>
                     <Script>
-                        window.location.assign("results.php");
+                        window.location.assign("Medical.php");
                     </script>
                 <?php
                 }
                 else if($program_name == "Pre-Engineering") {
                 ?>
                     <Script>
-                        window.location.assign("results.php");
+                        window.location.assign("Engineering.php");
                     </script>
                 <?php
                 }
@@ -283,28 +283,28 @@
                 else if($program_name == "Arts") {
                 ?>
                     <Script>
-                        window.location.assign("results.php");
+                        window.location.assign("Arts.php");
                     </script>
                 <?php
                 }
                 else if($program_name == "Computer Science") {
                 ?>
                     <Script>
-                        window.location.assign("results.php");
+                        window.location.assign("Computer.php");
                     </script>
                 <?php
                 }
                 else if($program_name == "Pre-Medical") {
                 ?>
                     <Script>
-                        window.location.assign("results.php");
+                        window.location.assign("Medical.php");
                     </script>
                 <?php
                 }
                 else if($program_name == "Pre-Engineering") {
                 ?>
                     <Script>
-                        window.location.assign("results.php");
+                        window.location.assign("Engineering.php");
                     </script>
                 <?php
                 }
@@ -337,28 +337,28 @@
                 else if($program_name == "Arts") {
                 ?>
                     <Script>
-                        window.location.assign("results.php");
+                        window.location.assign("Arts.php");
                     </script>
                 <?php
                 }
                 else if($program_name == "Computer Science") {
                 ?>
                     <Script>
-                        window.location.assign("results.php");
+                        window.location.assign("Computer.php");
                     </script>
                 <?php
                 }
                 else if($program_name == "Pre-Medical") {
                 ?>
                     <Script>
-                        window.location.assign("results.php");
+                        window.location.assign("Medical.php");
                     </script>
                 <?php
                 }
                 else if($program_name == "Pre-Engineering") {
                 ?>
                     <Script>
-                        window.location.assign("results.php");
+                        window.location.assign("Engineering.php");
                     </script>
                 <?php
                 }
@@ -391,28 +391,28 @@
                 else if($program_name == "Arts") {
                 ?>
                     <Script>
-                        window.location.assign("results.php");
+                        window.location.assign("Arts.php");
                     </script>
                 <?php
                 }
                 else if($program_name == "Computer Science") {
                 ?>
                     <Script>
-                        window.location.assign("results.php");
+                        window.location.assign("Computer.php");
                     </script>
                 <?php
                 }
                 else if($program_name == "Pre-Medical") {
                 ?>
                     <Script>
-                        window.location.assign("results.php");
+                        window.location.assign("Medical.php");
                     </script>
                 <?php
                 }
                 else if($program_name == "Pre-Engineering") {
                 ?>
                     <Script>
-                        window.location.assign("results.php");
+                        window.location.assign("Engineering.php");
                     </script>
                 <?php
                 }
@@ -499,28 +499,28 @@
                 else if($program_name == "Arts") {
                 ?>
                     <Script>
-                        window.location.assign("results.php");
+                        window.location.assign("Arts.php");
                     </script>
                 <?php
                 }
                 else if($program_name == "Computer Science") {
                 ?>
                     <Script>
-                        window.location.assign("results.php");
+                        window.location.assign("Computer.php");
                     </script>
                 <?php
                 }
                 else if($program_name == "Pre-Medical") {
                 ?>
                     <Script>
-                        window.location.assign("results.php");
+                        window.location.assign("Medical.php");
                     </script>
                 <?php
                 }
                 else if($program_name == "Pre-Engineering") {
                 ?>
                     <Script>
-                        window.location.assign("results.php");
+                        window.location.assign("Engineering.php");
                     </script>
                 <?php
                 }
@@ -553,28 +553,28 @@
                 else if($program_name == "Arts") {
                 ?>
                     <Script>
-                        window.location.assign("results.php");
+                        window.location.assign("Arts.php");
                     </script>
                 <?php
                 }
                 else if($program_name == "Computer Science") {
                 ?>
                     <Script>
-                        window.location.assign("results.php");
+                        window.location.assign("Computer.php");
                     </script>
                 <?php
                 }
                 else if($program_name == "Pre-Medical") {
                 ?>
                     <Script>
-                        window.location.assign("results.php");
+                        window.location.assign("Medical.php");
                     </script>
                 <?php
                 }
                 else if($program_name == "Pre-Engineering") {
                 ?>
                     <Script>
-                        window.location.assign("results.php");
+                        window.location.assign("Engineering.php");
                     </script>
                 <?php
                 }
@@ -607,28 +607,28 @@
                 else if($program_name == "Arts") {
                 ?>
                     <Script>
-                        window.location.assign("results.php");
+                        window.location.assign("Arts.php");
                     </script>
                 <?php
                 }
                 else if($program_name == "Computer Science") {
                 ?>
                     <Script>
-                        window.location.assign("results.php");
+                        window.location.assign("Computer.php");
                     </script>
                 <?php
                 }
                 else if($program_name == "Pre-Medical") {
                 ?>
                     <Script>
-                        window.location.assign("results.php");
+                        window.location.assign("Medical.php");
                     </script>
                 <?php
                 }
                 else if($program_name == "Pre-Engineering") {
                 ?>
                     <Script>
-                        window.location.assign("results.php");
+                        window.location.assign("Engineering.php");
                     </script>
                 <?php
                 }
@@ -661,28 +661,28 @@
                 else if($program_name == "Arts") {
                 ?>
                     <Script>
-                        window.location.assign("results.php");
+                        window.location.assign("Arts.php");
                     </script>
                 <?php
                 }
                 else if($program_name == "Computer Science") {
                 ?>
                     <Script>
-                        window.location.assign("results.php");
+                        window.location.assign("Computer.php");
                     </script>
                 <?php
                 }
                 else if($program_name == "Pre-Medical") {
                 ?>
                     <Script>
-                        window.location.assign("results.php");
+                        window.location.assign("Medical.php");
                     </script>
                 <?php
                 }
                 else if($program_name == "Pre-Engineering") {
                 ?>
                     <Script>
-                        window.location.assign("results.php");
+                        window.location.assign("Engineering.php");
                     </script>
                 <?php
                 }
@@ -715,28 +715,28 @@
                 else if($program_name == "Arts") {
                 ?>
                     <Script>
-                        window.location.assign("results.php");
+                        window.location.assign("Arts.php");
                     </script>
                 <?php
                 }
                 else if($program_name == "Computer Science") {
                 ?>
                     <Script>
-                        window.location.assign("results.php");
+                        window.location.assign("Computer.php");
                     </script>
                 <?php
                 }
                 else if($program_name == "Pre-Medical") {
                 ?>
                     <Script>
-                        window.location.assign("results.php");
+                        window.location.assign("Medical.php");
                     </script>
                 <?php
                 }
                 else if($program_name == "Pre-Engineering") {
                 ?>
                     <Script>
-                        window.location.assign("results.php");
+                        window.location.assign("Engineering.php");
                     </script>
                 <?php
                 }
@@ -769,28 +769,28 @@
                 else if($program_name == "Arts") {
                 ?>
                     <Script>
-                        window.location.assign("results.php");
+                        window.location.assign("Arts.php");
                     </script>
                 <?php
                 }
                 else if($program_name == "Computer Science") {
                 ?>
                     <Script>
-                        window.location.assign("results.php");
+                        window.location.assign("Computer.php");
                     </script>
                 <?php
                 }
                 else if($program_name == "Pre-Medical") {
                 ?>
                     <Script>
-                        window.location.assign("results.php");
+                        window.location.assign("Medical.php");
                     </script>
                 <?php
                 }
                 else if($program_name == "Pre-Engineering") {
                 ?>
                     <Script>
-                        window.location.assign("results.php");
+                        window.location.assign("Engineering.php");
                     </script>
                 <?php
                 }
@@ -823,28 +823,28 @@
                 else if($program_name == "Arts") {
                 ?>
                     <Script>
-                        window.location.assign("results.php");
+                        window.location.assign("Arts.php");
                     </script>
                 <?php
                 }
                 else if($program_name == "Computer Science") {
                 ?>
                     <Script>
-                        window.location.assign("results.php");
+                        window.location.assign("Computer.php");
                     </script>
                 <?php
                 }
                 else if($program_name == "Pre-Medical") {
                 ?>
                     <Script>
-                        window.location.assign("results.php");
+                        window.location.assign("Medical.php");
                     </script>
                 <?php
                 }
                 else if($program_name == "Pre-Engineering") {
                 ?>
                     <Script>
-                        window.location.assign("results.php");
+                        window.location.assign("Engineering.php");
                     </script>
                 <?php
                 }
@@ -877,28 +877,28 @@
                 else if($program_name == "Arts") {
                 ?>
                     <Script>
-                        window.location.assign("results.php");
+                        window.location.assign("Arts.php");
                     </script>
                 <?php
                 }
                 else if($program_name == "Computer Science") {
                 ?>
                     <Script>
-                        window.location.assign("results.php");
+                        window.location.assign("Computer.php");
                     </script>
                 <?php
                 }
                 else if($program_name == "Pre-Medical") {
                 ?>
                     <Script>
-                        window.location.assign("results.php");
+                        window.location.assign("Medical.php");
                     </script>
                 <?php
                 }
                 else if($program_name == "Pre-Engineering") {
                 ?>
                     <Script>
-                        window.location.assign("results.php");
+                        window.location.assign("Engineering.php");
                     </script>
                 <?php
                 }
