@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 30, 2022 at 11:13 AM
+-- Generation Time: Aug 31, 2022 at 08:53 AM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 7.3.31
 
@@ -299,7 +299,8 @@ CREATE TABLE `english` (
 --
 
 INSERT INTO `english` (`id`, `exam_id`, `student_id`, `total_mks`, `obt_mks`, `status`, `class_id`, `program_id`) VALUES
-(2, 3, 4, 20, 8, 'Pass', 1, 5);
+(2, 3, 4, 20, 8, 'Pass', 1, 5),
+(3, 3, 4, 20, 8, 'Pass', 1, 5);
 
 -- --------------------------------------------------------
 
@@ -530,7 +531,7 @@ INSERT INTO `subjects` (`id`, `name`, `teacher_email`, `class_id`, `program_id`)
 (3, 'Math', 'roselean@teacher.ecs.com', 1, 3),
 (4, 'Physics', 'issac@teacher.ecs.com', 1, 2),
 (5, 'Chemistry', 'rohan@teacher.ecs.com', 1, 5),
-(6, 'Islamiat', 'ali@teacher.ecs.com', 1, 5);
+(6, 'Islamiat', 'ali@teacher.ecs.com', 1, 0);
 
 -- --------------------------------------------------------
 
@@ -915,7 +916,7 @@ ALTER TABLE `education`
 -- AUTO_INCREMENT for table `english`
 --
 ALTER TABLE `english`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `exam`

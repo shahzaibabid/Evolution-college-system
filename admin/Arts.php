@@ -124,7 +124,7 @@
 
             <!-- Profile Start -->
             <div class="container-fluid pt-4 px-4">
-                <h1 class="text-center">Commerce Results</h1>
+                <h1 class="text-center">Arts Results</h1>
                 <div class="row g-4">                    
                     <div class="col-12">
                         <div class="bg-secondary rounded h-100 p-4">
@@ -160,190 +160,6 @@
                                             </tr>
                                         </thead>
                                         <tbody id="eng">
-
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="container-fluid pt-4 px-4">
-                <div class="row g-4">                    
-                    <div class="col-12">
-                        <div class="bg-secondary rounded h-100 p-4">
-                            <div class="d-flex justify-content-between mb-4">
-                                <h6>Accounting Results</h6>
-                            </div>
-                            <form action="#" method="post">
-                                <div class="row">
-                                    <div class="col-md-6 form-floating mb-3">
-                                        <select id="classacc" class="form-control bg-dark" name="class">
-                                            <option value="0">Select Class</option>
-                                            <?php
-                                                $sel = "SELECT * FROM `class`";
-                                                $res = mysqli_query($db, $sel);
-                                                while($row = mysqli_fetch_array($res)) {
-                                                    ?>
-                                                        <option value="<?php echo $row[0]; ?>"><?php echo $row[1]; ?></option>
-                                                    <?php
-                                                }
-                                            ?>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="table-responsive" style="max-height:400px; overflow-x:auto; overflow-y:auto;">
-                                    <table class="table">
-                                        <thead>
-                                            <tr>
-                                                <th scope="col">Class</th>
-                                                <th scope="col">Email</th>
-                                                <th scope="col">Marks</th>
-                                                <th scope="col">Status</th>
-                                                <th scope="col">Details</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody id="acc">
-
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="container-fluid pt-4 px-4">
-                <div class="row g-4">                    
-                    <div class="col-12">
-                        <div class="bg-secondary rounded h-100 p-4">
-                            <div class="d-flex justify-content-between mb-4">
-                                <h6>Business Math Results</h6>
-                            </div>
-                            <form action="#" method="post">
-                                <div class="row">
-                                    <div class="col-md-6 form-floating mb-3">
-                                        <select id="classmath" class="form-control bg-dark" name="class">
-                                            <option value="0">Select Class</option>
-                                            <?php
-                                                $sel = "SELECT * FROM `class`";
-                                                $res = mysqli_query($db, $sel);
-                                                while($row = mysqli_fetch_array($res)) {
-                                                    ?>
-                                                        <option value="<?php echo $row[0]; ?>"><?php echo $row[1]; ?></option>
-                                                    <?php
-                                                }
-                                            ?>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="table-responsive" style="max-height:400px; overflow-x:auto; overflow-y:auto;">
-                                    <table class="table">
-                                        <thead>
-                                            <tr>
-                                                <th scope="col">Class</th>
-                                                <th scope="col">Email</th>
-                                                <th scope="col">Marks</th>
-                                                <th scope="col">Status</th>
-                                                <th scope="col">Details</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody id="math">
-
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="container-fluid pt-4 px-4">
-                <div class="row g-4">                    
-                    <div class="col-12">
-                        <div class="bg-secondary rounded h-100 p-4">
-                            <div class="d-flex justify-content-between mb-4">
-                                <h6>Economics Results</h6>
-                            </div>
-                            <form action="#" method="post">
-                                <div class="row">
-                                    <div class="col-md-6 form-floating mb-3">
-                                        <select id="classeco" class="form-control bg-dark" name="class">
-                                            <option value="0">Select Class</option>
-                                            <?php
-                                                $sel = "SELECT * FROM `class`";
-                                                $res = mysqli_query($db, $sel);
-                                                while($row = mysqli_fetch_array($res)) {
-                                                    ?>
-                                                        <option value="<?php echo $row[0]; ?>"><?php echo $row[1]; ?></option>
-                                                    <?php
-                                                }
-                                            ?>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="table-responsive" style="max-height:400px; overflow-x:auto; overflow-y:auto;">
-                                    <table class="table">
-                                        <thead>
-                                            <tr>
-                                                <th scope="col">Class</th>
-                                                <th scope="col">Email</th>
-                                                <th scope="col">Marks</th>
-                                                <th scope="col">Status</th>
-                                                <th scope="col">Details</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody id="eco">
-
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="container-fluid pt-4 px-4">
-                <div class="row g-4">                    
-                    <div class="col-12">
-                        <div class="bg-secondary rounded h-100 p-4">
-                            <div class="d-flex justify-content-between mb-4">
-                                <h6>Principle of Commere Results</h6>
-                            </div>
-                            <form action="#" method="post">
-                                <div class="row">
-                                    <div class="col-md-6 form-floating mb-3">
-                                        <select id="classpoc" class="form-control bg-dark" name="class">
-                                            <option value="0">Select Class</option>
-                                            <?php
-                                                $sel = "SELECT * FROM `class`";
-                                                $res = mysqli_query($db, $sel);
-                                                while($row = mysqli_fetch_array($res)) {
-                                                    ?>
-                                                        <option value="<?php echo $row[0]; ?>"><?php echo $row[1]; ?></option>
-                                                    <?php
-                                                }
-                                            ?>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="table-responsive" style="max-height:400px; overflow-x:auto; overflow-y:auto;">
-                                    <table class="table">
-                                        <thead>
-                                            <tr>
-                                                <th scope="col">Class</th>
-                                                <th scope="col">Email</th>
-                                                <th scope="col">Marks</th>
-                                                <th scope="col">Status</th>
-                                                <th scope="col">Details</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody id="poc">
 
                                         </tbody>
                                     </table>
@@ -445,6 +261,144 @@
                     </div>
                 </div>
             </div>
+
+            <div class="container-fluid pt-4 px-4">
+                <div class="row g-4">                    
+                    <div class="col-12">
+                        <div class="bg-secondary rounded h-100 p-4">
+                            <div class="d-flex justify-content-between mb-4">
+                                <h6>Civics Results</h6>
+                            </div>
+                            <form action="#" method="post">
+                                <div class="row">
+                                    <div class="col-md-6 form-floating mb-3">
+                                        <select id="classciv" class="form-control bg-dark" name="class">
+                                            <option value="0">Select Class</option>
+                                            <?php
+                                                $sel = "SELECT * FROM `class`";
+                                                $res = mysqli_query($db, $sel);
+                                                while($row = mysqli_fetch_array($res)) {
+                                                    ?>
+                                                        <option value="<?php echo $row[0]; ?>"><?php echo $row[1]; ?></option>
+                                                    <?php
+                                                }
+                                            ?>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="table-responsive" style="max-height:400px; overflow-x:auto; overflow-y:auto;">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">Class</th>
+                                                <th scope="col">Email</th>
+                                                <th scope="col">Marks</th>
+                                                <th scope="col">Status</th>
+                                                <th scope="col">Details</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="civ">
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container-fluid pt-4 px-4">
+                <div class="row g-4">                    
+                    <div class="col-12">
+                        <div class="bg-secondary rounded h-100 p-4">
+                            <div class="d-flex justify-content-between mb-4">
+                                <h6>Psychology Results</h6>
+                            </div>
+                            <form action="#" method="post">
+                                <div class="row">
+                                    <div class="col-md-6 form-floating mb-3">
+                                        <select id="classpsy" class="form-control bg-dark" name="class">
+                                            <option value="0">Select Class</option>
+                                            <?php
+                                                $sel = "SELECT * FROM `class`";
+                                                $res = mysqli_query($db, $sel);
+                                                while($row = mysqli_fetch_array($res)) {
+                                                    ?>
+                                                        <option value="<?php echo $row[0]; ?>"><?php echo $row[1]; ?></option>
+                                                    <?php
+                                                }
+                                            ?>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="table-responsive" style="max-height:400px; overflow-x:auto; overflow-y:auto;">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">Class</th>
+                                                <th scope="col">Email</th>
+                                                <th scope="col">Marks</th>
+                                                <th scope="col">Status</th>
+                                                <th scope="col">Details</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="psy">
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container-fluid pt-4 px-4">
+                <div class="row g-4">                    
+                    <div class="col-12">
+                        <div class="bg-secondary rounded h-100 p-4">
+                            <div class="d-flex justify-content-between mb-4">
+                                <h6>Education Results</h6>
+                            </div>
+                            <form action="#" method="post">
+                                <div class="row">
+                                    <div class="col-md-6 form-floating mb-3">
+                                        <select id="classedu" class="form-control bg-dark" name="class">
+                                            <option value="0">Select Class</option>
+                                            <?php
+                                                $sel = "SELECT * FROM `class`";
+                                                $res = mysqli_query($db, $sel);
+                                                while($row = mysqli_fetch_array($res)) {
+                                                    ?>
+                                                        <option value="<?php echo $row[0]; ?>"><?php echo $row[1]; ?></option>
+                                                    <?php
+                                                }
+                                            ?>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="table-responsive" style="max-height:400px; overflow-x:auto; overflow-y:auto;">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">Class</th>
+                                                <th scope="col">Email</th>
+                                                <th scope="col">Marks</th>
+                                                <th scope="col">Status</th>
+                                                <th scope="col">Details</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="edu">
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <!-- Profile End -->
 
           
@@ -474,12 +428,12 @@
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
-    <script>
+    <script>        
         // English
         $('#classeng').on('change', function() {
             const id =$(this).find(":selected").val();
             $.ajax({
-                url: "comm_eng.php",
+                url: "arts_eng.php",
                 cache: false,
                 type: "POST",
                 data: {id : id},
@@ -490,71 +444,11 @@
         
         });;
 
-        // Accounting
-        $('#classacc').on('change', function() {
-            const id =$(this).find(":selected").val();
-            $.ajax({
-                url: "comm_acc.php",
-                cache: false,
-                type: "POST",
-                data: {id : id},
-                success: function(html){
-                    $('#acc').html(html);
-                }
-            });
-        
-        });;
-
-        // Business Math
-        $('#classmath').on('change', function() {
-            const id =$(this).find(":selected").val();
-            $.ajax({
-                url: "comm_math.php",
-                cache: false,
-                type: "POST",
-                data: {id : id},
-                success: function(html){
-                    $('#math').html(html);
-                }
-            });
-
-        });;
-
-        // Economics
-        $('#classeco').on('change', function() {
-            const id =$(this).find(":selected").val();
-            $.ajax({
-                url: "comm_eco.php",
-                cache: false,
-                type: "POST",
-                data: {id : id},
-                success: function(html){
-                    $('#eco').html(html);
-                }
-            });
-
-        });;
-
-        // Principles of Commerce
-        $('#classpoc').on('change', function() {
-            const id =$(this).find(":selected").val();
-            $.ajax({
-                url: "comm_poc.php",
-                cache: false,
-                type: "POST",
-                data: {id : id},
-                success: function(html){
-                    $('#poc').html(html);
-                }
-            });
-
-        });;
-
         // Urdu
         $('#classurd').on('change', function() {
             const id =$(this).find(":selected").val();
             $.ajax({
-                url: "comm_urd.php",
+                url: "arts_urd.php",
                 cache: false,
                 type: "POST",
                 data: {id : id},
@@ -569,12 +463,57 @@
         $('#classrel').on('change', function() {
             const id =$(this).find(":selected").val();
             $.ajax({
-                url: "comm_rel.php",
+                url: "arts_rel.php",
                 cache: false,
                 type: "POST",
                 data: {id : id},
                 success: function(html){
                     $('#rel').html(html);
+                }
+            });
+
+        });;
+
+        // Civics
+        $('#classciv').on('change', function() {
+            const id =$(this).find(":selected").val();
+            $.ajax({
+                url: "arts_civ.php",
+                cache: false,
+                type: "POST",
+                data: {id : id},
+                success: function(html){
+                    $('#civ').html(html);
+                }
+            });
+
+        });;
+
+        // Psychology
+        $('#classpsy').on('change', function() {
+            const id =$(this).find(":selected").val();
+            $.ajax({
+                url: "arts_psy.php",
+                cache: false,
+                type: "POST",
+                data: {id : id},
+                success: function(html){
+                    $('#psy').html(html);
+                }
+            });
+
+        });;
+
+        // Education
+        $('#classedu').on('change', function() {
+            const id =$(this).find(":selected").val();
+            $.ajax({
+                url: "arts_edu.php",
+                cache: false,
+                type: "POST",
+                data: {id : id},
+                success: function(html){
+                    $('#edu').html(html);
                 }
             });
 

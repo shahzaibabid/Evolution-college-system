@@ -42,7 +42,7 @@
         $giveid = $_POST["give"];
         $g_sel = "SELECT * FROM `admission_form` WHERE `id` = $giveid";
         $g_res = mysqli_query($db, $g_sel);
-        $g_row = mysqli_fetch_array($g_res);                                                                                                                                                                                                                                                        // profile	
+        $g_row = mysqli_fetch_array($g_res);
         $g_stu = "INSERT INTO `std_account`(`name`, `father_name`, `email`, `phone`, `pass`, `dob`, `gender`, `address`, `cnic_bayform`, `citizenship`, `religion`, `program`, `profile`) VALUES ('$g_row[1]','$g_row[2]','$email','$g_row[4]','$pass','$g_row[5]','$g_row[6]','$g_row[7]','$g_row[8]','$g_row[9]','$g_row[10]','$g_row[11]','$g_row[15]')";
         $g_stu_res = mysqli_query($db, $g_stu);
         

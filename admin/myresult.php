@@ -109,11 +109,43 @@
                 }
                 $inp = "INSERT INTO `english`(`exam_id`, `student_id`, `total_mks`, `obt_mks`, `status`, `class_id`, `program_id`) VALUES ('$examid','$student_id','$total','$obt','$status','$id','$pid')";
                 $myresult = mysqli_query($db,$inp);
+                
+                $program_name = $row["program_name"];
+                if($program_name == "Commerce") {
+                ?>
+                    <Script>
+                        window.location.assign("Commerce.php");
+                    </script>
+                <?php
+                }
+                else if($program_name == "Arts") {
                 ?>
                     <Script>
                         window.location.assign("results.php");
                     </script>
-                <?php            
+                <?php
+                }
+                else if($program_name == "Computer Science") {
+                ?>
+                    <Script>
+                        window.location.assign("results.php");
+                    </script>
+                <?php
+                }
+                else if($program_name == "Pre-Medical") {
+                ?>
+                    <Script>
+                        window.location.assign("results.php");
+                    </script>
+                <?php
+                }
+                else if($program_name == "Pre-Engineering") {
+                ?>
+                    <Script>
+                        window.location.assign("results.php");
+                    </script>
+                <?php
+                }            
             }
         }
         elseif($subres == "Islamiat") {
@@ -131,11 +163,43 @@
                 }
                 $inp = "INSERT INTO `islamiat`(`exam_id`, `student_id`, `total_mks`, `obt_mks`, `status`, `class_id`, `program_id`) VALUES ('$examid','$student_id','$total','$obt','$status','$id','$pid')";
                 $myresult = mysqli_query($db,$inp);
+
+                $program_name = $row["program_name"];
+                if($program_name == "Commerce") {
+                ?>
+                    <Script>
+                        window.location.assign("Commerce.php");
+                    </script>
+                <?php
+                }
+                else if($program_name == "Arts") {
                 ?>
                     <Script>
                         window.location.assign("results.php");
                     </script>
-                <?php            
+                <?php
+                }
+                else if($program_name == "Computer Science") {
+                ?>
+                    <Script>
+                        window.location.assign("results.php");
+                    </script>
+                <?php
+                }
+                else if($program_name == "Pre-Medical") {
+                ?>
+                    <Script>
+                        window.location.assign("results.php");
+                    </script>
+                <?php
+                }
+                else if($program_name == "Pre-Engineering") {
+                ?>
+                    <Script>
+                        window.location.assign("results.php");
+                    </script>
+                <?php
+                }
             }
         }
         elseif($subres == "Chemistry") {
@@ -153,11 +217,43 @@
                 }
                 $inp = "INSERT INTO `chemistry`(`exam_id`, `student_id`, `total_mks`, `obt_mks`, `status`, `class_id`, `program_id`) VALUES ('$examid','$student_id','$total','$obt','$status','$id','$pid')";
                 $myresult = mysqli_query($db,$inp);
+
+                $program_name = $row["program_name"];
+                if($program_name == "Commerce") {
+                ?>
+                    <Script>
+                        window.location.assign("Commerce.php");
+                    </script>
+                <?php
+                }
+                else if($program_name == "Arts") {
                 ?>
                     <Script>
                         window.location.assign("results.php");
                     </script>
-                <?php            
+                <?php
+                }
+                else if($program_name == "Computer Science") {
+                ?>
+                    <Script>
+                        window.location.assign("results.php");
+                    </script>
+                <?php
+                }
+                else if($program_name == "Pre-Medical") {
+                ?>
+                    <Script>
+                        window.location.assign("results.php");
+                    </script>
+                <?php
+                }
+                else if($program_name == "Pre-Engineering") {
+                ?>
+                    <Script>
+                        window.location.assign("results.php");
+                    </script>
+                <?php
+                }
             }
         }
         elseif($subres == "Physics") {
@@ -175,11 +271,43 @@
                 }
                 $inp = "INSERT INTO `physic`(`exam_id`, `student_id`, `total_mks`, `obt_mks`, `status`, `class_id`, `program_id`) VALUES ('$examid','$student_id','$total','$obt','$status','$id','$pid')";
                 $myresult = mysqli_query($db,$inp);
+
+                $program_name = $row["program_name"];
+                if($program_name == "Commerce") {
+                ?>
+                    <Script>
+                        window.location.assign("Commerce.php");
+                    </script>
+                <?php
+                }
+                else if($program_name == "Arts") {
                 ?>
                     <Script>
                         window.location.assign("results.php");
                     </script>
-                <?php            
+                <?php
+                }
+                else if($program_name == "Computer Science") {
+                ?>
+                    <Script>
+                        window.location.assign("results.php");
+                    </script>
+                <?php
+                }
+                else if($program_name == "Pre-Medical") {
+                ?>
+                    <Script>
+                        window.location.assign("results.php");
+                    </script>
+                <?php
+                }
+                else if($program_name == "Pre-Engineering") {
+                ?>
+                    <Script>
+                        window.location.assign("results.php");
+                    </script>
+                <?php
+                }
             }
         }
         elseif($subres == "Math") {
@@ -197,11 +325,43 @@
                 }
                 $inp = "INSERT INTO `math`(`exam_id`, `student_id`, `total_mks`, `obt_mks`, `status`, `class_id`, `program_id`) VALUES ('$examid','$student_id','$total','$obt','$status','$id','$pid')";
                 $myresult = mysqli_query($db,$inp);
+
+                $program_name = $row["program_name"];
+                if($program_name == "Commerce") {
+                ?>
+                    <Script>
+                        window.location.assign("Commerce.php");
+                    </script>
+                <?php
+                }
+                else if($program_name == "Arts") {
                 ?>
                     <Script>
                         window.location.assign("results.php");
                     </script>
-                <?php            
+                <?php
+                }
+                else if($program_name == "Computer Science") {
+                ?>
+                    <Script>
+                        window.location.assign("results.php");
+                    </script>
+                <?php
+                }
+                else if($program_name == "Pre-Medical") {
+                ?>
+                    <Script>
+                        window.location.assign("results.php");
+                    </script>
+                <?php
+                }
+                else if($program_name == "Pre-Engineering") {
+                ?>
+                    <Script>
+                        window.location.assign("results.php");
+                    </script>
+                <?php
+                }
             }
         }
         elseif($subres == "Business Math") {
@@ -219,11 +379,43 @@
                 }
                 $inp = "INSERT INTO `math`(`exam_id`, `student_id`, `total_mks`, `obt_mks`, `status`, `class_id`, `program_id`) VALUES ('$examid','$student_id','$total','$obt','$status','$id','$pid')";
                 $myresult = mysqli_query($db,$inp);
+
+                $program_name = $row["program_name"];
+                if($program_name == "Commerce") {
+                ?>
+                    <Script>
+                        window.location.assign("Commerce.php");
+                    </script>
+                <?php
+                }
+                else if($program_name == "Arts") {
                 ?>
                     <Script>
                         window.location.assign("results.php");
                     </script>
-                <?php            
+                <?php
+                }
+                else if($program_name == "Computer Science") {
+                ?>
+                    <Script>
+                        window.location.assign("results.php");
+                    </script>
+                <?php
+                }
+                else if($program_name == "Pre-Medical") {
+                ?>
+                    <Script>
+                        window.location.assign("results.php");
+                    </script>
+                <?php
+                }
+                else if($program_name == "Pre-Engineering") {
+                ?>
+                    <Script>
+                        window.location.assign("results.php");
+                    </script>
+                <?php
+                }
             }
         }
         elseif($subres == "Zoology") {
@@ -241,11 +433,43 @@
                 }
                 $inp = "INSERT INTO `zoology`(`exam_id`, `student_id`, `total_mks`, `obt_mks`, `status`, `class_id`, `program_id`) VALUES ('$examid','$student_id','$total','$obt','$status','$id','$pid')";
                 $myresult = mysqli_query($db,$inp);
+
+                $program_name = $row["program_name"];
+                if($program_name == "Commerce") {
                 ?>
                     <Script>
-                        window.location.assign("results.php");
+                        window.location.assign("Commerce.php");
                     </script>
-                <?php            
+                <?php
+                }
+                else if($program_name == "Arts") {
+                ?>
+                    <Script>
+                        window.location.assign("Arts.php");
+                    </script>
+                <?php
+                }
+                else if($program_name == "Computer Science") {
+                ?>
+                    <Script>
+                        window.location.assign("Computer.php");
+                    </script>
+                <?php
+                }
+                else if($program_name == "Pre-Medical") {
+                ?>
+                    <Script>
+                        window.location.assign("Medical.php");
+                    </script>
+                <?php
+                }
+                else if($program_name == "Pre-Engineering") {
+                ?>
+                    <Script>
+                        window.location.assign("Engineering.php");
+                    </script>
+                <?php
+                }
             }
         }
         elseif($subres == "Botany") {
@@ -263,11 +487,43 @@
                 }
                 $inp = "INSERT INTO `botany`(`exam_id`, `student_id`, `total_mks`, `obt_mks`, `status`, `class_id`, `program_id`) VALUES ('$examid','$student_id','$total','$obt','$status','$id','$pid')";
                 $myresult = mysqli_query($db,$inp);
+
+                $program_name = $row["program_name"];
+                if($program_name == "Commerce") {
+                ?>
+                    <Script>
+                        window.location.assign("Commerce.php");
+                    </script>
+                <?php
+                }
+                else if($program_name == "Arts") {
                 ?>
                     <Script>
                         window.location.assign("results.php");
                     </script>
-                <?php            
+                <?php
+                }
+                else if($program_name == "Computer Science") {
+                ?>
+                    <Script>
+                        window.location.assign("results.php");
+                    </script>
+                <?php
+                }
+                else if($program_name == "Pre-Medical") {
+                ?>
+                    <Script>
+                        window.location.assign("results.php");
+                    </script>
+                <?php
+                }
+                else if($program_name == "Pre-Engineering") {
+                ?>
+                    <Script>
+                        window.location.assign("results.php");
+                    </script>
+                <?php
+                }
             }
         }
         elseif($subres == "Computer Science") {
@@ -285,11 +541,43 @@
                 }
                 $inp = "INSERT INTO `computer_science`(`exam_id`, `student_id`, `total_mks`, `obt_mks`, `status`, `class_id`, `program_id`) VALUES ('$examid','$student_id','$total','$obt','$status','$id','$pid')";
                 $myresult = mysqli_query($db,$inp);
+
+                $program_name = $row["program_name"];
+                if($program_name == "Commerce") {
+                ?>
+                    <Script>
+                        window.location.assign("Commerce.php");
+                    </script>
+                <?php
+                }
+                else if($program_name == "Arts") {
                 ?>
                     <Script>
                         window.location.assign("results.php");
                     </script>
-                <?php            
+                <?php
+                }
+                else if($program_name == "Computer Science") {
+                ?>
+                    <Script>
+                        window.location.assign("results.php");
+                    </script>
+                <?php
+                }
+                else if($program_name == "Pre-Medical") {
+                ?>
+                    <Script>
+                        window.location.assign("results.php");
+                    </script>
+                <?php
+                }
+                else if($program_name == "Pre-Engineering") {
+                ?>
+                    <Script>
+                        window.location.assign("results.php");
+                    </script>
+                <?php
+                }
             }
         }
         elseif($subres == "Civics") {
@@ -307,11 +595,43 @@
                 }
                 $inp = "INSERT INTO `civics`(`exam_id`, `student_id`, `total_mks`, `obt_mks`, `status`, `class_id`, `program_id`) VALUES ('$examid','$student_id','$total','$obt','$status','$id','$pid')";
                 $myresult = mysqli_query($db,$inp);
+
+                $program_name = $row["program_name"];
+                if($program_name == "Commerce") {
+                ?>
+                    <Script>
+                        window.location.assign("Commerce.php");
+                    </script>
+                <?php
+                }
+                else if($program_name == "Arts") {
                 ?>
                     <Script>
                         window.location.assign("results.php");
                     </script>
-                <?php            
+                <?php
+                }
+                else if($program_name == "Computer Science") {
+                ?>
+                    <Script>
+                        window.location.assign("results.php");
+                    </script>
+                <?php
+                }
+                else if($program_name == "Pre-Medical") {
+                ?>
+                    <Script>
+                        window.location.assign("results.php");
+                    </script>
+                <?php
+                }
+                else if($program_name == "Pre-Engineering") {
+                ?>
+                    <Script>
+                        window.location.assign("results.php");
+                    </script>
+                <?php
+                }
             }
         }
         elseif($subres == "Psychology") {
@@ -329,11 +649,43 @@
                 }
                 $inp = "INSERT INTO `psychology`(`exam_id`, `student_id`, `total_mks`, `obt_mks`, `status`, `class_id`, `program_id`) VALUES ('$examid','$student_id','$total','$obt','$status','$id','$pid')";
                 $myresult = mysqli_query($db,$inp);
+
+                $program_name = $row["program_name"];
+                if($program_name == "Commerce") {
+                ?>
+                    <Script>
+                        window.location.assign("Commerce.php");
+                    </script>
+                <?php
+                }
+                else if($program_name == "Arts") {
                 ?>
                     <Script>
                         window.location.assign("results.php");
                     </script>
-                <?php            
+                <?php
+                }
+                else if($program_name == "Computer Science") {
+                ?>
+                    <Script>
+                        window.location.assign("results.php");
+                    </script>
+                <?php
+                }
+                else if($program_name == "Pre-Medical") {
+                ?>
+                    <Script>
+                        window.location.assign("results.php");
+                    </script>
+                <?php
+                }
+                else if($program_name == "Pre-Engineering") {
+                ?>
+                    <Script>
+                        window.location.assign("results.php");
+                    </script>
+                <?php
+                }
             }
         }
         elseif($subres == "Education") {
@@ -351,11 +703,43 @@
                 }
                 $inp = "INSERT INTO `education`(`exam_id`, `student_id`, `total_mks`, `obt_mks`, `status`, `class_id`, `program_id`) VALUES ('$examid','$student_id','$total','$obt','$status','$id','$pid')";
                 $myresult = mysqli_query($db,$inp);
+
+                $program_name = $row["program_name"];
+                if($program_name == "Commerce") {
+                ?>
+                    <Script>
+                        window.location.assign("Commerce.php");
+                    </script>
+                <?php
+                }
+                else if($program_name == "Arts") {
                 ?>
                     <Script>
                         window.location.assign("results.php");
                     </script>
-                <?php            
+                <?php
+                }
+                else if($program_name == "Computer Science") {
+                ?>
+                    <Script>
+                        window.location.assign("results.php");
+                    </script>
+                <?php
+                }
+                else if($program_name == "Pre-Medical") {
+                ?>
+                    <Script>
+                        window.location.assign("results.php");
+                    </script>
+                <?php
+                }
+                else if($program_name == "Pre-Engineering") {
+                ?>
+                    <Script>
+                        window.location.assign("results.php");
+                    </script>
+                <?php
+                }
             }
         }
         elseif($subres == "Accounting") {
@@ -373,11 +757,43 @@
                 }
                 $inp = "INSERT INTO `accounting`(`exam_id`, `student_id`, `total_mks`, `obt_mks`, `status`, `class_id`, `program_id`) VALUES ('$examid','$student_id','$total','$obt','$status','$id','$pid')";
                 $myresult = mysqli_query($db,$inp);
+
+                $program_name = $row["program_name"];
+                if($program_name == "Commerce") {
+                ?>
+                    <Script>
+                        window.location.assign("Commerce.php");
+                    </script>
+                <?php
+                }
+                else if($program_name == "Arts") {
                 ?>
                     <Script>
                         window.location.assign("results.php");
                     </script>
-                <?php            
+                <?php
+                }
+                else if($program_name == "Computer Science") {
+                ?>
+                    <Script>
+                        window.location.assign("results.php");
+                    </script>
+                <?php
+                }
+                else if($program_name == "Pre-Medical") {
+                ?>
+                    <Script>
+                        window.location.assign("results.php");
+                    </script>
+                <?php
+                }
+                else if($program_name == "Pre-Engineering") {
+                ?>
+                    <Script>
+                        window.location.assign("results.php");
+                    </script>
+                <?php
+                }
             }
         }
         elseif($subres == "Economics") {
@@ -395,11 +811,43 @@
                 }
                 $inp = "INSERT INTO `economics`(`exam_id`, `student_id`, `total_mks`, `obt_mks`, `status`, `class_id`, `program_id`) VALUES ('$examid','$student_id','$total','$obt','$status','$id','$pid')";
                 $myresult = mysqli_query($db,$inp);
+
+                $program_name = $row["program_name"];
+                if($program_name == "Commerce") {
+                ?>
+                    <Script>
+                        window.location.assign("Commerce.php");
+                    </script>
+                <?php
+                }
+                else if($program_name == "Arts") {
                 ?>
                     <Script>
                         window.location.assign("results.php");
                     </script>
-                <?php            
+                <?php
+                }
+                else if($program_name == "Computer Science") {
+                ?>
+                    <Script>
+                        window.location.assign("results.php");
+                    </script>
+                <?php
+                }
+                else if($program_name == "Pre-Medical") {
+                ?>
+                    <Script>
+                        window.location.assign("results.php");
+                    </script>
+                <?php
+                }
+                else if($program_name == "Pre-Engineering") {
+                ?>
+                    <Script>
+                        window.location.assign("results.php");
+                    </script>
+                <?php
+                }
             }
         }
         elseif($subres == "POC") {
@@ -417,11 +865,43 @@
                 }
                 $inp = "INSERT INTO `poc`(`exam_id`, `student_id`, `total_mks`, `obt_mks`, `status`, `class_id`, `program_id`) VALUES ('$examid','$student_id','$total','$obt','$status','$id','$pid')";
                 $myresult = mysqli_query($db,$inp);
+
+                $program_name = $row["program_name"];
+                if($program_name == "Commerce") {
+                ?>
+                    <Script>
+                        window.location.assign("Commerce.php");
+                    </script>
+                <?php
+                }
+                else if($program_name == "Arts") {
                 ?>
                     <Script>
                         window.location.assign("results.php");
                     </script>
-                <?php            
+                <?php
+                }
+                else if($program_name == "Computer Science") {
+                ?>
+                    <Script>
+                        window.location.assign("results.php");
+                    </script>
+                <?php
+                }
+                else if($program_name == "Pre-Medical") {
+                ?>
+                    <Script>
+                        window.location.assign("results.php");
+                    </script>
+                <?php
+                }
+                else if($program_name == "Pre-Engineering") {
+                ?>
+                    <Script>
+                        window.location.assign("results.php");
+                    </script>
+                <?php
+                }
             }
         }
     }

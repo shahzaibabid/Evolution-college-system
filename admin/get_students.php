@@ -13,10 +13,10 @@
         $i++;
     ?>
         <tr>
-            <td><input style="background: transparent; border: none;" class="text-light" type="tel" name="name" value="<?php echo $row["name"]; ?>" readonly ></td>
-            <td><input style="background: transparent; border: none;" class="text-light" type="tel" name="email" value="<?php echo $row["email"]; ?>" readonly ></td>
-            <td><input style="background: transparent; border: none;" class="text-light" type="tel" name="total<?php echo $i; ?>" value="20" readonly ></td>
-            <td><input style="background: transparent; border: none;" class="text-light" type="tel" name="obt<?php echo $i; ?>" value="0"></td>
+            <td><input style="background: transparent; border: none;" class="text-light" type="text" name="name" value="<?php echo $row["name"]; ?>" readonly ></td>
+            <td><input style="background: transparent; border: none;" class="text-light" type="email" name="email" value="<?php echo $row["email"]; ?>" readonly ></td>
+            <td><input style="background: transparent; border: none;" class="text-light" type="number" name="total<?php echo $i; ?>" value="20" readonly ></td>
+            <td><input style="background: transparent; border: none;" class="text-light" type="number" name="obt<?php echo $i; ?>" value="0"></td>
         </tr>
     <?php 
     }
