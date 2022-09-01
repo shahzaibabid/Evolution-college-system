@@ -1,0 +1,15 @@
+1.	English	k
+2.	Urdu	k
+3.	Religion	k
+4.	Chemistry	k
+5.	Physic	k
+6.	Math	k
+7.	Zoology		k
+8.	Botany		k
+9.	Computer Science	k
+10.	Civics
+11.	Psychology
+12.	Education
+13.	Accounting
+14.	Econimics
+15.	Poc

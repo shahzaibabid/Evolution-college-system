@@ -52,7 +52,7 @@
         <Script>
             window.location.assign("mailto:colinchristopher2001@gmail.com");
             window.location.assign("admission.php");
-        </Script>
+        </Script>14511422501639739768pFHNrg.jpg
         <?php
     }
 

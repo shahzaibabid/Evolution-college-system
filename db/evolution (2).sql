@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 31, 2022 at 08:53 AM
+-- Generation Time: Sep 01, 2022 at 04:44 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 7.3.31
 
@@ -300,7 +300,9 @@ CREATE TABLE `english` (
 
 INSERT INTO `english` (`id`, `exam_id`, `student_id`, `total_mks`, `obt_mks`, `status`, `class_id`, `program_id`) VALUES
 (2, 3, 4, 20, 8, 'Pass', 1, 5),
-(3, 3, 4, 20, 8, 'Pass', 1, 5);
+(3, 3, 4, 20, 8, 'Pass', 1, 5),
+(4, 3, 4, 20, 8, 'Pass', 1, 5),
+(5, 3, 4, 20, 5, 'Fail', 1, 5);
 
 -- --------------------------------------------------------
 
@@ -504,7 +506,7 @@ CREATE TABLE `std_account` (
 --
 
 INSERT INTO `std_account` (`id`, `name`, `father_name`, `email`, `phone`, `pass`, `dob`, `gender`, `address`, `cnic_bayform`, `citizenship`, `religion`, `program`, `profile`, `admission_id`, `class_id`, `user_type`) VALUES
-(4, 'Charles Stephen', 'Adwin', 'charles@student.ecs.com', '03343427289', '202cb962ac59075b964b07152d234b70', '2022-08-03', 'Male', 'B Road, Nursery Bus Stop, Karachi, Karachi', '12345678912', 'Pakistani', 'Christianity', 'Commerce', '14511422501639739768pFHNrg.jpg', 10, 1, 4),
+(4, 'Charles Stephen', 'Adwin', 'charles@student.ecs.com', '03343427289', '202cb962ac59075b964b07152d234b70', '2022-08-03', 'Male', 'B Road, Nursery Bus Stop, Karachi, Karachi', '12345678912', 'Pakistani', 'Christianity', 'Commerce', '1639739768pFHNrg.jpg', 10, 1, 4),
 (5, 'Shahzaib', 'Hammad', 'shahzaib@student.ecs.com', '0334342728', '202cb962ac59075b964b07152d234b70', '2022-08-25', 'Male', '72-N, P.E.C.H.S.,Karachi', '98765432198', 'Pakistani', 'Islam', 'Pre-Medical', '2128280155769866400shahzaib.jpg', 11, 1, 4);
 
 -- --------------------------------------------------------
@@ -916,7 +918,7 @@ ALTER TABLE `education`
 -- AUTO_INCREMENT for table `english`
 --
 ALTER TABLE `english`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `exam`
