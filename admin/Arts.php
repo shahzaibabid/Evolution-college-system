@@ -89,8 +89,19 @@
                         <?php if($_SESSION["mytype"] == 0) { ?> <a href="add_administrator.php" class="nav-item nav-link"><i class="fas fa-file-invoice"></i>Add Administrator</a> <?php } ?>
                         <a href="Accounts.php" class="nav-item nav-link"><i class="fas fa-file-invoice"></i>All Accounts</a>
                         <?php if($_SESSION["mytype"] != 3) { ?> <a href="admission.php" class="nav-item nav-link"><i class="fas fa-file-invoice"></i>Admission Forms</a> <?php } ?>
-                        <a href="exam.php" class="nav-item nav-link active"><i class="fas fa-file-invoice"></i>Exams</a>
-                        <a href="timetable.php" class="nav-item nav-link"><i class="fas fa-file-invoice"></i>Timetable</a>
+                        <a href="exam.php" class="nav-item nav-link"><i class="fas fa-file-invoice"></i>Exams</a>
+                        <div class="dropdown nav-item nav-link" id="pages">
+                            <a class="dropdown-toggle text-primary" href="#" role="button" id="dropdownMenuLink2" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="fas fa-file-invoice"></i>Pages
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink2">
+                                <li><a href="Engineering.php" class="dropdown-item">Pre-Engineering</a></li>
+                                <li><a href="Medical.php" class="dropdown-item">Pre-Medical</a></li>
+                                <li><a href="Computer.php" class="dropdown-item">Computer Science</a></li>
+                                <li><a href="Arts.php" class="dropdown-item">Arts</a></li>
+                                <li><a href="Commerce.php" class="dropdown-item">Commerce</a></li>
+                            </ul>
+                        </div>
                     </div>
                 </nav>
             </div>

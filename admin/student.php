@@ -742,294 +742,345 @@
                     <?php
                         if($program == "Computer Science") {
                     ?>
-                    <!-- Computer Science Computer-Science Start -->
-                    <div class="col-6 mb-4">
-                        <div class="bg-secondary rounded h-100 p-4">
-                            <div class="d-flex justify-content-between mb-4">
-                                <h6>Computer Science Results</h6>
+                            <!-- Computer Science Start -->
+                            <div class="col-6 mb-4">
+                                <div class="bg-secondary rounded h-100 p-4">
+                                    <div class="d-flex justify-content-between mb-4">
+                                        <h6>Computer Science Results</h6>
+                                    </div>
+                                    <div class="table-responsive" style="max-height:400px; overflow-x:auto; overflow-y:auto;">
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">Test</th>
+                                                    <th scope="col">Marks</th>
+                                                    <th scope="col">Status</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <?php
+                                                    $comp = "SELECT * FROM `computer_science` WHERE `student_id` = $id ORDER BY `id` DESC";
+                                                    $comp_result = mysqli_query($db, $comp);
+                                                    if(mysqli_num_rows($comp_result)) {
+                                                        $compcount = "SELECT COUNT(`id`) FROM `computer_science` WHERE `student_id` = $id";
+                                                        $compcount_result = mysqli_query($db, $compcount);
+                                                        $compcount_row = mysqli_fetch_array($compcount_result);
+                                                        $comp_test = $compcount_row["COUNT(`id`)"] + 1;
+                                                        while($comp_row = mysqli_fetch_array($comp_result)) {
+                                                            $comp_test--;
+                                                            ?>
+                                                            <tr>
+                                                                <td><?php echo "Test#" . $comp_test; ?></td>
+                                                                <td><?php echo $comp_row["obt_mks"] . "/" . $comp_row["total_mks"]; ?></td>
+                                                                <td><?php echo $comp_row["status"]; ?></td>
+                                                            </tr>
+                                                            <?php
+                                                        }
+                                                    }
+                                                ?>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="table-responsive" style="max-height:400px; overflow-x:auto; overflow-y:auto;">
-                                <table class="table">
-                                    <thead>
-                                        <tr>
-                                            <th scope="col">Test</th>
-                                            <th scope="col">Marks</th>
-                                            <th scope="col">Status</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <?php
-                                            $comp = "SELECT * FROM `computer_science` WHERE `student_id` = $id ORDER BY `id` DESC";
-                                            $comp_result = mysqli_query($db, $comp);
-                                            if(mysqli_num_rows($comp_result)) {
-                                                $compcount = "SELECT COUNT(`id`) FROM `computer_science` WHERE `student_id` = $id";
-                                                $compcount_result = mysqli_query($db, $compcount);
-                                                $compcount_row = mysqli_fetch_array($compcount_result);
-                                                $comp_test = $compcount_row["COUNT(`id`)"] + 1;
-                                                while($comp_row = mysqli_fetch_array($comp_result)) {
-                                                    $comp_test--;
-                                                    ?>
-                                                    <tr>
-                                                        <td><?php echo "Test#" . $comp_test; ?></td>
-                                                        <td><?php echo $comp_row["obt_mks"] . "/" . $comp_row["total_mks"]; ?></td>
-                                                        <td><?php echo $comp_row["status"]; ?></td>
-                                                    </tr>
-                                                    <?php
-                                                }
-                                            }
-                                        ?>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Computer Science Computer-Science End -->
+                            <!-- Computer Science End -->
+                    <?php
+                        }
+                    ?>
 
-                    <div class="col-6 mb-4">
-                        <div class="bg-secondary rounded h-100 p-4">
-                            <div class="d-flex justify-content-between mb-4">
-                                <h6>English Results</h6>
+                    <?php
+                        if($program == "Arts") {
+                    ?>
+                            <!-- Civics Arts Start -->
+                            <div class="col-6 mb-4">
+                                <div class="bg-secondary rounded h-100 p-4">
+                                    <div class="d-flex justify-content-between mb-4">
+                                        <h6>Civics Results</h6>
+                                    </div>
+                                    <div class="table-responsive" style="max-height:400px; overflow-x:auto; overflow-y:auto;">
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">Test</th>
+                                                    <th scope="col">Marks</th>
+                                                    <th scope="col">Status</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <?php
+                                                    $civ = "SELECT * FROM `civics` WHERE `student_id` = $id ORDER BY `id` DESC";
+                                                    $civ_result = mysqli_query($db, $civ);
+                                                    if(mysqli_num_rows($civ_result)) {
+                                                        $civcount = "SELECT COUNT(`id`) FROM `civics` WHERE `student_id` = $id";
+                                                        $civcount_result = mysqli_query($db, $civcount);
+                                                        $civcount_row = mysqli_fetch_array($civcount_result);
+                                                        $civ_test = $civcount_row["COUNT(`id`)"] + 1;
+                                                        while($civ_row = mysqli_fetch_array($civ_result)) {
+                                                            $civ_test--;
+                                                            ?>
+                                                            <tr>
+                                                                <td><?php echo "Test#" . $civ_test; ?></td>
+                                                                <td><?php echo $civ_row["obt_mks"] . "/" . $civ_row["total_mks"]; ?></td>
+                                                                <td><?php echo $civ_row["status"]; ?></td>
+                                                            </tr>
+                                                            <?php
+                                                        }
+                                                    }
+                                                ?>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="table-responsive" style="max-height:400px; overflow-x:auto; overflow-y:auto;">
-                                <table class="table">
-                                    <thead>
-                                        <tr>
-                                            <th scope="col">Test</th>
-                                            <th scope="col">Marks</th>
-                                            <th scope="col">Status</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <?php
-                                            $eng = "SELECT * FROM `english` WHERE `student_id` = $id ORDER BY `id` DESC";
-                                            $eng_result = mysqli_query($db, $eng);
-                                            if(mysqli_num_rows($eng_result)) {
-                                                $engcount = "SELECT COUNT(`id`) FROM `english` WHERE `student_id` = $id";
-                                                $engcount_result = mysqli_query($db, $engcount);
-                                                $engcount_row = mysqli_fetch_array($engcount_result);
-                                                $eng_test = $engcount_row["COUNT(`id`)"] + 1;
-                                                while($eng_row = mysqli_fetch_array($eng_result)) {
-                                                    $eng_test--;
-                                                    ?>
-                                                    <tr>
-                                                        <td><?php echo "Test#" . $eng_test; ?></td>
-                                                        <td><?php echo $eng_row["obt_mks"] . "/" . $eng_row["total_mks"]; ?></td>
-                                                        <td><?php echo $eng_row["status"]; ?></td>
-                                                    </tr>
-                                                    <?php
-                                                }
-                                            }
-                                        ?>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
+                            <!-- Civics Arts End -->
+                    <?php
+                        }
+                    ?>
 
-                    <div class="col-6 mb-4">
-                        <div class="bg-secondary rounded h-100 p-4">
-                            <div class="d-flex justify-content-between mb-4">
-                                <h6>English Results</h6>
+                    <?php
+                        if($program == "Arts") {
+                    ?>
+                            <!-- Psychology Arts Start -->
+                            <div class="col-6 mb-4">
+                                <div class="bg-secondary rounded h-100 p-4">
+                                    <div class="d-flex justify-content-between mb-4">
+                                        <h6>Psychology Results</h6>
+                                    </div>
+                                    <div class="table-responsive" style="max-height:400px; overflow-x:auto; overflow-y:auto;">
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">Test</th>
+                                                    <th scope="col">Marks</th>
+                                                    <th scope="col">Status</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <?php
+                                                    $psy = "SELECT * FROM `psychology` WHERE `student_id` = $id ORDER BY `id` DESC";
+                                                    $psy_result = mysqli_query($db, $psy);
+                                                    if(mysqli_num_rows($psy_result)) {
+                                                        $psycount = "SELECT COUNT(`id`) FROM `psychology` WHERE `student_id` = $id";
+                                                        $psycount_result = mysqli_query($db, $psycount);
+                                                        $psycount_row = mysqli_fetch_array($psycount_result);
+                                                        $psy_test = $psycount_row["COUNT(`id`)"] + 1;
+                                                        while($psy_row = mysqli_fetch_array($psy_result)) {
+                                                            $psy_test--;
+                                                            ?>
+                                                            <tr>
+                                                                <td><?php echo "Test#" . $psy_test; ?></td>
+                                                                <td><?php echo $psy_row["obt_mks"] . "/" . $psy_row["total_mks"]; ?></td>
+                                                                <td><?php echo $psy_row["status"]; ?></td>
+                                                            </tr>
+                                                            <?php
+                                                        }
+                                                    }
+                                                ?>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="table-responsive" style="max-height:400px; overflow-x:auto; overflow-y:auto;">
-                                <table class="table">
-                                    <thead>
-                                        <tr>
-                                            <th scope="col">Test</th>
-                                            <th scope="col">Marks</th>
-                                            <th scope="col">Status</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <?php
-                                            $eng = "SELECT * FROM `english` WHERE `student_id` = $id ORDER BY `id` DESC";
-                                            $eng_result = mysqli_query($db, $eng);
-                                            if(mysqli_num_rows($eng_result)) {
-                                                $engcount = "SELECT COUNT(`id`) FROM `english` WHERE `student_id` = $id";
-                                                $engcount_result = mysqli_query($db, $engcount);
-                                                $engcount_row = mysqli_fetch_array($engcount_result);
-                                                $eng_test = $engcount_row["COUNT(`id`)"] + 1;
-                                                while($eng_row = mysqli_fetch_array($eng_result)) {
-                                                    $eng_test--;
-                                                    ?>
-                                                    <tr>
-                                                        <td><?php echo "Test#" . $eng_test; ?></td>
-                                                        <td><?php echo $eng_row["obt_mks"] . "/" . $eng_row["total_mks"]; ?></td>
-                                                        <td><?php echo $eng_row["status"]; ?></td>
-                                                    </tr>
-                                                    <?php
-                                                }
-                                            }
-                                        ?>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
+                            <!-- Psychology Arts End -->
+                    <?php
+                        }
+                    ?>
 
-                    <div class="col-6 mb-4">
-                        <div class="bg-secondary rounded h-100 p-4">
-                            <div class="d-flex justify-content-between mb-4">
-                                <h6>English Results</h6>
+                    <?php
+                        if($program == "Arts") {
+                    ?>
+                            <!-- Education Arts Start -->
+                            <div class="col-6 mb-4">
+                                <div class="bg-secondary rounded h-100 p-4">
+                                    <div class="d-flex justify-content-between mb-4">
+                                        <h6>Education Results</h6>
+                                    </div>
+                                    <div class="table-responsive" style="max-height:400px; overflow-x:auto; overflow-y:auto;">
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">Test</th>
+                                                    <th scope="col">Marks</th>
+                                                    <th scope="col">Status</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <?php
+                                                    $edu = "SELECT * FROM `education` WHERE `student_id` = $id ORDER BY `id` DESC";
+                                                    $edu_result = mysqli_query($db, $edu);
+                                                    if(mysqli_num_rows($edu_result)) {
+                                                        $educount = "SELECT COUNT(`id`) FROM `education` WHERE `student_id` = $id";
+                                                        $educount_result = mysqli_query($db, $educount);
+                                                        $educount_row = mysqli_fetch_array($educount_result);
+                                                        $edu_test = $educount_row["COUNT(`id`)"] + 1;
+                                                        while($edu_row = mysqli_fetch_array($edu_result)) {
+                                                            $edu_test--;
+                                                            ?>
+                                                            <tr>
+                                                                <td><?php echo "Test#" . $edu_test; ?></td>
+                                                                <td><?php echo $edu_row["obt_mks"] . "/" . $edu_row["total_mks"]; ?></td>
+                                                                <td><?php echo $edu_row["status"]; ?></td>
+                                                            </tr>
+                                                            <?php
+                                                        }
+                                                    }
+                                                ?>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="table-responsive" style="max-height:400px; overflow-x:auto; overflow-y:auto;">
-                                <table class="table">
-                                    <thead>
-                                        <tr>
-                                            <th scope="col">Test</th>
-                                            <th scope="col">Marks</th>
-                                            <th scope="col">Status</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <?php
-                                            $eng = "SELECT * FROM `english` WHERE `student_id` = $id ORDER BY `id` DESC";
-                                            $eng_result = mysqli_query($db, $eng);
-                                            if(mysqli_num_rows($eng_result)) {
-                                                $engcount = "SELECT COUNT(`id`) FROM `english` WHERE `student_id` = $id";
-                                                $engcount_result = mysqli_query($db, $engcount);
-                                                $engcount_row = mysqli_fetch_array($engcount_result);
-                                                $eng_test = $engcount_row["COUNT(`id`)"] + 1;
-                                                while($eng_row = mysqli_fetch_array($eng_result)) {
-                                                    $eng_test--;
-                                                    ?>
-                                                    <tr>
-                                                        <td><?php echo "Test#" . $eng_test; ?></td>
-                                                        <td><?php echo $eng_row["obt_mks"] . "/" . $eng_row["total_mks"]; ?></td>
-                                                        <td><?php echo $eng_row["status"]; ?></td>
-                                                    </tr>
-                                                    <?php
-                                                }
-                                            }
-                                        ?>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
+                            <!-- Education Arts End -->
+                    <?php
+                        }
+                    ?>
 
-                    <div class="col-6 mb-4">
-                        <div class="bg-secondary rounded h-100 p-4">
-                            <div class="d-flex justify-content-between mb-4">
-                                <h6>English Results</h6>
+                    <?php
+                        if($program == "Commerce") {
+                    ?>
+                            <!-- Accounting Commerce Start -->
+                            <div class="col-6 mb-4">
+                                <div class="bg-secondary rounded h-100 p-4">
+                                    <div class="d-flex justify-content-between mb-4">
+                                        <h6>Accounting Results</h6>
+                                    </div>
+                                    <div class="table-responsive" style="max-height:400px; overflow-x:auto; overflow-y:auto;">
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">Test</th>
+                                                    <th scope="col">Marks</th>
+                                                    <th scope="col">Status</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <?php
+                                                    $acc = "SELECT * FROM `accounting` WHERE `student_id` = $id ORDER BY `id` DESC";
+                                                    $acc_result = mysqli_query($db, $acc);
+                                                    if(mysqli_num_rows($acc_result)) {
+                                                        $acccount = "SELECT COUNT(`id`) FROM `accounting` WHERE `student_id` = $id";
+                                                        $acccount_result = mysqli_query($db, $acccount);
+                                                        $acccount_row = mysqli_fetch_array($acccount_result);
+                                                        $acc_test = $acccount_row["COUNT(`id`)"] + 1;
+                                                        while($acc_row = mysqli_fetch_array($acc_result)) {
+                                                            $acc_test--;
+                                                            ?>
+                                                            <tr>
+                                                                <td><?php echo "Test#" . $acc_test; ?></td>
+                                                                <td><?php echo $acc_row["obt_mks"] . "/" . $acc_row["total_mks"]; ?></td>
+                                                                <td><?php echo $acc_row["status"]; ?></td>
+                                                            </tr>
+                                                            <?php
+                                                        }
+                                                    }
+                                                ?>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="table-responsive" style="max-height:400px; overflow-x:auto; overflow-y:auto;">
-                                <table class="table">
-                                    <thead>
-                                        <tr>
-                                            <th scope="col">Test</th>
-                                            <th scope="col">Marks</th>
-                                            <th scope="col">Status</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <?php
-                                            $eng = "SELECT * FROM `english` WHERE `student_id` = $id ORDER BY `id` DESC";
-                                            $eng_result = mysqli_query($db, $eng);
-                                            if(mysqli_num_rows($eng_result)) {
-                                                $engcount = "SELECT COUNT(`id`) FROM `english` WHERE `student_id` = $id";
-                                                $engcount_result = mysqli_query($db, $engcount);
-                                                $engcount_row = mysqli_fetch_array($engcount_result);
-                                                $eng_test = $engcount_row["COUNT(`id`)"] + 1;
-                                                while($eng_row = mysqli_fetch_array($eng_result)) {
-                                                    $eng_test--;
-                                                    ?>
-                                                    <tr>
-                                                        <td><?php echo "Test#" . $eng_test; ?></td>
-                                                        <td><?php echo $eng_row["obt_mks"] . "/" . $eng_row["total_mks"]; ?></td>
-                                                        <td><?php echo $eng_row["status"]; ?></td>
-                                                    </tr>
-                                                    <?php
-                                                }
-                                            }
-                                        ?>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
+                            <!-- Accounting Commerce End -->
+                    <?php
+                        }
+                    ?>
 
-                    <div class="col-6 mb-4">
-                        <div class="bg-secondary rounded h-100 p-4">
-                            <div class="d-flex justify-content-between mb-4">
-                                <h6>English Results</h6>
+                    <?php
+                        if($program == "Commerce") {
+                    ?>
+                            <!-- Economic Commerce Start -->
+                            <div class="col-6 mb-4">
+                                <div class="bg-secondary rounded h-100 p-4">
+                                    <div class="d-flex justify-content-between mb-4">
+                                        <h6>Economic Results</h6>
+                                    </div>
+                                    <div class="table-responsive" style="max-height:400px; overflow-x:auto; overflow-y:auto;">
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">Test</th>
+                                                    <th scope="col">Marks</th>
+                                                    <th scope="col">Status</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <?php
+                                                    $eco = "SELECT * FROM `economics` WHERE `student_id` = $id ORDER BY `id` DESC";
+                                                    $eco_result = mysqli_query($db, $eco);
+                                                    if(mysqli_num_rows($eco_result)) {
+                                                        $ecocount = "SELECT COUNT(`id`) FROM `economics` WHERE `student_id` = $id";
+                                                        $ecocount_result = mysqli_query($db, $ecocount);
+                                                        $ecocount_row = mysqli_fetch_array($ecocount_result);
+                                                        $eco_test = $ecocount_row["COUNT(`id`)"] + 1;
+                                                        while($eco_row = mysqli_fetch_array($eco_result)) {
+                                                            $eco_test--;
+                                                            ?>
+                                                            <tr>
+                                                                <td><?php echo "Test#" . $eco_test; ?></td>
+                                                                <td><?php echo $eco_row["obt_mks"] . "/" . $eco_row["total_mks"]; ?></td>
+                                                                <td><?php echo $eco_row["status"]; ?></td>
+                                                            </tr>
+                                                            <?php
+                                                        }
+                                                    }
+                                                ?>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="table-responsive" style="max-height:400px; overflow-x:auto; overflow-y:auto;">
-                                <table class="table">
-                                    <thead>
-                                        <tr>
-                                            <th scope="col">Test</th>
-                                            <th scope="col">Marks</th>
-                                            <th scope="col">Status</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <?php
-                                            $eng = "SELECT * FROM `english` WHERE `student_id` = $id ORDER BY `id` DESC";
-                                            $eng_result = mysqli_query($db, $eng);
-                                            if(mysqli_num_rows($eng_result)) {
-                                                $engcount = "SELECT COUNT(`id`) FROM `english` WHERE `student_id` = $id";
-                                                $engcount_result = mysqli_query($db, $engcount);
-                                                $engcount_row = mysqli_fetch_array($engcount_result);
-                                                $eng_test = $engcount_row["COUNT(`id`)"] + 1;
-                                                while($eng_row = mysqli_fetch_array($eng_result)) {
-                                                    $eng_test--;
-                                                    ?>
-                                                    <tr>
-                                                        <td><?php echo "Test#" . $eng_test; ?></td>
-                                                        <td><?php echo $eng_row["obt_mks"] . "/" . $eng_row["total_mks"]; ?></td>
-                                                        <td><?php echo $eng_row["status"]; ?></td>
-                                                    </tr>
-                                                    <?php
-                                                }
-                                            }
-                                        ?>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
+                            <!-- Economic Commerce End -->
+                    <?php
+                        }
+                    ?>
 
-                    <div class="col-6 mb-4">
-                        <div class="bg-secondary rounded h-100 p-4">
-                            <div class="d-flex justify-content-between mb-4">
-                                <h6>English Results</h6>
+                    <?php
+                        if($program == "Commerce") {
+                    ?>
+                            <!-- Principle of Commerce Start -->
+                            <div class="col-6 mb-4">
+                                <div class="bg-secondary rounded h-100 p-4">
+                                    <div class="d-flex justify-content-between mb-4">
+                                        <h6>POC Results</h6>
+                                    </div>
+                                    <div class="table-responsive" style="max-height:400px; overflow-x:auto; overflow-y:auto;">
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">Test</th>
+                                                    <th scope="col">Marks</th>
+                                                    <th scope="col">Status</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <?php
+                                                    $poc = "SELECT * FROM `poc` WHERE `student_id` = $id ORDER BY `id` DESC";
+                                                    $poc_result = mysqli_query($db, $poc);
+                                                    if(mysqli_num_rows($poc_result)) {
+                                                        $poccount = "SELECT COUNT(`id`) FROM `poc` WHERE `student_id` = $id";
+                                                        $poccount_result = mysqli_query($db, $poccount);
+                                                        $poccount_row = mysqli_fetch_array($poccount_result);
+                                                        $poc_test = $poccount_row["COUNT(`id`)"] + 1;
+                                                        while($poc_row = mysqli_fetch_array($poc_result)) {
+                                                            $poc_test--;
+                                                            ?>
+                                                            <tr>
+                                                                <td><?php echo "Test#" . $poc_test; ?></td>
+                                                                <td><?php echo $poc_row["obt_mks"] . "/" . $poc_row["total_mks"]; ?></td>
+                                                                <td><?php echo $poc_row["status"]; ?></td>
+                                                            </tr>
+                                                            <?php
+                                                        }
+                                                    }
+                                                ?>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="table-responsive" style="max-height:400px; overflow-x:auto; overflow-y:auto;">
-                                <table class="table">
-                                    <thead>
-                                        <tr>
-                                            <th scope="col">Test</th>
-                                            <th scope="col">Marks</th>
-                                            <th scope="col">Status</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <?php
-                                            $eng = "SELECT * FROM `english` WHERE `student_id` = $id ORDER BY `id` DESC";
-                                            $eng_result = mysqli_query($db, $eng);
-                                            if(mysqli_num_rows($eng_result)) {
-                                                $engcount = "SELECT COUNT(`id`) FROM `english` WHERE `student_id` = $id";
-                                                $engcount_result = mysqli_query($db, $engcount);
-                                                $engcount_row = mysqli_fetch_array($engcount_result);
-                                                $eng_test = $engcount_row["COUNT(`id`)"] + 1;
-                                                while($eng_row = mysqli_fetch_array($eng_result)) {
-                                                    $eng_test--;
-                                                    ?>
-                                                    <tr>
-                                                        <td><?php echo "Test#" . $eng_test; ?></td>
-                                                        <td><?php echo $eng_row["obt_mks"] . "/" . $eng_row["total_mks"]; ?></td>
-                                                        <td><?php echo $eng_row["status"]; ?></td>
-                                                    </tr>
-                                                    <?php
-                                                }
-                                            }
-                                        ?>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
+                            <!-- Principle of Commerce Start -->
+                    <?php
+                        }
+                    ?>
                 </div>
             </div>
             <!-- Profile End -->

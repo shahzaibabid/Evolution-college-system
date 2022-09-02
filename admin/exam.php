@@ -111,7 +111,18 @@
                         <a href="Accounts.php" class="nav-item nav-link"><i class="fas fa-file-invoice"></i>All Accounts</a>
                         <?php if($_SESSION["mytype"] != 3) { ?> <a href="admission.php" class="nav-item nav-link"><i class="fas fa-file-invoice"></i>Admission Forms</a> <?php } ?>
                         <a href="exam.php" class="nav-item nav-link active"><i class="fas fa-file-invoice"></i>Exams</a>
-                        <a href="timetable.php" class="nav-item nav-link"><i class="fas fa-file-invoice"></i>Timetable</a>
+                        <div class="dropdown nav-item nav-link" id="pages">
+                            <a class="dropdown-toggle text-light" href="#" role="button" id="dropdownMenuLink2" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="fas fa-file-invoice"></i>Pages
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink2">
+                                <li><a href="Engineering.php" class="dropdown-item">Pre-Engineering</a></li>
+                                <li><a href="Medical.php" class="dropdown-item">Pre-Medical</a></li>
+                                <li><a href="Computer.php" class="dropdown-item">Computer Science</a></li>
+                                <li><a href="Arts.php" class="dropdown-item">Arts</a></li>
+                                <li><a href="Commerce.php" class="dropdown-item">Commerce</a></li>
+                            </ul>
+                        </div>
                     </div>
                 </nav>
             </div>
@@ -247,12 +258,12 @@
                                     </thead>
                                     <tbody>
                                         <?php
-                                            $id = $_SESSION["myuserid"];
-                                            $st = "SELECT student.program,student.class_id FROM `std_account` student WHERE `id` = $id";
-                                            $st_res = mysqli_query($db, $st);
-                                            $st_row = mysqli_fetch_array($st_res);
-                                            $st_class = $st_row["class_id"];
-                                            $st_program = $st_row["program"];
+                                            // $id = $_SESSION["myuserid"];
+                                            // $st = "SELECT student.program,student.class_id FROM `std_account` student WHERE `id` = $id";
+                                            // $st_res = mysqli_query($db, $st);
+                                            // $st_row = mysqli_fetch_array($st_res);
+                                            // $st_class = $st_row["class_id"];
+                                            // $st_program = $st_row["program"];
                                             $sel = "SELECT e.id,e.program_id,e.class_id,e.file,s.name,e.date,e.start_time,e.end_time FROM `exam` e INNER JOIN `subjects` s ON s.id = e.subject";
                                             $result = mysqli_query($db, $sel);
                                             if(mysqli_num_rows($result)) {
@@ -296,7 +307,7 @@
                                                             }
                                                             else {
                                                         ?>
-                                                            <td><button class="btn btn-warning">Exams</button></a></td>
+                                                            <td><button class="btn btn-warning">Upcoming Exams</button></a></td>
                                                         <?php
                                                             }
                                                         ?>   
