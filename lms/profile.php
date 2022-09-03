@@ -11,323 +11,292 @@
   <title>Evolution College System</title>
   <link rel="stylesheet" href="../assets/css/style-freedom.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <!-- FontAwesome 5 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
+<style>
+ /* Import Font Dancing Script */
+@import url(https://fonts.googleapis.com/css?family=Dancing+Script);
 
-  <style>
-    body{
-    margin-top:20px;
-    color: #1a202c;
-    text-align: left;
-       
-}
-.main-body {
-    padding: 15px;
-}
-.card {
-    box-shadow: 0 1px 3px 0 rgba(0,0,0,.1), 0 1px 2px 0 rgba(0,0,0,.06);
+* {
+    margin: 0;
 }
 
-.card {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    min-width: 0;
-    word-wrap: break-word;
+body {
+    background-color: whitesmoke;
+    font-family: Arial;
+    overflow: hidden;
+}
+
+/* NavbarTop */
+.navbar-top {
     background-color: #fff;
-    background-clip: border-box;
-    border: 0 solid rgba(0,0,0,.125);
-    border-radius: .25rem;
+    color: #333;
+    box-shadow: 0px 4px 8px 0px grey;
+    height: 70px;
 }
 
-.card-body {
-    flex: 1 1 auto;
-    min-height: 1px;
-    padding: 1rem;
+.title {
+    font-family: 'Dancing Script', cursive;
+    padding-top: 15px;
+    position: absolute;
+    left: 45%;
 }
 
-.gutters-sm {
-    margin-right: -8px;
-    margin-left: -8px;
+.navbar-top ul {
+    float: right;
+    list-style-type: none;
+    margin: 0;
+    overflow: hidden;
+    padding: 18px 50px 0 40px;
 }
 
-.gutters-sm>.col, .gutters-sm>[class*=col-] {
-    padding-right: 8px;
-    padding-left: 8px;
-}
-.mb-3, .my-3 {
-    margin-bottom: 1rem!important;
+.navbar-top ul li {
+    float: left;
 }
 
-.bg-gray-300 {
-    background-color: #e2e8f0;
+.navbar-top ul li a {
+    color: #333;
+    padding: 14px 16px;
+    text-align: center;
+    text-decoration: none;
 }
-.h-100 {
-    height: 100%!important;
+
+.icon-count {
+    background-color: #ff0000;
+    color: #fff;
+    float: right;
+    font-size: 11px;
+    left: -25px;
+    padding: 2px;
+    position: relative;
 }
-.shadow-none {
-    box-shadow: none!important;
+
+/* End */
+
+/* Sidenav */
+.sidenav {
+    background-color: #fff;
+    color: #333;
+    border-bottom-right-radius: 25px;
+    height: 86%;
+    left: 0;
+    overflow-x: hidden;
+    padding-top: 20px;
+    position: absolute;
+    top: 70px;
+    width: 250px;
 }
-  </style>
+
+.profile {
+    margin-bottom: 20px;
+    margin-top: -12px;
+    text-align: center;
+}
+
+.profile img {
+    border-radius: 50%;
+    box-shadow: 0px 0px 5px 1px grey;
+}
+
+.name {
+    font-size: 20px;
+    font-weight: bold;
+    padding-top: 20px;
+}
+
+.job {
+    font-size: 16px;
+    font-weight: bold;
+    padding-top: 10px;
+}
+
+.url, hr {
+    text-align: center;
+}
+
+.url hr {
+    margin-left: 20%;
+    width: 60%;
+}
+
+.url a {
+    color: #818181;
+    display: block;
+    font-size: 20px;
+    margin: 10px 0;
+    padding: 6px 8px;
+    text-decoration: none;
+}
+
+.url a:hover, .url .active {
+    background-color: #e8f5ff;
+    border-radius: 28px;
+    color: #000;
+    margin-left: 14%;
+    width: 65%;
+}
+
+/* End */
+
+/* Main */
+.main {
+    margin-top: 2%;
+    margin-left: 29%;
+    font-size: 28px;
+    padding: 0 10px;
+    width: 58%;
+}
+
+.main h2 {
+    color: #333;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.main .card {
+    background-color: #fff;
+    border-radius: 18px;
+    box-shadow: 1px 1px 8px 0 grey;
+    height: auto;
+    margin-bottom: 20px;
+    padding: 20px 0 20px 50px;
+}
+
+.main .card table {
+    border: none;
+    font-size: 16px;
+    height: 270px;
+    width: 80%;
+}
+
+.edit {
+    position: absolute;
+    color: #e7e7e8;
+    right: 14%;
+}
+
+.social-media {
+    text-align: center;
+    width: 90%;
+}
+
+.social-media span {
+    margin: 0 10px;
+}
+
+.fa-facebook:hover {
+    color: #4267b3 !important;
+}
+
+.fa-twitter:hover {
+    color: #1da1f2 !important;
+}
+
+.fa-instagram:hover {
+    color: #ce2b94 !important;
+}
+
+.fa-invision:hover {
+    color: #f83263 !important;
+}
+
+.fa-github:hover {
+    color: #161414 !important;
+}
+
+.fa-whatsapp:hover {
+    color: #25d366 !important;
+}
+
+.fa-snapchat:hover {
+    color: #fffb01 !important;
+}
+
+/* End */  
+</style>
 </head>
 <body>
-<script src='../../../../../../../ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js'></script><script src="../../../../../../../../m.servedby-buysellads.com/monetization.js" type="text/javascript"></script>
-<script>
-(function(){
-	if(typeof _bsa !== 'undefined' && _bsa) {
-  		// format, zoneKey, segment:value, options
-  		_bsa.init('flexbar', 'CKYI627U', 'placement:w3layoutscom');
-  	}
-})();
-</script>
-<script>
-(function(){
-if(typeof _bsa !== 'undefined' && _bsa) {
-	// format, zoneKey, segment:value, options
-	_bsa.init('fancybar', 'CKYDL2JN', 'placement:demo');
-}
-})();
-</script>
-<script>
-(function(){
-	if(typeof _bsa !== 'undefined' && _bsa) {
-  		// format, zoneKey, segment:value, options
-  		_bsa.init('stickybox', 'CKYI653J', 'placement:w3layoutscom');
-  	}
-})();
-</script>
-<!--<script>(function(v,d,o,ai){ai=d.createElement("script");ai.defer=true;ai.async=true;ai.src=v.location.protocol+o;d.head.appendChild(ai);})(window, document, "//a.vdo.ai/core/w3layouts_V2/vdo.ai.js?vdo=34");</script>-->
-<div id="codefund"><!-- fallback content --></div>
-<script src="../../../../../../../codefund.io/properties/441/funder.js" async="async"></script>
+<!-- Navbar top -->
+<div class="navbar-top">
+        <div class="title">
+            <h1>Profile</h1>
+        </div>
 
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src='https://www.googletagmanager.com/gtag/js?id=G-98H8KRKT85'></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+        <!-- Navbar -->
+        <ul>
+            <li>
+                <a href="#message">
+                    <span class="icon-count">29</span>
+                    <i class="fa fa-envelope fa-2x"></i>
+                </a>
+            </li>
+            <li>
+                <a href="#notification">
+                    <span class="icon-count">59</span>
+                    <i class="fa fa-bell fa-2x"></i>
+                </a>
+            </li>
+            <li>
+                <a href="#sign-out">
+                    <i class="fa fa-sign-out-alt fa-2x"></i>
+                </a>
+            </li>
+        </ul>
+        <!-- End -->
+    </div>
+    <!-- End -->
 
-  gtag('config', 'G-98H8KRKT85');
-</script>
-<meta name="robots" content="noindex">
-<body>
-	<!-- Demo bar start -->
-  <link rel="stylesheet" href="../../../../../../../assests/css/font-awesome.min.css">
-  <!-- Topbar start -->
+  
 
-  <?php
-include("../admin/connection/connection.php");
-if(isset($_SESSION["name"]) == null) {
-    ?>
-        <Script>
-            window.location.assign("index.php");
-        </Script>
-        <?php
-  }
-?>
-<!-- Topbar end -->
-  <!-- headers start -->
-
-<!-- header end -->
-
-  <script src="../assets/js/jquery-3.3.1.min.js"></script>
-  <script>
-      $('#drop').change(function () {
-      if ($('#drop').is(":checked")) {
-      $('body').css('overflow', 'hidden');
-      } else {
-      $('body').css('overflow', 'auto');
-      }
-      });
-      </script>
-</section>
-<!-- Headers-4 block -->
-<!-- //covers -->
-<!---728x90--->
-
-
-
-
-<!-- specifications -->
-<section class="w3l-specifications-9 mt-5">
-    <?php
-        $id = $_SESSION["myuserid"];
-        $sel = "SELECT * FROM `std_account` WHERE `id` = $id;";
-        $res = mysqli_query($db, $sel);
-        while($row = mysqli_fetch_array($res)) {
-    ?>
-        <div class="row gutters-sm w-100">
-            <div class="col-md-4 mb-3">
-              <div class="card">
-                <div class="card-body">
-                  <div class="d-flex flex-column align-items-center text-center">
-                    <img src="https://cdn3d.iconscout.com/3d/premium/thumb/user-3711850-3105265.png" alt="Admin" class="rounded-circle" width="150">
-                    <div class="mt-3">
-                      <h4><?php echo $row[1]; ?></h4>
-                      <p class="text-secondary mb-1"><?php echo $row[2]; ?></p>
-                  
-            
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-7 mt-5">
-              <div class="card mb-3">
-                <div class="card-body" style="border:1px solid black;">
-                  <div class="row">
-                    <div class="col-sm-3">
-                      <h6 class="mb-0"> Name</h6>
-                    </div>
-                    <div class="col-sm-9 text-secondary">
-                    <?php echo $row[1]; ?>
-                    </div>
-                  </div>
-                  <hr>
-                  <div class="row">
-                    <div class="col-sm-3">
-                      <h6 class="mb-0">Email</h6>
-                    </div>
-                    <div class="col-sm-9 text-secondary">
-                    <?php echo $row[2]; ?>
-                    </div>
-                  </div>
-                  <hr>
-                  <div class="row">
-                    <div class="col-sm-3">
-                      <h6 class="mb-0">Phone</h6>
-                    </div>
-                    <div class="col-sm-9 text-secondary">
-                    <?php echo $row[3]; ?>
-                    </div>
-                  </div>
-                  <hr>
-                  <div class="row">
-                    <div class="col-sm-3">
-                      <h6 class="mb-0">CNIC</h6>
-                    </div>
-                    <div class="col-sm-9 text-secondary">
-                    <?php echo $row[7]; ?>
-                    </div>
-                  </div>
+    <!-- Main -->
+    <div class="main">
+   
+        <div class="card">
+            <div class="card-body">
+                <i class="fa fa-pen fa-xs edit"></i>
+                <table>
+                    <tbody>
+                      <tr>
+                      <div class="profile">
+                      <img src="https://imdezcode.files.wordpress.com/2020/02/imdezcode-logo.png" alt="" width="100" height="100">
+                      </div>
+                      </tr>
+                        <tr>
+                            <td>Name</td>
+                            <td>:</td>
+                            <td>shahzaib</td>
+                        </tr>
+                        <tr>
+                            <td>Email</td>
+                            <td>:</td>
+                            <td>shahzaib@gmail.com</td>
+                        </tr>
+                        <tr>
+                            <td>Address</td>
+                            <td>:</td>
+                            <td>defense view, phase 2</td>
+                        </tr>
+                        <tr>
+                            <td>class</td>
+                            <td>:</td>
+                            <td>12</td>
+                        </tr>
+                        <tr>
+                            <td>program</td>
+                            <td>:</td>
+                            <td>pre-engineering</td>
+                        </tr>
                
-                </div>
-              </div>
-
-              
-
-
-
+                    </tbody>
+                </table>
             </div>
         </div>
-    <?php
-        }
-    ?>
-    <!-- //specifications -->
-</section>
 
-<section class="container mt-5">
-    <h1>Forms</h1>
-
-    <div class="table-responsive" style="overflow-x:auto; overflow-y:auto;">
-        <table class="table">
-            <thead>
-                <tr>
-                    <th class="col">#</th>
-                    <th scope="col">Profile</th>
-                    <th scope="col">Email</th>
-                    <th class="col">Status</th>
-                    <th scope="col" style="visibility: hidden;">Details</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php
-                    $sel_admission_form = "SELECT * FROM `admission_form` WHERE `user_id_` = $id";
-                    $admission_form_result = mysqli_query($db, $sel_admission_form);
-                    if(mysqli_num_rows($admission_form_result)) {
-                        $i = 0;
-                        while($row = mysqli_fetch_array($admission_form_result)) {                                                    
-                            $i++;
-                ?>
-                <tr>
-                    <td class="align-middle" scope="row"><?php echo $i; ?></td>
-                    <td class="align-middle" type="button" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="top" title="<?php echo $row[1]; ?>">
-                        <img src="../assets/images/profile/<?php echo $row[15]; ?>" style="height: 3vw;" alt="">
-                    </td>
-                    <td class="align-middle"><?php echo $row[3]; ?></td>
-                    <td class="align-middle"><?php echo $row[16]; ?></td>
-                    <td class="align-middle"> <span type="button" data-bs-toggle="modal" data-bs-target="#e<?php echo $i; ?>" class="badge bg-secondary rounded-pill badge-sm">DETAILS</span></a> </td>
-                    
-                </tr>               
-
-                <!-- Form Modal -->
-                <div class="modal fade" id="e<?php echo $i; ?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-xl">
-                        <div class="modal-content bg-light">
-                                <div class="modal-header">
-                                    <h4 class="modal-title" id="staticBackdropLabel">Form Details</h4>
-                                    <button type="button" class="btn-close bg-light" data-bs-dismiss="modal" aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
-                                    <div class="bg-light p-4 container">
-                                        <ul class="list-group list-group-flush bg-light border border-dark">
-                                            <li class="list-group-item bg-light text-center">
-                                                <img src="../assets/images/profile/<?php echo $row[15]; ?>" style="height: 12vw;" alt="">
-                                            </li>
-
-                                            <li class="list-group-item bg-light"><div class="row">
-                                                <div class="fs-5 col-md-3 border border-light"><b>Student Name : </b></div><div class="fs-5 col-md-3 border border-light"><?php echo " " . $row[1]; ?></div>
-                                                <div class="fs-5 col-md-3 border border-light"><b>Father Name : </b></div><div class="fs-5 col-md-3 border border-light"><?php echo " " . $row[2]; ?></div>
-                                            </div></li>
-
-                                            <li class="list-group-item bg-light"><div class="row">
-                                                <div class="fs-5 col-md-3 border border-light"><b>Email : </b></div><div class="fs-5 col-md-3 border border-light"><?php echo " " . $row[3]; ?></div>
-                                                <div class="fs-5 col-md-3 border border-light"><b>Phone : </b></div><div class="fs-5 col-md-3 border border-light"><?php echo " " . $row[4]; ?></div>
-                                            </div></li>
-
-                                            <li class="list-group-item bg-light"><div class="row">
-                                                <div class="fs-5 col-md-3 border border-light"><b>Date Of Birth : </b></div><div class="fs-5 col-md-3 border border-light"><?php echo " " . $row[5]; ?></div>
-                                                <div class="fs-5 col-md-3 border border-light"><b>Gender : </b></div><div class="fs-5 col-md-3 border border-light"><?php echo " " . $row[6]; ?></div>
-                                            </div></li>
-
-                                            <li class="list-group-item bg-light"><div class="row">
-                                                <div class="fs-5 col-md-6 border border-light"><b>Address : </b></div><div class="fs-5 col-md-6 border border-light"><?php echo " " . $row[7]; ?></div>
-                                            </div></li>
-
-                                            <li class="list-group-item bg-light"><div class="row">
-                                                <div class="fs-5 col-md-3 border border-light"><b>CNIC/Bayform : </b></div><div class="fs-5 col-md-3 border border-light"><?php echo " " . $row[8]; ?></div>
-                                                <div class="fs-5 col-md-3 border border-light"><b>Citizenship : </b></div><div class="fs-5 col-md-3 border border-light"><?php echo " " . $row[9]; ?></div>
-                                            </div></li>
-
-                                            <li class="list-group-item bg-light"><div class="row">
-                                                <div class="fs-5 col-md-3 border border-light"><b>Religion : </b></div><div class="fs-5 col-md-3 border border-light"><?php echo " " . $row[10]; ?></div>
-                                                <div class="fs-5 col-md-3 border border-light"><b>Program : </b></div><div class="fs-5 col-md-3 border border-light"><?php echo " " . $row[11]; ?></div>
-                                            </div></li>
-
-                                            <li class="list-group-item bg-light"><div class="row">
-                                                <div class="fs-5 col-md-3 border border-light"><b>Marksheet : </b></div><div class="col-md-3 border border-light"><a href="assets/images/mksheet/<?php echo $row[12]; ?>" target="_blank" rel="noopener noreferrer"><span class="fs-5 ">Please click here </span><i class="fas fa-external-link-alt"></i></a></div>
-                                                <div class="fs-5 col-md-3 border border-light"><b>Provisional Certifacate : </b></div><div class="col-md-3 border border-light"><a href="assets/images/prov/<?php echo $row[13]; ?>" target="_blank" rel="noopener noreferrer"><span class="fs-5 ">Please click here </span><i class="fas fa-external-link-alt"></i></a></div>
-                                            </div></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                        </div>
-                    </div>
-                </div>
-
-                <?php                                                    
-                        }
-                    }                                            
-                ?>
-            </tbody>
-        </table>
+       
+      
     </div>
-
-</section>
-
-
-<br><br>
-  <!-- footer start -->
-  
-<!-- footer end -->
+    <!-- End -->
 </body>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
