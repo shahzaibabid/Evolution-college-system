@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 01, 2022 at 04:44 PM
+-- Generation Time: Sep 05, 2022 at 02:50 AM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 7.3.31
 
@@ -532,8 +532,22 @@ INSERT INTO `subjects` (`id`, `name`, `teacher_email`, `class_id`, `program_id`)
 (2, 'Urdu', 'zuhair@teacher.ecs.com', 1, 0),
 (3, 'Math', 'roselean@teacher.ecs.com', 1, 3),
 (4, 'Physics', 'issac@teacher.ecs.com', 1, 2),
-(5, 'Chemistry', 'rohan@teacher.ecs.com', 1, 5),
-(6, 'Islamiat', 'ali@teacher.ecs.com', 1, 0);
+(5, 'Chemistry', 'rohan@teacher.ecs.com', 1, 1),
+(6, 'Islamiat', 'ali@teacher.ecs.com', 1, 0),
+(7, 'Math', 'mina@teacher.ecs.com', 1, 1),
+(8, 'Business Math', 'suhail@teacher.ecs.com', 1, 5),
+(9, 'Physics', 'becky@teacher.ecs.com', 1, 1),
+(10, 'Physics', 'roby@student.ecs.com', 1, 3),
+(11, 'Chemistry', 'gadaleta@teacher.ecs.com', 1, 1),
+(12, 'Zoology', 'tahir@teacher.ecs.com', 1, 2),
+(13, 'Botany', 'syahiran@teacher.ecs.com', 1, 2),
+(14, 'Computer Science', 'junguang@teacher.ecs.com', 1, 3),
+(15, 'Civics', 'faizal@teacher.ecs.com', 1, 4),
+(16, 'Psychology', 'diaz@teacher.ecs.com', 1, 4),
+(17, 'Education', 'nellia@teacher.ecs.com', 1, 4),
+(18, 'Accounting', 'sunny@teacher.ecs.com', 1, 5),
+(19, 'Economics', 'johnhattie@teacher.ecs.com', 1, 5),
+(20, 'POC', 'jonathanjames@teacher.ecs.com', 1, 5);
 
 -- --------------------------------------------------------
 
@@ -564,7 +578,21 @@ INSERT INTO `teachers` (`id`, `name`, `email`, `phone`, `pass`, `user_type`, `pr
 (4, 'Issac', 'issac@teacher.ecs.com', '0334342728', '202cb962ac59075b964b07152d234b70', 3, '1463680616a.webp', '11111111111', 'Male', ' #A-60, Block &#39;B&#39; Mian Rashid Minas Road, Karachi'),
 (5, 'Alexandera', 'alexandera@teacher.ecs.com', '0312264622', 'd41d8cd98f00b204e9800998ecf8427e', 3, '1195276961alexandra_fuentes_pic01.jpg', '123456789', 'Female', 'Defence Phase 2'),
 (6, 'Zuhair', 'zuhair@teacher.ecs.com', '0312264622', '202cb962ac59075b964b07152d234b70', 3, '2080091011images (1).jpg', '123456789', 'Male', 'Defence'),
-(7, 'Roselean', 'roselean@teacher.ecs.com', '0312264622', '202cb962ac59075b964b07152d234b70', 3, '988319481images (2).jpg', '123456789', 'Female', 'Gulshan');
+(7, 'Roselean', 'roselean@teacher.ecs.com', '0312264622', '202cb962ac59075b964b07152d234b70', 3, '988319481images (2).jpg', '123456789', 'Female', 'Gulshan'),
+(8, 'Mina', 'mina@teacher.ecs.com', '03343427289', '202cb962ac59075b964b07152d234b70', 3, '19382069261.jpg', '12345678912', 'Female', 'DHA Phase 1'),
+(9, 'Suhail', 'suhail@teacher.ecs.com', '0334342728', '202cb962ac59075b964b07152d234b70', 3, '11166264102.jpg', '98765432198', 'Male', 'P.E.C.H.S'),
+(10, 'Becky', 'becky@teacher.ecs.com', '03323232323', '202cb962ac59075b964b07152d234b70', 3, '21103933593.jpg', '12345678912', 'Female', 'P.E.C.H.S '),
+(11, 'Roby', 'roby@student.ecs.com', '03323232323', '202cb962ac59075b964b07152d234b70', 3, '7386605994.jpg', '98765432198', 'Male', 'DHA Phase 4'),
+(12, 'Gadaleta', 'gadaleta@teacher.ecs.com', '03343427289', '202cb962ac59075b964b07152d234b70', 3, '12861438211Q02011.jpg', '12345678912', 'Female', 'DHA Phase 7'),
+(13, 'Tahir', 'tahir@teacher.ecs.com', '0334342728', 'd41d8cd98f00b204e9800998ecf8427e', 3, '1474058612t20-5.jpg', '12345678912', 'Male', 'DHA Phase 2'),
+(14, 'Syahiran', 'syahiran@teacher.ecs.com', '0334342728', '202cb962ac59075b964b07152d234b70', 3, '321499396teacher-Syahiran.png', '98765432198', 'Male', 'DHA Phase 8'),
+(15, 'Junguang', 'junguang@teacher.ecs.com', '03343427289', '202cb962ac59075b964b07152d234b70', 3, '407585062teacher-Junguang.png', '98765432198', 'Male', 'P.E.C.H.S'),
+(16, 'Faizal', 'faizal@teacher.ecs.com', '0334342728', '202cb962ac59075b964b07152d234b70', 3, '330807519teacher-Faizal.png', '12345678912', 'Male', 'Saddar, Karachi'),
+(17, 'Diaz', 'diaz@teacher.ecs.com', '0334342728', '202cb962ac59075b964b07152d234b70', 3, '566980156teacher-Diaz.png', '98765432198', 'Male', 'DHA Phase 1'),
+(18, 'Nellia', 'nellia@teacher.ecs.com', '03323232323', '202cb962ac59075b964b07152d234b70', 3, '1272140168teacher-Nellia.png', '', 'Female', 'Saddar, Karachi'),
+(19, 'Sunny', 'sunny@teacher.ecs.com', '03343427289', '202cb962ac59075b964b07152d234b70', 3, '815741879teacher-Sunny.png', '12345678912', 'Female', 'Saddar, Karachi'),
+(20, 'John Hattie', 'johnhattie@teacher.ecs.com', '03323232323', '202cb962ac59075b964b07152d234b70', 3, '2018674235John-Hattie-e1595500722378.png', '98765432198', 'Male', 'Saddar, Karachi'),
+(21, 'Jonathan James', 'jonathanjames@teacher.ecs.com', '0334342728', '202cb962ac59075b964b07152d234b70', 3, '300956755j-mctighe.jpg', '98765432198', 'Male', 'DHA Phase 6');
 
 -- --------------------------------------------------------
 
@@ -990,13 +1018,13 @@ ALTER TABLE `std_account`
 -- AUTO_INCREMENT for table `subjects`
 --
 ALTER TABLE `subjects`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `teachers`
 --
 ALTER TABLE `teachers`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `transaction`

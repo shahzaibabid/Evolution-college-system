@@ -83,26 +83,295 @@ include("header.php");
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                    <th scope="row">1</th>
-                    <td> <button class="btn btn-success">Click to watch Lecture 01 </button> </td>
-                    </tr>
-                    <tr>
-                    <th scope="row">2</th>
-                    <td> <button class="btn btn-success">Click to watch Lecture 02 </button> </td>
-                    </tr>
-                    <tr>
-                    <th scope="row">3</th>
-                    <td> <button class="btn btn-success">Click to watch Lecture 03 </button> </td>
-                    </tr>
-                    <tr>
-                    <th scope="row">4</th>
-                    <td> <button class="btn btn-success">Click to watch Lecture 04 </button> </td>
-                    </tr>
-                    <tr>
-                    <th scope="row">5</th>
-                    <td> <button class="btn btn-success">Click to watch Lecture 05 </button> </td>
-                    </tr>
+                    <?php
+                        $mysubj = $row["name"];
+
+                        if ($mysubj == "English") {                            
+                    ?>
+                            <tr>
+                                <th scope="row">1</th>
+                                <td><a href="https://www.youtube.com/watch?v=BCr_GYg0p10" target="_blank" rel="noopener noreferrer"><button class="btn btn-success">Click to watch Lecture 01 </button></a></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">2</th>
+                                <td><a href="https://www.youtube.com/watch?v=ePwU2xo-eTw" target="_blank" rel="noopener noreferrer"><button class="btn btn-success">Click to watch Lecture 02 </button></a></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">3</th>
+                                <td><a href="https://www.youtube.com/watch?v=eehWrJLxXo4" target="_blank" rel="noopener noreferrer"><button class="btn btn-success">Click to watch Lecture 03 </button></a></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">4</th>
+                                <td><a href="https://www.youtube.com/watch?v=1zm-_3hqVIE" target="_blank" rel="noopener noreferrer"><button class="btn btn-success">Click to watch Lecture 04 </button></a></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">5</th>
+                                <td><a href="https://www.youtube.com/watch?v=bjj3FYDum6E" target="_blank" rel="noopener noreferrer"><button class="btn btn-success">Click to watch Lecture 05 </button></a></td>
+                            </tr>
+                    <?php
+                        }
+                        else if ($mysubj == "Urdu") {
+                    ?>
+                            <tr>
+                                <th scope="row">1</th>
+                                <td><a href="https://www.youtube.com/watch?v=Z8e76v4ni7k" target="_blank" rel="noopener noreferrer"><button class="btn btn-success">Click to watch Lecture 01 </button></a></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">2</th>
+                                <td><a href="https://www.youtube.com/watch?v=y5V9ShO-KTg" target="_blank" rel="noopener noreferrer"><button class="btn btn-success">Click to watch Lecture 02 </button></a></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">3</th>
+                                <td><a href="https://www.youtube.com/watch?v=FB_OjXA0Zxk" target="_blank" rel="noopener noreferrer"><button class="btn btn-success">Click to watch Lecture 03 </button></a></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">4</th>
+                                <td><a href="https://www.youtube.com/watch?v=lBDeUHyYxAE" target="_blank" rel="noopener noreferrer"><button class="btn btn-success">Click to watch Lecture 04 </button></a></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">5</th>
+                                <td><a href="https://www.youtube.com/watch?v=xDSWQMr3f5k" target="_blank" rel="noopener noreferrer"><button class="btn btn-success">Click to watch Lecture 05 </button></a></td>
+                            </tr>
+                    <?php
+                        }
+                        else if ($mysubj == "Math") {
+                    ?>
+                            <tr>
+                                <th scope="row">1</th>
+                                <td><a href="https://www.youtube.com/watch?v=VEGRY_0Gs5o" target="_blank" rel="noopener noreferrer"><button class="btn btn-success">Click to watch Lecture 01 </button></a></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">2</th>
+                                <td><a href="https://www.youtube.com/watch?v=Z_H5fJOLqb0" target="_blank" rel="noopener noreferrer"><button class="btn btn-success">Click to watch Lecture 02 </button></a></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">3</th>
+                                <td><a href="https://www.youtube.com/watch?v=N2ZHumwXGCA" target="_blank" rel="noopener noreferrer"><button class="btn btn-success">Click to watch Lecture 03 </button></a></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">4</th>
+                                <td><a href="https://www.youtube.com/watch?v=b747wA5WJ0Y" target="_blank" rel="noopener noreferrer"><button class="btn btn-success">Click to watch Lecture 04 </button></a></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">5</th>
+                                <td><a href="https://www.youtube.com/watch?v=cNUT2mXJHfg" target="_blank" rel="noopener noreferrer"><button class="btn btn-success">Click to watch Lecture 05 </button></a></td>
+                            </tr>
+                    <?php
+                        }
+                        else if ($mysubj == "Physics") {
+                    ?>
+                            <tr>
+                                <th scope="row">1</th>
+                                <td><a href="https://www.youtube.com/watch?v=E-PF2Opc_iA" target="_blank" rel="noopener noreferrer"><button class="btn btn-success">Click to watch Lecture 01 </button></a></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">2</th>
+                                <td><a href="https://www.youtube.com/watch?v=q-3Spq_5tmI" target="_blank" rel="noopener noreferrer"><button class="btn btn-success">Click to watch Lecture 02 </button></a></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">3</th>
+                                <td><a href="https://www.youtube.com/watch?v=ZdkOJm6IyAA" target="_blank" rel="noopener noreferrer"><button class="btn btn-success">Click to watch Lecture 03 </button></a></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">4</th>
+                                <td><a href="https://www.youtube.com/watch?v=s0m_S9r099U" target="_blank" rel="noopener noreferrer"><button class="btn btn-success">Click to watch Lecture 04 </button></a></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">5</th>
+                                <td><a href="https://www.youtube.com/watch?v=QuS1NSIY_bw" target="_blank" rel="noopener noreferrer"><button class="btn btn-success">Click to watch Lecture 05 </button></a></td>
+                            </tr>
+                    <?php
+                        }
+                        else if ($mysubj == "Chemistry") {
+                    ?>
+                            <tr>
+                                <th scope="row">1</th>
+                                <td><a href="https://www.youtube.com/watch?v=pMoabHXnNbc" target="_blank" rel="noopener noreferrer"><button class="btn btn-success">Click to watch Lecture 01 </button></a></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">2</th>
+                                <td><a href="https://www.youtube.com/watch?v=kvreKXYEC-0" target="_blank" rel="noopener noreferrer"><button class="btn btn-success">Click to watch Lecture 02 </button></a></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">3</th>
+                                <td><a href="https://www.youtube.com/watch?v=S2EV8KRLg1s" target="_blank" rel="noopener noreferrer"><button class="btn btn-success">Click to watch Lecture 03 </button></a></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">4</th>
+                                <td><a href="https://www.youtube.com/watch?v=_pf_LCbeP2I" target="_blank" rel="noopener noreferrer"><button class="btn btn-success">Click to watch Lecture 04 </button></a></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">5</th>
+                                <td><a href="https://www.youtube.com/watch?v=dEqRkiW2Wfc" target="_blank" rel="noopener noreferrer"><button class="btn btn-success">Click to watch Lecture 05 </button></a></td>
+                            </tr>
+                    <?php
+                        }
+                        else if ($mysubj == "Islamiat") {
+                    ?>
+                    <!-- Not Added Yet -->
+                    <?php
+                        }
+                        else if ($mysubj == "Zoology") {
+                    ?>
+                            <tr>
+                                <th scope="row">1</th>
+                                <td><a href="https://youtu.be/fQ1Qf-N5oek" target="_blank" rel="noopener noreferrer"><button class="btn btn-success">Click to watch Lecture 01 </button></a></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">2</th>
+                                <td><a href="https://youtu.be/QvWsfHqCl-o" target="_blank" rel="noopener noreferrer"><button class="btn btn-success">Click to watch Lecture 02 </button></a></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">3</th>
+                                <td><a href="https://youtu.be/I_0aQI8PKPc" target="_blank" rel="noopener noreferrer"><button class="btn btn-success">Click to watch Lecture 03 </button></a></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">4</th>
+                                <td><a href="https://youtu.be/5HB0RlL7VNM" target="_blank" rel="noopener noreferrer"><button class="btn btn-success">Click to watch Lecture 04 </button></a></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">5</th>
+                                <td><a href="https://youtu.be/J0lD4XoOhy0" target="_blank" rel="noopener noreferrer"><button class="btn btn-success">Click to watch Lecture 05 </button></a></td>
+                            </tr>
+                    <?php
+                        }
+                        else if ($mysubj == "Botany") {
+                    ?>
+                            <tr>
+                                <th scope="row">1</th>
+                                <td><a href="https://youtu.be/GBtMKWoJ1rw" target="_blank" rel="noopener noreferrer"><button class="btn btn-success">Click to watch Lecture 01 </button></a></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">2</th>
+                                <td><a href="https://youtu.be/tCEfSFCbric" target="_blank" rel="noopener noreferrer"><button class="btn btn-success">Click to watch Lecture 02 </button></a></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">3</th>
+                                <td><a href="https://youtu.be/fM9Grl7xgQA" target="_blank" rel="noopener noreferrer"><button class="btn btn-success">Click to watch Lecture 03 </button></a></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">4</th>
+                                <td><a href="https://youtu.be/JEnX1VGwwPg" target="_blank" rel="noopener noreferrer"><button class="btn btn-success">Click to watch Lecture 04 </button></a></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">5</th>
+                                <td><a href="https://youtu.be/WB8f8Zu_lfQ" target="_blank" rel="noopener noreferrer"><button class="btn btn-success">Click to watch Lecture 05 </button></a></td>
+                            </tr>
+                    <?php
+                        }
+                        else if ($mysubj == "Computer Science") {
+                    ?>
+                            <tr>
+                                <th scope="row">1</th>
+                                <td><a href="https://www.youtube.com/watch?v=S54KSYQCJmI" target="_blank" rel="noopener noreferrer"><button class="btn btn-success">Click to watch Lecture 01 </button></a></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">2</th>
+                                <td><a href="https://www.youtube.com/watch?v=GYTzASJMwRM" target="_blank" rel="noopener noreferrer"><button class="btn btn-success">Click to watch Lecture 02 </button></a></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">3</th>
+                                <td><a href="https://www.youtube.com/watch?v=wMCjh_tdZ_s" target="_blank" rel="noopener noreferrer"><button class="btn btn-success">Click to watch Lecture 03 </button></a></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">4</th>
+                                <td><a href="https://www.youtube.com/watch?v=SCdyg26xmaQ" target="_blank" rel="noopener noreferrer"><button class="btn btn-success">Click to watch Lecture 04 </button></a></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">5</th>
+                                <td><a href="https://www.youtube.com/watch?v=tdjdeLnwMgk" target="_blank" rel="noopener noreferrer"><button class="btn btn-success">Click to watch Lecture 05 </button></a></td>
+                            </tr>
+                    <?php
+                        }
+                        else if ($mysubj == "Civics") {
+                    ?>
+                            <tr>
+                                <th scope="row">1</th>
+                                <td><a href="https://www.youtube.com/watch?v=DFvwOuVkXeM" target="_blank" rel="noopener noreferrer"><button class="btn btn-success">Click to watch Lecture 01 </button></a></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">2</th>
+                                <td><a href="https://www.youtube.com/watch?v=QEENTbNoprU" target="_blank" rel="noopener noreferrer"><button class="btn btn-success">Click to watch Lecture 02 </button></a></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">3</th>
+                                <td><a href="https://www.youtube.com/watch?v=MRNvHJgNcJM" target="_blank" rel="noopener noreferrer"><button class="btn btn-success">Click to watch Lecture 03 </button></a></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">4</th>
+                                <td><a href="https://www.youtube.com/watch?v=vyxkycpip78" target="_blank" rel="noopener noreferrer"><button class="btn btn-success">Click to watch Lecture 04 </button></a></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">5</th>
+                                <td><a href="https://www.youtube.com/watch?v=-HwMh3aREZA" target="_blank" rel="noopener noreferrer"><button class="btn btn-success">Click to watch Lecture 05 </button></a></td>
+                            </tr>
+                    <?php
+                        }
+                        else if ($mysubj == "Psychology") {
+                    ?>
+                            <tr>
+                                <th scope="row">1</th>
+                                <td><a href="https://www.youtube.com/watch?v=hF3mNe0CjRk" target="_blank" rel="noopener noreferrer"><button class="btn btn-success">Click to watch Lecture 01 </button></a></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">2</th>
+                                <td><a href="https://www.youtube.com/watch?v=e_5g_1g7dMM" target="_blank" rel="noopener noreferrer"><button class="btn btn-success">Click to watch Lecture 02 </button></a></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">3</th>
+                                <td><a href="https://www.youtube.com/watch?v=ziR7hqGKUm0" target="_blank" rel="noopener noreferrer"><button class="btn btn-success">Click to watch Lecture 03 </button></a></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">4</th>
+                                <td><a href="https://www.youtube.com/watch?v=YiYVVJ5LVOM" target="_blank" rel="noopener noreferrer"><button class="btn btn-success">Click to watch Lecture 04 </button></a></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">5</th>
+                                <td><a href="https://www.youtube.com/watch?v=CpnGrgVMHdk" target="_blank" rel="noopener noreferrer"><button class="btn btn-success">Click to watch Lecture 05 </button></a></td>
+                            </tr>
+                    <?php
+                        }
+                        else if ($mysubj == "Education") {
+                    ?>
+                            <tr>
+                                <th scope="row">1</th>
+                                <td><a href="https://www.youtube.com/watch?v=5SLwhz4QNZQ" target="_blank" rel="noopener noreferrer"><button class="btn btn-success">Click to watch Lecture 01 </button></a></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">2</th>
+                                <td><a href="https://www.youtube.com/watch?v=e_5g_1g7dMM" target="_blank" rel="noopener noreferrer"><button class="btn btn-success">Click to watch Lecture 02 </button></a></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">3</th>
+                                <td><a href="https://www.youtube.com/watch?v=ziR7hqGKUm0" target="_blank" rel="noopener noreferrer"><button class="btn btn-success">Click to watch Lecture 03 </button></a></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">4</th>
+                                <td><a href="https://www.youtube.com/watch?v=YiYVVJ5LVOM" target="_blank" rel="noopener noreferrer"><button class="btn btn-success">Click to watch Lecture 04 </button></a></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">5</th>
+                                <td><a href="https://www.youtube.com/watch?v=CpnGrgVMHdk" target="_blank" rel="noopener noreferrer"><button class="btn btn-success">Click to watch Lecture 05 </button></a></td>
+                            </tr>
+                    <?php
+                        }
+                        else if ($mysubj == "Accounting") {
+                    ?>
+                    <?php
+                        }
+                        else if ($mysubj == "Business Math") {
+                    ?>
+                    <?php
+                        }
+                        else if ($mysubj == "Economics") {
+                    ?>
+                    <?php
+                        }
+                        else if ($mysubj == "POC") {
+                    ?>
+                    <?php
+                        }                       
+                    ?>
                 </tbody>
             </table>
         </div>
