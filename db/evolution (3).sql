@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 05, 2022 at 02:50 AM
+-- Generation Time: Sep 06, 2022 at 09:33 AM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 7.3.31
 
@@ -85,7 +85,8 @@ CREATE TABLE `admission_fee` (
 INSERT INTO `admission_fee` (`id`, `admission_form_id`, `Voucher`, `fee`, `amount`, `status`) VALUES
 (10, 10, 'ECS-527387156', 500, 500, 'Paid'),
 (11, 11, 'ECS-1638427278', 500, 500, 'Paid'),
-(12, 12, 'ECS-1793503089', 500, 500, 'Paid');
+(12, 12, 'ECS-1793503089', 500, 500, 'Paid'),
+(13, 10, 'ECS-1411561439', 500, 0, 'Pay fees');
 
 -- --------------------------------------------------------
 
@@ -118,7 +119,7 @@ CREATE TABLE `admission_form` (
 --
 
 INSERT INTO `admission_form` (`id`, `std_name`, `father_name`, `email`, `phone`, `dob`, `gender`, `address`, `cnic_bayform`, `citizenship`, `religion`, `program`, `marksheet`, `prov_certificate`, `user_id_`, `profile`, `status`) VALUES
-(10, 'Charles Stephen', 'Adwin', 'charlesadwin99@gmail.com', '03343427289', '2022-08-03', 'Male', 'B Road, Nursery Bus Stop, Karachi, Karachi', '12345678912', 'Pakistani', 'Christianity', 'Commerce', '1723148151mksheet.png', 'pv.png', 3, '14511422501639739768pFHNrg.jpg', 'Accepted'),
+(10, 'Charles Stephen', 'Adwin', 'charlesadwin99@gmail.com', '03343427289', '2022-08-03', 'Male', 'B Road, Nursery Bus Stop, Karachi, Karachi', '12345678912', 'Pakistani', 'Christianity', 'Commerce', '1723148151mksheet.png', 'pv.png', 3, '14511422501639739768pFHNrg.jpg', 'On hold'),
 (11, 'Shahzaib', 'Hammad', 'shahzaibabidsaeed@gmail.com', '0334342728', '2022-08-25', 'Male', '72-N, P.E.C.H.S.,Karachi', '98765432198', 'Pakistani', 'Islam', 'Pre-Medical', '774173160mksheet.png', 'pv.png', 2, '2128280155769866400shahzaib.jpg', 'Accepted'),
 (12, 'Ahmer', 'Khan', 'ahmer@gmail.com', '03343427289', '03-07-2000', '', '72-N, P.E.C.H.S., Karachi', '15987423658', 'Pakistani', 'Islam', '', '1723148151mksheet.png', 'pv.png', 2, '14511422501639739768pFHNrg.jpg', 'Accepted');
 
@@ -346,6 +347,55 @@ CREATE TABLE `fees` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `final`
+--
+
+CREATE TABLE `final` (
+  `id` int(11) NOT NULL,
+  `UserId` int(11) NOT NULL,
+  `eng` int(11) NOT NULL,
+  `urdu` int(11) NOT NULL,
+  `isl` int(11) NOT NULL,
+  `math` int(11) NOT NULL,
+  `phy` int(11) NOT NULL,
+  `chem` int(11) NOT NULL,
+  `zoology` int(11) NOT NULL,
+  `botany` int(11) NOT NULL,
+  `computer` int(11) NOT NULL,
+  `civic` int(11) NOT NULL,
+  `psy` int(11) NOT NULL,
+  `edu` int(11) NOT NULL,
+  `acc` int(11) NOT NULL,
+  `economic` int(11) NOT NULL,
+  `poc` int(11) NOT NULL,
+  `obt` int(11) NOT NULL,
+  `ttl` int(11) NOT NULL,
+  `per` float NOT NULL,
+  `grade` varchar(255) NOT NULL,
+  `status` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `final_exam`
+--
+
+CREATE TABLE `final_exam` (
+  `id` int(11) NOT NULL,
+  `class_id` int(11) NOT NULL,
+  `subject` int(11) NOT NULL,
+  `date` varchar(255) NOT NULL,
+  `start_time` varchar(255) NOT NULL,
+  `end_time` varchar(255) NOT NULL,
+  `file` longtext NOT NULL,
+  `program_id` int(11) NOT NULL,
+  `result` varchar(255) NOT NULL DEFAULT 'no'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `islamiat`
 --
 
@@ -375,6 +425,55 @@ CREATE TABLE `math` (
   `status` varchar(255) NOT NULL,
   `class_id` int(11) NOT NULL,
   `program_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `mid`
+--
+
+CREATE TABLE `mid` (
+  `id` int(11) NOT NULL,
+  `UserId` int(11) NOT NULL,
+  `eng` int(11) NOT NULL,
+  `urdu` int(11) NOT NULL,
+  `isl` int(11) NOT NULL,
+  `math` int(11) NOT NULL,
+  `phy` int(11) NOT NULL,
+  `chem` int(11) NOT NULL,
+  `zoology` int(11) NOT NULL,
+  `botany` int(11) NOT NULL,
+  `computer` int(11) NOT NULL,
+  `civic` int(11) NOT NULL,
+  `psy` int(11) NOT NULL,
+  `edu` int(11) NOT NULL,
+  `acc` int(11) NOT NULL,
+  `economic` int(11) NOT NULL,
+  `poc` int(11) NOT NULL,
+  `obt` int(11) NOT NULL,
+  `ttl` int(11) NOT NULL,
+  `per` float NOT NULL,
+  `grade` varchar(255) NOT NULL,
+  `status` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `mid_exam`
+--
+
+CREATE TABLE `mid_exam` (
+  `id` int(11) NOT NULL,
+  `class_id` int(11) NOT NULL,
+  `subject` int(11) NOT NULL,
+  `date` varchar(255) NOT NULL,
+  `start_time` varchar(255) NOT NULL,
+  `end_time` varchar(255) NOT NULL,
+  `file` longtext NOT NULL,
+  `program_id` int(11) NOT NULL,
+  `result` varchar(255) NOT NULL DEFAULT 'no'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -507,7 +606,7 @@ CREATE TABLE `std_account` (
 
 INSERT INTO `std_account` (`id`, `name`, `father_name`, `email`, `phone`, `pass`, `dob`, `gender`, `address`, `cnic_bayform`, `citizenship`, `religion`, `program`, `profile`, `admission_id`, `class_id`, `user_type`) VALUES
 (4, 'Charles Stephen', 'Adwin', 'charles@student.ecs.com', '03343427289', '202cb962ac59075b964b07152d234b70', '2022-08-03', 'Male', 'B Road, Nursery Bus Stop, Karachi, Karachi', '12345678912', 'Pakistani', 'Christianity', 'Commerce', '1639739768pFHNrg.jpg', 10, 1, 4),
-(5, 'Shahzaib', 'Hammad', 'shahzaib@student.ecs.com', '0334342728', '202cb962ac59075b964b07152d234b70', '2022-08-25', 'Male', '72-N, P.E.C.H.S.,Karachi', '98765432198', 'Pakistani', 'Islam', 'Pre-Medical', '2128280155769866400shahzaib.jpg', 11, 1, 4);
+(5, 'Shahzaib', 'Hammad', 'shahzaib@student.ecs.com', '0334342728', '202cb962ac59075b964b07152d234b70', '2022-08-25', 'Male', '72-N, P.E.C.H.S.,Karachi', '98765432198', 'Pakistani', 'Islam', 'Pre-Medical', '769866400shahzaib.jpg', 11, 1, 4);
 
 -- --------------------------------------------------------
 
@@ -771,6 +870,18 @@ ALTER TABLE `fees`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `final`
+--
+ALTER TABLE `final`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `final_exam`
+--
+ALTER TABLE `final_exam`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `islamiat`
 --
 ALTER TABLE `islamiat`
@@ -780,6 +891,18 @@ ALTER TABLE `islamiat`
 -- Indexes for table `math`
 --
 ALTER TABLE `math`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `mid`
+--
+ALTER TABLE `mid`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `mid_exam`
+--
+ALTER TABLE `mid_exam`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -880,7 +1003,7 @@ ALTER TABLE `administrator`
 -- AUTO_INCREMENT for table `admission_fee`
 --
 ALTER TABLE `admission_fee`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `admission_form`
@@ -961,6 +1084,18 @@ ALTER TABLE `fees`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `final`
+--
+ALTER TABLE `final`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `final_exam`
+--
+ALTER TABLE `final_exam`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `islamiat`
 --
 ALTER TABLE `islamiat`
@@ -970,6 +1105,18 @@ ALTER TABLE `islamiat`
 -- AUTO_INCREMENT for table `math`
 --
 ALTER TABLE `math`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `mid`
+--
+ALTER TABLE `mid`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `mid_exam`
+--
+ALTER TABLE `mid_exam`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --

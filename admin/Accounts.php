@@ -153,7 +153,7 @@
                         <a href="exam.php" class="nav-item nav-link"><i class="fas fa-file-invoice"></i>Exams</a>
                         <div class="dropdown nav-item nav-link" id="pages">
                             <a class="dropdown-toggle text-light" href="#" role="button" id="dropdownMenuLink2" data-bs-toggle="dropdown" aria-expanded="false">
-                                <i class="fas fa-file-invoice"></i>Pages
+                                <i class="fas fa-file-invoice"></i>Tests
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink2">
                                 <li><a href="Engineering.php" class="dropdown-item">Pre-Engineering</a></li>

@@ -154,14 +154,14 @@
             <!-- Navbar End -->
 
 
-            <!-- Profile Start -->
+            <!-- Tests Start -->
             <div class="container-fluid pt-4 px-4">
                 <h1 class="text-center">Exams</h1>
                 <div class="row g-4">                    
                     <div class="col-12">
                         <div class="bg-secondary rounded h-100 p-4">
                             <div class="d-flex justify-content-between mb-4">
-                                <h6>All Exams</h6>
+                                <h6>Tests</h6>
                                 <!-- Button trigger modal -->
                                 <button type="button" class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#staticBackdrop1">
                                     Add
@@ -258,13 +258,7 @@
                                     </thead>
                                     <tbody>
                                         <?php
-                                            // $id = $_SESSION["myuserid"];
-                                            // $st = "SELECT student.program,student.class_id FROM `std_account` student WHERE `id` = $id";
-                                            // $st_res = mysqli_query($db, $st);
-                                            // $st_row = mysqli_fetch_array($st_res);
-                                            // $st_class = $st_row["class_id"];
-                                            // $st_program = $st_row["program"];
-                                            $sel = "SELECT e.id,e.program_id,e.class_id,e.file,s.name,e.date,e.start_time,e.end_time FROM `exam` e INNER JOIN `subjects` s ON s.id = e.subject";
+                                            $sel = "SELECT e.id,e.program_id,e.class_id,e.file,s.name,e.date,e.start_time,e.end_time FROM `exam` e INNER JOIN `subjects` s ON s.id = e.subject WHERE `result` = 'no'";
                                             $result = mysqli_query($db, $sel);
                                             if(mysqli_num_rows($result)) {
                                                 while($row = mysqli_fetch_array($result)) {
@@ -323,8 +317,336 @@
                     </div>
                 </div>
             </div>
-            <!-- Profile End -->
+            <!-- Test End -->
 
+            <!-- midterm Start -->
+            <div class="container-fluid pt-4 px-4">
+                <div class="row g-4">                    
+                    <div class="col-12">
+                        <div class="bg-secondary rounded h-100 p-4">
+                            <div class="d-flex justify-content-between mb-4">
+                                <h6>Mid-Term</h6>
+                                <!-- Button trigger modal -->
+                                <button type="button" class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#midterm">
+                                    Add
+                                </button>
+                            </div>
+
+                            <!-- Modal -->
+                            <div class="modal fade" id="midterm" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content bg-secondary">
+                                        <form action="mid.php" method="post" enctype="multipart/form-data">
+                                            <div class="modal-header">
+                                                <h4 class="modal-title" id="staticBackdropLabel">Add Mid-term</h4>
+                                                <button type="button" class="btn-close bg-light" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div class="bg-secondary  row rounded h-100 p-4">                                                    
+                                                    <div class="col-md-6 form-floating mb-3">
+                                                        <select class="form-control bg-dark" name="midclass">
+                                                            <option value="0">Select Class</option>
+                                                            <?php
+                                                                $mid_class = "SELECT * FROM `class`";
+                                                                $result = mysqli_query($db,$mid_class);
+                                                                $i = 0;
+                                                                while($midrow = mysqli_fetch_array($result)) {
+                                                                    ?><option value="<?php echo $midrow[0]; ?>"><?php echo $midrow[1]; ?></option><?php
+                                                                }
+                                                            ?>
+                                                        </select>
+                                                    </div>
+                                                    <div class="col-md-6 form-floating mb-3">
+                                                        <select class="form-control bg-dark" name="midprogram_course">
+                                                            <option value="0">Select Program</option>
+                                                            <?php
+                                                                $mid_program_course = "SELECT * FROM `program_course`";
+                                                                $midresult_program_course = mysqli_query($db,$mid_program_course);
+                                                                $j = 0;
+                                                                while($midrow_p = mysqli_fetch_array($midresult_program_course)) {
+                                                                    ?><option value="<?php echo $midrow_p[0]; ?>"><?php echo $midrow_p[1]; ?></option><?php
+                                                                }
+                                                            ?>
+                                                        </select>
+                                                    </div>
+                                                    <div class="form-floating mb-3">
+                                                        <select class="form-control bg-dark" name="midsubject">
+                                                            <option value="0">Select Subject</option>
+                                                            <?php
+                                                                $mid_subjects = "SELECT * FROM `subjects`";
+                                                                $midresult_subjects = mysqli_query($db,$mid_subjects);
+                                                                $k = 0;
+                                                                while($midrow_s = mysqli_fetch_array($midresult_subjects)) {
+                                                                    ?><option value="<?php echo $midrow_s[0]; ?>"><?php echo $midrow_s[1]; ?></option><?php
+                                                                }
+                                                            ?>
+                                                        </select>
+                                                    </div>
+                                                    <div class="form-floating mb-3">
+                                                        <input type="date" class="form-control" name="middate" id="floatingInput" placeholder="Movie Name">
+                                                        <label for="floatingTextarea">Date</label>
+                                                    </div>
+                                                    <div class="form-floating mb-3">
+                                                        <input type="time" class="form-control" name="midtime" id="floatingInput">
+                                                        <label for="floatingTextarea">Start Time</label>
+                                                    </div>
+                                                    <div class="form-floating mb-3">
+                                                        <input type="time" class="form-control" name="midtime2" id="floatingInput">
+                                                        <label for="floatingTextarea">End Time</label>
+                                                    </div>
+                                                    <div class="form-floating mb-3">
+                                                        <textarea name="midexam" id="floatingInput" class="form-control" col="3"></textarea>
+                                                        <label for="floatingTextarea">File</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-outline-light" data-bs-dismiss="modal">Cancel</button>
+                                                <button type="submit" name="midsubmit" class="btn btn-primary">Submit</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Class</th>
+                                            <th scope="col">Program</th>
+                                            <th scope="col">Subject Name</th>
+                                            <th scope="col">Date</th>
+                                            <th scope="col">Exam Time</th>
+                                            <th scope="col"></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php
+                                            $midsel = "SELECT m.id,m.program_id,m.class_id,m.file,sb.name,m.date,m.start_time,m.end_time FROM `mid_exam` m INNER JOIN `subjects` sb ON sb.id = m.subject WHERE `result` = 'no'";
+                                            $midresult = mysqli_query($db, $midsel);
+                                            if(mysqli_num_rows($midresult)) {
+                                                while($row = mysqli_fetch_array($midresult)) {
+                                                    $midpid = $row["program_id"];
+                                                    if($midpid == 0){
+                                                        $midfinal_pid = "All";
+                                                    }
+                                                    else {
+                                                        $midselp = "SELECT pc.program_name FROM `program_course` pc WHERE `id` = $midpid";
+                                                        $midres_p = mysqli_query($db,$finalselp);
+                                                        $mymidrow = mysqli_fetch_array($midres_p);
+                                                        $midfinal_pid = $mymidrow["program_name"];
+                                                    }
+                                        ?>
+                                                    <tr>
+                                                        <th scope="row" class="align-middle"><?php $midmyclass=$row["class_id"]; if($midmyclass == 1) { echo "I"; }else{ echo "II"; } ?></th>
+                                                        <th scope="row" class="align-middle"><?php echo $midfinal_pid; ?></th>
+                                                        <th scope="row" class="align-middle"><?php echo $row["name"]; ?></th>
+                                                        <th scope="row" class="align-middle"><?php echo $row["date"]; ?></th>
+                                                        <th scope="row" class="align-middle"><?php echo $row["start_time"] . " - " . $row["end_time"]; ?></th>
+                                                        <?php
+                                                            date_default_timezone_set("Asia/Karachi");
+                                                            $middate = date("Y-m-d H:i");
+                                                            $midmytime = $row["date"] . " " . $row["start_time"];
+                                                            $midendtime = $row["date"] . " " . $row["end_time"];
+                                                            if($middate == $midmytime) {
+                                                        ?>
+                                                            <td><button class="btn btn-success">Exam Started</button></a></td>
+                                                            <?php
+                                                            }
+                                                            else if($middate == $midendtime) {
+                                                        ?>
+                                                            <td><button class="btn btn-danger">Exam ended</button></a></td>
+                                                        <?php
+                                                            }
+                                                            else if($middate > $midendtime) {
+                                                        ?>
+                                                            <td><a href="myresult.php?ex=<?php echo $row["id"]; ?>"><button type="button" class="btn btn-outline-info">Give Results</button></a></td>
+                                                        <?php
+                                                            }
+                                                            else {
+                                                        ?>
+                                                            <td><button class="btn btn-warning">Upcoming Exams</button></a></td>
+                                                        <?php
+                                                            }
+                                                        ?>   
+                                                    </tr>
+                                        <?php
+                                                }
+                                            }
+                                        ?>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- midterm End -->
+
+
+            <!-- finalterm Start -->
+            <div class="container-fluid pt-4 px-4">
+                <div class="row g-4">                    
+                    <div class="col-12">
+                        <div class="bg-secondary rounded h-100 p-4">
+                            <div class="d-flex justify-content-between mb-4">
+                                <h6>Final-Term</h6>
+                                <!-- Button trigger modal -->
+                                <button type="button" class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#finalterm">
+                                    Add
+                                </button>
+                            </div>
+
+                            <!-- Modal -->
+                            <div class="modal fade" id="finalterm" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content bg-secondary">
+                                        <form action="final.php" method="post" enctype="multipart/form-data">
+                                            <div class="modal-header">
+                                                <h4 class="modal-title" id="staticBackdropLabel">Add Mid-term</h4>
+                                                <button type="button" class="btn-close bg-light" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div class="bg-secondary  row rounded h-100 p-4">                                                    
+                                                    <div class="col-md-6 form-floating mb-3">
+                                                        <select class="form-control bg-dark" name="finalclass">
+                                                            <option value="0">Select Class</option>
+                                                            <?php
+                                                                $mid_class = "SELECT * FROM `class`";
+                                                                $result = mysqli_query($db,$mid_class);
+                                                                $i = 0;
+                                                                while($midrow = mysqli_fetch_array($result)) {
+                                                                    ?><option value="<?php echo $midrow[0]; ?>"><?php echo $midrow[1]; ?></option><?php
+                                                                }
+                                                            ?>
+                                                        </select>
+                                                    </div>
+                                                    <div class="col-md-6 form-floating mb-3">
+                                                        <select class="form-control bg-dark" name="finalprogram_course">
+                                                            <option value="0">Select Program</option>
+                                                            <?php
+                                                                $mid_program_course = "SELECT * FROM `program_course`";
+                                                                $midresult_program_course = mysqli_query($db,$mid_program_course);
+                                                                $j = 0;
+                                                                while($midrow_p = mysqli_fetch_array($midresult_program_course)) {
+                                                                    ?><option value="<?php echo $midrow_p[0]; ?>"><?php echo $midrow_p[1]; ?></option><?php
+                                                                }
+                                                            ?>
+                                                        </select>
+                                                    </div>
+                                                    <div class="form-floating mb-3">
+                                                        <select class="form-control bg-dark" name="finalsubject">
+                                                            <option value="0">Select Subject</option>
+                                                            <?php
+                                                                $mid_subjects = "SELECT * FROM `subjects`";
+                                                                $midresult_subjects = mysqli_query($db,$mid_subjects);
+                                                                $k = 0;
+                                                                while($midrow_s = mysqli_fetch_array($midresult_subjects)) {
+                                                                    ?><option value="<?php echo $midrow_s[0]; ?>"><?php echo $midrow_s[1]; ?></option><?php
+                                                                }
+                                                            ?>
+                                                        </select>
+                                                    </div>
+                                                    <div class="form-floating mb-3">
+                                                        <input type="date" class="form-control" name="finaldate" id="floatingInput" placeholder="Movie Name">
+                                                        <label for="floatingTextarea">Date</label>
+                                                    </div>
+                                                    <div class="form-floating mb-3">
+                                                        <input type="time" class="form-control" name="finaltime" id="floatingInput">
+                                                        <label for="floatingTextarea">Start Time</label>
+                                                    </div>
+                                                    <div class="form-floating mb-3">
+                                                        <input type="time" class="form-control" name="finaltime2" id="floatingInput">
+                                                        <label for="floatingTextarea">End Time</label>
+                                                    </div>
+                                                    <div class="form-floating mb-3">
+                                                        <textarea name="finalexam" id="floatingInput" class="form-control" col="3"></textarea>
+                                                        <label for="floatingTextarea">File</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-outline-light" data-bs-dismiss="modal">Cancel</button>
+                                                <button type="submit" name="finalsubmit" class="btn btn-primary">Submit</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Class</th>
+                                            <th scope="col">Program</th>
+                                            <th scope="col">Subject Name</th>
+                                            <th scope="col">Date</th>
+                                            <th scope="col">Exam Time</th>
+                                            <th scope="col"></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php
+                                            $finalsel = "SELECT m.id,m.program_id,m.class_id,m.file,sb.name,m.date,m.start_time,m.end_time FROM `mid_exam` m INNER JOIN `subjects` sb ON sb.id = m.subject WHERE `result` = 'no'";
+                                            $finalresult = mysqli_query($db, $finalsel);
+                                            if(mysqli_num_rows($finalresult)) {
+                                                while($row = mysqli_fetch_array($finalresult)) {
+                                                    $finalpid = $row["program_id"];
+                                                    if($finalpid == 0){
+                                                        $finalterm_pid = "All";
+                                                    }
+                                                    else {
+                                                        $finalselp = "SELECT pc.program_name FROM `program_course` pc WHERE `id` = $finalpid";
+                                                        $finalres_p = mysqli_query($db,$finalselp);
+                                                        $myfinalrow = mysqli_fetch_array($finalres_p);
+                                                        $finalterm_pid = $myfinalrow["program_name"];
+                                                    }
+                                        ?>
+                                                    <tr>
+                                                        <th scope="row" class="align-middle"><?php $finalmyclass=$row["class_id"]; if($finalmyclass == 1) { echo "I"; }else{ echo "II"; } ?></th>
+                                                        <th scope="row" class="align-middle"><?php echo $finalterm_pid; ?></th>
+                                                        <th scope="row" class="align-middle"><?php echo $row["name"]; ?></th>
+                                                        <th scope="row" class="align-middle"><?php echo $row["date"]; ?></th>
+                                                        <th scope="row" class="align-middle"><?php echo $row["start_time"] . " - " . $row["end_time"]; ?></th>
+                                                        <?php
+                                                            date_default_timezone_set("Asia/Karachi");
+                                                            $finaldate = date("Y-m-d H:i");
+                                                            $finalmytime = $row["date"] . " " . $row["start_time"];
+                                                            $finalendtime = $row["date"] . " " . $row["end_time"];
+                                                            if($finaldate == $finalmytime) {
+                                                        ?>
+                                                            <td><button class="btn btn-success">Exam Started</button></a></td>
+                                                            <?php
+                                                            }
+                                                            else if($finaldate == $finalendtime) {
+                                                        ?>
+                                                            <td><button class="btn btn-danger">Exam ended</button></a></td>
+                                                        <?php
+                                                            }
+                                                            else if($finaldate > $finalendtime) {
+                                                        ?>
+                                                            <td><a href="myresult.php?ex=<?php echo $row["id"]; ?>"><button type="button" class="btn btn-outline-info">Give Results</button></a></td>
+                                                        <?php
+                                                            }
+                                                            else {
+                                                        ?>
+                                                            <td><button class="btn btn-warning">Upcoming Exams</button></a></td>
+                                                        <?php
+                                                            }
+                                                        ?>   
+                                                    </tr>
+                                        <?php
+                                                }
+                                            }
+                                        ?>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- finalterm End -->
           
             <!-- Footer Start -->
             <?php

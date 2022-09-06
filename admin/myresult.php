@@ -55,6 +55,8 @@
                 }
                 $inp = "INSERT INTO `urdu`(`exam_id`, `student_id`, `total_mks`, `obt_mks`, `status`, `class_id`, `program_id`) VALUES ('$examid','$student_id','$total','$obt','$status','$id','$pid')";
                 $myresult = mysqli_query($db,$inp);
+                $inpex = "UPDATE `exam` SET `result`='yes' WHERE `id` = $examid";
+                $examres = mysqli_query($db,$inpex);
                 
                 $program_name = $row["program_name"];
                 if($program_name == "Commerce") {
@@ -109,6 +111,8 @@
                 }
                 $inp = "INSERT INTO `english`(`exam_id`, `student_id`, `total_mks`, `obt_mks`, `status`, `class_id`, `program_id`) VALUES ('$examid','$student_id','$total','$obt','$status','$id','$pid')";
                 $myresult = mysqli_query($db,$inp);
+                $inpex = "UPDATE `exam` SET `result`='yes' WHERE `id` = $examid";
+                $examres = mysqli_query($db,$inpex);
                 
                 $program_name = $row["program_name"];
                 if($program_name == "Commerce") {
@@ -163,6 +167,8 @@
                 }
                 $inp = "INSERT INTO `islamiat`(`exam_id`, `student_id`, `total_mks`, `obt_mks`, `status`, `class_id`, `program_id`) VALUES ('$examid','$student_id','$total','$obt','$status','$id','$pid')";
                 $myresult = mysqli_query($db,$inp);
+                $inpex = "UPDATE `exam` SET `result`='yes' WHERE `id` = $examid";
+                $examres = mysqli_query($db,$inpex);
 
                 $program_name = $row["program_name"];
                 if($program_name == "Commerce") {
@@ -217,6 +223,8 @@
                 }
                 $inp = "INSERT INTO `chemistry`(`exam_id`, `student_id`, `total_mks`, `obt_mks`, `status`, `class_id`, `program_id`) VALUES ('$examid','$student_id','$total','$obt','$status','$id','$pid')";
                 $myresult = mysqli_query($db,$inp);
+                $inpex = "UPDATE `exam` SET `result`='yes' WHERE `id` = $examid";
+                $examres = mysqli_query($db,$inpex);
 
                 $program_name = $row["program_name"];
                 if($program_name == "Commerce") {
@@ -271,6 +279,8 @@
                 }
                 $inp = "INSERT INTO `physic`(`exam_id`, `student_id`, `total_mks`, `obt_mks`, `status`, `class_id`, `program_id`) VALUES ('$examid','$student_id','$total','$obt','$status','$id','$pid')";
                 $myresult = mysqli_query($db,$inp);
+                $inpex = "UPDATE `exam` SET `result`='yes' WHERE `id` = $examid";
+                $examres = mysqli_query($db,$inpex);
 
                 $program_name = $row["program_name"];
                 if($program_name == "Commerce") {
@@ -325,6 +335,8 @@
                 }
                 $inp = "INSERT INTO `math`(`exam_id`, `student_id`, `total_mks`, `obt_mks`, `status`, `class_id`, `program_id`) VALUES ('$examid','$student_id','$total','$obt','$status','$id','$pid')";
                 $myresult = mysqli_query($db,$inp);
+                $inpex = "UPDATE `exam` SET `result`='yes' WHERE `id` = $examid";
+                $examres = mysqli_query($db,$inpex);
 
                 $program_name = $row["program_name"];
                 if($program_name == "Commerce") {
@@ -379,6 +391,8 @@
                 }
                 $inp = "INSERT INTO `math`(`exam_id`, `student_id`, `total_mks`, `obt_mks`, `status`, `class_id`, `program_id`) VALUES ('$examid','$student_id','$total','$obt','$status','$id','$pid')";
                 $myresult = mysqli_query($db,$inp);
+                $inpex = "UPDATE `exam` SET `result`='yes' WHERE `id` = $examid";
+                $examres = mysqli_query($db,$inpex);
 
                 $program_name = $row["program_name"];
                 if($program_name == "Commerce") {
@@ -433,6 +447,8 @@
                 }
                 $inp = "INSERT INTO `zoology`(`exam_id`, `student_id`, `total_mks`, `obt_mks`, `status`, `class_id`, `program_id`) VALUES ('$examid','$student_id','$total','$obt','$status','$id','$pid')";
                 $myresult = mysqli_query($db,$inp);
+                $inpex = "UPDATE `exam` SET `result`='yes' WHERE `id` = $examid";
+                $examres = mysqli_query($db,$inpex);
 
                 $program_name = $row["program_name"];
                 if($program_name == "Commerce") {
@@ -487,6 +503,8 @@
                 }
                 $inp = "INSERT INTO `botany`(`exam_id`, `student_id`, `total_mks`, `obt_mks`, `status`, `class_id`, `program_id`) VALUES ('$examid','$student_id','$total','$obt','$status','$id','$pid')";
                 $myresult = mysqli_query($db,$inp);
+                $inpex = "UPDATE `exam` SET `result`='yes' WHERE `id` = $examid";
+                $examres = mysqli_query($db,$inpex);
 
                 $program_name = $row["program_name"];
                 if($program_name == "Commerce") {
@@ -541,6 +559,8 @@
                 }
                 $inp = "INSERT INTO `computer_science`(`exam_id`, `student_id`, `total_mks`, `obt_mks`, `status`, `class_id`, `program_id`) VALUES ('$examid','$student_id','$total','$obt','$status','$id','$pid')";
                 $myresult = mysqli_query($db,$inp);
+                $inpex = "UPDATE `exam` SET `result`='yes' WHERE `id` = $examid";
+                $examres = mysqli_query($db,$inpex);
 
                 $program_name = $row["program_name"];
                 if($program_name == "Commerce") {
@@ -595,6 +615,8 @@
                 }
                 $inp = "INSERT INTO `civics`(`exam_id`, `student_id`, `total_mks`, `obt_mks`, `status`, `class_id`, `program_id`) VALUES ('$examid','$student_id','$total','$obt','$status','$id','$pid')";
                 $myresult = mysqli_query($db,$inp);
+                $inpex = "UPDATE `exam` SET `result`='yes' WHERE `id` = $examid";
+                $examres = mysqli_query($db,$inpex);
 
                 $program_name = $row["program_name"];
                 if($program_name == "Commerce") {
@@ -649,6 +671,8 @@
                 }
                 $inp = "INSERT INTO `psychology`(`exam_id`, `student_id`, `total_mks`, `obt_mks`, `status`, `class_id`, `program_id`) VALUES ('$examid','$student_id','$total','$obt','$status','$id','$pid')";
                 $myresult = mysqli_query($db,$inp);
+                $inpex = "UPDATE `exam` SET `result`='yes' WHERE `id` = $examid";
+                $examres = mysqli_query($db,$inpex);
 
                 $program_name = $row["program_name"];
                 if($program_name == "Commerce") {
@@ -703,6 +727,8 @@
                 }
                 $inp = "INSERT INTO `education`(`exam_id`, `student_id`, `total_mks`, `obt_mks`, `status`, `class_id`, `program_id`) VALUES ('$examid','$student_id','$total','$obt','$status','$id','$pid')";
                 $myresult = mysqli_query($db,$inp);
+                $inpex = "UPDATE `exam` SET `result`='yes' WHERE `id` = $examid";
+                $examres = mysqli_query($db,$inpex);
 
                 $program_name = $row["program_name"];
                 if($program_name == "Commerce") {
@@ -757,6 +783,8 @@
                 }
                 $inp = "INSERT INTO `accounting`(`exam_id`, `student_id`, `total_mks`, `obt_mks`, `status`, `class_id`, `program_id`) VALUES ('$examid','$student_id','$total','$obt','$status','$id','$pid')";
                 $myresult = mysqli_query($db,$inp);
+                $inpex = "UPDATE `exam` SET `result`='yes' WHERE `id` = $examid";
+                $examres = mysqli_query($db,$inpex);
 
                 $program_name = $row["program_name"];
                 if($program_name == "Commerce") {
@@ -811,6 +839,8 @@
                 }
                 $inp = "INSERT INTO `economics`(`exam_id`, `student_id`, `total_mks`, `obt_mks`, `status`, `class_id`, `program_id`) VALUES ('$examid','$student_id','$total','$obt','$status','$id','$pid')";
                 $myresult = mysqli_query($db,$inp);
+                $inpex = "UPDATE `exam` SET `result`='yes' WHERE `id` = $examid";
+                $examres = mysqli_query($db,$inpex);
 
                 $program_name = $row["program_name"];
                 if($program_name == "Commerce") {
@@ -865,6 +895,8 @@
                 }
                 $inp = "INSERT INTO `poc`(`exam_id`, `student_id`, `total_mks`, `obt_mks`, `status`, `class_id`, `program_id`) VALUES ('$examid','$student_id','$total','$obt','$status','$id','$pid')";
                 $myresult = mysqli_query($db,$inp);
+                $inpex = "UPDATE `exam` SET `result`='yes' WHERE `id` = $examid";
+                $examres = mysqli_query($db,$inpex);
 
                 $program_name = $row["program_name"];
                 if($program_name == "Commerce") {

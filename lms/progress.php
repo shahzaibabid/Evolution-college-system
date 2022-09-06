@@ -28,7 +28,7 @@ include("header.php");
                 ?>
                 <center><img src="../admin/profile/<?php echo $student_row["profile"]; ?>" style="height: 15vw; width: 15vw; outline:5px solid grey;" class="rounded-circle" alt=""></center>
                 <h1 class="text-center"><?php echo $student_row["name"]; ?></h1>
-                <p class="text-center text-white mb-5"><?php echo $program; ?> Group</p>
+                <p class="text-center mb-5"><?php echo $program; ?> Group</p>
                 <div class="row g-4">
                     <!-- English All Start -->
                     <div class="col-6 mb-4">
