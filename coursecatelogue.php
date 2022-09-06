@@ -18,7 +18,7 @@
         font-size:bold;
     }
 .heading{
-    background: blue;
+    background-image: url("https://t4.ftcdn.net/jpg/03/03/45/25/360_F_303452599_eZMGXe7awggqAHTQXpjzBFehJBEyw4QR.jpg");
     color: white;
     width:100%;
     height:auto;
@@ -65,7 +65,7 @@ include("header.php");
 <br><br>
 <div class="container content">
 <div class="heading">
-    <h1 style="font-size: 5vw;">&nbsp;&nbsp;COURSES CATALOGUE</h1>
+    <h1 style="font-size: 4vw;">&nbsp;&nbsp;COURSES CATALOGUE</h1>
 </div>
 <br>
 

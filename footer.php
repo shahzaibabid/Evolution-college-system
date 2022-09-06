@@ -1,16 +1,16 @@
-<style>
 
-
-
-</style>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
 <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
 	
 		<link rel="stylesheet" href="css/ionicons.min.css">
 		<link rel="stylesheet" href="css/style.css">
 
-
-		<footer class="footer-06">
+<style>
+	.footer-06 {
+		font-weight: bolder;
+	}
+</style>
+		<footer class="footer-06" style="background-image: url('https://t4.ftcdn.net/jpg/03/03/45/25/360_F_303452599_eZMGXe7awggqAHTQXpjzBFehJBEyw4QR.jpg');">
 			<div class="container">
 				
 				<div class="row pt-4">
@@ -20,13 +20,12 @@
 							<div class="col-md-4  mb-4">
 								<h2 class="footer-heading">Pages</h2>
 								<ul class="list-unstyled">
-		              <li><a href="index.php" class="py-1 d-block"><span class="ion-ios-checkmark-circle-outline mr-2"></span>Home</a></li>
-		              <li><a href="about.php" class="py-1 d-block"><span class="ion-ios-checkmark-circle-outline mr-2"></span>About</a></li>
-		              <li><a href="contact.php" class="py-1 d-block"><span class="ion-ios-checkmark-circle-outline mr-2"></span>Contact_Us</a></li>
-		              <li><a href="signup.php" class="py-1 d-block"><span class="ion-ios-checkmark-circle-outline mr-2"></span>Register</a></li>
-                  <li><a href="login.php" class="py-1 d-block"><span class="ion-ios-checkmark-circle-outline mr-2"></span>Login</a></li>
-
-		            </ul>
+									<li><a href="index.php" style="color: solid black;" class="py-1 d-block"><span class="ion-ios-checkmark-circle-outline mr-2"></span>Home</a></li>
+									<li><a href="about.php" class="py-1 d-block"><span class="ion-ios-checkmark-circle-outline mr-2"></span>About</a></li>
+									<li><a href="contact.php" class="py-1 d-block"><span class="ion-ios-checkmark-circle-outline mr-2"></span>Contact_Us</a></li>
+									<li><a href="signup.php" class="py-1 d-block"><span class="ion-ios-checkmark-circle-outline mr-2"></span>Register</a></li>
+									<li><a href="login.php" class="py-1 d-block"><span class="ion-ios-checkmark-circle-outline mr-2"></span>Login</a></li>
+								</ul>
 							</div>
 							<div class="col-md-4  mb-4 ">
 								<h2 class="footer-heading">Admission</h2>

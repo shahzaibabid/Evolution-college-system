@@ -20,7 +20,7 @@ body {
     background-color: white;
 }
 header {
-    background-color: black;
+    background-image: url("https://t4.ftcdn.net/jpg/03/03/45/25/360_F_303452599_eZMGXe7awggqAHTQXpjzBFehJBEyw4QR.jpg");
     color: white;
     display: flex;
     align-items: center;
@@ -95,7 +95,7 @@ main {
 }
 footer {
     height: 10vh;
-    background-color: black;
+    background-image: url("https://t4.ftcdn.net/jpg/03/03/45/25/360_F_303452599_eZMGXe7awggqAHTQXpjzBFehJBEyw4QR.jpg");
     color: white;
     display: flex;
     align-items: center;
@@ -166,8 +166,7 @@ if (isset($_POST["submit"])) {
         </form>
     </main>
     <footer>
-        <p> Copyright &copy; |All rights reserved by Evolution_College_System| <br> <i class="ion-ios-heart" aria-hidden="true">Designed & developed by Shahzaib & Charles</i> 
-							 </p>
+        <p> Copyright &copy; |All rights reserved by Evolution_College_System| <br> <i class="ion-ios-heart" aria-hidden="true">Designed & developed by Shahzaib & Charles</i></p>
     </footer>
 </body>
 

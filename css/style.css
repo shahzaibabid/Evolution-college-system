@@ -8280,11 +8280,11 @@ footer {
     .footer-06 .footer-heading .logo {
       color: #fff; }
   .footer-06 p {
-    color: rgba(255, 255, 255, 0.3); }
+    color: black; }
   .footer-06 a {
     color: #fff; }
   .footer-06 .list-unstyled li a {
-    color: rgba(255, 255, 255, 0.5); }
+    color: black; }
   .footer-06 .subscribe-form {
     border-radius: 40px;
     background: #fff;
