@@ -18,13 +18,7 @@
             <a class="nav-link active" aria-current="page" href="accountbook.php">Account book</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="lectureschedule.php">Lecture Schedule</a>
-          </li>
-          <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="progress.php">Progress</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="studyscheme.php"> Study Scheme</a>
           </li>
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="profile.php"> Profile</a>

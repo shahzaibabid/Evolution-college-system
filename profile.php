@@ -1,6 +1,4 @@
-<?php
- 
-?>
+
 <html lang="en">
 
 <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
@@ -115,13 +113,24 @@ if(typeof _bsa !== 'undefined' && _bsa) {
 
   <?php
 include("topbar.php");
-if(isset($_SESSION["name"]) == null) {
+    if(isset($_SESSION["name"]) == null) {
     ?>
         <Script>
             window.location.assign("index.php");
         </Script>
+    <?php
+    }
+    
+    if(isset($_POST["submit"])) {
+        $ad_id = $_POST["ad_id"];
+        $inp = "UPDATE `admission_form` SET `status`='On hold' WHERE `id` = $ad_id";
+        $adres = mysqli_query($db, $inp);
+        ?>
+        <Script>
+            window.location.assign("profile.php");
+        </Script>
         <?php
-  }
+    }
 ?>
 <!-- Topbar end -->
   <!-- headers start -->
@@ -245,10 +254,11 @@ include("header.php");
         <table class="table">
             <thead>
                 <tr>
-                    <th class="col">#</th>
                     <th scope="col">Profile</th>
+                    <th scope="col">Name</th>
                     <th scope="col">Email</th>
                     <th class="col">Status</th>
+                    <th scope="col" style="visibility: hidden;">Details</th>
                     <th scope="col" style="visibility: hidden;">Details</th>
                 </tr>
             </thead>
@@ -262,14 +272,25 @@ include("header.php");
                             $i++;
                 ?>
                 <tr>
-                    <td class="align-middle" scope="row"><?php echo $i; ?></td>
-                    <td class="align-middle" type="button" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="top" title="<?php echo $row[1]; ?>">
+                    <td class="align-middle">
                         <img src="assets/images/profile/<?php echo $row[15]; ?>" style="height: 3vw;" alt="">
                     </td>
+                    <td class="align-middle"><?php echo $row[1]; ?></td>
                     <td class="align-middle"><?php echo $row[3]; ?></td>
-                    <td class="align-middle"><?php echo $row[16]; ?></td>
-                    <td class="align-middle"> <span type="button" data-bs-toggle="modal" data-bs-target="#e<?php echo $i; ?>" class="badge bg-secondary rounded-pill badge-sm">DETAILS</span></a> </td>
-                    
+                    <td class="align-middle"><?php echo $status = $row[16]; ?></td>
+                    <td class="align-middle"> <span type="button" data-bs-toggle="modal" data-bs-target="#e<?php echo $i; ?>" class="badge bg-secondary rounded-pill badge-sm">DETAILS</span></a> </td>                    
+                    <?php
+                        if ($status == "In progress") {
+                            ?>
+                            <td class="align-middle">
+                                <form action="#" method="post">
+                                    <input type="hidden" name="ad_id" value="<?php echo $row[0] ?>">
+                                    <input type="submit" name="submit" class="btn btn-sm bg-success rounded-pill" value="Pay fee">                                    
+                                </form>
+                            </td>
+                            <?php
+                        }
+                    ?>
                 </tr>               
 
                 <!-- Form Modal -->
@@ -326,7 +347,7 @@ include("header.php");
                         </div>
                     </div>
                 </div>
-
+                
                 <?php                                                    
                         }
                     }                                            
@@ -334,8 +355,6 @@ include("header.php");
             </tbody>
         </table>
     </div>
-
-    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeDEZ2UE74eTEruN4LijlNvVQiu_R8F4pmtDgT8JoSTbUscdw/viewform?embedded=true" width="640" height="975" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
 
 </section>
 

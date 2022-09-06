@@ -123,7 +123,19 @@ body {
 
 <?php
 include("header.php");
-?>  .
+
+$id = $_SESSION["myuserid"];
+$select = "SELECT * FROM `std_account` WHERE `id` = $id";
+$result = mysqli_query($db, $select);
+$row = mysqli_fetch_array($result);
+
+
+$cid = $row["class_id"];
+$class_sel = "SELECT * FROM `class` WHERE `id` = $cid";
+$class_result = mysqli_query($db, $class_sel);
+$class_row = mysqli_fetch_array($class_result);
+
+?>
     <!-- End -->
 
   
@@ -134,56 +146,30 @@ include("header.php");
         <h2 class="fs-1 mt-5">Profile</h2>   
         <div class="card">
             <div class="card-body">
-                <i class="fa fa-pen fa-xs edit"></i>
-                <table class="w-100">
-                    <tbody>
-                        <?php
-                            $id = $_SESSION["myuserid"];
-                            $select = "SELECT * FROM `std_account` WHERE `id` = $id";
-                            $result = mysqli_query($db, $select);
-                            $row = mysqli_fetch_array($result);
-                        ?>
-                      <tr>
-                        <div class="profile">
-                        <img src="../admin/profile/<?php echo $row["profile"] ?>" alt="" width="100" height="100">
-                        </div>
-                      </tr>
-                        <tr>
-                            <td>Name</td>
-                            <td>:</td>
-                            <td><?php echo $row["name"]; ?></td>
-                        </tr>
-                        <tr>
-                            <td>Email</td>
-                            <td>:</td>
-                            <td class="text-wrap"><?php echo $row["email"]; ?></td>
-                        </tr>
-                        <tr>
-                            <td>Address</td>
-                            <td>:</td>
-                            <td><?php echo $row["address"]; ?></td>
-                        </tr>
-                        <tr>
-                            <td>class</td>
-                            <td>:</td>
-                            <td>
-                                <?php
-                                    $cid = $row["class_id"];
-                                    $class_sel = "SELECT * FROM `class` WHERE `id` = $cid";
-                                    $class_result = mysqli_query($db, $class_sel);
-                                    $class_row = mysqli_fetch_array($class_result);
-                                    echo $class_row["name"];
-                                ?>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>program</td>
-                            <td>:</td>
-                            <td><?php echo $row["program"]; ?></td>
-                        </tr>
-               
-                    </tbody>
-                </table>
+                <div class="profile">
+                    <img src="../admin/profile/<?php echo $row["profile"] ?>" alt="" width="100" height="100">
+                </div>
+                
+                <div class="row justify-content-center">
+                    <div class="col-9 text-start">
+                        <h6>Name &nbsp;: &nbsp;<?php echo $row["name"]; ?></h6>
+                    </div>
+                    <div class="col-9 text-start">
+                        <h6>Emali &nbsp;: &nbsp;<?php echo $row["email"]; ?></h6>
+                    </div>
+                    <div class="col-9 text-start">
+                        <h6>Address &nbsp;: &nbsp;<?php echo $row["address"]; ?></h6>
+                    </div>
+                    <div class="col-9 text-start">
+                        <h6>Class &nbsp;: &nbsp;<?php echo $class_row["name"]; ?></h6>
+                    </div>
+                    <div class="col-9 text-start">
+                        <h6>Program &nbsp;: &nbsp;<?php echo $row["program"]; ?></h6>
+                    </div>
+                    <div class="col-9 text-start">
+                        <h6>Religion &nbsp;: &nbsp;<?php echo $row["religion"]; ?></h6>
+                    </div>
+                </div>
             </div>
         </div>             
     </div>
