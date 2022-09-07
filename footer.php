@@ -48,7 +48,7 @@
 								<div class="row justify-content-end">
 									<div class="col-md-12 col-lg-12 ">
 										<p class="copyright" style="color:black;">
-										  Copyright &copy; |All rights reserved by Evolution_College_System| <br> <i class="ion-ios-heart" aria-hidden="true">Designed & developed by Shahzaib & Charles</i>
+										  Copyright &copy; |All rights reserved by Evolution_College_System | <br> <i class="ion-ios-heart" aria-hidden="true">Designed & developed by Shahzaib & Charles</i>
 										</p>							 
 									</div>
 								</div>

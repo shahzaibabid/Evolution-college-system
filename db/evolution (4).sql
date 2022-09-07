@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 06, 2022 at 09:33 AM
+-- Generation Time: Sep 07, 2022 at 09:05 AM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 7.3.31
 
@@ -393,6 +393,14 @@ CREATE TABLE `final_exam` (
   `result` varchar(255) NOT NULL DEFAULT 'no'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `final_exam`
+--
+
+INSERT INTO `final_exam` (`id`, `class_id`, `subject`, `date`, `start_time`, `end_time`, `file`, `program_id`, `result`) VALUES
+(1, 1, 18, '2023-07-07', '14:00', '15:00', 'demo', 5, 'no'),
+(2, 1, 10, '2022-09-30', '10:00', '10:40', 'file', 3, 'no');
+
 -- --------------------------------------------------------
 
 --
@@ -458,6 +466,14 @@ CREATE TABLE `mid` (
   `status` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `mid`
+--
+
+INSERT INTO `mid` (`id`, `UserId`, `eng`, `urdu`, `isl`, `math`, `phy`, `chem`, `zoology`, `botany`, `computer`, `civic`, `psy`, `edu`, `acc`, `economic`, `poc`, `obt`, `ttl`, `per`, `grade`, `status`) VALUES
+(1, 4, 80, 76, 85, 67, 0, 0, 0, 0, 0, 0, 0, 0, 75, 85, 75, 543, 600, 90.5, 'A+', 'Pass'),
+(2, 5, 85, 70, 79, 80, 0, 0, 0, 0, 0, 0, 0, 0, 85, 80, 75, 554, 600, 92.33, 'A+', 'Pass');
+
 -- --------------------------------------------------------
 
 --
@@ -475,6 +491,14 @@ CREATE TABLE `mid_exam` (
   `program_id` int(11) NOT NULL,
   `result` varchar(255) NOT NULL DEFAULT 'no'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `mid_exam`
+--
+
+INSERT INTO `mid_exam` (`id`, `class_id`, `subject`, `date`, `start_time`, `end_time`, `file`, `program_id`, `result`) VALUES
+(1, 1, 18, '2020-08-08', '15:00', '15:50', 'file', 5, 'no'),
+(3, 1, 12, '2022-09-05', '13:30', '02:10', 'file', 2, 'no');
 
 -- --------------------------------------------------------
 
@@ -606,7 +630,7 @@ CREATE TABLE `std_account` (
 
 INSERT INTO `std_account` (`id`, `name`, `father_name`, `email`, `phone`, `pass`, `dob`, `gender`, `address`, `cnic_bayform`, `citizenship`, `religion`, `program`, `profile`, `admission_id`, `class_id`, `user_type`) VALUES
 (4, 'Charles Stephen', 'Adwin', 'charles@student.ecs.com', '03343427289', '202cb962ac59075b964b07152d234b70', '2022-08-03', 'Male', 'B Road, Nursery Bus Stop, Karachi, Karachi', '12345678912', 'Pakistani', 'Christianity', 'Commerce', '1639739768pFHNrg.jpg', 10, 1, 4),
-(5, 'Shahzaib', 'Hammad', 'shahzaib@student.ecs.com', '0334342728', '202cb962ac59075b964b07152d234b70', '2022-08-25', 'Male', '72-N, P.E.C.H.S.,Karachi', '98765432198', 'Pakistani', 'Islam', 'Pre-Medical', '769866400shahzaib.jpg', 11, 1, 4);
+(5, 'Shahzaib', 'Hammad', 'shahzaib@student.ecs.com', '0334342728', '202cb962ac59075b964b07152d234b70', '2022-08-25', 'Male', '72-N, P.E.C.H.S.,Karachi', '98765432198', 'Pakistani', 'Islam', 'Commerce', '769866400shahzaib.jpg', 11, 1, 4);
 
 -- --------------------------------------------------------
 
@@ -637,7 +661,7 @@ INSERT INTO `subjects` (`id`, `name`, `teacher_email`, `class_id`, `program_id`)
 (8, 'Business Math', 'suhail@teacher.ecs.com', 1, 5),
 (9, 'Physics', 'becky@teacher.ecs.com', 1, 1),
 (10, 'Physics', 'roby@student.ecs.com', 1, 3),
-(11, 'Chemistry', 'gadaleta@teacher.ecs.com', 1, 1),
+(11, 'Chemistry', 'gadaleta@teacher.ecs.com', 1, 2),
 (12, 'Zoology', 'tahir@teacher.ecs.com', 1, 2),
 (13, 'Botany', 'syahiran@teacher.ecs.com', 1, 2),
 (14, 'Computer Science', 'junguang@teacher.ecs.com', 1, 3),
@@ -1093,7 +1117,7 @@ ALTER TABLE `final`
 -- AUTO_INCREMENT for table `final_exam`
 --
 ALTER TABLE `final_exam`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `islamiat`
@@ -1111,13 +1135,13 @@ ALTER TABLE `math`
 -- AUTO_INCREMENT for table `mid`
 --
 ALTER TABLE `mid`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `mid_exam`
 --
 ALTER TABLE `mid_exam`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `physic`

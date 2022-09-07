@@ -1,8 +1,9 @@
 <?php
+    include("connection/connection.php");
     if(isset($_POST["midsubmit"])) {        
         $program_course = $_POST["midprogram_course"];
         $classes = $_POST["midclass"];
-        $name = $_POST["midsubject"];
+        $name = $_POST["midsubject2"];
         $name = mysqli_real_escape_string($db,$name);
         $mydate = $_POST["middate"];
         $mydate = mysqli_real_escape_string($db,$mydate);
@@ -12,12 +13,12 @@
         $mytime2 = mysqli_real_escape_string($db,$mytime2);
         $exam = $_POST["midexam"];
         $exam = mysqli_real_escape_string($db,$exam);
-        $examination = "INSERT INTO `mid_exam`(`class_id`, `subject`, `date`, `start_time`, `end_time`, `file`, `program_id`) VALUES ('$classes','$name','$mydate','$mytime','$mytime2','$exam','$program_course')";
+        echo $examination = "INSERT INTO `mid_exam`(`class_id`, `subject`, `date`, `start_time`, `end_time`, `file`, `program_id`) VALUES ('$classes','$name','$mydate','$mytime','$mytime2','$exam','$program_course')";
         $examination_result = mysqli_query($db, $examination);        
         ?>
-            <Script>
+            <!-- <Script>
                 window.location.assign("./exam.php");
-            </Script>
+            </Script> -->
         <?php
     }
 ?>

@@ -193,7 +193,7 @@
                                                         </select>
                                                     </div>
                                                     <div class="col-md-6 form-floating mb-3">
-                                                        <select class="form-control bg-dark" name="program_course">
+                                                        <select class="form-control bg-dark" name="program_course" id="pg">
                                                             <option value="0">Select Program</option>
                                                             <?php
                                                                 $sel_program_course = "SELECT * FROM `program_course`";
@@ -206,16 +206,8 @@
                                                         </select>
                                                     </div>
                                                     <div class="form-floating mb-3">
-                                                        <select class="form-control bg-dark" name="subject">
+                                                        <select class="form-control bg-dark" name="subject" id="subj">
                                                             <option value="0">Select Subject</option>
-                                                            <?php
-                                                                $sel_subjects = "SELECT * FROM `subjects`";
-                                                                $result_subjects = mysqli_query($db,$sel_subjects);
-                                                                $k = 0;
-                                                                while($row_s = mysqli_fetch_array($result_subjects)) {
-                                                                    ?><option value="<?php echo $row_s[0]; ?>"><?php echo $row_s[1]; ?></option><?php
-                                                                }
-                                                            ?>
                                                         </select>
                                                     </div>
                                                     <div class="form-floating mb-3">
@@ -336,7 +328,7 @@
                             <div class="modal fade" id="midterm" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                                 <div class="modal-dialog">
                                     <div class="modal-content bg-secondary">
-                                        <form action="mid.php" method="post" enctype="multipart/form-data">
+                                        <form action="./mid.php" method="post" enctype="multipart/form-data">
                                             <div class="modal-header">
                                                 <h4 class="modal-title" id="staticBackdropLabel">Add Mid-term</h4>
                                                 <button type="button" class="btn-close bg-light" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -357,7 +349,7 @@
                                                         </select>
                                                     </div>
                                                     <div class="col-md-6 form-floating mb-3">
-                                                        <select class="form-control bg-dark" name="midprogram_course">
+                                                        <select class="form-control bg-dark" name="midprogram_course" id="mpg">
                                                             <option value="0">Select Program</option>
                                                             <?php
                                                                 $mid_program_course = "SELECT * FROM `program_course`";
@@ -370,16 +362,8 @@
                                                         </select>
                                                     </div>
                                                     <div class="form-floating mb-3">
-                                                        <select class="form-control bg-dark" name="midsubject">
+                                                        <select class="form-control bg-dark" name="midsubject2" id="msubj">
                                                             <option value="0">Select Subject</option>
-                                                            <?php
-                                                                $mid_subjects = "SELECT * FROM `subjects`";
-                                                                $midresult_subjects = mysqli_query($db,$mid_subjects);
-                                                                $k = 0;
-                                                                while($midrow_s = mysqli_fetch_array($midresult_subjects)) {
-                                                                    ?><option value="<?php echo $midrow_s[0]; ?>"><?php echo $midrow_s[1]; ?></option><?php
-                                                                }
-                                                            ?>
                                                         </select>
                                                     </div>
                                                     <div class="form-floating mb-3">
@@ -432,7 +416,7 @@
                                                     }
                                                     else {
                                                         $midselp = "SELECT pc.program_name FROM `program_course` pc WHERE `id` = $midpid";
-                                                        $midres_p = mysqli_query($db,$finalselp);
+                                                        $midres_p = mysqli_query($db,$midselp);
                                                         $mymidrow = mysqli_fetch_array($midres_p);
                                                         $midfinal_pid = $mymidrow["program_name"];
                                                     }
@@ -460,7 +444,7 @@
                                                             }
                                                             else if($middate > $midendtime) {
                                                         ?>
-                                                            <td><a href="myresult.php?ex=<?php echo $row["id"]; ?>"><button type="button" class="btn btn-outline-info">Give Results</button></a></td>
+                                                            <td><a href="myresult2.php?ex=<?php echo $row["id"]; ?>"><button type="button" class="btn btn-outline-info">Give Results</button></a></td>
                                                         <?php
                                                             }
                                                             else {
@@ -522,7 +506,7 @@
                                                         </select>
                                                     </div>
                                                     <div class="col-md-6 form-floating mb-3">
-                                                        <select class="form-control bg-dark" name="finalprogram_course">
+                                                        <select class="form-control bg-dark" name="finalprogram_course" id="fpg">
                                                             <option value="0">Select Program</option>
                                                             <?php
                                                                 $mid_program_course = "SELECT * FROM `program_course`";
@@ -535,16 +519,8 @@
                                                         </select>
                                                     </div>
                                                     <div class="form-floating mb-3">
-                                                        <select class="form-control bg-dark" name="finalsubject">
+                                                        <select class="form-control bg-dark" name="finalsubject" id="fsubj">
                                                             <option value="0">Select Subject</option>
-                                                            <?php
-                                                                $mid_subjects = "SELECT * FROM `subjects`";
-                                                                $midresult_subjects = mysqli_query($db,$mid_subjects);
-                                                                $k = 0;
-                                                                while($midrow_s = mysqli_fetch_array($midresult_subjects)) {
-                                                                    ?><option value="<?php echo $midrow_s[0]; ?>"><?php echo $midrow_s[1]; ?></option><?php
-                                                                }
-                                                            ?>
                                                         </select>
                                                     </div>
                                                     <div class="form-floating mb-3">
@@ -587,7 +563,7 @@
                                     </thead>
                                     <tbody>
                                         <?php
-                                            $finalsel = "SELECT m.id,m.program_id,m.class_id,m.file,sb.name,m.date,m.start_time,m.end_time FROM `mid_exam` m INNER JOIN `subjects` sb ON sb.id = m.subject WHERE `result` = 'no'";
+                                            $finalsel = "SELECT m.id,m.program_id,m.class_id,m.file,sb.name,m.date,m.start_time,m.end_time FROM `final_exam` m INNER JOIN `subjects` sb ON sb.id = m.subject WHERE `result` = 'no'";
                                             $finalresult = mysqli_query($db, $finalsel);
                                             if(mysqli_num_rows($finalresult)) {
                                                 while($row = mysqli_fetch_array($finalresult)) {
@@ -625,7 +601,7 @@
                                                             }
                                                             else if($finaldate > $finalendtime) {
                                                         ?>
-                                                            <td><a href="myresult.php?ex=<?php echo $row["id"]; ?>"><button type="button" class="btn btn-outline-info">Give Results</button></a></td>
+                                                            <td><a href="myresult3.php?ex=<?php echo $row["id"]; ?>"><button type="button" class="btn btn-outline-info">Give Results</button></a></td>
                                                         <?php
                                                             }
                                                             else {
@@ -674,6 +650,52 @@
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
+    <script>
+        // Test
+        $('#pg').on('change', function() {
+            const id =$(this).find(":selected").val();
+            $.ajax({
+                url: "term.php",
+                cache: false,
+                type: "POST",
+                data: {id : id},
+                success: function(html){
+                    $('#subj').html(html);
+                }
+            });
+        
+        });;
+
+        // Mid
+        $('#mpg').on('change', function() {
+            const id =$(this).find(":selected").val();
+            $.ajax({
+                url: "midterm.php",
+                cache: false,
+                type: "POST",
+                data: {id : id},
+                success: function(html){
+                    $('#msubj').html(html);
+                }
+            });
+        
+        });;
+
+        // Final
+        $('#fpg').on('change', function() {
+            const id =$(this).find(":selected").val();
+            $.ajax({
+                url: "finalterm.php",
+                cache: false,
+                type: "POST",
+                data: {id : id},
+                success: function(html){
+                    $('#fsubj').html(html);
+                }
+            });
+        
+        });;
+    </script>
 </body>
 
 </html>

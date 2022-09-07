@@ -1,4 +1,5 @@
 <?php
+    include("connection/connection.php");
     if(isset($_POST["finalsubmit"])) {        
         $program_course = $_POST["finalprogram_course"];
         $classes = $_POST["finalclass"];

@@ -20,8 +20,8 @@
         font-family:georgia;
         font-size:bold;
     }
-.heading{
-    background: blue;
+    .heading{
+    background-image: url("https://t4.ftcdn.net/jpg/03/03/45/25/360_F_303452599_eZMGXe7awggqAHTQXpjzBFehJBEyw4QR.jpg");
     color: white;
     width:100%;
     height:auto;
@@ -30,11 +30,11 @@
     padding-top:1px;
 }
 .content{
-width: 80%;
-background-color: white;
-height:auto;
-border-style: solid;
-  border-color: black;
+    width: 80%;
+    background-color: white;
+    height:auto;
+    border-style: solid;
+    border-color: black;
 }
 
 .tablediv {
@@ -57,20 +57,15 @@ include("header.php");
 
     <br><br><br>
     
-<div class="container content">
+    <div class="container content mt-5">    
         <div class="heading">
-            <h1 style="font-size: 5vw;">&nbsp;&nbsp;Exams Schedule</h1>
+            <h1 style="font-size: 4vw;">&nbsp;&nbsp;Exams Schedule</h1>
         </div>
         <br>
-        <div class="container">
-        
-        
-        <br>
-        
-        </div>
 
-        <!-- table start -->
+        <!-- Test table start -->
         <div class="tablediv mb-4">
+            <h3>Tests</h3>
             <table class="table">
                 <thead>
                     <tr>                    
@@ -160,11 +155,10 @@ include("header.php");
                 </tbody>
             </table>
         </div>
+        <!-- Test table end -->
+    </div>
 
-
-</div>
-
-<br><br>
+    <br><br>
 
 
 

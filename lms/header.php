@@ -18,13 +18,19 @@
             <a class="nav-link active" aria-current="page" href="accountbook.php">Account book</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="progress.php">Progress</a>
+            <a class="nav-link active" aria-current="page" href="progress.php">Test Progress</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="progress.php">Mid/Final Progress</a>
           </li>
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="profile.php"> Profile</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="exams.php">Exam</a>
+            <a class="nav-link active" aria-current="page" href="exams.php">Tests</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="mid_exams.php">Exams</a>
           </li>
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="signout.php">Signout</a>
