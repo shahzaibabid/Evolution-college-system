@@ -65,6 +65,7 @@ include("header.php");
                                     <?php                                
                                         $prg = "SELECT * FROM `mid` WHERE `UserId` = $id";
                                         $prg_res = mysqli_query($db, $prg);
+                                        if(mysqli_num_rows($prg_res)){
                                         $prg_row = mysqli_fetch_array($prg_res);
                                     ?>
                                     <tr>
@@ -92,6 +93,7 @@ include("header.php");
                                         <th>Status</th>
                                         <td><?php echo $prg_row["status"]; ?></td>
                                     </tr>
+                                    <?php } ?>
                                 </thead>
                             </table>
                         </div>
@@ -123,6 +125,7 @@ include("header.php");
                                     <?php                                
                                         $prg = "SELECT * FROM `mid` WHERE `UserId` = $id";
                                         $prg_res = mysqli_query($db, $prg);
+                                        if(mysqli_num_rows($prg_res)){
                                         $prg_row = mysqli_fetch_array($prg_res);
                                     ?>
                                     <tr>
@@ -149,6 +152,7 @@ include("header.php");
                                         <th>Status</th>
                                         <td><?php echo $prg_row["status"]; ?></td>
                                     </tr>
+                                    <?php } ?>
                                 </thead>
                             </table>
                         </div>
@@ -180,6 +184,7 @@ include("header.php");
                                     <?php                                
                                         $prg = "SELECT * FROM `mid` WHERE `UserId` = $id";
                                         $prg_res = mysqli_query($db, $prg);
+                                        if(mysqli_num_rows($prg_res)){
                                         $prg_row = mysqli_fetch_array($prg_res);
                                     ?>
                                     <tr>
@@ -206,6 +211,7 @@ include("header.php");
                                         <th>Status</th>
                                         <td><?php echo $prg_row["status"]; ?></td>
                                     </tr>
+                                    <?php } ?>
                                 </thead>
                             </table>
                         </div>
@@ -238,6 +244,7 @@ include("header.php");
                                     <?php                                
                                         $prg = "SELECT * FROM `mid` WHERE `UserId` = $id";
                                         $prg_res = mysqli_query($db, $prg);
+                                        if(mysqli_num_rows($prg_res)){
                                         $prg_row = mysqli_fetch_array($prg_res);
                                     ?>
                                     <tr>
@@ -265,6 +272,7 @@ include("header.php");
                                         <th>Status</th>
                                         <td><?php echo $prg_row["status"]; ?></td>
                                     </tr>
+                                    <?php } ?>
                                 </thead>
                             </table>
                         </div>
@@ -296,6 +304,7 @@ include("header.php");
                                     <?php                                
                                         $prg = "SELECT * FROM `mid` WHERE `UserId` = $id";
                                         $prg_res = mysqli_query($db, $prg);
+                                        if(mysqli_num_rows($prg_res)){
                                         $prg_row = mysqli_fetch_array($prg_res);
                                     ?>
                                     <tr>
@@ -322,6 +331,7 @@ include("header.php");
                                         <th>Status</th>
                                         <td><?php echo $prg_row["status"]; ?></td>
                                     </tr>
+                                    <?php } ?>
                                 </thead>
                             </table>
                         </div>
@@ -357,6 +367,7 @@ include("header.php");
                                     <?php                                
                                         $prg = "SELECT * FROM `final` WHERE `UserId` = $id";
                                         $prg_res = mysqli_query($db, $prg);
+                                        if(mysqli_num_rows($prg_res)){
                                         $prg_row = mysqli_fetch_array($prg_res);
                                     ?>
                                     <tr>
@@ -384,6 +395,7 @@ include("header.php");
                                         <th>Status</th>
                                         <td><?php echo $prg_row["status"]; ?></td>
                                     </tr>
+                                    <?php } ?>
                                 </thead>
                             </table>
                         </div>
@@ -415,6 +427,7 @@ include("header.php");
                                     <?php                                
                                         $prg = "SELECT * FROM `final` WHERE `UserId` = $id";
                                         $prg_res = mysqli_query($db, $prg);
+                                        if(mysqli_num_rows($prg_res)){
                                         $prg_row = mysqli_fetch_array($prg_res);
                                     ?>
                                     <tr>
@@ -441,6 +454,7 @@ include("header.php");
                                         <th>Status</th>
                                         <td><?php echo $prg_row["status"]; ?></td>
                                     </tr>
+                                    <?php } ?>
                                 </thead>
                             </table>
                         </div>
@@ -472,6 +486,7 @@ include("header.php");
                                     <?php                                
                                         $prg = "SELECT * FROM `final` WHERE `UserId` = $id";
                                         $prg_res = mysqli_query($db, $prg);
+                                        if(mysqli_num_rows($prg_res)){
                                         $prg_row = mysqli_fetch_array($prg_res);
                                     ?>
                                     <tr>
@@ -498,6 +513,7 @@ include("header.php");
                                         <th>Status</th>
                                         <td><?php echo $prg_row["status"]; ?></td>
                                     </tr>
+                                    <?php } ?>
                                 </thead>
                             </table>
                         </div>
@@ -530,6 +546,7 @@ include("header.php");
                                     <?php                                
                                         $prg = "SELECT * FROM `final` WHERE `UserId` = $id";
                                         $prg_res = mysqli_query($db, $prg);
+                                        if(mysqli_num_rows($prg_res)){
                                         $prg_row = mysqli_fetch_array($prg_res);
                                     ?>
                                     <tr>
@@ -557,6 +574,7 @@ include("header.php");
                                         <th>Status</th>
                                         <td><?php echo $prg_row["status"]; ?></td>
                                     </tr>
+                                    <?php } ?>
                                 </thead>
                             </table>
                         </div>
@@ -588,6 +606,7 @@ include("header.php");
                                     <?php                                
                                         $prg = "SELECT * FROM `final` WHERE `UserId` = $id";
                                         $prg_res = mysqli_query($db, $prg);
+                                        if(mysqli_num_rows($prg_res)){
                                         $prg_row = mysqli_fetch_array($prg_res);
                                     ?>
                                     <tr>
@@ -614,6 +633,7 @@ include("header.php");
                                         <th>Status</th>
                                         <td><?php echo $prg_row["status"]; ?></td>
                                     </tr>
+                                    <?php } ?>
                                 </thead>
                             </table>
                         </div>

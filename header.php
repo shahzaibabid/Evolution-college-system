@@ -232,13 +232,13 @@
                         </ul>
                     </li>
                     <li><a class="text-secondary" href="contact.php">Contact</a></li>
-                    <?php if(empty($_SESSION["mytype"])){ ?>
-                    <li class="tk"><a class="text-secondary" href="login.php"><span class="fa fa-user"></span> Login</a></li>
-                    <li class="tk"><a class="text-secondary" href="signup.php"><span class="fa fa-lock"></span> Register</a></li>
-                    <?php }else{?>
+                    <!-- <?php if(empty($_SESSION["mytype"])){ ?> -->
+                    <!-- <li class="tk"><a class="text-secondary" href="login.php"><span class="fa fa-user"></span> Login</a></li>
+                    <li class="tk"><a class="text-secondary" href="signup.php"><span class="fa fa-lock"></span> Register</a></li> -->
+                    <!-- <?php }else{?>
                         <li><a class="text-secondary" href="profile.php">Profile</a></li>
                         <li><a class="text-secondary" href="logout.php">Logout</a></li>
-                    <?php } ?>
+                    <?php } ?> -->
                 </ul>
                 <h1 class="logo" style="font-family: Forte;">ECS</h1>             
             </div>

@@ -87,10 +87,10 @@ include("header.php");
         <div id="carouselExampleSlidesOnly" class="w-100 carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner w-100">
               <div class="carousel-item active w-100">
-                <img src="assets/images/banner-1.jpg" class="d-block w-100" height="300vh" alt="...">
+                <img src="assets/images/blog3.jpg" class="d-block w-100" height="300vh" alt="...">
               </div>
               <div class="carousel-item w-100">
-                <img src="assets/images/banner-2.jpg" class="d-block w-100" height="300vh" alt="...">
+                <img src="assets/images/e1.jpg" class="d-block w-100" height="300vh" alt="...">
               </div>
               <div class="carousel-item w-100">
                 <img src="assets/images/banner-3.jpg" class="d-block w-100" height="300vh"alt="...">
@@ -102,14 +102,14 @@ include("header.php");
     <div class="col-md-4 col-sm-12" style="margin: 0px;">
         <div id="carouselExampleSlidesOnly" class="w-100 carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner w-100">
+            <div class="carousel-item w-100">
+                <img src="https://exambazaar-2020.s3.amazonaws.com/562036dd4555b5e520072cc98d673d81.jpg" class="d-block w-100" height="300vh" alt="...">
+              </div>
               <div class="carousel-item active w-100">
-                <img src="assets/images/banner-1.jpg" class="d-block w-100" height="300vh" alt="...">
+                <img src="https://i0.wp.com/molemanesblog.com/wp-content/uploads/2022/03/pexels-photo-1925536.jpeg?fit=1880%2C1253&ssl=1" class="d-block w-100" height="300vh" alt="...">
               </div>
               <div class="carousel-item w-100">
-                <img src="assets/images/banner-2.jpg" class="d-block w-100" height="300vh" alt="...">
-              </div>
-              <div class="carousel-item w-100">
-                <img src="assets/images/banner-3.jpg" class="d-block w-100" height="300vh" alt="...">
+                <img src="https://exeedcollege.com/wp-content/uploads/2022/04/How-To-Write-A-Dissertation-Or-Thesis-e1650531071453-1024x498.jpg" class="d-block w-100" height="300vh" alt="...">
               </div>
             </div>
           </div>
@@ -118,14 +118,14 @@ include("header.php");
     <div class="col-md-4 col-sm-12" style="margin: 0px;">
         <div id="carouselExampleSlidesOnly" class="w-100 carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner w-100">
+            <div class="carousel-item w-100">
+                <img src="https://qph.cf2.quoracdn.net/main-qimg-2c4ffc917aafd3abf237704828f0c57e-lq" class="d-block w-100" height="300vh" alt="...">
+              </div>
+              <div class="carousel-item w-100">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZ-X9Y0vnYolcL9qndwjeMrf0p0-NLJxvZRpB_AxtgcQ96Aw6qmNC9xIIbIQZ6i2SdGgI&usqp=CAU" class="d-block w-100" height="300vh" alt="...">
+              </div>
               <div class="carousel-item active w-100">
-                <img src="assets/images/banner-1.jpg" class="d-block w-100" height="300vh" alt="...">
-              </div>
-              <div class="carousel-item w-100">
-                <img src="assets/images/banner-2.jpg" class="d-block w-100" height="300vh" alt="...">
-              </div>
-              <div class="carousel-item w-100">
-                <img src="assets/images/banner-3.jpg" class="d-block w-100" height="300vh" alt="...">
+                <img src="https://knowtechie.com/wp-content/uploads/2019/10/writing-laptop.jpg" class="d-block w-100" height="300vh" alt="...">
               </div>
             </div>
           </div>

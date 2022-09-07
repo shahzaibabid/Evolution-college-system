@@ -23,8 +23,13 @@
 									<li><a href="index.php" style="color:black;" class="py-1 d-block"><span class="ion-ios-checkmark-circle-outline mr-2"></span>Home</a></li>
 									<li><a href="about.php" style="color:black;" class="py-1 d-block"><span class="ion-ios-checkmark-circle-outline mr-2"></span>About</a></li>
 									<li><a href="contact.php" style="color:black;" class="py-1 d-block"><span class="ion-ios-checkmark-circle-outline mr-2"></span>Contact_Us</a></li>
+									<?php if(empty($_SESSION["mytype"])){ ?>
 									<li><a href="signup.php" style="color:black;" class="py-1 d-block"><span class="ion-ios-checkmark-circle-outline mr-2"></span>Register</a></li>
 									<li><a href="login.php" style="color:black;" class="py-1 d-block"><span class="ion-ios-checkmark-circle-outline mr-2"></span>Login</a></li>
+									<?php }else{?>
+									<li><a href="profile.php" style="color:black;" class="py-1 d-block"><span class="ion-ios-checkmark-circle-outline mr-2"></span>Profile</a></li>
+									<li><a href="logout.php" style="color:black;" class="py-1 d-block"><span class="ion-ios-checkmark-circle-outline mr-2"></span>Logout</a></li>
+									<?php } ?>
 								</ul>
 							</div>
 							<div class="col-md-4  mb-4 ">
