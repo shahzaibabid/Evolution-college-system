@@ -1,9 +1,9 @@
-<nav class="navbar navbar-light bg-light fixed-top">
+<nav class="navbar navbar-light bg-light fixed-top shadow">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#"> </a>
     <button class="me-auto navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
       <span class="navbar-toggler-icon"></span>
     </button>
+    <a class="navbar-brand me-auto" href="#"><h1 class="logo" style="font-family: Forte;">ECS</h1></a>
     <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
       <div class="offcanvas-header">
         <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Evolution_College_System</h5>
@@ -28,11 +28,8 @@
           </li>
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="signout.php">Signout</a>
-          </li>
-         
-         
-        </ul>
-        
+          </li>                  
+        </ul>        
       </div>
     </div>
   </div>

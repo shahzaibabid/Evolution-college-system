@@ -66,17 +66,38 @@
   color: #04bcff;
   font-size: 18px;
 }
+.content{
+    /* width: 80%; */
+    background-color: white;
+    height:auto;
+    border-style: solid;
+    border-color: black;
+}
+.heading{
+    background-image: url("https://t4.ftcdn.net/jpg/03/03/45/25/360_F_303452599_eZMGXe7awggqAHTQXpjzBFehJBEyw4QR.jpg");
+    color: white;
+    width:100%;
+    height:auto;
+    border-radius:2px;
+    margin-top:5px;
+    padding-top:1px;
+}
 </style>
 <body>
 <?php
 include("header.php");
 ?>
     <!--lectures  -->
-    <div class="container">
-      <br><br><br><br> 
+    <div class="container mt-5">
+      <br><br>
+      <h1 class="text-center">Dashboard</h1>
+      <br><br>       
       
-      <div class="container">
-        <div class="row">
+      <div class="container content">
+        <div class="heading">
+            <h1 style="font-size: 4vw;">&nbsp;&nbsp;Lectures</h1>
+        </div>
+        <div class="row justify-content-evenly p-3">
           <?php
             $id = $_SESSION["myuserid"];
             $st_sel = "SELECT s.id,c.id,p.id FROM `std_account` s INNER JOIN `program_course` p ON p.program_name = s.program INNER JOIN `class` c ON c.id = s.class_id WHERE s.id = $id";

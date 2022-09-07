@@ -204,7 +204,7 @@
 <!-- <body> -->
     
 
-<nav class="navbar">
+        <nav class="navbar">
             <div class="navbar-container container">
                 <input type="checkbox" name="" id="">
                 <div class="hamburger-lines">
