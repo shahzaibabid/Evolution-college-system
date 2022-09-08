@@ -21,7 +21,7 @@
             <a class="nav-link active" aria-current="page" href="progress.php">Test Progress</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="progress.php">Mid/Final Progress</a>
+            <a class="nav-link active" aria-current="page" href="midfinal.php">Mid/Final Progress</a>
           </li>
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="profile.php"> Profile</a>
@@ -30,7 +30,7 @@
             <a class="nav-link active" aria-current="page" href="exams.php">Tests</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="mid_exams.php">Exams</a>
+            <a class="nav-link active" aria-current="page" href="mid_exam.php">Exams</a>
           </li>
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="signout.php">Signout</a>

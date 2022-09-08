@@ -151,6 +151,7 @@
                         <a href="Accounts.php" class="nav-item nav-link active"><i class="fas fa-file-invoice"></i>All Accounts</a>
                         <?php if($_SESSION["mytype"] != 3) { ?> <a href="admission.php" class="nav-item nav-link"><i class="fas fa-file-invoice"></i>Admission Forms</a> <?php } ?>
                         <a href="exam.php" class="nav-item nav-link"><i class="fas fa-file-invoice"></i>Exams</a>
+                        <a href="examination.php" class="nav-item nav-link"><i class="fas fa-file-invoice"></i>Mid/Final</a>
                         <div class="dropdown nav-item nav-link" id="pages">
                             <a class="dropdown-toggle text-light" href="#" role="button" id="dropdownMenuLink2" data-bs-toggle="dropdown" aria-expanded="false">
                                 <i class="fas fa-file-invoice"></i>Tests
