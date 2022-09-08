@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 07, 2022 at 09:05 AM
+-- Generation Time: Sep 08, 2022 at 05:04 AM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 7.3.31
 
@@ -37,6 +37,13 @@ CREATE TABLE `accounting` (
   `class_id` int(11) NOT NULL,
   `program_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `accounting`
+--
+
+INSERT INTO `accounting` (`id`, `exam_id`, `student_id`, `total_mks`, `obt_mks`, `status`, `class_id`, `program_id`) VALUES
+(1, 4, 4, 20, 12, 'Pass', 1, 5);
 
 -- --------------------------------------------------------
 
@@ -151,6 +158,13 @@ CREATE TABLE `botany` (
   `program_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `botany`
+--
+
+INSERT INTO `botany` (`id`, `exam_id`, `student_id`, `total_mks`, `obt_mks`, `status`, `class_id`, `program_id`) VALUES
+(1, 4, 5, 20, 16, 'Pass', 1, 2);
+
 -- --------------------------------------------------------
 
 --
@@ -167,6 +181,13 @@ CREATE TABLE `chemistry` (
   `class_id` int(11) NOT NULL,
   `program_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `chemistry`
+--
+
+INSERT INTO `chemistry` (`id`, `exam_id`, `student_id`, `total_mks`, `obt_mks`, `status`, `class_id`, `program_id`) VALUES
+(1, 4, 5, 20, 15, 'Pass', 1, 2);
 
 -- --------------------------------------------------------
 
@@ -261,6 +282,13 @@ CREATE TABLE `economics` (
   `program_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `economics`
+--
+
+INSERT INTO `economics` (`id`, `exam_id`, `student_id`, `total_mks`, `obt_mks`, `status`, `class_id`, `program_id`) VALUES
+(1, 4, 4, 20, 10, 'Pass', 1, 5);
+
 -- --------------------------------------------------------
 
 --
@@ -301,8 +329,8 @@ CREATE TABLE `english` (
 
 INSERT INTO `english` (`id`, `exam_id`, `student_id`, `total_mks`, `obt_mks`, `status`, `class_id`, `program_id`) VALUES
 (2, 3, 4, 20, 8, 'Pass', 1, 5),
-(3, 3, 4, 20, 8, 'Pass', 1, 5),
-(4, 3, 4, 20, 8, 'Pass', 1, 5),
+(3, 3, 5, 20, 8, 'Pass', 1, 2),
+(4, 3, 5, 20, 8, 'Pass', 1, 2),
 (5, 3, 4, 20, 5, 'Fail', 1, 5);
 
 -- --------------------------------------------------------
@@ -418,6 +446,16 @@ CREATE TABLE `islamiat` (
   `program_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `islamiat`
+--
+
+INSERT INTO `islamiat` (`id`, `exam_id`, `student_id`, `total_mks`, `obt_mks`, `status`, `class_id`, `program_id`) VALUES
+(1, 4, 4, 20, 5, 'Fail', 1, 5),
+(2, 4, 5, 20, 8, 'Pass', 1, 2),
+(3, 4, 5, 20, 5, 'Fail', 1, 2),
+(4, 4, 4, 20, 9, 'Pass', 1, 5);
+
 -- --------------------------------------------------------
 
 --
@@ -434,6 +472,13 @@ CREATE TABLE `math` (
   `class_id` int(11) NOT NULL,
   `program_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `math`
+--
+
+INSERT INTO `math` (`id`, `exam_id`, `student_id`, `total_mks`, `obt_mks`, `status`, `class_id`, `program_id`) VALUES
+(1, 4, 4, 20, 9, 'Pass', 1, 5);
 
 -- --------------------------------------------------------
 
@@ -471,8 +516,8 @@ CREATE TABLE `mid` (
 --
 
 INSERT INTO `mid` (`id`, `UserId`, `eng`, `urdu`, `isl`, `math`, `phy`, `chem`, `zoology`, `botany`, `computer`, `civic`, `psy`, `edu`, `acc`, `economic`, `poc`, `obt`, `ttl`, `per`, `grade`, `status`) VALUES
-(1, 4, 80, 76, 85, 67, 0, 0, 0, 0, 0, 0, 0, 0, 75, 85, 75, 543, 600, 90.5, 'A+', 'Pass'),
-(2, 5, 85, 70, 79, 80, 0, 0, 0, 0, 0, 0, 0, 0, 85, 80, 75, 554, 600, 92.33, 'A+', 'Pass');
+(1, 5, 80, 76, 85, 0, 67, 75, 75, 85, 0, 0, 0, 0, 0, 0, 0, 543, 700, 77.58, 'A+', 'Pass'),
+(2, 4, 85, 70, 79, 80, 0, 0, 0, 0, 0, 0, 0, 0, 85, 80, 75, 554, 700, 77.14, 'A+', 'Pass');
 
 -- --------------------------------------------------------
 
@@ -517,6 +562,13 @@ CREATE TABLE `physic` (
   `program_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `physic`
+--
+
+INSERT INTO `physic` (`id`, `exam_id`, `student_id`, `total_mks`, `obt_mks`, `status`, `class_id`, `program_id`) VALUES
+(1, 4, 5, 20, 8, 'Pass', 1, 2);
+
 -- --------------------------------------------------------
 
 --
@@ -533,6 +585,13 @@ CREATE TABLE `poc` (
   `class_id` int(11) NOT NULL,
   `program_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `poc`
+--
+
+INSERT INTO `poc` (`id`, `exam_id`, `student_id`, `total_mks`, `obt_mks`, `status`, `class_id`, `program_id`) VALUES
+(1, 4, 4, 20, 16, 'Pass', 1, 5);
 
 -- --------------------------------------------------------
 
@@ -630,7 +689,7 @@ CREATE TABLE `std_account` (
 
 INSERT INTO `std_account` (`id`, `name`, `father_name`, `email`, `phone`, `pass`, `dob`, `gender`, `address`, `cnic_bayform`, `citizenship`, `religion`, `program`, `profile`, `admission_id`, `class_id`, `user_type`) VALUES
 (4, 'Charles Stephen', 'Adwin', 'charles@student.ecs.com', '03343427289', '202cb962ac59075b964b07152d234b70', '2022-08-03', 'Male', 'B Road, Nursery Bus Stop, Karachi, Karachi', '12345678912', 'Pakistani', 'Christianity', 'Commerce', '1639739768pFHNrg.jpg', 10, 1, 4),
-(5, 'Shahzaib', 'Hammad', 'shahzaib@student.ecs.com', '0334342728', '202cb962ac59075b964b07152d234b70', '2022-08-25', 'Male', '72-N, P.E.C.H.S.,Karachi', '98765432198', 'Pakistani', 'Islam', 'Commerce', '769866400shahzaib.jpg', 11, 1, 4);
+(5, 'Shahzaib', 'Hammad', 'shahzaib@student.ecs.com', '0334342728', '202cb962ac59075b964b07152d234b70', '2022-08-25', 'Male', '72-N, P.E.C.H.S.,Karachi', '98765432198', 'Pakistani', 'Islam', 'Pre-Medical', '769866400shahzaib.jpg', 11, 1, 4);
 
 -- --------------------------------------------------------
 
@@ -749,6 +808,14 @@ CREATE TABLE `urdu` (
   `program_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `urdu`
+--
+
+INSERT INTO `urdu` (`id`, `exam_id`, `student_id`, `total_mks`, `obt_mks`, `status`, `class_id`, `program_id`) VALUES
+(1, 4, 4, 20, 19, 'Pass', 1, 5),
+(2, 4, 5, 20, 8, 'Pass', 1, 2);
+
 -- --------------------------------------------------------
 
 --
@@ -792,6 +859,13 @@ CREATE TABLE `zoology` (
   `class_id` int(11) NOT NULL,
   `program_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `zoology`
+--
+
+INSERT INTO `zoology` (`id`, `exam_id`, `student_id`, `total_mks`, `obt_mks`, `status`, `class_id`, `program_id`) VALUES
+(1, 4, 5, 20, 16, 'Pass', 1, 2);
 
 --
 -- Indexes for dumped tables
@@ -1015,7 +1089,7 @@ ALTER TABLE `zoology`
 -- AUTO_INCREMENT for table `accounting`
 --
 ALTER TABLE `accounting`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `administrator`
@@ -1045,13 +1119,13 @@ ALTER TABLE `assignment`
 -- AUTO_INCREMENT for table `botany`
 --
 ALTER TABLE `botany`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `chemistry`
 --
 ALTER TABLE `chemistry`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `civics`
@@ -1081,7 +1155,7 @@ ALTER TABLE `contact-us`
 -- AUTO_INCREMENT for table `economics`
 --
 ALTER TABLE `economics`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `education`
@@ -1123,13 +1197,13 @@ ALTER TABLE `final_exam`
 -- AUTO_INCREMENT for table `islamiat`
 --
 ALTER TABLE `islamiat`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `math`
 --
 ALTER TABLE `math`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `mid`
@@ -1147,13 +1221,13 @@ ALTER TABLE `mid_exam`
 -- AUTO_INCREMENT for table `physic`
 --
 ALTER TABLE `physic`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `poc`
 --
 ALTER TABLE `poc`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `program_course`
@@ -1207,7 +1281,7 @@ ALTER TABLE `transaction`
 -- AUTO_INCREMENT for table `urdu`
 --
 ALTER TABLE `urdu`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `users`
@@ -1219,7 +1293,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `zoology`
 --
 ALTER TABLE `zoology`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
