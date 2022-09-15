@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.3
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 07, 2022 at 06:17 PM
--- Server version: 10.4.22-MariaDB
--- PHP Version: 7.4.28
+-- Generation Time: Sep 15, 2022 at 11:26 AM
+-- Server version: 10.4.21-MariaDB
+-- PHP Version: 7.3.31
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -126,7 +126,7 @@ CREATE TABLE `admission_form` (
 --
 
 INSERT INTO `admission_form` (`id`, `std_name`, `father_name`, `email`, `phone`, `dob`, `gender`, `address`, `cnic_bayform`, `citizenship`, `religion`, `program`, `marksheet`, `prov_certificate`, `user_id_`, `profile`, `status`) VALUES
-(10, 'Charles Stephen', 'Adwin', 'charlesadwin99@gmail.com', '03343427289', '2022-08-03', 'Male', 'B Road, Nursery Bus Stop, Karachi, Karachi', '12345678912', 'Pakistani', 'Christianity', 'Commerce', '1723148151mksheet.png', 'pv.png', 3, '14511422501639739768pFHNrg.jpg', 'On hold'),
+(10, 'Charles Stephen', 'Adwin', 'charlesadwin99@gmail.com', '03343427289', '2022-08-03', 'Male', 'B Road, Nursery Bus Stop, Karachi, Karachi', '12345678912', 'Pakistani', 'Christianity', 'Commerce', '1723148151mksheet.png', 'pv.png', 3, '14511422501639739768pFHNrg.jpg', 'pending'),
 (11, 'Shahzaib', 'Hammad', 'shahzaibabidsaeed@gmail.com', '0334342728', '2022-08-25', 'Male', '72-N, P.E.C.H.S.,Karachi', '98765432198', 'Pakistani', 'Islam', 'Pre-Medical', '774173160mksheet.png', 'pv.png', 2, '2128280155769866400shahzaib.jpg', 'Accepted'),
 (12, 'Ahmer', 'Khan', 'ahmer@gmail.com', '03343427289', '03-07-2000', '', '72-N, P.E.C.H.S., Karachi', '15987423658', 'Pakistani', 'Islam', '', '1723148151mksheet.png', 'pv.png', 2, '14511422501639739768pFHNrg.jpg', 'Accepted');
 
@@ -412,10 +412,8 @@ CREATE TABLE `final` (
 CREATE TABLE `final_exam` (
   `id` int(11) NOT NULL,
   `class_id` int(11) NOT NULL,
-  `subject` int(11) NOT NULL,
-  `date` varchar(255) NOT NULL,
-  `start_time` varchar(255) NOT NULL,
-  `end_time` varchar(255) NOT NULL,
+  `start_date` varchar(255) NOT NULL,
+  `end_date` varchar(255) NOT NULL,
   `file` longtext NOT NULL,
   `program_id` int(11) NOT NULL,
   `result` varchar(255) NOT NULL DEFAULT 'no'
@@ -425,9 +423,9 @@ CREATE TABLE `final_exam` (
 -- Dumping data for table `final_exam`
 --
 
-INSERT INTO `final_exam` (`id`, `class_id`, `subject`, `date`, `start_time`, `end_time`, `file`, `program_id`, `result`) VALUES
-(1, 1, 18, '2023-07-07', '14:00', '15:00', 'demo', 5, 'no'),
-(2, 1, 10, '2022-09-30', '10:00', '10:40', 'file', 3, 'no');
+INSERT INTO `final_exam` (`id`, `class_id`, `start_date`, `end_date`, `file`, `program_id`, `result`) VALUES
+(1, 1, '2022-11-07', '2022-11-30', 'demo', 5, 'no'),
+(2, 1, '2022-11-07', '2022-11-30', 'file', 3, 'no');
 
 -- --------------------------------------------------------
 
@@ -528,11 +526,9 @@ INSERT INTO `mid` (`id`, `UserId`, `eng`, `urdu`, `isl`, `math`, `phy`, `chem`, 
 CREATE TABLE `mid_exam` (
   `id` int(11) NOT NULL,
   `class_id` int(11) NOT NULL,
-  `subject` int(11) NOT NULL,
-  `date` varchar(255) NOT NULL,
-  `start_time` varchar(255) NOT NULL,
-  `end_time` varchar(255) NOT NULL,
-  `file` longtext NOT NULL,
+  `start_date` varchar(255) NOT NULL,
+  `end_date` varchar(255) NOT NULL,
+  `file` varchar(255) NOT NULL,
   `program_id` int(11) NOT NULL,
   `result` varchar(255) NOT NULL DEFAULT 'no'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -541,9 +537,9 @@ CREATE TABLE `mid_exam` (
 -- Dumping data for table `mid_exam`
 --
 
-INSERT INTO `mid_exam` (`id`, `class_id`, `subject`, `date`, `start_time`, `end_time`, `file`, `program_id`, `result`) VALUES
-(1, 1, 18, '2020-08-08', '15:00', '15:50', 'file', 5, 'no'),
-(3, 1, 12, '2022-09-05', '13:30', '02:10', 'file', 2, 'no');
+INSERT INTO `mid_exam` (`id`, `class_id`, `start_date`, `end_date`, `file`, `program_id`, `result`) VALUES
+(1, 1, '2022-07-14', '2022-08-08', 'file', 5, 'no'),
+(3, 1, '2022-07-14', '2022-08-08', 'file', 2, 'no');
 
 -- --------------------------------------------------------
 
@@ -1185,7 +1181,7 @@ ALTER TABLE `fees`
 -- AUTO_INCREMENT for table `final`
 --
 ALTER TABLE `final`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `final_exam`
