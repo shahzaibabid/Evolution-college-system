@@ -368,20 +368,15 @@
                                                         </select>
                                                     </div>
                                                     <div class="form-floating mb-3">
-                                                        <input type="date" class="form-control" name="middate" id="floatingInput" placeholder="Movie Name">
-                                                        <label for="floatingTextarea">Date</label>
+                                                        <input type="date" class="form-control" name="midstartdate" id="floatingInput" placeholder="Movie Name">
+                                                        <label for="floatingTextarea">Start Date</label>
                                                     </div>
                                                     <div class="form-floating mb-3">
-                                                        <input type="time" class="form-control" name="midtime" id="floatingInput">
-                                                        <label for="floatingTextarea">Start Time</label>
+                                                        <input type="date" class="form-control" name="midenddate" id="floatingInput" placeholder="Movie Name">
+                                                        <label for="floatingTextarea">End Date</label>
                                                     </div>
                                                     <div class="form-floating mb-3">
-                                                        <input type="time" class="form-control" name="midtime2" id="floatingInput">
-                                                        <label for="floatingTextarea">End Time</label>
-                                                    </div>
-                                                    <div class="form-floating mb-3">
-                                                        <textarea name="midexam" id="floatingInput" class="form-control" col="3"></textarea>
-                                                        <label for="floatingTextarea">File</label>
+                                                        <input type="file" name="midexam" accept="*/image">
                                                     </div>
                                                 </div>
                                             </div>
@@ -399,15 +394,14 @@
                                         <tr>
                                             <th scope="col">Class</th>
                                             <th scope="col">Program</th>
-                                            <th scope="col">Subject Name</th>
-                                            <th scope="col">Date</th>
-                                            <th scope="col">Exam Time</th>
+                                            <th scope="col">Start Date</th>
+                                            <th scope="col">End Date</th>
                                             <th scope="col"></th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <?php
-                                            $midsel = "SELECT m.id,m.program_id,m.class_id,m.file,sb.name,m.date,m.start_time,m.end_time FROM `mid_exam` m INNER JOIN `subjects` sb ON sb.id = m.subject WHERE `result` = 'no'";
+                                            $midsel = "SELECT m.id,m.program_id,m.class_id,m.file,m.start_date,m.end_date FROM `mid_exam` m WHERE `result` = 'no'";
                                             $midresult = mysqli_query($db, $midsel);
                                             if(mysqli_num_rows($midresult)) {
                                                 while($row = mysqli_fetch_array($midresult)) {
@@ -425,34 +419,33 @@
                                                     <tr>
                                                         <th scope="row" class="align-middle"><?php $midmyclass=$row["class_id"]; if($midmyclass == 1) { echo "I"; }else{ echo "II"; } ?></th>
                                                         <th scope="row" class="align-middle"><?php echo $midfinal_pid; ?></th>
-                                                        <th scope="row" class="align-middle"><?php echo $row["name"]; ?></th>
-                                                        <th scope="row" class="align-middle"><?php echo $row["date"]; ?></th>
-                                                        <th scope="row" class="align-middle"><?php echo $row["start_time"] . " - " . $row["end_time"]; ?></th>
+                                                        <th scope="row" class="align-middle"><?php echo $row["start_date"]; ?></th>
+                                                        <th scope="row" class="align-middle"><?php echo $row["end_date"]; ?></th>
                                                         <?php
-                                                            date_default_timezone_set("Asia/Karachi");
-                                                            $middate = date("Y-m-d H:i");
-                                                            $midmytime = $row["date"] . " " . $row["start_time"];
-                                                            $midendtime = $row["date"] . " " . $row["end_time"];
-                                                            if($middate == $midmytime) {
-                                                        ?>
-                                                            <td><button class="btn btn-success">Exam Started</button></a></td>
+                                                            // date_default_timezone_set("Asia/Karachi");
+                                                            // echo $middate = date("Y-m-d");
+                                                            // $midmytime = $row["start_date"];
+                                                            // $midendtime = $row["end_date"];
+                                                            // if($middate < $midmytime) {
+                                                            ?>
+                                                                <!-- <td><button class="btn btn-warning">Upcoming Exams</button></a></td> -->
                                                             <?php
-                                                            }
-                                                            else if($middate == $midendtime) {
+                                                            // }
+                                                            // else if($middate >= $midmytime) {
                                                         ?>
-                                                            <td><button class="btn btn-danger">Exam ended</button></a></td>
+                                                            <!-- <td><button class="btn btn-success">Exam Started</button></a></td> -->
+                                                            <?php
+                                                            // }
+                                                            // else if($middate == $midendtime) {
+                                                        ?>
+                                                            <!-- <td><button class="btn btn-danger">Last Exam</button></a></td> -->
                                                         <?php
-                                                            }
-                                                            else if($middate > $midendtime) {
+                                                            // }
+                                                            // else if($middate > $midendtime) {
                                                         ?>
                                                             <td><a href="myresult2.php?ex=<?php echo $row["id"]; ?>"><button type="button" class="btn btn-outline-info">Give Results</button></a></td>
                                                         <?php
-                                                            }
-                                                            else {
-                                                        ?>
-                                                            <td><button class="btn btn-warning">Upcoming Exams</button></a></td>
-                                                        <?php
-                                                            }
+                                                            // }
                                                         ?>   
                                                     </tr>
                                         <?php
@@ -488,7 +481,7 @@
                                     <div class="modal-content bg-secondary">
                                         <form action="final.php" method="post" enctype="multipart/form-data">
                                             <div class="modal-header">
-                                                <h4 class="modal-title" id="staticBackdropLabel">Add Mid-term</h4>
+                                                <h4 class="modal-title" id="staticBackdropLabel">Add Final-term</h4>
                                                 <button type="button" class="btn-close bg-light" data-bs-dismiss="modal" aria-label="Close"></button>
                                             </div>
                                             <div class="modal-body">
@@ -518,27 +511,17 @@
                                                                 }
                                                             ?>
                                                         </select>
-                                                    </div>
+                                                    </div>                                                    
                                                     <div class="form-floating mb-3">
-                                                        <select class="form-control bg-dark" name="finalsubject" id="fsubj">
-                                                            <option value="0">Select Subject</option>
-                                                        </select>
-                                                    </div>
+                                                        <input type="date" class="form-control" name="finalstartdate" id="floatingInput" placeholder="Movie Name">
+                                                        <label for="floatingTextarea">Date</label>
+                                                    </div>                                                    
                                                     <div class="form-floating mb-3">
-                                                        <input type="date" class="form-control" name="finaldate" id="floatingInput" placeholder="Movie Name">
+                                                        <input type="date" class="form-control" name="finalenddate" id="floatingInput" placeholder="Movie Name">
                                                         <label for="floatingTextarea">Date</label>
                                                     </div>
                                                     <div class="form-floating mb-3">
-                                                        <input type="time" class="form-control" name="finaltime" id="floatingInput">
-                                                        <label for="floatingTextarea">Start Time</label>
-                                                    </div>
-                                                    <div class="form-floating mb-3">
-                                                        <input type="time" class="form-control" name="finaltime2" id="floatingInput">
-                                                        <label for="floatingTextarea">End Time</label>
-                                                    </div>
-                                                    <div class="form-floating mb-3">
-                                                        <textarea name="finalexam" id="floatingInput" class="form-control" col="3"></textarea>
-                                                        <label for="floatingTextarea">File</label>
+                                                        <input type="file" name="finalexam" accept="*/image">
                                                     </div>
                                                 </div>
                                             </div>
@@ -556,15 +539,14 @@
                                         <tr>
                                             <th scope="col">Class</th>
                                             <th scope="col">Program</th>
-                                            <th scope="col">Subject Name</th>
-                                            <th scope="col">Date</th>
-                                            <th scope="col">Exam Time</th>
+                                            <th scope="col">Start Date</th>
+                                            <th scope="col">End Date</th>
                                             <th scope="col"></th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <?php
-                                            $finalsel = "SELECT m.id,m.program_id,m.class_id,m.file,sb.name,m.date,m.start_time,m.end_time FROM `final_exam` m INNER JOIN `subjects` sb ON sb.id = m.subject WHERE `result` = 'no'";
+                                            $finalsel = "SELECT m.id,m.program_id,m.class_id,m.file,m.start_date,m.end_date FROM `final_exam` m WHERE `result` = 'no'";
                                             $finalresult = mysqli_query($db, $finalsel);
                                             if(mysqli_num_rows($finalresult)) {
                                                 while($row = mysqli_fetch_array($finalresult)) {
@@ -582,34 +564,33 @@
                                                     <tr>
                                                         <th scope="row" class="align-middle"><?php $finalmyclass=$row["class_id"]; if($finalmyclass == 1) { echo "I"; }else{ echo "II"; } ?></th>
                                                         <th scope="row" class="align-middle"><?php echo $finalterm_pid; ?></th>
-                                                        <th scope="row" class="align-middle"><?php echo $row["name"]; ?></th>
-                                                        <th scope="row" class="align-middle"><?php echo $row["date"]; ?></th>
-                                                        <th scope="row" class="align-middle"><?php echo $row["start_time"] . " - " . $row["end_time"]; ?></th>
+                                                        <th scope="row" class="align-middle"><?php echo $row["start_date"]; ?></th>
+                                                        <th scope="row" class="align-middle"><?php echo $row["end_date"]; ?></th>
                                                         <?php
-                                                            date_default_timezone_set("Asia/Karachi");
-                                                            $finaldate = date("Y-m-d H:i");
-                                                            $finalmytime = $row["date"] . " " . $row["start_time"];
-                                                            $finalendtime = $row["date"] . " " . $row["end_time"];
-                                                            if($finaldate == $finalmytime) {
+                                                            // date_default_timezone_set("Asia/Karachi");
+                                                            // $finaldate = date("Y-m-d H:i");
+                                                            // $finalmytime = $row["date"] . " " . $row["start_time"];
+                                                            // $finalendtime = $row["date"] . " " . $row["end_time"];
+                                                            // if($finaldate == $finalmytime) {
                                                         ?>
-                                                            <td><button class="btn btn-success">Exam Started</button></a></td>
+                                                            <!-- <td><button class="btn btn-success">Exam Started</button></a></td> -->
                                                             <?php
-                                                            }
-                                                            else if($finaldate == $finalendtime) {
+                                                            // }
+                                                            // else if($finaldate == $finalendtime) {
                                                         ?>
-                                                            <td><button class="btn btn-danger">Exam ended</button></a></td>
+                                                            <!-- <td><button class="btn btn-danger">Exam ended</button></a></td> -->
                                                         <?php
-                                                            }
-                                                            else if($finaldate > $finalendtime) {
+                                                            // }
+                                                            // else if($finaldate > $finalendtime) {
                                                         ?>
                                                             <td><a href="myresult3.php?ex=<?php echo $row["id"]; ?>"><button type="button" class="btn btn-outline-info">Give Results</button></a></td>
                                                         <?php
-                                                            }
-                                                            else {
+                                                            // }
+                                                            // else {
                                                         ?>
-                                                            <td><button class="btn btn-warning">Upcoming Exams</button></a></td>
+                                                            <!-- <td><button class="btn btn-warning">Upcoming Exams</button></a></td> -->
                                                         <?php
-                                                            }
+                                                            // }
                                                         ?>   
                                                     </tr>
                                         <?php
@@ -667,35 +648,6 @@
         
         });;
 
-        // Mid
-        $('#mpg').on('change', function() {
-            const id =$(this).find(":selected").val();
-            $.ajax({
-                url: "midterm.php",
-                cache: false,
-                type: "POST",
-                data: {id : id},
-                success: function(html){
-                    $('#msubj').html(html);
-                }
-            });
-        
-        });;
-
-        // Final
-        $('#fpg').on('change', function() {
-            const id =$(this).find(":selected").val();
-            $.ajax({
-                url: "finalterm.php",
-                cache: false,
-                type: "POST",
-                data: {id : id},
-                success: function(html){
-                    $('#fsubj').html(html);
-                }
-            });
-        
-        });;
     </script>
 </body>
 
