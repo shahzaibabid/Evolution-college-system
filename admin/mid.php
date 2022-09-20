@@ -3,19 +3,17 @@
     if(isset($_POST["midsubmit"])) {        
         $program_course = $_POST["midprogram_course"];
         $classes = $_POST["midclass"];
-        $startdate = $_POST["midstartdate"];
-        $startdate = mysqli_real_escape_string($db,$mydate);
-        $enddate = $_POST["midenddate"];
-        $enddate = mysqli_real_escape_string($db,$mydate);
-        
-        $filename = $_FILES["midexam"]["name"];        
-        $imgname = rand() . $filename;
-        $tmpname = $_FILES["midexam"]["tmp_name"];
-        $path = "./profile/" . $imgname;
-        move_uploaded_file($tmpname, $path);
-        $exam = $imgname;
-        
-        $examination = "INSERT INTO `mid_exam`(`class_id`, `start_date`, `end_date`, `file`, `program_id`) VALUES ('$classes','$startdate','$enddate','$exam','$exam','$program_course')";
+        $name = $_POST["midsubject2"];
+        $name = mysqli_real_escape_string($db,$name);
+        $mydate = $_POST["middate"];
+        $mydate = mysqli_real_escape_string($db,$mydate);
+        $mytime = $_POST["midtime"];
+        $mytime = mysqli_real_escape_string($db,$mytime);
+        $mytime2 = $_POST["midtime2"];
+        $mytime2 = mysqli_real_escape_string($db,$mytime2);
+        $exam = $_POST["midexam"];
+        $exam = mysqli_real_escape_string($db,$exam);
+        echo $examination = "INSERT INTO `mid_exam`(`class_id`, `subject`, `date`, `start_time`, `end_time`, `file`, `program_id`) VALUES ('$classes','$name','$mydate','$mytime','$mytime2','$exam','$program_course')";
         $examination_result = mysqli_query($db, $examination);        
         ?>
             <!-- <Script>

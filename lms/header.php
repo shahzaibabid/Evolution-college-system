@@ -24,7 +24,7 @@
             <a class="nav-link active" aria-current="page" href="midfinal.php">Mid/Final Progress</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="profile.php"> Profile</a>
+            <a class="nav-link active" aria-current="page" href="profile3.php"> Profile</a>
           </li>
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="exams.php">Tests</a>

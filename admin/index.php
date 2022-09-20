@@ -141,6 +141,7 @@
                     <div class="col-sm-12 col-xl-6">
                         <div class="bg-secondary rounded h-100 p-4">
                             <h6 class="mb-4">Profile</h6>
+                            <div style="overflow-x:auto;overflow-y:auto;">
                             <table class="table table-dark">
                                 <tbody>
                                     <?php
@@ -193,6 +194,7 @@
                                     </tr>
                                 </tbody>
                             </table>
+                            </div>
                             <a href="current_user.php?id=<?php echo $row[0]; ?>"><button type="button" class="btn btn-outline-success">Edit</button></a>
                             <?php                                        
                                     }
@@ -340,7 +342,7 @@
                                         </thead>
                                         <tbody>
                                             <?php                                            
-                                                $acc = "SELECT * FROM `users`";
+                                                $acc = "SELECT * FROM `users` WHERE `user_type` = 1 ORDER BY `id` DESC";
                                                 $result2 = mysqli_query($db, $acc);
                                                 $ch = mysqli_num_rows($result2);
                                                 if($ch) {

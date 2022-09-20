@@ -1,3 +1,7 @@
+<?php
+include("conn.php");
+?>
+<!DOCTYPE html>
 <html lang="en">
 
 <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
@@ -85,14 +89,14 @@ if (isset($_POST["submit"])) {
       // $remember_me = $_POST["remember_me"];
       $pass = $_POST["pass"];
       $pass = md5($pass);
-      if(!empty($_POST["remember"])) {
-        setcookie("username",$_POST["email"],time()+ (86400 * 7),'/');
-        setcookie("password",$_POST["pass"],time()+ (86400 * 7),'/');
-      } 
-      else{
-        setcookie("username",'');
-        setcookie("password",'');
-      }
+    //   if(!empty($_POST["remember"])) {
+    //     setcookie("username",$_POST["email"],time()+ (86400 * 7),'/');
+    //     setcookie("password",$_POST["pass"],time()+ (86400 * 7),'/');
+    //   } 
+    //   else{
+    //     setcookie("username",'');
+    //     setcookie("password",'');
+    //   }
 
               $sel = "SELECT * FROM `users` WHERE `email` = '$email' && `pass` = '$pass'";
               $result = mysqli_query($db, $sel);

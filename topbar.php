@@ -1,17 +1,17 @@
 <?php
-session_start();
-$db = mysqli_connect("localhost","root","","evolution");
+// session_start();
+// $db = mysqli_connect("localhost","id19534055_root","Ecscollege@123","id19534055_evolution");
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>header</title>
-    <link rel="stylesheet" href="assets/css/style-freedom.css">
-</head>
-<body>
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <meta http-equiv="X-UA-Compatible" content="IE=edge">-->
+<!--    <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+<!--    <title>header</title>-->
+<!--    <link rel="stylesheet" href="assets/css/style-freedom.css">-->
+<!--</head>-->
+<!--<body>-->
     <!-- Top Menu 1 -->
 	<?php if(empty($_SESSION["mytype"])){ ?>
 <section class="w3l-top-menu-1">
@@ -36,5 +36,5 @@ $db = mysqli_connect("localhost","root","","evolution");
 </section>
 <?php } ?>
 <!-- //Top Menu 1 -->
-</body>
-</html>
+<!--</body>-->
+<!--</html>-->

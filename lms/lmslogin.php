@@ -1,3 +1,6 @@
+<?php
+    include("../admin/connection/connection.php");
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -94,7 +97,7 @@ main {
     cursor: pointer;
 }
 footer {
-    height: 10vh;
+    height: auto;
     background-image: url("https://t4.ftcdn.net/jpg/03/03/45/25/360_F_303452599_eZMGXe7awggqAHTQXpjzBFehJBEyw4QR.jpg");
     color: white;
     display: flex;
@@ -115,7 +118,6 @@ footer > p > a {
 </style>
 
 <?php
-    include("../admin/connection/connection.php");
 if (isset($_POST["submit"])) {                    
     $email = $_POST["studentid"];
     // $remember_me = $_POST["remember_me"];

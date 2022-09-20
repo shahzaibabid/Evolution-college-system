@@ -38,7 +38,11 @@
 									<li><a href="admissionschedule.php" style="color:black;" class="py-1 d-block"><span class="ion-ios-checkmark-circle-outline mr-2"></span>admission_schedule</a></li>
 									<li><a href="feestructare.php" style="color:black;" class="py-1 d-block"><span class="ion-ios-checkmark-circle-outline mr-2"></span>Fee_structare</a></li>
 									<li><a href="coursecatelogue.php" style="color:black;" class="py-1 d-block"><span class="ion-ios-checkmark-circle-outline mr-2"></span>course_catelogue</a></li>
-									<li><a href="admissonform.php" style="color:black;" class="py-1 d-block"><span class="ion-ios-checkmark-circle-outline mr-2"></span>Apply_online</a></li>	            
+		                            <?php if(empty($_SESSION["mytype"])){ ?>
+    									<li><a href="login.php?er=00" style="color:black;" class="py-1 d-block"><span class="ion-ios-checkmark-circle-outline mr-2"></span>Apply Online</a></li>
+                                    <?php }else{ ?>
+    									<li><a href="admissonform.php" style="color:black;" class="py-1 d-block"><span class="ion-ios-checkmark-circle-outline mr-2"></span>Apply Online</a></li>
+                                    <?php } ?>	            
 								</ul>
 							</div>
 

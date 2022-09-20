@@ -1,5 +1,5 @@
 <?php
- include("../topbar.php")
+    include("../admin/connection/connection.php");
 ?>
 <html lang="en">
 
@@ -24,7 +24,7 @@
 body {
     background-color: whitesmoke;
     font-family: Arial;
-    overflow: hidden;
+    /*overflow: hidden;*/
 }
 
 /* Sidenav */
@@ -32,7 +32,7 @@ body {
 .profile {
     margin-bottom: 20px;
     margin-top: -12px;
-    text-align: center;
+    /*text-align: center;*/
 }
 
 .profile img {
@@ -43,7 +43,7 @@ body {
 
 /* Main */
 .main {
-    margin-top: 2%;
+    margin-top: 200px;
     font-size: 28px;
     padding: 0 10px;
     width: 58%;
@@ -51,7 +51,7 @@ body {
 
 .main h2 {
     color: #333;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: Times New Roman;
     font-size: 24px;
     margin-bottom: 10px;
 }
@@ -62,14 +62,16 @@ body {
     box-shadow: 1px 1px 8px 0 grey;
     height: auto;
     margin-bottom: 20px;
-    padding: 20px 0 20px 50px;
+    text-align:center;
+    /*padding: 20px 0 20px 50px;*/
 }
 
 .main .card table {
     border: none;
-    font-size: 16px;
-    height: 270px;
+    font-size: 2vw;
+    height: auto;
     width: 80%;
+    font-family: Times New Roman;
 }
 
 .edit {
@@ -129,65 +131,66 @@ include("header.php");
   
 
     <!-- Main -->
-    <center>
-    <div class="main center">
-        <h2 class="fs-1 mt-5">Profile</h2>   
-        <div class="card">
-            <div class="card-body">
-                <i class="fa fa-pen fa-xs edit"></i>
-                <table class="w-100">
-                    <tbody>
-                        <?php
-                            $id = $_SESSION["myuserid"];
-                            $select = "SELECT * FROM `std_account` WHERE `id` = $id";
-                            $result = mysqli_query($db, $select);
-                            $row = mysqli_fetch_array($result);
-                        ?>
-                      <tr>
-                        <div class="profile">
+    <div style="height:auto; width:100%;">
+        <center>
+            <div class="main center mb-5">
+                <h2 class="fs-1 mt-5">Profile</h2>   
+                <div class="card">
+                <?php
+                    $id = $_SESSION["myuserid"];
+                    $select = "SELECT * FROM `std_account` WHERE `id` = $id";
+                    $result = mysqli_query($db, $select);
+                    $row = mysqli_fetch_array($result);
+                ?>
+                <center>
+                    <div class="profile">
                         <img src="../admin/profile/<?php echo $row["profile"] ?>" alt="" width="100" height="100">
-                        </div>
-                      </tr>
-                        <tr>
-                            <td>Name</td>
-                            <td>:</td>
-                            <td><?php echo $row["name"]; ?></td>
-                        </tr>
-                        <tr>
-                            <td>Email</td>
-                            <td>:</td>
-                            <td class="text-wrap"><?php echo $row["email"]; ?></td>
-                        </tr>
-                        <tr>
-                            <td>Address</td>
-                            <td>:</td>
-                            <td><?php echo $row["address"]; ?></td>
-                        </tr>
-                        <tr>
-                            <td>class</td>
-                            <td>:</td>
-                            <td>
-                                <?php
-                                    $cid = $row["class_id"];
-                                    $class_sel = "SELECT * FROM `class` WHERE `id` = $cid";
-                                    $class_result = mysqli_query($db, $class_sel);
-                                    $class_row = mysqli_fetch_array($class_result);
-                                    echo $class_row["name"];
-                                ?>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>program</td>
-                            <td>:</td>
-                            <td><?php echo $row["program"]; ?></td>
-                        </tr>
-               
-                    </tbody>
-                </table>
+                    </div>
+                </center>
+                    <div class="card-body" style="overflow-x:auto;overflow-y:auto;">
+                        <table class="w-100">
+                            <tbody>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>:</td>
+                                    <td><?php echo $row["name"]; ?></td>
+                                </tr>
+                                <tr>
+                                    <td>Email</td>
+                                    <td>:</td>
+                                    <td class="text-wrap"><?php echo $row["email"]; ?></td>
+                                </tr>
+                                <tr>
+                                    <td>Address</td>
+                                    <td>:</td>
+                                    <td><?php echo $row["address"]; ?></td>
+                                </tr>
+                                <tr>
+                                    <td>Class</td>
+                                    <td>:</td>
+                                    <td>
+                                        <?php
+                                            $cid = $row["class_id"];
+                                            $class_sel = "SELECT * FROM `class` WHERE `id` = $cid";
+                                            $class_result = mysqli_query($db, $class_sel);
+                                            $class_row = mysqli_fetch_array($class_result);
+                                            echo $class_row["name"];
+                                        ?>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Program</td>
+                                    <td>:</td>
+                                    <td><?php echo $row["program"]; ?></td>
+                                </tr>
+                       
+                            </tbody>
+                        </table>
+                    </div>
+                </div>             
             </div>
-        </div>             
+        </center>
     </div>
-    </center>
     <!-- End -->
 </body>
 

@@ -1,5 +1,7 @@
-<!---/demosWTR/Freedom/29-11-2019/course-freedom-demo_Free/396094817/web/contact.html/demosWTR/Freedom/29-11-2019/course-freedom-demo_Free/396094817/web/index.htmlArrayEdit status----><!---/demosWTR/Freedom/29-11-2019/course-freedom-demo_Free/396094817/web/index.htmlselect product_id,template_id,template_title,template_name,featured_image,featured_image_server_id,
-full_image_server_id,full_image from template_down_details where starter_demo_url='/demosWTR/Freedom/29-11-2019/course-freedom-demo_Free/396094817/web/index.html' lat part:contact.html---><!DOCTYPE html>
+<?php
+include("conn.php");
+?>
+<!DOCTYPE html>
 <html lang="en">
 
 <!-- Mirrored from demo.w3layouts.com/demosWTR/Freedom/29-11-2019/course-freedom-demo_Free/396094817/web/contact.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 30 Jul 2022 18:52:10 GMT -->

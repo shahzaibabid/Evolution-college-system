@@ -1,7 +1,13 @@
 <?php
-  session_start();
-  
-$db = mysqli_connect("localhost","root","","evolution");
+include("conn.php");
+
+if($_SESSION["name"] = null){
+    ?>
+          <Script>
+              window.location.assign("./index.php");
+          </Script>
+    <?php
+}
 
   if(isset($_POST["submit"])) {
     $filename3 = $_FILES["image"]["name"];

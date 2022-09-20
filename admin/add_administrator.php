@@ -240,7 +240,7 @@
                                     </div>
 
                                     <div class="col-sm-12 d-flex justify-content-around">
-                                        <input type="submit" class="btn btn-primary col-3" value="Submit" name="submit">
+                                        <button type="submit" class="btn btn-primary" name="submit">Submit</button>
                                     </div>
                                 </div>
                             </form>

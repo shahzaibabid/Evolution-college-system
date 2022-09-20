@@ -1,3 +1,6 @@
+<?php
+    include("../admin/connection/connection.php");
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

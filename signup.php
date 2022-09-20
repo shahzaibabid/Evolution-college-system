@@ -1,4 +1,7 @@
-
+<?php
+include("conn.php");
+?>
+<!DOCTYPE html>
 <html lang="en">
 <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
 <head>
@@ -96,8 +99,8 @@ if(isset($_POST["submit"])) {
     $name = $_POST["name"];
     $pass = $_POST["pass"];
     $pass = md5($pass);
-    $inp = "INSERT INTO `users`(`name`, `email`, `phone`, `pass`, `CNIC`) VALUES ('$name','$email','$ph','$pass','$cnic')";
-    $result2 = mysqli_query($db, $inp);
+    $inp = "INSERT INTO `users`(`name`, `email`, `phone`, `pass`, `profile`, `CNIC`) VALUES ('$name','$email','$ph','$pass','Capture.png','$cnic')";
+    $resultinp = mysqli_query($db, $inp);
     ?>
         <Script>
             window.location.assign("./login.php");

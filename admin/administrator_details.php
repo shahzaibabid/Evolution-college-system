@@ -142,7 +142,7 @@
                 <div class="row h-100 bg-secondary rounded align-items-center justify-content-center mx-0">
                     <img src="profile/<?php echo $row[6]; ?>" class="col-sm-12 col-xl-6" alt="">
                     <div class="col-sm-12 col-xl-6">
-                        <div class="bg-secondary rounded h-100 p-4">
+                        <div class="bg-secondary rounded h-100 p-4" style="overflow-x:auto;overflow-y:auto;">
                             <table class="table table-dark">
 
                                 <tbody>                                    

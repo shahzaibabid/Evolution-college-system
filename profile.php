@@ -1,4 +1,7 @@
-
+<?php
+include("conn.php");
+?>
+<!DOCTYPE html>
 <html lang="en">
 
 <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
@@ -177,12 +180,12 @@ include("header.php");
         $res = mysqli_query($db, $sel);
         while($row = mysqli_fetch_array($res)) {
     ?>
-        <div class="row gutters-sm w-100">
-            <div class="col-md-4 mb-3">
+        <div class="row gutters-sm w-100 justify-content-center">
+            <div class="col-md-4 mb-3 mt-5">
               <div class="card">
                 <div class="card-body">
                   <div class="d-flex flex-column align-items-center text-center">
-                    <img src="https://cdn3d.iconscout.com/3d/premium/thumb/user-3711850-3105265.png" alt="Admin" class="rounded-circle" width="150">
+                    <img src="assets/images/profile/<?php echo $row["profile"]; ?>" alt="Admin" class="rounded-circle" width="150">
                     <div class="mt-3">
                       <h4><?php echo $row[1]; ?></h4>
                       <p class="text-secondary mb-1"><?php echo $row[2]; ?></p>
@@ -193,7 +196,7 @@ include("header.php");
                 </div>
               </div>
             </div>
-            <div class="col-md-7 mt-5">
+            <div class="col-md-7 mb-3 mt-5">
               <div class="card mb-3">
                 <div class="card-body" style="border:1px solid black;">
                   <div class="row">
@@ -308,38 +311,38 @@ include("header.php");
                                                 <img src="assets/images/profile/<?php echo $row[15]; ?>" style="height: 12vw;" alt="">
                                             </li>
 
-                                            <li class="list-group-item bg-light"><div class="row">
-                                                <div class="fs-5 col-md-3 border border-light"><b>Student Name : </b></div><div class="fs-5 col-md-3 border border-light"><?php echo " " . $row[1]; ?></div>
-                                                <div class="fs-5 col-md-3 border border-light"><b>Father Name : </b></div><div class="fs-5 col-md-3 border border-light"><?php echo " " . $row[2]; ?></div>
+                                            <li class="list-group-item"><div class="row">
+                                                <div class="col-lg-6 col-md-6 border border-light" style="font-size: 1.2vw;"><b>Student Name : </b></div><div class="col-lg-6 col-md-6 border border-light" style="font-size: 1.2vw;"><?php echo " " . $row[1]; ?></div>
+                                                <div class="col-lg-6 col-md-6 border border-light" style="font-size: 1.2vw;"><b>Father Name : </b></div><div class="col-lg-6 col-md-6 border border-light" style="font-size: 1.2vw;"><?php echo " " . $row[2]; ?></div>
                                             </div></li>
 
-                                            <li class="list-group-item bg-light"><div class="row">
-                                                <div class="fs-5 col-md-3 border border-light"><b>Email : </b></div><div class="fs-5 col-md-3 border border-light"><?php echo " " . $row[3]; ?></div>
-                                                <div class="fs-5 col-md-3 border border-light"><b>Phone : </b></div><div class="fs-5 col-md-3 border border-light"><?php echo " " . $row[4]; ?></div>
+                                            <li class="list-group-item"><div class="row">
+                                                <div class="col-lg-6 col-md-6 border border-light" style="font-size: 1.2vw;"><b>Email : </b></div><div class="col-lg-6 col-md-6 border border-light" style="font-size: 1.2vw;"><?php echo " " . $row[3]; ?></div>
+                                                <div class="col-lg-6 col-md-6 border border-light" style="font-size: 1.2vw;"><b>Phone : </b></div><div class="col-lg-6 col-md-6 border border-light" style="font-size: 1.2vw;"><?php echo " " . $row[4]; ?></div>
                                             </div></li>
 
-                                            <li class="list-group-item bg-light"><div class="row">
-                                                <div class="fs-5 col-md-3 border border-light"><b>Date Of Birth : </b></div><div class="fs-5 col-md-3 border border-light"><?php echo " " . $row[5]; ?></div>
-                                                <div class="fs-5 col-md-3 border border-light"><b>Gender : </b></div><div class="fs-5 col-md-3 border border-light"><?php echo " " . $row[6]; ?></div>
+                                            <li class="list-group-item"><div class="row">
+                                                <div class="col-lg-6 col-md-6 border border-light" style="font-size: 1.2vw;"><b>Date Of Birth : </b></div><div class="col-lg-6 col-md-6 border border-light" style="font-size: 1.2vw;"><?php echo " " . $row[5]; ?></div>
+                                                <div class="col-lg-6 col-md-6 border border-light" style="font-size: 1.2vw;"><b>Gender : </b></div><div class="col-lg-6 col-md-6 border border-light" style="font-size: 1.2vw;"><?php echo " " . $row[6]; ?></div>
                                             </div></li>
 
-                                            <li class="list-group-item bg-light"><div class="row">
-                                                <div class="fs-5 col-md-6 border border-light"><b>Address : </b></div><div class="fs-5 col-md-6 border border-light"><?php echo " " . $row[7]; ?></div>
+                                            <li class="list-group-item"><div class="row">
+                                                <div class="col-lg-6 col-md-12 col-sm-12 border border-light" style="font-size: 1.2vw;"><b>Address : </b></div><div class="col-lg-6 col-md-12 col-sm-12 border border-light" style="font-size: 1.2vw;"><?php echo " " . $row[7]; ?></div>
                                             </div></li>
 
-                                            <li class="list-group-item bg-light"><div class="row">
-                                                <div class="fs-5 col-md-3 border border-light"><b>CNIC/Bayform : </b></div><div class="fs-5 col-md-3 border border-light"><?php echo " " . $row[8]; ?></div>
-                                                <div class="fs-5 col-md-3 border border-light"><b>Citizenship : </b></div><div class="fs-5 col-md-3 border border-light"><?php echo " " . $row[9]; ?></div>
+                                            <li class="list-group-item"><div class="row">
+                                                <div class="col-lg-6 col-md-6 border border-light" style="font-size: 1.2vw;"><b>CNIC/Bayform : </b></div><div class="col-lg-6 col-md-6 border border-light" style="font-size: 1.2vw;"><?php echo " " . $row[8]; ?></div>
+                                                <div class="col-lg-6 col-md-6 border border-light" style="font-size: 1.2vw;"><b>Citizenship : </b></div><div class="col-lg-6 col-md-6 border border-light" style="font-size: 1.2vw;"><?php echo " " . $row[9]; ?></div>
                                             </div></li>
 
-                                            <li class="list-group-item bg-light"><div class="row">
-                                                <div class="fs-5 col-md-3 border border-light"><b>Religion : </b></div><div class="fs-5 col-md-3 border border-light"><?php echo " " . $row[10]; ?></div>
-                                                <div class="fs-5 col-md-3 border border-light"><b>Program : </b></div><div class="fs-5 col-md-3 border border-light"><?php echo " " . $row[11]; ?></div>
+                                            <li class="list-group-item"><div class="row">
+                                                <div class="col-lg-6 col-md-6 border border-light" style="font-size: 1.2vw;"><b>Religion : </b></div><div class="col-lg-6 col-md-6 border border-light" style="font-size: 1.2vw;"><?php echo " " . $row[10]; ?></div>
+                                                <div class="col-lg-6 col-md-6 border border-light" style="font-size: 1.2vw;"><b>Program : </b></div><div class="col-lg-6 col-md-6 border border-light" style="font-size: 1.2vw;"><?php echo " " . $row[11]; ?></div>
                                             </div></li>
 
-                                            <li class="list-group-item bg-light"><div class="row">
-                                                <div class="fs-5 col-md-3 border border-light"><b>Marksheet : </b></div><div class="col-md-3 border border-light"><a href="assets/images/mksheet/<?php echo $row[12]; ?>" target="_blank" rel="noopener noreferrer"><span class="fs-5 ">Please click here </span><i class="fas fa-external-link-alt"></i></a></div>
-                                                <div class="fs-5 col-md-3 border border-light"><b>Provisional Certifacate : </b></div><div class="col-md-3 border border-light"><a href="assets/images/prov/<?php echo $row[13]; ?>" target="_blank" rel="noopener noreferrer"><span class="fs-5 ">Please click here </span><i class="fas fa-external-link-alt"></i></a></div>
+                                            <li class="list-group-item"><div class="row">
+                                                <div class="col-lg-6 col-md-6 border border-light" style="font-size: 1.2vw;"><b>Marksheet : </b></div><div class="col-lg-6 col-md-6 border border-light"><a href="../assets/images/mksheet/<?php echo $row[12]; ?>" target="_blank" rel="noopener noreferrer"><span style="font-size: 1.2vw;">Please click here </span><i class="fas fa-external-link-alt"></i></a></div>
+                                                <div class="col-lg-6 col-md-6 border border-light" style="font-size: 1.2vw;"><b>Provisional Certifacate : </b></div><div class="col-lg-6 col-md-6 border border-light"><a href="../assets/images/prov/<?php echo $row[13]; ?>" target="_blank" rel="noopener noreferrer"><span style="font-size: 1.2vw;">Please click here </span><i class="fas fa-external-link-alt"></i></a></div>
                                             </div></li>
                                         </ul>
                                     </div>

@@ -1091,7 +1091,7 @@
                                     </select>
                                 </div>
                                 <div class="form-floating mb-3">               
-                                    <div class="responsive-table">
+                                    <div class="responsive-table" style="overflow-x:auto;overflow-y:auto;">
                                         <table class="table">
                                             <thead>
                                                 <tr>
